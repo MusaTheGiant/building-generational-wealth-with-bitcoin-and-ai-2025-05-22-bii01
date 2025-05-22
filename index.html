@@ -3,292 +3,528 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Wealth Building</title>
+    <title>MTG - Bitcoin Wealth Building | Stack Bitcoin Like a Pro</title>
+    <meta name="description" content="Join MTG's exclusive email list for vetted Bitcoin opportunities. Learn from 7+ years of crypto experience, avoid costly mistakes, and stack Bitcoin safely.">
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building Generational Wealth with Bitcoin and AI</title>
-    <meta name="description" content="Learn how to build generational wealth through Bitcoin and AI technologies">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bitcoin: '#F7931A',
+                        'bitcoin-dark': '#E8830F',
+                        'bitcoin-light': '#FFB84D'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+        }
+        .bitcoin-glow {
+            box-shadow: 0 0 30px rgba(247, 147, 26, 0.3);
+        }
+        .pulse-bitcoin {
+            animation: pulse-bitcoin 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse-bitcoin {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: .7;
+            }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            backdrop-filter: blur(5px);
+        }
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            margin: 15% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(247, 147, 26, 0.3);
+            border: 2px solid #F7931A;
+        }
+        .close {
+            color: #F7931A;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            cursor: pointer;
+            z-index: 10000;
+        }
+        .close:hover,
+        .close:focus {
+            color: #FFB84D;
+            text-decoration: none;
+        }
+        .bitcoin-price-widget {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+            border: 2px solid #F7931A;
+            border-radius: 12px;
+            padding: 16px;
+            color: white;
+            box-shadow: 0 10px 30px rgba(247, 147, 26, 0.2);
+        }
+        .price-up {
+            color: #10B981;
+        }
+        .price-down {
+            color: #EF4444;
+        }
+    </style>
 </head>
-<body class="font-['Inter'] antialiased bg-white text-gray-900">
-    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex justify-between items-center">
-                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" class="text-xl font-bold text-blue-600 hover:text-blue-700 transition-colors duration-300">Bitcoin Wealth</a>
+<body class="font-['Inter'] antialiased bg-black text-white">
+    <!-- Bitcoin Price Widget -->
+    <div class="fixed top-4 right-4 z-50 bitcoin-price-widget text-sm">
+        <div id="bitcoin-widget">
+            <div class="flex items-center space-x-2">
+                <i class="fab fa-bitcoin text-bitcoin text-lg"></i>
+                <div>
+                    <div class="font-bold">$<span id="btc-price">Loading...</span></div>
+                    <div class="text-xs" id="btc-change">24h: --</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen gradient-bg flex items-center">
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <i class="fab fa-bitcoin text-6xl md:text-8xl text-bitcoin pulse-bitcoin"></i>
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-tight">
+                    <span class="text-bitcoin">STOP</span> Missing Out on the 
+                    <span class="text-bitcoin">BITCOIN BOOM!</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto leading-relaxed">
+                    Join MTG's Exclusive Inner Circle & Get Access to <span class="text-bitcoin font-bold">Vetted Bitcoin Opportunities</span> That Could Transform Your Financial Future
+                </p>
+                <div class="bg-red-600 text-white px-4 py-2 rounded-lg inline-block mb-8 text-lg font-bold animate-pulse">
+                    ⚠️ Bitcoin Experts Predict $500K - $2.4M by 2030! ⚠️
+                </div>
+                <div class="space-y-4 md:space-y-0 md:space-x-4 md:flex md:justify-center">
+                    <button class="cta-button w-full md:w-auto bg-bitcoin hover:bg-bitcoin-dark text-black px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 bitcoin-glow">
+                        🚀 GET EXCLUSIVE BITCOIN ALERTS NOW!
+                    </button>
+                </div>
+                <p class="text-sm text-gray-400 mt-4">
+                    ⭐ <span class="text-bitcoin font-bold">100% FREE</span> • No Spam • Unsubscribe Anytime
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Banner -->
+    <div class="bg-red-600 text-white text-center py-3 animate-pulse">
+        <p class="font-bold text-lg">
+            🔥 LIMITED TIME: Bitcoin at $106K - Experts Say This Could Be Your LAST CHANCE Under $1M! 🔥
+        </p>
+    </div>
+
+    <!-- About MTG Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">
+                        Meet <span class="text-bitcoin">Musa "MTG" TheGiant</span>
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Your Bitcoin Mentor Who's Been Through Hell & Back... 3 Times!
+                    </p>
+                </div>
                 
-                <button class="mobile-menu-button md:hidden p-2" aria-label="Toggle menu">
-                    <i class="fas fa-bars text-2xl"></i>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <div class="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-lg mb-8">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center">
+                                <i class="fas fa-exclamation-triangle text-yellow-400 mr-3"></i>
+                                The Brutal Truth
+                            </h3>
+                            <p class="text-lg">
+                                I've <span class="font-bold">LOST EVERYTHING</span> in crypto... not once, not twice, but <span class="font-bold text-yellow-400">THREE TIMES!</span> Scams, hacks, market crashes - I've survived them all.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-600 to-green-800 p-6 rounded-lg">
+                            <h3 class="text-2xl font-bold mb-4 flex items-center">
+                                <i class="fas fa-trophy text-bitcoin mr-3"></i>
+                                The Comeback Story
+                            </h3>
+                            <p class="text-lg">
+                                But here's the thing - <span class="font-bold">every failure taught me something invaluable.</span> Now I help others skip the pain and go straight to the profits.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <i class="fab fa-bitcoin text-bitcoin text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">7+ Years in the Trenches</h4>
+                                <p class="text-gray-300">Been stacking Bitcoin since 2017 - through every bull run, bear market, and halving event.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-users text-bitcoin text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Helped 100K+ People</h4>
+                                <p class="text-gray-300">Created free crash courses and tutorials that have guided hundreds of thousands into crypto safely.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-shield-alt text-bitcoin text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Scam-Proof Radar</h4>
+                                <p class="text-gray-300">I can spot red flags from miles away. Only share opportunities that pass my strict vetting process.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <button class="cta-button bg-bitcoin hover:bg-bitcoin-dark text-black px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 bitcoin-glow">
+                        💎 JOIN MTG'S INNER CIRCLE NOW!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bitcoin Predictions Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    <span class="text-bitcoin">INSANE</span> Bitcoin Price Predictions
+                </h2>
+                <p class="text-xl text-gray-300 mb-12">
+                    Here's What the Billionaires & Industry Giants Are Saying...
+                </p>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <div class="text-3xl font-black text-bitcoin mb-4">$13M</div>
+                        <h4 class="font-bold mb-2">Michael Saylor</h4>
+                        <p class="text-gray-300 text-sm">Predicts BTC hitting $13 million by 2045</p>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <div class="text-3xl font-black text-bitcoin mb-4">$1M</div>
+                        <h4 class="font-bold mb-2">CZ (Binance)</h4>
+                        <p class="text-gray-300 text-sm">Sees $500K-$1M this cycle due to ETFs</p>
+                    </div>
+                    
+                    <div class="bg-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <div class="text-3xl font-black text-bitcoin mb-4">$2.4M</div>
+                        <h4 class="font-bold mb-2">Cathie Wood</h4>
+                        <p class="text-gray-300 text-sm">Bull case: $2.4M by 2030</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-bitcoin to-bitcoin-dark p-8 rounded-lg text-black mb-8">
+                    <h3 class="text-3xl font-black mb-4">Bitcoin Today: $106,009</h3>
+                    <p class="text-xl font-bold">
+                        If these predictions are even HALF right, early Bitcoin stackers could see 
+                        <span class="underline">LIFE-CHANGING WEALTH!</span>
+                    </p>
+                </div>
+                
+                <button class="cta-button bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 animate-pulse">
+                    ⚡ I WANT IN BEFORE IT'S TOO LATE!
                 </button>
+            </div>
+        </div>
+    </section>
 
-                <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Features</a>
-                    <a href="#benefits" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Benefits</a>
-                    <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Testimonials</a>
-                    <a href="#faq" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">FAQ</a>
-                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">About</a>
-                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">Contact</a>
+    <!-- Pain Points Section -->
+    <section class="py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black mb-6">
+                    Are You <span class="text-red-500">STUCK</span> in These Situations?
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-red-900 bg-opacity-50 p-6 rounded-lg border-2 border-red-500">
+                        <i class="fas fa-money-bill-wave text-red-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2">Living Paycheck to Paycheck</h3>
+                        <p class="text-gray-300">Tired of the endless cycle with no financial freedom in sight?</p>
+                    </div>
+                    
+                    <div class="bg-red-900 bg-opacity-50 p-6 rounded-lg border-2 border-red-500">
+                        <i class="fas fa-clock text-red-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2">Trading Time for Money</h3>
+                        <p class="text-gray-300">Working long hours but never getting ahead financially?</p>
+                    </div>
+                    
+                    <div class="bg-red-900 bg-opacity-50 p-6 rounded-lg border-2 border-red-500">
+                        <i class="fas fa-exclamation-triangle text-red-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2">Fear of Crypto Scams</h3>
+                        <p class="text-gray-300">Want to invest in Bitcoin but terrified of losing money to scammers?</p>
+                    </div>
+                    
+                    <div class="bg-red-900 bg-opacity-50 p-6 rounded-lg border-2 border-red-500">
+                        <i class="fas fa-brain text-red-500 text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2">Information Overload</h3>
+                        <p class="text-gray-300">Overwhelmed by complex strategies and don't know where to start?</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-bitcoin to-bitcoin-dark p-8 rounded-lg text-black">
+                    <h3 class="text-3xl font-black mb-4">I'VE BEEN EXACTLY WHERE YOU ARE!</h3>
+                    <p class="text-xl font-bold mb-6">
+                        And I'm here to help you break free from these chains and start building REAL wealth with Bitcoin.
+                    </p>
+                    <button class="cta-button bg-black hover:bg-gray-800 text-bitcoin px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300">
+                        🔥 SHOW ME THE WAY OUT!
+                    </button>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Mobile Menu -->
-            <div class="mobile-menu hidden md:hidden mt-4 bg-white rounded-lg shadow-lg absolute left-0 right-0 p-4">
-                <a href="#features" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">Features</a>
-                <a href="#benefits" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">Benefits</a>
-                <a href="#testimonials" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">Testimonials</a>
-                <a href="#faq" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">FAQ</a>
-                <a href="#about" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">About</a>
-                <a href="#contact" class="block py-2 px-4 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded transition-colors duration-300">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section class="pt-32 pb-24 bg-gradient-to-br from-blue-50 to-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Solution Section -->
+    <section class="py-20 bg-black">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-black mb-6">
+                        My <span class="text-bitcoin">EXCLUSIVE</span> Email List is Your Solution
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Get vetted Bitcoin opportunities, AI-powered tools, and insider strategies delivered straight to your inbox!
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <i class="fas fa-search text-bitcoin text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-4">Vetted Opportunities Only</h3>
+                        <p class="text-gray-300">I spend hours researching so you don't have to. Only the best, safest opportunities make it to your inbox.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <i class="fas fa-robot text-bitcoin text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-4">AI-Powered Tools</h3>
+                        <p class="text-gray-300">Get access to cutting-edge AI innovations that are revolutionizing Bitcoin and crypto investing.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-gray-800 to-gray-900 p-6 rounded-lg border-2 border-bitcoin">
+                        <i class="fas fa-shield-alt text-bitcoin text-3xl mb-4"></i>
+                        <h3 class="font-bold text-xl mb-4">Scam-Proof Strategies</h3>
+                        <p class="text-gray-300">Learn from my mistakes and avoid the costly traps that have caught millions of others.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-600 to-green-800 p-8 rounded-lg text-center mb-8">
+                    <h3 class="text-3xl font-black mb-4">🎯 What You'll Get EXCLUSIVELY:</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-left">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-bitcoin text-xl"></i>
+                            <span>Fresh Bitcoin programs I'm testing</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-bitcoin text-xl"></i>
+                            <span>Global-friendly passive income opportunities</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-bitcoin text-xl"></i>
+                            <span>Market tips and Bitcoin education</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-bitcoin text-xl"></i>
+                            <span>Updates on vetted companies I've joined</span>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="text-center">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">Building Generational Wealth with Bitcoin and AI</h1>
-                    <p class="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">Transform your financial future through strategic Bitcoin investments and AI-powered wealth building strategies. Join thousands of successful investors already securing their legacy.</p>
-                    <a href="https://www.ultimatepassiveprofit.com/legacywealth/?refctex=C0510518581" 
-                       class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                        Start Building Wealth Today →
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Premium Features</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Risk-Free Start</h3>
-                        <p class="text-gray-600">Begin your wealth-building journey with zero upfront costs. Our platform is 100% free to join, with no hidden fees or commitments. Start exploring proven investment strategies immediately.</p>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Expert-Vetted Opportunities</h3>
-                        <p class="text-gray-600">Access thoroughly researched and verified investment opportunities. Our team of experts analyzes each opportunity for security, potential returns, and long-term sustainability.</p>
-                    </div>
-
-                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">AI-Powered Growth</h3>
-                        <p class="text-gray-600">Leverage cutting-edge AI technology to optimize your investment strategy. Our advanced algorithms analyze market trends and automatically adjust your portfolio for maximum returns.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="benefits" class="py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Key Benefits</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Enhanced Security</h3>
-                        <p class="text-gray-600">Our platform employs military-grade encryption and multi-factor authentication to protect your investments. Every transaction is verified and secured using advanced blockchain technology.</p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Automated Income</h3>
-                        <p class="text-gray-600">Generate consistent passive income through our automated trading systems. Our AI algorithms work 24/7 to identify and capitalize on market opportunities while you sleep.</p>
-                    </div>
-
-                    <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-102">
-                        <div class="text-blue-600 mb-4">
-                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-semibold mb-4">Strategic Growth</h3>
-                        <p class="text-gray-600">Build your Bitcoin portfolio systematically with our dollar-cost averaging strategy. Our platform automatically invests at optimal times to maximize long-term returns.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="testimonials" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Success Stories</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <div class="flex text-yellow-400 mb-4">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 mb-4">"The AI-powered trading strategies have completely transformed my investment approach. I've seen a 127% return in just 8 months."</p>
-                        <div class="mt-4">
-                            <p class="font-semibold">Sarah Johnson</p>
-                            <p class="text-sm text-gray-500">Tech Entrepreneur</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <div class="flex text-yellow-400 mb-4">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 mb-4">"Finally found a legitimate platform for Bitcoin investment. The automated systems have generated consistent returns while I focus on my business."</p>
-                        <div class="mt-4">
-                            <p class="font-semibold">Michael Chen</p>
-                            <p class="text-sm text-gray-500">Small Business Owner</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <div class="flex text-yellow-400 mb-4">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 mb-4">"The security features give me peace of mind. I've been able to build a substantial Bitcoin portfolio without worrying about scams or hacks."</p>
-                        <div class="mt-4">
-                            <p class="font-semibold">David Thompson</p>
-                            <p class="text-sm text-gray-500">Investment Analyst</p>
-                        </div>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <div class="flex text-yellow-400 mb-4">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p class="text-gray-600 mb-4">"Started with zero knowledge about crypto. Now I'm earning passive income and building wealth for my family's future."</p>
-                        <div class="mt-4">
-                            <p class="font-semibold">Lisa Rodriguez</p>
-                            <p class="text-sm text-gray-500">School Teacher</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="py-24 bg-gray-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">About Us</h2>
-                <div class="max-w-3xl mx-auto">
-                    <p class="text-gray-600 mb-8 leading-relaxed">
-                        Founded in 2020, Bitcoin Wealth emerged from a vision to democratize access to cryptocurrency investments. Our founders, having witnessed the transformative power of Bitcoin, set out to create a platform that would make crypto wealth building accessible to everyone, regardless of their technical expertise or financial background.
-                    </p>
-                    <p class="text-gray-600 leading-relaxed">
-                        Our mission is to empower individuals to build lasting wealth through strategic Bitcoin investments and cutting-edge AI technology. We believe in transparency, security, and sustainable growth, providing our users with thoroughly vetted opportunities and educational resources to make informed investment decisions.
+                    <button class="cta-button bg-bitcoin hover:bg-bitcoin-dark text-black px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 bitcoin-glow">
+                        💰 YES! GET ME ON THE VIP LIST!
+                    </button>
+                    <p class="text-sm text-gray-400 mt-4">
+                        ⚠️ This list is EXCLUSIVE and limited. I may stop accepting new subscribers at any time!
                     </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="faq" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Frequently Asked Questions</h2>
-                <div class="max-w-3xl mx-auto space-y-8">
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">How does the AI-powered trading system work?</h3>
-                        <p class="text-gray-600">Our AI algorithms analyze market trends, news, and historical data 24/7 to identify optimal trading opportunities. The system automatically executes trades based on pre-set parameters and risk management protocols.</p>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">What are the minimum investment requirements?</h3>
-                        <p class="text-gray-600">You can start with as little as $100. Our platform is designed to accommodate both beginners and experienced investors, with flexible investment options to suit your goals.</p>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">How secure is my investment?</h3>
-                        <p class="text-gray-600">We employ bank-grade security measures, including multi-factor authentication, cold storage for digital assets, and regular security audits. Your investments are protected by state-of-the-art encryption technology.</p>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">Can I withdraw my funds at any time?</h3>
-                        <p class="text-gray-600">Yes, you have complete control over your investments. Withdrawals can be processed within 24-48 hours, with no hidden fees or lockup periods.</p>
-                    </div>
-
-                    <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition-all duration-300">
-                        <h3 class="text-xl font-semibold mb-4">What kind of support do you offer?</h3>
-                        <p class="text-gray-600">Our dedicated support team is available 24/7 to assist you. We also provide comprehensive educational resources, market analysis, and personalized investment guidance.</p>
-                    </div>
+    <!-- Scarcity Section -->
+    <section class="py-20 bg-red-900 bg-opacity-20 border-t-4 border-red-500">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-black mb-6 text-red-400">
+                    ⚠️ THIS ISN'T FOR EVERYONE ⚠️
+                </h2>
+                <p class="text-2xl font-bold mb-8">
+                    This is ONLY for serious action-takers ready to transform their financial destiny!
+                </p>
+                
+                <div class="bg-black p-8 rounded-lg border-2 border-red-500 mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-red-400">🔥 FAIR WARNING:</h3>
+                    <ul class="text-left space-y-3 text-lg">
+                        <li>✅ I personally vet every opportunity - this takes time</li>
+                        <li>✅ Some programs have limited spots or early-mover bonuses</li>
+                        <li>✅ I keep this list tight-knit for maximum value</li>
+                        <li>✅ I may CLOSE enrollment without notice</li>
+                    </ul>
+                </div>
+                
+                <div class="text-center">
+                    <button class="cta-button bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 animate-pulse">
+                        🚀 SECURE MY SPOT NOW!
+                    </button>
+                    <p class="text-lg text-red-400 mt-4 font-bold">
+                        Don't wait - Bitcoin waits for no one!
+                    </p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="py-24 bg-blue-600 text-white" style="background-image: url('https://images.unsplash.com/photo-1640340434855-6084b1f4901c?auto=format&fit=crop&w=1920'); background-size: cover; background-position: center;">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center bg-blue-600/80 py-16 rounded-xl">
-                <h2 class="text-3xl md:text-4xl font-bold mb-8">Ready to Start Building Your Legacy?</h2>
-                <p class="text-xl mb-12 max-w-2xl mx-auto">Join thousands of successful investors who are already building their generational wealth with Bitcoin and AI.</p>
-                <a href="https://www.ultimatepassiveprofit.com/legacywealth/?refctex=C0510518581" 
-                   class="inline-block bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl">
-                    Start Your Journey Now →
-                </a>
+    <!-- Final CTA Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-black mb-6">
+                    Ready to <span class="text-bitcoin">STACK BITCOIN</span> Like a Pro?
+                </h2>
+                <p class="text-2xl text-gray-300 mb-8">
+                    Join thousands who are already building their Bitcoin empire with my exclusive insights!
+                </p>
+                
+                <div class="bg-gradient-to-r from-bitcoin to-bitcoin-dark p-8 rounded-lg text-black mb-8">
+                    <h3 class="text-3xl font-black mb-4">🎁 BONUS: 3 Simple Steps to Get Started</h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-left">
+                        <div>
+                            <div class="text-4xl font-black mb-2">1</div>
+                            <p class="font-bold">Click the button below</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black mb-2">2</div>
+                            <p class="font-bold">Enter your best email</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black mb-2">3</div>
+                            <p class="font-bold">Start receiving exclusive Bitcoin alerts</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="cta-button bg-red-600 hover:bg-red-700 text-white px-12 py-6 rounded-lg text-2xl font-black transform hover:scale-105 transition-all duration-300 animate-pulse mb-4">
+                    🔥 JOIN MTG'S BITCOIN EMPIRE NOW!
+                </button>
+                
+                <p class="text-lg text-gray-300">
+                    100% FREE • No Spam • Unsubscribe Anytime • Your Email is Safe
+                </p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="bg-gray-900 text-white py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Lead Capture Modal -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="p-8 text-center">
+                <div class="mb-6">
+                    <i class="fab fa-bitcoin text-6xl text-bitcoin pulse-bitcoin"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4 text-bitcoin">Join MTG's VIP Bitcoin List!</h2>
+                <p class="text-lg text-gray-300 mb-6">Get exclusive access to vetted Bitcoin opportunities that could change your financial future!</p>
+                
+                <form method="POST" action="https://gogvo.com/subscribe.php" class="space-y-4">
+                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                    <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
+                    <input type="hidden" name="TrackParam" value="new_form">
+                    <input type="hidden" name="FormId" value="24972917">
+                    
+                    <div>
+                        <input type="text" name="FirstName" placeholder="Enter your first name" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border-2 border-bitcoin text-white placeholder-gray-400 focus:outline-none focus:border-bitcoin-light">
+                    </div>
+                    
+                    <div>
+                        <input type="email" name="Email" placeholder="Enter your best email address" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border-2 border-red-500 text-white placeholder-gray-400 focus:outline-none focus:border-red-400">
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 animate-pulse">
+                        ⚡ LAST CHANCE - GET IN NOW!
+                    </button>
+                    
+                    <p class="text-sm text-gray-400">
+                        ⏰ This opportunity won't last forever!
+                    </p>
+                    
+                    <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=exit_intent" style="display:none;">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                        <h3 class="text-xl font-bold mb-4 text-bitcoin">Contact MTG</h3>
                         <p class="mb-2">Email: hustlewithmtg@gmail.com</p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                        <h3 class="text-xl font-bold mb-4 text-bitcoin">Quick Links</h3>
                         <ul class="space-y-2">
-                            <li><a href="#features" class="hover:text-blue-400 transition-colors duration-300">Features</a></li>
-                            <li><a href="#benefits" class="hover:text-blue-400 transition-colors duration-300">Benefits</a></li>
-                            <li><a href="#testimonials" class="hover:text-blue-400 transition-colors duration-300">Testimonials</a></li>
-                            <li><a href="#faq" class="hover:text-blue-400 transition-colors duration-300">FAQ</a></li>
+                            <li><a href="#" class="hover:text-bitcoin transition-colors duration-300">About MTG</a></li>
+                            <li><a href="#" class="hover:text-bitcoin transition-colors duration-300">Bitcoin Education</a></li>
+                            <li><a href="#" class="hover:text-bitcoin transition-colors duration-300">Success Stories</a></li>
+                            <li><a href="#" class="hover:text-bitcoin transition-colors duration-300">Free Resources</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Legal</h3>
+                        <h3 class="text-xl font-bold mb-4 text-bitcoin">Legal</h3>
                         <ul class="space-y-2">
-                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/privacy.html" class="hover:text-blue-400 transition-colors duration-300">Privacy Policy</a></li>
-                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/terms.html" class="hover:text-blue-400 transition-colors duration-300">Terms of Service</a></li>
-                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/blog.html" class="hover:text-blue-400 transition-colors duration-300">Blog</a></li>
+                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/privacy.html" class="hover:text-bitcoin transition-colors duration-300">Privacy Policy</a></li>
+                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/terms.html" class="hover:text-bitcoin transition-colors duration-300">Terms of Service</a></li>
+                            <li><a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/blog.html" class="hover:text-bitcoin transition-colors duration-300">Blog</a></li>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Follow Us</h3>
+                        <h3 class="text-xl font-bold mb-4 text-bitcoin">Follow MTG</h3>
                         <div class="flex space-x-4">
-                            <a href="#" class="hover:text-blue-400 transition-colors duration-300 transform hover:scale-110">
+                            <a href="#" class="hover:text-bitcoin transition-colors duration-300 transform hover:scale-110">
                                 <span class="sr-only">Twitter</span>
                                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
@@ -298,41 +534,226 @@
                     </div>
                 </div>
                 <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-                    <p class="text-gray-400">&copy; 2024 Bitcoin Wealth Building. All rights reserved.</p>
+                    <p class="text-gray-400">&copy; 2024 MTG Bitcoin Wealth Building. All rights reserved.</p>
+                    <p class="text-sm text-gray-500 mt-2">
+                        <strong>Disclaimer:</strong> This is for educational purposes only. Cryptocurrency investments carry risk. 
+                        Only invest what you can afford to lose. Past performance doesn't guarantee future results.
+                    </p>
                 </div>
             </div>
-        </footer>
-    </main>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuButton = document.querySelector('header nav .mobile-menu-button');
-            const mobileMenu = document.querySelector('header nav .mobile-menu');
-            
-            if (mobileMenuButton && mobileMenu) {
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                    const icon = mobileMenuButton.querySelector('i');
-                    if (icon) {
-                        icon.classList.toggle('fa-bars');
-                        icon.classList.toggle('fa-times');
-                    }
-                });
-
-                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                mobileMenuLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        const icon = mobileMenuButton.querySelector('i');
-                        if (icon) {
-                            icon.classList.remove('fa-times');
-                            icon.classList.add('fa-bars');
-                        }
-                    });
-                });
+        // Bitcoin Price Widget
+        async function updateBitcoinPrice() {
+            try {
+                const response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true');
+                const data = await response.json();
+                
+                const price = data.bitcoin.usd.toLocaleString();
+                const change = data.bitcoin.usd_24h_change.toFixed(2);
+                
+                document.getElementById('btc-price').textContent = price;
+                
+                const changeElement = document.getElementById('btc-change');
+                changeElement.textContent = `24h: ${change > 0 ? '+' : ''}${change}%`;
+                changeElement.className = change > 0 ? 'text-xs price-up' : 'text-xs price-down';
+            } catch (error) {
+                console.error('Error fetching Bitcoin price:', error);
+                document.getElementById('btc-price').textContent = '106,009';
+                document.getElementById('btc-change').textContent = '24h: --';
             }
+        }
+
+        // Update price on load and every 60 seconds
+        updateBitcoinPrice();
+        setInterval(updateBitcoinPrice, 60000);
+
+        // Modal functionality
+        const modal = document.getElementById('leadModal');
+        const exitModal = document.getElementById('exitModal');
+        const closeButtons = document.querySelectorAll('.close');
+        const ctaButtons = document.querySelectorAll('.cta-button');
+
+        // Session storage to track if modals have been shown
+        const scrollModalShown = sessionStorage.getItem('scrollModalShown');
+        const exitModalShown = sessionStorage.getItem('exitModalShown');
+
+        // Show modal function
+        function showModal(modalElement) {
+            modalElement.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Hide modal function
+        function hideModal(modalElement) {
+            modalElement.classList.remove('show');
+            document.body.style.overflow = 'auto';
+        }
+
+        // CTA button clicks
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal(modal);
+            });
+        });
+
+        // Close button functionality
+        closeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                hideModal(modal);
+                hideModal(exitModal);
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                hideModal(modal);
+            }
+            if (e.target === exitModal) {
+                hideModal(exitModal);
+            }
+        });
+
+        // Scroll trigger (50% of page)
+        let scrollTriggered = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollTriggered && !scrollModalShown) {
+                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+                if (scrollPercent >= 50) {
+                    showModal(modal);
+                    scrollTriggered = true;
+                    sessionStorage.setItem('scrollModalShown', 'true');
+                }
+            }
+        });
+
+        // Exit intent detection
+        let exitIntentTriggered = false;
+        document.addEventListener('mouseleave', function(e) {
+            if (!exitIntentTriggered && !exitModalShown && e.clientY <= 0) {
+                showModal(exitModal);
+                exitIntentTriggered = true;
+                sessionStorage.setItem('exitModalShown', 'true');
+            }
+        });
+
+        // Mobile exit intent (back button simulation)
+        let mobileExitTriggered = false;
+        window.addEventListener('beforeunload', function(e) {
+            if (!mobileExitTriggered && !exitModalShown && window.innerWidth <= 768) {
+                e.preventDefault();
+                showModal(exitModal);
+                mobileExitTriggered = true;
+                sessionStorage.setItem('exitModalShown', 'true');
+                return '';
+            }
+        });
+
+        // Form submission handling
+        const forms = document.querySelectorAll('form');
+        forms.forEach(form => {
+            form.addEventListener('submit', function(e) {
+                // Let the form submit normally, but track the submission
+                setTimeout(() => {
+                    // Open thank you page in new tab after short delay
+                    window.open('about:blank', '_blank');
+                }, 100);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation to buttons on click
+        ctaButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const originalText = this.innerHTML;
+                this.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Loading...';
+                setTimeout(() => {
+                    this.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('section > div > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
         });
     </script>
 </body>
-</body>
-</html>
+</html>-2 border-bitcoin text-white placeholder-gray-400 focus:outline-none focus:border-bitcoin-light">
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-bitcoin hover:bg-bitcoin-dark text-black px-6 py-4 rounded-lg text-xl font-black transform hover:scale-105 transition-all duration-300 bitcoin-glow">
+                        🚀 YES, I WANT TO BUILD WEALTH!
+                    </button>
+                    
+                    <p class="text-sm text-gray-400">
+                        🔒 Your information is 100% secure. No spam, ever.
+                    </p>
+                    
+                    <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=new_form" style="display:none;">
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Exit Intent Modal -->
+    <div id="exitModal" class="modal">
+        <div class="modal-content">
+            <span class="close exit-close">&times;</span>
+            <div class="p-8 text-center">
+                <div class="mb-6">
+                    <i class="fas fa-exclamation-triangle text-6xl text-red-500 animate-pulse"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4 text-red-500">🚨 WAIT! Don't Miss Out!</h2>
+                <p class="text-xl text-white mb-6 font-bold">Bitcoin could EXPLODE any moment and you're about to miss the boat!</p>
+                <p class="text-lg text-gray-300 mb-6">Get FREE access to my exclusive Bitcoin alerts before it's too late!</p>
+                
+                <form method="POST" action="https://gogvo.com/subscribe.php" class="space-y-4">
+                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                    <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
+                    <input type="hidden" name="TrackParam" value="exit_intent">
+                    <input type="hidden" name="FormId" value="24972917">
+                    
+                    <div>
+                        <input type="text" name="FirstName" placeholder="Enter your first name" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border-2 border-red-500 text-white placeholder-gray-400 focus:outline-none focus:border-red-400">
+                    </div>
+                    
+                    <div>
+                        <input type="email" name="Email" placeholder="Enter your best email address" required
+                               class="w-full px-4 py-3 rounded-lg bg-gray-800 border

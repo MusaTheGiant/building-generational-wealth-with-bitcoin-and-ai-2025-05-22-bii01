@@ -312,6 +312,61 @@
         </div>
     </section>
 
+    <!-- Exclusive Bonus Section -->
+    <section class="py-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-bitcoin/10 to-gold/10 opacity-30"></div>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center">
+                <div class="inline-block bg-gradient-to-r from-bitcoin to-gold text-black px-6 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+                    🎁 EXCLUSIVE SUBSCRIBER BONUS
+                </div>
+                
+                <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6 text-shadow">
+                    <span class="bitcoin-accent">Secret AI Arsenal</span> Revealed
+                </h2>
+                
+                <p class="text-xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    Get instant access to my <strong>personal AI marketing toolkit</strong> – the exact systems I use daily to generate leads, drive traffic, and create multiple streams of passive income on autopilot. These tools fuel my crypto investments and can scale ANY online business! 🚀
+                </p>
+                
+                <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-bitcoin/30">
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">🤖</span>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">AI Traffic Systems</h4>
+                            <p class="text-gray-300 text-sm">Automated lead generation</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-emerald to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">💰</span>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Income Automation</h4>
+                            <p class="text-gray-300 text-sm">Passive revenue streams</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">📈</span>
+                            </div>
+                            <h4 class="font-bold text-lg mb-2">Scaling Blueprints</h4>
+                            <p class="text-gray-300 text-sm">Works for any business</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-2xl font-bold bitcoin-accent mb-4">
+                        Worth $2,997 → Yours FREE When You Subscribe! 🔥
+                    </p>
+                    <p class="text-gray-300 text-lg">
+                        Limited time: Only for the next 500 subscribers
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Join Section -->
     <section id="join" class="py-24 gradient-hero text-white relative">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -426,34 +481,4 @@
                 changeElement.className = `text-3xl md:text-4xl font-bold price-change ${change >= 0 ? 'positive' : 'negative'}`;
                 
                 // Update timestamp
-                const now = new Date();
-                document.getElementById('last-updated').textContent = `Last updated: ${now.toLocaleTimeString()}`;
-                
-            } catch (error) {
-                console.error('Error fetching Bitcoin price:', error);
-                document.getElementById('bitcoin-price').textContent = 'Error loading';
-                document.getElementById('price-change').textContent = 'Error loading';
-            }
-        }
-        
-        // Initialize price fetch and set interval
-        document.addEventListener('DOMContentLoaded', function() {
-            fetchBitcoinPrice();
-            
-            // Refresh every 60 seconds
-            refreshInterval = setInterval(fetchBitcoinPrice, 60000);
-        });
-        
-        // Cleanup interval when page is hidden/closed
-        document.addEventListener('visibilitychange', function() {
-            if (document.hidden) {
-                clearInterval(refreshInterval);
-            } else {
-                fetchBitcoinPrice();
-                refreshInterval = setInterval(fetchBitcoinPrice, 60000);
-            }
-        });
-    </script>
-
-</body>
-</html>
+                const now = new

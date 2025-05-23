@@ -141,6 +141,11 @@
             transform: scale(1.05);
             box-shadow: 0 4px 20px rgba(247, 147, 26, 0.4);
         }
+        .refresh-btn:disabled {
+            opacity: 0.6;
+            transform: none;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
@@ -217,7 +222,7 @@
                 </div>
                 
                 <div class="flex justify-center items-center space-x-4">
-                    <div id="refresh-indicator" class="w-2 h-2 bg-emerald rounded-full animate-pulse"></div>
+                    <div id="refresh-indicator" class="w-2 h-2 rounded-full animate-pulse" style="background-color: #10B981;"></div>
                     <button id="manual-refresh" class="refresh-btn text-white px-4 py-2 rounded-lg text-sm font-semibold">
                         🔄 Refresh Now
                     </button>
@@ -475,5 +480,4 @@
                        class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
                         Terms of Service
                     </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-
+                    <span

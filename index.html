@@ -263,82 +263,128 @@
             }
         }
     </style>
+
+/* Additional styles for the exit intent popup */
+.exit-intent-popup {
+    border: 3px solid #ef4444;
+    background: linear-gradient(135deg, #fff5f5 0%, #fef2f2 100%);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.exit-intent-popup .form-submit {
+    background: linear-gradient(135deg, #ef4444 0%, #ec4899 100%);
+}
+
+.exit-intent-popup .form-submit:hover {
+    background: linear-gradient(135deg, #dc2626 0%, #db2777 100%);
+}
+</style>
+    
 </head>
 <body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
 
     <!-- Popup Modal -->
     <div id="emailPopup" class="popup-overlay">
-        <div class="popup-content">
-            <button class="popup-close" onclick="closePopup()">&times;</button>
-            
-            <div class="popup-form">
-                <div class="text-center mb-8">
-                    <div class="inline-block bg-gradient-to-r from-bitcoin to-gold text-black px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
-                        🔥 LIMITED TIME OFFER
+    <div class="popup-content">
+        <button class="popup-close" onclick="closePopup()">&times;</button>
+        
+        <div class="popup-form">
+            <div class="text-center mb-6">
+                <h2 class="font-serif text-2xl md:text-3xl font-bold mb-3">
+                    Get <span class="bitcoin-accent">Exclusive Bitcoin Insights</span>
+                </h2>
+                <p class="text-lg text-gray-600 mb-4">
+                    Join smart investors getting vetted crypto opportunities & AI wealth strategies
+                </p>
+            </div>
+
+            <form method="POST" action="https://gogvo.com/subscribe.php" onsubmit="handleFormSubmit(event)">
+                <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
+                <input type="hidden" name="TrackParam" value="new_form">
+                <input type="hidden" name="FormId" value="24972917">
+                
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <input type="text" name="FirstName" id="firstName" class="form-input" placeholder="First Name" required>
                     </div>
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold mb-4">
-                        Get <span class="bitcoin-accent">Exclusive Access</span> to My Bitcoin Wealth Strategies!
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Join 10,000+ smart investors building generational wealth with vetted Bitcoin, Crypto & AI opportunities
-                    </p>
-                    
-                    <div class="urgency-timer">
-                        ⏰ Only 500 spots left for FREE access!
+                    <div>
+                        <input type="email" name="Email" id="email" class="form-input" placeholder="Best Email Address" required>
                     </div>
                 </div>
 
-                <form method="POST" action="https://gogvo.com/subscribe.php" onsubmit="handleFormSubmit(event)">
-                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
-                    <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
-                    <input type="hidden" name="TrackParam" value="new_form">
-                    <input type="hidden" name="FormId" value="24972917">
-                    
-                    <div class="space-y-4 mb-6">
-                        <div>
-                            <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
-                            <input type="text" name="FirstName" id="firstName" class="form-input" placeholder="Enter your first name" required>
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Best Email Address *</label>
-                            <input type="email" name="Email" id="email" class="form-input" placeholder="Enter your best email" required>
-                        </div>
+                <button type="submit" class="form-submit">
+                    🚀 Get FREE Access Now!
+                </button>
+
+                <div class="trust-badges mt-4">
+                    <div class="trust-badge">
+                        <span>✓</span> 100% Free
                     </div>
-
-                    <ul class="benefit-list mb-6">
-                        <li><span class="benefit-check">✓</span> Vetted Bitcoin & Crypto opportunities (no scams!)</li>
-                        <li><span class="benefit-check">✓</span> AI-powered passive income strategies</li>
-                        <li><span class="benefit-check">✓</span> Market analysis from 7+ years experience</li>
-                        <li><span class="benefit-check">✓</span> Exclusive bonus: $2,997 AI Marketing Toolkit</li>
-                        <li><span class="benefit-check">✓</span> Scam protection & red flag warnings</li>
-                    </ul>
-
-                    <button type="submit" class="form-submit">
-                        🚀 YES, Give Me FREE Access Now!
-                    </button>
-
-                    <div class="trust-badges mt-6">
-                        <div class="trust-badge">
-                            <span>✓</span> 100% Free
-                        </div>
-                        <div class="trust-badge">
-                            <span>✓</span> No Spam
-                        </div>
-                        <div class="trust-badge">
-                            <span>✓</span> Unsubscribe Anytime
-                        </div>
+                    <div class="trust-badge">
+                        <span>✓</span> No Spam
                     </div>
+                    <div class="trust-badge">
+                        <span>✓</span> Unsubscribe Anytime
+                    </div>
+                </div>
 
-                    <p class="text-center text-sm text-gray-500 mt-4">
-                        🔒 Your information is 100% secure and will never be shared
-                    </p>
-
-                    <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=new_form" style="display:none;">
-                </form>
-            </div>
+                <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=new_form" style="display:none;">
+            </form>
         </div>
     </div>
 
+<!-- Add this new exit-intent popup after the main popup -->
+<div id="exitIntentPopup" class="popup-overlay">
+    <div class="popup-content exit-intent-popup">
+        <button class="popup-close" onclick="closeExitPopup()">&times;</button>
+        
+        <div class="popup-form">
+            <div class="text-center mb-6">
+                <div class="inline-block bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4 animate-pulse">
+                    ⚠️ WAIT! DON'T MISS OUT
+                </div>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold mb-3 text-red-600">
+                    Before You Leave...
+                </h2>
+                <p class="text-lg text-gray-700 mb-4">
+                    <strong>Get my $2,997 AI Marketing Toolkit FREE!</strong><br>
+                    The same tools I use to fund my crypto investments
+                </p>
+            </div>
+
+            <form method="POST" action="https://gogvo.com/subscribe.php" onsubmit="handleExitFormSubmit(event)">
+                <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
+                <input type="hidden" name="TrackParam" value="exit_intent">
+                <input type="hidden" name="FormId" value="24972917">
+                
+                <div class="space-y-3 mb-4">
+                    <input type="text" name="FirstName" class="form-input" placeholder="First Name" required>
+                    <input type="email" name="Email" class="form-input" placeholder="Best Email Address" required>
+                </div>
+
+                <button type="submit" class="form-submit bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600">
+                    🎁 YES! Give Me The FREE Toolkit
+                </button>
+
+                <p class="text-center text-sm text-gray-500 mt-3">
+                    🔒 100% Free • No Spam • Unsubscribe Anytime
+                </p>
+
+                <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=exit_intent" style="display:none;">
+            </form>
+        </div>
+    </div>
+</div>
+        
+</div>
     <!-- Hero Section -->
     <section class="gradient-hero pt-24 pb-24 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -626,112 +672,159 @@
     </footer>
 
     <script>
-        // Popup functionality and tracking
-        let popupShown = false;
-        let scrollTriggered = false;
-        let exitIntentTriggered = false;
+    // Popup functionality and tracking
+    let mainPopupShown = false;
+    let exitPopupShown = false;
+    let scrollTriggered = false;
+    let exitIntentTriggered = false;
+    let sessionExitIntentShown = false; // Track if exit intent was shown this session
 
-        // Open popup function
-        function openPopup() {
-            if (!popupShown) {
-                document.getElementById('emailPopup').classList.add('show');
-                popupShown = true;
-                document.body.style.overflow = 'hidden';
+    // Open main popup function - can be triggered multiple times
+    function openPopup() {
+        document.getElementById('emailPopup').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close main popup function
+    function closePopup() {
+        document.getElementById('emailPopup').classList.remove('show');
+        document.body.style.overflow = 'auto';
+        mainPopupShown = true; // Mark as shown after closing
+    }
+
+    // Open exit intent popup function - only once per session
+    function openExitPopup() {
+        if (!sessionExitIntentShown) {
+            document.getElementById('exitIntentPopup').classList.add('show');
+            document.body.style.overflow = 'hidden';
+            sessionExitIntentShown = true;
+        }
+    }
+
+    // Close exit intent popup function
+    function closeExitPopup() {
+        document.getElementById('exitIntentPopup').classList.remove('show');
+        document.body.style.overflow = 'auto';
+        exitPopupShown = true;
+    }
+
+    // Handle main form submission
+    function handleFormSubmit(event) {
+        setTimeout(function() {
+            if (window.location.href.indexOf('thankyou') === -1) {
+                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
+            }
+        }, 2000);
+    }
+
+    // Handle exit form submission
+    function handleExitFormSubmit(event) {
+        setTimeout(function() {
+            if (window.location.href.indexOf('thankyou') === -1) {
+                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
+            }
+        }, 2000);
+    }
+
+    // Scroll tracking for popup trigger (only if main popup hasn't been shown)
+    function trackScroll() {
+        if (!mainPopupShown && !scrollTriggered) {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent >= 50) {
+                scrollTriggered = true;
+                setTimeout(openPopup, 1000);
             }
         }
+    }
 
-        // Close popup function
-        function closePopup() {
-            document.getElementById('emailPopup').classList.remove('show');
-            document.body.style.overflow = 'auto';
+    // Exit intent detection - only show exit popup if main popup interaction is done
+    function trackExitIntent(e) {
+        if (!sessionExitIntentShown && mainPopupShown && e.clientY <= 0) {
+            exitIntentTriggered = true;
+            setTimeout(openExitPopup, 200); // Small delay to ensure mouse actually left
         }
+    }
 
-        // Handle form submission
-        function handleFormSubmit(event) {
-            // Let the form submit normally to the autoresponder
-            // The autoresponder should handle the redirect to thank you page
-            // If it doesn't, we can add a timeout redirect as backup
-            setTimeout(function() {
-                if (window.location.href.indexOf('thankyou') === -1) {
-                    window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
-                }
-            }, 2000);
+    // Initialize event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        // Scroll trigger for main popup
+        window.addEventListener('scroll', trackScroll);
+        
+        // Exit intent trigger (desktop only) - for exit popup
+        if (window.innerWidth >= 768) {
+            document.addEventListener('mouseleave', trackExitIntent);
         }
-
-        // Scroll tracking for popup trigger
-        function trackScroll() {
-            if (!popupShown && !scrollTriggered) {
-                const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-                if (scrollPercent >= 50) {
-                    scrollTriggered = true;
-                    setTimeout(openPopup, 1000); // Small delay for better UX
-                }
+        
+        // Close main popup when clicking outside
+        document.getElementById('emailPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
             }
-        }
-
-        // Exit intent detection
-        function trackExitIntent(e) {
-            if (!popupShown && !exitIntentTriggered && e.clientY <= 0) {
-                exitIntentTriggered = true;
-                openPopup();
-            }
-        }
-
-        // Initialize event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Scroll trigger
-            window.addEventListener('scroll', trackScroll);
-            
-            // Exit intent trigger (desktop only)
-            if (window.innerWidth >= 768) {
-                document.addEventListener('mouseleave', trackExitIntent);
-            }
-            
-            // Close popup when clicking outside
-            document.getElementById('emailPopup').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closePopup();
-                }
-            });
-            
-            // Close popup with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    closePopup();
-                }
-            });
-            
-            // Add click handlers to all CTA buttons
-            const ctaButtons = document.querySelectorAll('.cta-button');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', openPopup);
-            });
         });
 
-        // Prevent multiple submissions
-        let formSubmitted = false;
-        document.addEventListener('submit', function(e) {
-            if (e.target.tagName === 'FORM' && formSubmitted) {
+        // Close exit popup when clicking outside
+        document.getElementById('exitIntentPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeExitPopup();
+            }
+        });
+        
+        // Close popups with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('exitIntentPopup').classList.contains('show')) {
+                    closeExitPopup();
+                } else if (document.getElementById('emailPopup').classList.contains('show')) {
+                    closePopup();
+                }
+            }
+        });
+        
+        // Add click handlers to all CTA buttons - these can trigger multiple times
+        const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
+        ctaButtons.forEach(button => {
+            button.removeAttribute('onclick'); // Remove inline onclick
+            button.addEventListener('click', function(e) {
                 e.preventDefault();
-                return false;
-            }
-            formSubmitted = true;
-        });
-
-        // Add some visual feedback for form interactions
-        document.addEventListener('DOMContentLoaded', function() {
-            const inputs = document.querySelectorAll('.form-input');
-            inputs.forEach(input => {
-                input.addEventListener('focus', function() {
-                    this.parentElement.classList.add('focused');
-                });
-                
-                input.addEventListener('blur', function() {
-                    this.parentElement.classList.remove('focused');
-                });
+                openPopup();
             });
         });
-    </script>
+    });
+
+    // Prevent multiple submissions per form
+    let mainFormSubmitted = false;
+    let exitFormSubmitted = false;
+    
+    document.addEventListener('submit', function(e) {
+        if (e.target.closest('#emailPopup') && mainFormSubmitted) {
+            e.preventDefault();
+            return false;
+        } else if (e.target.closest('#exitIntentPopup') && exitFormSubmitted) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.target.closest('#emailPopup')) {
+            mainFormSubmitted = true;
+        } else if (e.target.closest('#exitIntentPopup')) {
+            exitFormSubmitted = true;
+        }
+    });
+
+    // Visual feedback for form interactions
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

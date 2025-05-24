@@ -3,88 +3,438 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Wealth Blog - Insights on Building Generational Wealth</title>
+    <title>Bitcoin AI Wealth Blog - Insights on Building Generational Wealth</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <meta name="description" content="Learn how to build generational wealth through Bitcoin and AI technologies">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bitcoin': '#F7931A',
+                        'bitcoin-light': '#FFB84D',
+                        'bitcoin-dark': '#E6830F',
+                        'deep-blue': '#0F172A',
+                        'slate-blue': '#1E293B',
+                        'slate-darker': '#0D1520',
+                        'warm-gray': '#F8FAFC',
+                        'gold': '#FFD700',
+                        'emerald': '#10B981'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(247, 147, 26, 0.3)' },
+                            '100%': { boxShadow: '0 0 30px rgba(247, 147, 26, 0.6)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #0D1520 0%, #0F172A 25%, #1E293B 75%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(247, 147, 26, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .bitcoin-accent {
+            background: linear-gradient(135deg, #F7931A 0%, #FFD700 50%, #FFB84D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.3));
+        }
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) padding-box,
+                        linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) border-box;
+            border: 2px solid transparent;
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .blog-article {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(247, 147, 26, 0.1);
+        }
+        .coming-soon-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.4) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        .floating-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+        }
+    </style>
 </head>
-<body class="font-['Inter'] antialiased bg-white text-gray-900">
-    <header class="fixed w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
+<body class="font-sans antialiased bg-gradient-to-br from-warm-gray to-gray-100 text-gray-900">
+
+    <!-- Header -->
+    <header class="fixed w-full floating-nav shadow-lg z-50">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
             <div class="flex items-center justify-between">
-                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" class="text-xl font-bold text-blue-600">MWD</a>
-                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" class="text-gray-600 hover:text-blue-600 transition-colors duration-300">← Back</a>
+                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" 
+                   class="text-2xl font-bold bitcoin-accent hover:scale-105 transition-transform">
+                    ₿ BWB
+                </a>
+                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" 
+                   class="flex items-center space-x-2 text-gray-600 hover:text-bitcoin transition-colors duration-300 font-semibold">
+                    <span>← Back to Home</span>
+                </a>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="pt-32 pb-24 bg-gradient-to-br from-blue-50 to-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">Our Blog</h1>
-                <p class="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">Discover insights and strategies for building generational wealth through Bitcoin and AI. Our experts share analysis, tips, and forecasts to help you navigate the future of digital assets.</p>
-                
-                <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 mb-12">
-                    <span class="text-sm text-gray-500">May 22, 2025</span>
-                    <h2 class="text-2xl font-bold text-gray-900 mt-2 mb-4">The Future of Bitcoin and AI in Building Generational Wealth</h2>
-                    <p class="text-gray-600 mb-6">The convergence of Bitcoin and artificial intelligence is revolutionizing generational wealth building strategies. Bitcoin's fixed supply and decentralized nature make it an ideal store of value, while AI transforms investment approaches through advanced market analysis and automated trading. Success requires strategic Bitcoin accumulation, AI-powered market timing, and careful portfolio diversification. Key considerations include robust security measures, regulatory compliance, and estate planning for digital assets. As these technologies mature, early adopters who combine Bitcoin's potential with AI-driven strategies will be best positioned to create and maintain lasting wealth for future generations.</p>
-                    <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/blog/the-future-of-bitcoin-and-ai-in-building-generatio.html" class="inline-block bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-colors duration-300">Read More</a>
+    <!-- Hero Section -->
+    <section class="gradient-hero pt-32 pb-24 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="animate-float mb-8">
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight text-shadow">
+                        Bitcoin Wealth
+                        <span class="bitcoin-accent block">Insights Blog</span>
+                    </h1>
                 </div>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    Discover expert insights, proven strategies, and cutting-edge analysis for building generational wealth through Bitcoin, crypto, and AI technologies. Your roadmap to financial freedom starts here. ₿
+                </p>
+                <div class="flex items-center justify-center space-x-8 text-sm text-gray-400">
+                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Expert Analysis</span>
+                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Proven Strategies</span>
+                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Weekly Updates</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 opacity-50">
-                        <span class="text-sm text-gray-500">Coming Soon</span>
-                        <h2 class="text-xl font-bold text-gray-900 mt-2 mb-4">Future Article</h2>
-                        <p class="text-gray-600">Stay tuned for more insights about Bitcoin and AI wealth building strategies.</p>
+    <!-- Main Blog Content -->
+    <main class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Featured Article -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                        Featured <span class="bitcoin-accent">Article</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Our latest deep-dive analysis on the future of wealth building in the digital age
+                    </p>
+                </div>
+                
+                <article class="blog-article rounded-3xl shadow-2xl p-8 md:p-12 card-hover">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+                        <div class="flex items-center space-x-4 mb-4 md:mb-0">
+                            <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">₿</span>
+                            </div>
+                            <div>
+                                <span class="text-sm text-gray-500 font-medium">Published</span>
+                                <p class="text-lg font-semibold text-gray-800">May 22, 2025</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <span class="bg-gradient-to-r from-bitcoin/10 to-gold/10 text-bitcoin font-semibold px-4 py-2 rounded-full text-sm border border-bitcoin/20">
+                                🔥 Trending
+                            </span>
+                            <span class="bg-emerald/10 text-emerald font-semibold px-4 py-2 rounded-full text-sm border border-emerald/20">
+                                📈 Analysis
+                            </span>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300 opacity-50">
-                        <span class="text-sm text-gray-500">Coming Soon</span>
-                        <h2 class="text-xl font-bold text-gray-900 mt-2 mb-4">Future Article</h2>
-                        <p class="text-gray-600">Stay tuned for more insights about Bitcoin and AI wealth building strategies.</p>
+                    
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
+                        The Future of Bitcoin and AI in Building Generational Wealth
+                    </h2>
+                    
+                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8">
+                        <p class="text-xl mb-6">
+                            The convergence of Bitcoin and artificial intelligence is revolutionizing generational wealth building strategies. As we stand at the intersection of these two transformative technologies, early adopters are positioning themselves for unprecedented opportunities.
+                        </p>
+                        
+                        <p class="mb-6">
+                            Bitcoin's fixed supply and decentralized nature make it an ideal store of value for the digital age, while AI transforms investment approaches through advanced market analysis and automated trading systems. This powerful combination creates a framework for building wealth that can span generations.
+                        </p>
+                        
+                        <div class="bg-gradient-to-r from-bitcoin/5 to-gold/5 p-6 rounded-2xl border-l-4 border-bitcoin mb-6">
+                            <h3 class="font-bold text-xl mb-3 text-gray-900">Key Success Factors:</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-bitcoin font-bold">•</span>
+                                    <span><strong>Strategic Bitcoin accumulation</strong> during market cycles</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-bitcoin font-bold">•</span>
+                                    <span><strong>AI-powered market timing</strong> and analysis tools</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-bitcoin font-bold">•</span>
+                                    <span><strong>Careful portfolio diversification</strong> across digital assets</span>
+                                </li>
+                                <li class="flex items-start space-x-2">
+                                    <span class="text-bitcoin font-bold">•</span>
+                                    <span><strong>Robust security measures</strong> and estate planning</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <p>
+                            As these technologies mature, those who combine Bitcoin's long-term potential with AI-driven strategies will be best positioned to create and maintain lasting wealth for future generations. The window of opportunity is narrowing as institutional adoption accelerates.
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/blog/the-future-of-bitcoin-and-ai-in-building-generatio.html" 
+                           class="gradient-border bg-gradient-to-r from-bitcoin to-bitcoin-light text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 text-center shadow-lg">
+                            📖 Read Full Article
+                        </a>
+                        <button class="bg-white border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold hover:border-bitcoin hover:text-bitcoin transition-all transform hover:scale-105">
+                            💌 Get More Insights Like This
+                        </button>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Upcoming Articles Section -->
+            <div class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
+                        Coming <span class="bitcoin-accent">Soon</span>
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We're constantly researching and analyzing the latest trends to bring you cutting-edge insights
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="coming-soon-card rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm border border-purple-500/30">
+                                Coming Soon
+                            </span>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-white text-xl">🤖</span>
+                        </div>
+                        <h3 class="font-bold text-2xl text-gray-800 mb-4">AI Trading Strategies for 2025</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            Discover the latest AI-powered trading algorithms and how they're reshaping cryptocurrency markets. Learn which tools are worth your time and money.
+                        </p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500">
+                            <span class="flex items-center space-x-1">
+                                <span>📅</span>
+                                <span>Expected: June 2025</span>
+                            </span>
+                            <span class="flex items-center space-x-1">
+                                <span>📊</span>
+                                <span>Technical Analysis</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="coming-soon-card rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden">
+                        <div class="absolute top-4 right-4">
+                            <span class="bg-gradient-to-r from-emerald/20 to-green-500/20 text-emerald font-semibold px-3 py-1 rounded-full text-sm border border-emerald/30">
+                                Coming Soon
+                            </span>
+                        </div>
+                        <div class="w-14 h-14 bg-gradient-to-r from-emerald to-green-500 rounded-2xl flex items-center justify-center mb-6">
+                            <span class="text-white text-xl">🏦</span>
+                        </div>
+                        <h3 class="font-bold text-2xl text-gray-800 mb-4">DeFi vs Traditional Banking</h3>
+                        <p class="text-gray-600 leading-relaxed mb-6">
+                            A comprehensive comparison of decentralized finance protocols versus traditional banking systems for wealth preservation and growth.
+                        </p>
+                        <div class="flex items-center space-x-4 text-sm text-gray-500">
+                            <span class="flex items-center space-x-1">
+                                <span>📅</span>
+                                <span>Expected: June 2025</span>
+                            </span>
+                            <span class="flex items-center space-x-1">
+                                <span>💰</span>
+                                <span>Wealth Strategy</span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+
+            <!-- Newsletter Signup Section -->
+            <div class="bg-gradient-to-r from-deep-blue via-slate-blue to-slate-darker rounded-3xl p-12 text-white text-center shadow-2xl">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-shadow">
+                        Never Miss a <span class="bitcoin-accent">Game-Changing</span> Insight
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                        Join thousands of smart investors who get exclusive Bitcoin, crypto, and AI insights delivered directly to their inbox. Plus, get instant access to our secret AI marketing arsenal worth $2,997!
+                    </p>
+                    
+                    <div class="glass-effect bg-white/10 backdrop-blur-sm p-8 rounded-2xl mb-8 border border-white/20">
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-xl flex items-center justify-center mx-auto mb-3">
+                                    <span class="text-white font-bold">📈</span>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Market Analysis</h4>
+                                <p class="text-gray-300 text-sm">Weekly deep-dives</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-emerald to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                    <span class="text-white font-bold">💰</span>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">Vetted Opportunities</h4>
+                                <p class="text-gray-300 text-sm">Exclusive access</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                    <span class="text-white font-bold">🎁</span>
+                                </div>
+                                <h4 class="font-bold text-lg mb-2">AI Arsenal Bonus</h4>
+                                <p class="text-gray-300 text-sm">Worth $2,997</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="gradient-border bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light text-white px-12 py-6 rounded-2xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow mb-4">
+                        🚀 Get Exclusive Bitcoin Insights + Free AI Arsenal
+                    </button>
+                    
+                    <p class="text-gray-300">
+                        100% Free • No Spam • Join 10,000+ Smart Investors
+                    </p>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <footer class="bg-gray-900 text-white py-16">
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                 <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-                    <p class="mb-2">Email: hustlewithmtg@gmail.com</p>
+                    <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin Wealth Blog</h3>
+                    <p class="text-gray-300 mb-4 leading-relaxed">
+                        Your trusted source for Bitcoin, crypto, and AI wealth-building insights. Building generational wealth, one insight at a time.
+                    </p>
+                    <div class="flex items-center space-x-2 text-sm text-gray-400">
+                        <span class="w-2 h-2 bg-emerald rounded-full animate-pulse"></span>
+                        <span>Updated Weekly</span>
+                    </div>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="hover:text-blue-400 transition-colors duration-300">Features</a></li>
-                        <li><a href="#benefits" class="hover:text-blue-400 transition-colors duration-300">Benefits</a></li>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Latest Articles</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Market Analysis</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">AI Insights</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Wealth Strategies</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact</h3>
+                    <ul class="space-y-3">
+                        <li class="text-gray-300">
+                            <span class="text-bitcoin">📧</span> hustlewithmtg@gmail.com
+                        </li>
+                        <li class="text-gray-300">
+                            <span class="text-bitcoin">🌐</span> bitcoinaiwealth.com
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-xl font-bold mb-4">Legal</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-blue-400 transition-colors duration-300">Terms of Service</a></li>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">Disclaimer</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Follow Us</h3>
-                    <div class="flex space-x-4">
-                        <a href="#" class="hover:text-blue-400 transition-colors duration-300">
-                            <span class="sr-only">Twitter</span>
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
             </div>
-            <div class="mt-12 pt-8 border-t border-gray-800 text-center">
-                <p class="text-gray-400">&copy; 2024 Bitcoin Wealth Building. All rights reserved.</p>
+            <div class="mt-12 pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400">
+                    © 2025 Bitcoin AI Wealth Blog. Building generational wealth through Bitcoin, Crypto & AI. Made with ❤️ by MTG 👑
+                </p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card-hover, .blog-article, .coming-soon-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

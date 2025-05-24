@@ -46,6 +46,28 @@
             50% { opacity: 0.7; }
         }
 
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8) translateY(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1) translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
         .animate-float {
             animation: float 6s ease-in-out infinite;
         }
@@ -56,6 +78,18 @@
 
         .animate-pulse-slow {
             animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .animate-slideInUp {
+            animation: slideInUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .animate-shake {
+            animation: shake 0.5s ease-in-out;
         }
 
         /* Custom gradient backgrounds */
@@ -161,6 +195,167 @@
             50% { content: '..'; }
             75% { content: '...'; }
         }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        /* Form styles */
+        .form-input {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--bitcoin);
+            box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(135deg, var(--bitcoin) 0%, var(--gold) 50%, var(--bitcoin-light) 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(247, 147, 26, 0.4);
+        }
+
+        .form-submit:active {
+            transform: translateY(-1px);
+        }
+
+        /* Trust badges */
+        .trust-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin: 4px;
+        }
+
+        /* Urgency elements */
+        .urgency-timer {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* CTA Button Enhancements */
+        .cta-button {
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(247, 147, 26, 0.4);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 10px;
+                max-height: 85vh;
+            }
+            
+            .form-input {
+                padding: 14px 16px;
+                font-size: 16px; /* Prevent zoom on iOS */
+            }
+        }
     </style>
 </head>
 <body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
@@ -179,7 +374,7 @@
                     Get exclusive access to vetted Bitcoin, Crypto, & AI opportunities and expert insights from someone who's navigated over 7+ years of crypto markets, including losing everything three times and bouncing back stronger! ₿
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                    <button class="cta-button gradient-border bg-gradient-bitcoin text-white px-10 py-5 rounded-xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow">
+                    <button class="cta-button gradient-border bg-gradient-bitcoin text-white px-10 py-5 rounded-xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow" onclick="openModal()">
                         💌 YES, I Want Exclusive Access!
                     </button>
                 </div>
@@ -399,100 +594,4 @@
                             <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <span class="text-white font-bold">📈</span>
                             </div>
-                            <h4 class="font-bold text-lg mb-2">Scaling Blueprints</h4>
-                            <p class="text-gray-300 text-sm">Works for any business</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <p class="text-2xl font-bold bitcoin-accent mb-4">
-                        Worth $2,997 → Yours FREE When You Subscribe! 🔥
-                    </p>
-                    <p class="text-gray-300 text-lg">
-                        Limited time: Only for the next 500 subscribers
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section id="join" class="py-24 gradient-hero text-white relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="animate-float mb-8">
-                <h2 class="font-serif text-5xl md:text-7xl font-bold mb-8 text-shadow">
-                    Ready to Build Your <span class="bitcoin-accent">Generational Wealth?</span>
-                </h2>
-            </div>
-            <p class="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Join thousands who are building their generational wealth with Bitcoin, crypto, and AI through exclusive insights and vetted opportunities. Let's build wealth that lasts, together. Join us today!
-            </p>
-
-            <div class="glass-effect bg-white/10 backdrop-blur-sm p-10 rounded-3xl mb-12 border border-white/20">
-                <h3 class="text-3xl font-bold mb-8">🚀 How It Works</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-bitcoin rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">1</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Join My Email List</h4>
-                        <p class="text-gray-300">100% Free to join</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">2</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Read My Emails</h4>
-                        <p class="text-gray-300">Get vetted opportunities</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">3</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Take Action</h4>
-                        <p class="text-gray-300">Stack Bitcoin & build wealth</p>
-                    </div>
-                </div>
-            </div>
-
-            <button class="cta-button gradient-border bg-gradient-bitcoin-full text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:opacity-90 transition-all transform hover:scale-105 mb-6 shadow-2xl animate-glow">
-                💌 YES, Give Me Exclusive Access!
-            </button>
-            
-            <p class="text-gray-300 text-lg">
-                100% Free • No Spam • Unsubscribe Anytime
-            </p>
-            
-            <div class="mt-8 text-center">
-                <p class="text-2xl font-bold bitcoin-accent">Let's Get This Crypto! ₿</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-                    Building generational wealth through Bitcoin, Crypto, and AI opportunities. Join thousands of smart investors who trust our vetted insights. ₿
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
-                    <a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Privacy Policy
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Terms of Service
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="#" class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Disclaimer
-                    </a>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-700">
-                    <p class="text-gray-400 text-sm">
-                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
+                            <h4 class="font-bold text-lg

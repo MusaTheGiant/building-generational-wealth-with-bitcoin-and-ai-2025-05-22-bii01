@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Bitcoin Wealth Journey! | Bitcoin AI Wealth</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <meta name="description" content="Welcome! You're now part of an exclusive community building generational wealth with Bitcoin, Crypto & AI.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'bitcoin': '#F7931A',
+                        'bitcoin-light': '#FFB84D',
+                        'bitcoin-dark': '#E6830F',
+                        'deep-blue': '#0F172A',
+                        'slate-blue': '#1E293B',
+                        'slate-darker': '#0D1520',
+                        'warm-gray': '#F8FAFC',
+                        'gold': '#FFD700',
+                        'emerald': '#10B981'
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite alternate',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'celebration': 'celebration 0.6s ease-out',
+                        'confetti': 'confetti 3s ease-out infinite',
+                        'sparkle': 'sparkle 2s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'fade-in': 'fadeIn 1s ease-out'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' }
+                        },
+                        glow: {
+                            '0%': { boxShadow: '0 0 20px rgba(247, 147, 26, 0.3)' },
+                            '100%': { boxShadow: '0 0 40px rgba(247, 147, 26, 0.8)' }
+                        },
+                        celebration: {
+                            '0%': { transform: 'scale(0.8) rotate(-10deg)', opacity: '0' },
+                            '50%': { transform: 'scale(1.1) rotate(5deg)', opacity: '1' },
+                            '100%': { transform: 'scale(1) rotate(0deg)', opacity: '1' }
+                        },
+                        confetti: {
+                            '0%': { transform: 'translateY(-100vh) rotate(0deg)', opacity: '1' },
+                            '100%': { transform: 'translateY(100vh) rotate(720deg)', opacity: '0' }
+                        },
+                        sparkle: {
+                            '0%, 100%': { opacity: '0', transform: 'scale(0)' },
+                            '50%': { opacity: '1', transform: 'scale(1)' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(30px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-hero {
+            background: linear-gradient(135deg, #0D1520 0%, #0F172A 25%, #1E293B 50%, #334155 75%, #F7931A 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .gradient-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(247, 147, 26, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+            pointer-events: none;
+        }
+        .bitcoin-accent {
+            background: linear-gradient(135deg, #F7931A 0%, #FFD700 50%, #FFB84D 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.4));
+        }
+        .text-shadow {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .celebration-bg {
+            background: linear-gradient(135deg, #F7931A 0%, #FFD700 25%, #10B981 50%, #3B82F6 75%, #8B5CF6 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 4s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #F7931A;
+            animation: confetti 3s ease-out infinite;
+        }
+        .confetti-1 { left: 10%; animation-delay: 0s; background: #F7931A; }
+        .confetti-2 { left: 20%; animation-delay: 0.2s; background: #FFD700; }
+        .confetti-3 { left: 30%; animation-delay: 0.4s; background: #10B981; }
+        .confetti-4 { left: 40%; animation-delay: 0.6s; background: #3B82F6; }
+        .confetti-5 { left: 50%; animation-delay: 0.8s; background: #8B5CF6; }
+        .confetti-6 { left: 60%; animation-delay: 1s; background: #F7931A; }
+        .confetti-7 { left: 70%; animation-delay: 1.2s; background: #FFD700; }
+        .confetti-8 { left: 80%; animation-delay: 1.4s; background: #10B981; }
+        .confetti-9 { left: 90%; animation-delay: 1.6s; background: #3B82F6; }
+        
+        .sparkle {
+            position: absolute;
+            font-size: 20px;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        .sparkle-1 { top: 20%; left: 15%; animation-delay: 0s; }
+        .sparkle-2 { top: 40%; right: 20%; animation-delay: 0.5s; }
+        .sparkle-3 { bottom: 30%; left: 25%; animation-delay: 1s; }
+        .sparkle-4 { top: 60%; right: 30%; animation-delay: 1.5s; }
+        
+        .success-checkmark {
+            animation: celebration 0.6s ease-out;
+        }
+        
+        .bonus-card {
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.1) 0%, rgba(255, 215, 0, 0.1) 50%, rgba(139, 92, 246, 0.1) 100%);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+        }
+        .bonus-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            padding: 2px;
+            background: linear-gradient(135deg, #F7931A, #FFD700, #8B5CF6);
+            border-radius: inherit;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: xor;
+            -webkit-mask-composite: xor;
+        }
+        
+        .pulsing-cta {
+            animation: glow 2s ease-in-out infinite alternate, bounce-slow 2s infinite;
+        }
+        
+        .rocket-emoji {
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .slide-in-element {
+            animation: slide-up 0.8s ease-out;
+        }
+        
+        .fade-in-element {
+            animation: fade-in 1s ease-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white text-gray-900 leading-relaxed overflow-x-hidden">
+
+    <!-- Confetti Animation -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
+        <div class="confetti-piece confetti-1"></div>
+        <div class="confetti-piece confetti-2"></div>
+        <div class="confetti-piece confetti-3"></div>
+        <div class="confetti-piece confetti-4"></div>
+        <div class="confetti-piece confetti-5"></div>
+        <div class="confetti-piece confetti-6"></div>
+        <div class="confetti-piece confetti-7"></div>
+        <div class="confetti-piece confetti-8"></div>
+        <div class="confetti-piece confetti-9"></div>
+    </div>
+
+    <!-- Sparkles -->
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none z-10">
+        <div class="sparkle sparkle-1">✨</div>
+        <div class="sparkle sparkle-2">⭐</div>
+        <div class="sparkle sparkle-3">💎</div>
+        <div class="sparkle sparkle-4">✨</div>
+    </div>
+
+    <!-- Success Hero Section -->
+    <section class="gradient-hero min-h-screen flex items-center justify-center text-white relative z-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+            
+            <!-- Success Animation -->
+            <div class="success-checkmark mb-8 slide-in-element">
+                <div class="w-32 h-32 mx-auto bg-gradient-to-r from-emerald-400 to-green-500 rounded-full flex items-center justify-center shadow-2xl">
+                    <span class="text-6xl">✅</span>
+                </div>
+            </div>
+
+            <!-- Main Success Message -->
+            <div class="animate-float mb-8 slide-in-element">
+                <h1 class="font-serif text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight text-shadow">
+                    🎉 <span class="bitcoin-accent">CONGRATULATIONS!</span> 🎉
+                </h1>
+                <h2 class="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold mb-8 text-shadow">
+                    You're Now Part of the <span class="bitcoin-accent">Bitcoin Elite!</span>
+                </h2>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="glass-effect p-8 sm:p-12 rounded-3xl mb-12 border border-white/30 slide-in-element">
+                <p class="text-lg sm:text-2xl text-gray-200 mb-6 leading-relaxed">
+                    <strong>Welcome to the future of wealth building!</strong> 🚀 You've just joined thousands of smart investors who are stacking Bitcoin, crypto, and leveraging AI to build generational wealth.
+                </p>
+                <p class="text-base sm:text-xl text-gray-300 leading-relaxed">
+                    Check your inbox in the next few minutes for your first exclusive insights, vetted opportunities, and market updates. Your wealth-building journey starts NOW! ₿
+                </p>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="grid sm:grid-cols-3 gap-6 mb-12 slide-in-element">
+                <div class="glass-effect p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl mb-4">📧</div>
+                    <h3 class="font-bold text-lg mb-2">Check Your Email</h3>
+                    <p class="text-sm text-gray-300">Your welcome email is on its way!</p>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-bold text-lg mb-2">Take Action</h3>
+                    <p class="text-sm text-gray-300">Don't just read - implement!</p>
+                </div>
+                <div class="glass-effect p-6 rounded-2xl border border-white/20">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="font-bold text-lg mb-2">Stack Wealth</h3>
+                    <p class="text-sm text-gray-300">Build your crypto empire!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exclusive Bonus Claim Section -->
+    <section class="py-20 celebration-bg text-white relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            
+            <!-- Bonus Header -->
+            <div class="text-center mb-12 fade-in-element">
+                <div class="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-8 py-3 rounded-full text-lg font-bold mb-6 animate-pulse shadow-2xl">
+                    🎁 EXCLUSIVE BONUS UNLOCKED!
+                </div>
+                
+                <h2 class="font-serif text-3xl sm:text-5xl lg:text-7xl font-bold mb-6 text-shadow">
+                    Claim Your <span class="text-yellow-300">Secret AI Arsenal</span>
+                </h2>
+                
+                <p class="text-lg sm:text-2xl text-gray-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+                    As promised, here's your <strong>$2,997 AI Marketing Toolkit</strong> – the exact systems I use to generate passive income and fund my crypto investments! <span class="rocket-emoji">🚀</span>
+                </p>
+            </div>
+
+            <!-- Bonus Details Card -->
+            <div class="bonus-card rounded-3xl p-8 sm:p-12 mb-12 shadow-2xl fade-in-element">
+                <h3 class="text-2xl sm:text-4xl font-bold mb-8 text-center text-yellow-300">
+                    🤖 Your AI Wealth Building Arsenal Includes:
+                </h3>
+                
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-bitcoin to-gold rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">🎯</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">AI Traffic Generation</h4>
+                        <p class="text-gray-200 text-sm">Automated systems that bring qualified leads on autopilot</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">💸</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Passive Income Funnels</h4>
+                        <p class="text-gray-200 text-sm">Set-and-forget systems that generate revenue 24/7</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">📈</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Scaling Blueprints</h4>
+                        <p class="text-gray-200 text-sm">Proven strategies to 10x any online business</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">🔥</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Content Automation</h4>
+                        <p class="text-gray-200 text-sm">AI tools that create engaging content at scale</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">⚡</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Conversion Optimization</h4>
+                        <p class="text-gray-200 text-sm">AI-powered split testing and optimization tools</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                            <span class="text-white text-2xl">🎨</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Creative AI Suite</h4>
+                        <p class="text-gray-200 text-sm">Design, video, and copywriting AI tools</p>
+                    </div>
+                </div>
+                
+                <div class="text-center bg-black/40 backdrop-blur-sm rounded-2xl p-6">
+                    <p class="text-2xl sm:text-3xl font-bold bitcoin-accent mb-2">
+                        Total Value: $2,997
+                    </p>
+                    <p class="text-lg sm:text-xl text-yellow-300 font-bold">
+                        Your Price: <span class="text-3xl">FREE</span> 🔥
+                    </p>
+                    <p class="text-sm text-gray-300 mt-2">
+                        Limited Time: Only for Bitcoin AI Wealth subscribers
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA Button -->
+            <div class="text-center fade-in-element">
+                <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" 
+                   target="_blank"
+                   class="inline-block pulsing-cta bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-white px-12 py-6 rounded-2xl text-xl sm:text-2xl font-bold shadow-2xl hover:opacity-90 transition-all transform hover:scale-105 mb-6">
+                    🚀 CLAIM MY AI ARSENAL NOW! 🚀
+                </a>
+                
+                <p class="text-base sm:text-lg text-gray-200 mb-4">
+                    <strong>⏰ Limited Time Access - Grab it while it's available!</strong>
+                </p>
+                
+                <p class="text-sm text-gray-300">
+                    This toolkit has helped me generate multiple 6-figures online.<br>
+                    Now it's yours to use and profit from! 💰
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Happens Next Section -->
+    <section class="py-20 bg-gradient-to-br from-deep-blue to-slate-blue text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 slide-in-element">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-6 text-shadow">
+                    What Happens <span class="bitcoin-accent">Next?</span>
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto">
+                    Your Bitcoin wealth-building journey is just beginning. Here's what to expect:
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="glass-effect p-8 rounded-2xl text-center border border-white/20 slide-in-element">
+                    <div class="text-5xl mb-4">📬</div>
+                    <h3 class="font-bold text-xl mb-4">Welcome Email</h3>
+                    <p class="text-gray-300 text-sm">Check your inbox for your first exclusive market insights (arriving within 5 minutes)</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-2xl text-center border border-white/20 slide-in-element">
+                    <div class="text-5xl mb-4">🔍</div>
+                    <h3 class="font-bold text-xl mb-4">Vetted Opportunities</h3>
+                    <p class="text-gray-300 text-sm">Receive hand-picked Bitcoin, crypto, and AI opportunities before anyone else</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-2xl text-center border border-white/20 slide-in-element">
+                    <div class="text-5xl mb-4">📊</div>
+                    <h3 class="font-bold text-xl mb-4">Market Updates</h3>
+                    <p class="text-gray-300 text-sm">Stay ahead with exclusive market analysis and trend predictions</p>
+                </div>
+                
+                <div class="glass-effect p-8 rounded-2xl text-center border border-white/20 slide-in-element">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="font-bold text-xl mb-4">Build Wealth</h3>
+                    <p class="text-gray-300 text-sm">Watch your portfolio grow as you implement our proven strategies</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-bitcoin/20 to-gold/20 p-8 rounded-2xl border-2 border-bitcoin/30 text-center slide-in-element">
+                <h3 class="text-2xl font-bold mb-4">🎯 Your Action Plan</h3>
+                <div class="grid sm:grid-cols-3 gap-6 text-left">
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">1. Secure Your Tools</h4>
+                        <p class="text-gray-300 text-sm">Claim your AI Arsenal before this offer expires</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">2. Read Every Email</h4>
+                        <p class="text-gray-300 text-sm">Each one contains valuable opportunities and insights</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">3. Take Action</h4>
+                        <p class="text-gray-300 text-sm">Knowledge without action is worthless - implement what you learn!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Motivation Section -->
+    <section class="py-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-bitcoin-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="animate-float mb-8 fade-in-element">
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold mb-6 text-shadow">
+                    Ready to <span class="bitcoin-accent">Get This Crypto?</span> ₿
+                </h2>
+            </div>
+            
+            <div class="glass-effect p-8 sm:p-12 rounded-3xl mb-8 border border-white/20 fade-in-element">
+                <p class="text-lg sm:text-2xl text-gray-200 mb-6 leading-relaxed">
+                    You've made the <strong>smartest decision</strong> for your financial future. While others are still sleeping on Bitcoin, you're positioning yourself for the wealth transfer of a lifetime.
+                </p>
+                <p class="text-base sm:text-xl text-gray-300 mb-6">
+                    Remember: Bitcoin doesn't care about your background, age, or location. It only cares about one thing - <strong>how early you started stacking.</strong>
+                </p>
+                <p class="text-xl sm:text-2xl font-bold bitcoin-accent">
+                    Your generational wealth journey starts TODAY! 🚀
+                </p>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-2xl sm:text-3xl font-bold mb-4">Welcome to the Bitcoin Elite! 👑</p>
+                <p class="text-lg text-gray-300">
+                    Check your email and let's build wealth together! 💎🙌
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
+                    Building generational wealth through Bitcoin, Crypto, and AI opportunities. You're now part of an exclusive community of smart investors.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Privacy Policy
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">•</span>
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Terms of Service
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">•</span>
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Disclaimer
+                    </a>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

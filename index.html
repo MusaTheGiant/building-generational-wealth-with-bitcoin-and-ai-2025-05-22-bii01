@@ -8,50 +8,63 @@
     <meta name="description" content="Join MTG's exclusive email list for vetted Bitcoin opportunities. Learn from 7+ years of crypto experience and build wealth safely.">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bitcoin': '#F7931A',
-                        'bitcoin-light': '#FFB84D',
-                        'bitcoin-dark': '#E6830F',
-                        'deep-blue': '#0F172A',
-                        'slate-blue': '#1E293B',
-                        'slate-darker': '#0D1520',
-                        'warm-gray': '#F8FAFC',
-                        'gold': '#FFD700',
-                        'emerald': '#10B981'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(247, 147, 26, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(247, 147, 26, 0.6)' }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
     <style>
+        /* Custom color variables */
+        :root {
+            --bitcoin: #F7931A;
+            --bitcoin-light: #FFB84D;
+            --bitcoin-dark: #E6830F;
+            --deep-blue: #0F172A;
+            --slate-blue: #1E293B;
+            --slate-darker: #0D1520;
+            --warm-gray: #F8FAFC;
+            --gold: #FFD700;
+            --emerald: #10B981;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 20px rgba(247, 147, 26, 0.3); }
+            100% { box-shadow: 0 0 30px rgba(247, 147, 26, 0.6); }
+        }
+
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-glow {
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .animate-pulse-slow {
+            animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* Custom gradient backgrounds */
         .gradient-hero {
-            background: linear-gradient(135deg, #0D1520 0%, #0F172A 25%, #1E293B 75%, #334155 100%);
+            background: linear-gradient(135deg, var(--slate-darker) 0%, var(--deep-blue) 25%, var(--slate-blue) 75%, #334155 100%);
             position: relative;
             overflow: hidden;
         }
+
         .gradient-hero::before {
             content: '';
             position: absolute;
@@ -63,56 +76,75 @@
                         radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
             pointer-events: none;
         }
+
+        /* Bitcoin accent text */
         .bitcoin-accent {
-            background: linear-gradient(135deg, #F7931A 0%, #FFD700 50%, #FFB84D 100%);
+            background: linear-gradient(135deg, var(--bitcoin) 0%, var(--gold) 50%, var(--bitcoin-light) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.3));
         }
+
+        /* Card hover effects */
         .card-hover {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
+
         .card-hover:hover {
             transform: translateY(-12px) scale(1.02);
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
+
+        /* Glass effect */
         .glass-effect {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 9999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            backdrop-filter: blur(8px);
-        }
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+
+        /* Gradient border */
         .gradient-border {
-            background: linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) padding-box,
-                        linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) border-box;
+            background: linear-gradient(135deg, var(--bitcoin), var(--gold), var(--bitcoin-light)) padding-box,
+                        linear-gradient(135deg, var(--bitcoin), var(--gold), var(--bitcoin-light)) border-box;
             border: 2px solid transparent;
         }
+
+        /* Text shadow */
         .text-shadow {
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
+
+        /* Story section */
         .story-section {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+            background: linear-gradient(135deg, var(--warm-gray) 0%, #E2E8F0 100%);
         }
+
         .story-card {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* Custom Bitcoin colors */
+        .bg-bitcoin { background-color: var(--bitcoin); }
+        .bg-bitcoin-light { background-color: var(--bitcoin-light); }
+        .bg-bitcoin-dark { background-color: var(--bitcoin-dark); }
+        .bg-deep-blue { background-color: var(--deep-blue); }
+        .bg-slate-blue { background-color: var(--slate-blue); }
+        .bg-slate-darker { background-color: var(--slate-darker); }
+        .bg-gold { background-color: var(--gold); }
+        .text-bitcoin { color: var(--bitcoin); }
+        .text-emerald { color: var(--emerald); }
+        .border-bitcoin { border-color: var(--bitcoin); }
+
+        /* Custom gradient backgrounds */
+        .bg-gradient-bitcoin {
+            background: linear-gradient(135deg, var(--bitcoin) 0%, var(--bitcoin-light) 100%);
+        }
+
+        .bg-gradient-bitcoin-full {
+            background: linear-gradient(135deg, var(--bitcoin) 0%, var(--gold) 50%, var(--bitcoin-light) 100%);
         }
     </style>
 </head>
@@ -132,7 +164,7 @@
                     Get exclusive access to vetted Bitcoin, Crypto, & AI opportunities and expert insights from someone who's navigated over 7+ years of crypto markets, including losing everything three times and bouncing back stronger! ₿
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                    <button class="cta-button gradient-border bg-gradient-to-r from-bitcoin to-bitcoin-light text-white px-10 py-5 rounded-xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow">
+                    <button class="cta-button gradient-border bg-gradient-bitcoin text-white px-10 py-5 rounded-xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow">
                         💌 YES, I Want Exclusive Access!
                     </button>
                 </div>
@@ -200,7 +232,7 @@
     </section>
 
     <!-- Market Insights Section -->
-    <section id="insights" class="py-24 bg-gradient-to-br from-deep-blue to-slate-blue text-white">
+    <section id="insights" class="py-24 bg-deep-blue text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-shadow">
@@ -237,7 +269,7 @@
                 </div>
             </div>
 
-            <div class="bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light p-10 rounded-3xl text-black text-center shadow-2xl">
+            <div class="bg-gradient-bitcoin-full p-10 rounded-3xl text-black text-center shadow-2xl">
                 <h3 class="text-3xl font-bold mb-6">The $1 Million Bitcoin Window</h3>
                 <p class="text-xl leading-relaxed max-w-4xl mx-auto">
                     If these predictions are anywhere near correct, imagine what we could earn from the Bitcoin we stack right now. That's why I'm on a mission to help as many people as possible get in while BTC is still under $1 million.
@@ -247,7 +279,7 @@
     </section>
 
     <!-- What You Get Section -->
-    <section id="benefits" class="py-24 bg-gradient-to-br from-warm-gray to-gray-100">
+    <section id="benefits" class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6">
@@ -260,7 +292,7 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-bitcoin to-bitcoin-light rounded-2xl flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-bitcoin rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-white text-2xl">🔍</span>
                     </div>
                     <h3 class="font-bold text-xl mb-4">New Bitcoin, Crypto, & AI Programs</h3>
@@ -268,7 +300,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-emerald to-green-500 rounded-2xl flex items-center justify-center mb-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6">
                         <span class="text-white text-2xl">💰</span>
                     </div>
                     <h3 class="font-bold text-xl mb-4">Passive Income Opportunities</h3>
@@ -308,7 +340,7 @@
                 </div>
             </div>
 
-            <div class="bg-gradient-to-r from-bitcoin/10 to-gold/10 p-8 rounded-2xl border-2 border-bitcoin/20 text-center">
+            <div class="bg-gradient-to-r from-orange-100 to-yellow-100 p-8 rounded-2xl border-2 border-orange-300 text-center">
                 <h3 class="text-2xl font-bold mb-4">Perfect for people who want to stack sats and crypto without spending hours researching or falling into traps.</h3>
                 <p class="text-lg text-gray-700">I still encourage everyone to do their own research, because at the end of the day, it's your money, and everything involving money has risk. But I'll help cut through the noise.</p>
             </div>
@@ -317,10 +349,10 @@
 
     <!-- Exclusive Bonus Section -->
     <section class="py-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-bitcoin/10 to-gold/10 opacity-30"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-yellow-500/10 opacity-30"></div>
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center">
-                <div class="inline-block bg-gradient-to-r from-bitcoin to-gold text-black px-6 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
+                <div class="inline-block bg-gradient-bitcoin-full text-black px-6 py-2 rounded-full text-sm font-bold mb-6 animate-pulse-slow">
                     🎁 EXCLUSIVE SUBSCRIBER BONUS
                 </div>
                 
@@ -332,17 +364,17 @@
                     Get instant access to my <strong>personal AI marketing toolkit</strong> – the exact systems I use daily to generate leads, drive traffic, and create multiple streams of passive income on autopilot. These tools fuel my crypto investments and can scale ANY online business! 🚀
                 </p>
                 
-                <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-bitcoin/30">
+                <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-orange-400/30">
                     <div class="grid md:grid-cols-3 gap-6">
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <div class="w-12 h-12 bg-gradient-bitcoin rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <span class="text-white font-bold">🤖</span>
                             </div>
                             <h4 class="font-bold text-lg mb-2">AI Traffic Systems</h4>
                             <p class="text-gray-300 text-sm">Automated lead generation</p>
                         </div>
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-emerald to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-3">
                                 <span class="text-white font-bold">💰</span>
                             </div>
                             <h4 class="font-bold text-lg mb-2">Income Automation</h4>
@@ -386,21 +418,21 @@
                 <h3 class="text-3xl font-bold mb-8">🚀 How It Works</h3>
                 <div class="grid md:grid-cols-3 gap-8">
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-bitcoin to-bitcoin-light rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <div class="w-16 h-16 bg-gradient-bitcoin rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <span class="text-white font-bold text-xl">1</span>
                         </div>
                         <h4 class="font-bold text-xl mb-2">Join My Email List</h4>
                         <p class="text-gray-300">100% Free to join</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-emerald to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <span class="text-white font-bold text-xl">2</span>
                         </div>
                         <h4 class="font-bold text-xl mb-2">Read My Emails</h4>
                         <p class="text-gray-300">Get vetted opportunities</p>
                     </div>
                     <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-gold to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                             <span class="text-white font-bold text-xl">3</span>
                         </div>
                         <h4 class="font-bold text-xl mb-2">Take Action</h4>
@@ -409,7 +441,7 @@
                 </div>
             </div>
 
-            <button class="cta-button gradient-border bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:opacity-90 transition-all transform hover:scale-105 mb-6 shadow-2xl animate-glow">
+            <button class="cta-button gradient-border bg-gradient-bitcoin-full text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:opacity-90 transition-all transform hover:scale-105 mb-6 shadow-2xl animate-glow">
                 💌 YES, Give Me Exclusive Access!
             </button>
             
@@ -452,20 +484,4 @@
                 <div class="mt-8 pt-8 border-t border-gray-700">
                     <p class="text-gray-400 text-sm">
                         © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        async function fetchBTCData() {
-            const priceEl = document.getElementById('btc-price');
-            const changeEl = document.getElementById('btc-change');
-            const marketCapEl = document.getElementById('btc-marketcap');
-            const volumeEl = document.getElementById('btc-volume');
-            const updatedEl = document.getElementById('last-updated');
-            
-            try {
-                const res = await fetch('https://api.coingecko.com/api/v3/coins/bitcoin?localization=false&tickers=false&community_data=false&developer_data=false');
-                if (!res.ok) throw new Error(`HTTP Error: ${
+                    </p

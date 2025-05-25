@@ -672,169 +672,188 @@
     </footer>
 
     <script>
-        // Popup functionality and tracking
-let mainPopupShown = false;
-let mainPopupInteracted = false; // Track if user has seen/interacted with main popup
-let exitPopupShown = false;
-let scrollTriggered = false;
-let exitIntentTriggered = false;
-let sessionExitIntentShown = false; // Track if exit intent was shown this session
+// Simple popup state management
+let popupStates = {
+    mainShown: false,
+    exitShown: false,
+    scrollTriggered: false,
+    userHasScrolled: false
+};
 
-// Open main popup function - can be triggered multiple times
+// Main popup functions
 function openPopup() {
-    document.getElementById('emailPopup').classList.add('show');
-    document.body.style.overflow = 'hidden';
-    mainPopupInteracted = true; // Mark as interacted when opened
-}
-
-// Close main popup function
-function closePopup() {
-    document.getElementById('emailPopup').classList.remove('show');
-    document.body.style.overflow = 'auto';
-    mainPopupShown = true; // Mark as shown after closing
-}
-
-// Open exit intent popup function - only once per session
-function openExitPopup() {
-    if (!sessionExitIntentShown) {
-        document.getElementById('exitIntentPopup').classList.add('show');
+    const popup = document.getElementById('emailPopup');
+    if (popup) {
+        popup.classList.add('show');
         document.body.style.overflow = 'hidden';
-        sessionExitIntentShown = true;
+        popupStates.mainShown = true;
     }
 }
 
-// Close exit intent popup function
+function closePopup() {
+    const popup = document.getElementById('emailPopup');
+    if (popup) {
+        popup.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Exit intent popup functions
+function openExitPopup() {
+    const popup = document.getElementById('exitIntentPopup');
+    if (popup && !popupStates.exitShown) {
+        popup.classList.add('show');
+        document.body.style.overflow = 'hidden';
+        popupStates.exitShown = true;
+    }
+}
+
 function closeExitPopup() {
-    document.getElementById('exitIntentPopup').classList.remove('show');
-    document.body.style.overflow = 'auto';
-    exitPopupShown = true;
+    const popup = document.getElementById('exitIntentPopup');
+    if (popup) {
+        popup.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
 }
 
-// Handle main form submission
+// Form submission handlers
 function handleFormSubmit(event) {
-    setTimeout(function() {
-        if (window.location.href.indexOf('thankyou') === -1) {
+    setTimeout(() => {
+        if (!window.location.href.includes('thankyou')) {
             window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
         }
     }, 2000);
 }
 
-// Handle exit form submission
 function handleExitFormSubmit(event) {
-    setTimeout(function() {
-        if (window.location.href.indexOf('thankyou') === -1) {
+    setTimeout(() => {
+        if (!window.location.href.includes('thankyou')) {
             window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
         }
     }, 2000);
 }
 
-// Scroll tracking for popup trigger (only if main popup hasn't been shown)
-function trackScroll() {
-    if (!mainPopupShown && !scrollTriggered) {
-        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-        if (scrollPercent >= 50) {
-            scrollTriggered = true;
+// Scroll tracking (simplified)
+function handleScroll() {
+    if (!popupStates.scrollTriggered && !popupStates.mainShown) {
+        popupStates.userHasScrolled = true;
+        const scrolled = window.pageYOffset;
+        const rate = scrolled / (document.body.scrollHeight - window.innerHeight);
+        
+        if (rate > 0.5) {
+            popupStates.scrollTriggered = true;
             setTimeout(openPopup, 1000);
         }
     }
 }
 
-// Exit intent detection - improved logic
-function trackExitIntent(e) {
+// Exit intent detection (completely rewritten)
+function handleMouseLeave(e) {
     // Only trigger if:
-    // 1. Exit popup hasn't been shown this session
-    // 2. User has interacted with main popup (opened it at least once)
-    // 3. Mouse is leaving the top of the page
-    // 4. User is not currently in a popup
-    if (!sessionExitIntentShown && 
-        mainPopupInteracted && 
-        e.clientY <= 5 && 
-        e.relatedTarget === null &&
-        !document.getElementById('emailPopup').classList.contains('show')) {
-        
-        exitIntentTriggered = true;
-        setTimeout(openExitPopup, 300); // Slightly longer delay for better UX
+    // 1. Haven't shown exit popup yet
+    // 2. User has scrolled (engaged with content)
+    // 3. Mouse is leaving from top of page
+    // 4. No other popup is currently showing
+    
+    if (popupStates.exitShown) return;
+    if (!popupStates.userHasScrolled) return;
+    if (e.clientY > 50) return; // Only trigger when leaving from top
+    
+    const mainPopup = document.getElementById('emailPopup');
+    const exitPopup = document.getElementById('exitIntentPopup');
+    
+    // Don't show if any popup is already visible
+    if ((mainPopup && mainPopup.classList.contains('show')) || 
+        (exitPopup && exitPopup.classList.contains('show'))) {
+        return;
     }
+    
+    // Add a small delay and show exit popup
+    setTimeout(() => {
+        if (!popupStates.exitShown) { // Double check
+            openExitPopup();
+        }
+    }, 250);
 }
 
-// Initialize event listeners
+// Initialize everything when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-    // Scroll trigger for main popup
-    window.addEventListener('scroll', trackScroll, { passive: true });
     
-    // Exit intent trigger (desktop only) - for exit popup
+    // Scroll listener for main popup
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        clearTimeout(scrollTimeout);
+        scrollTimeout = setTimeout(handleScroll, 100);
+    }, { passive: true });
+    
+    // Exit intent listener (desktop only)
     if (window.innerWidth >= 768) {
-        document.addEventListener('mouseout', trackExitIntent);
-        // Also listen for mouseleave on document for better detection
-        document.addEventListener('mouseleave', trackExitIntent);
+        document.addEventListener('mouseleave', handleMouseLeave);
     }
     
-    // Close main popup when clicking outside
-    document.getElementById('emailPopup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePopup();
-        }
-    });
-
-    // Close exit popup when clicking outside
-    document.getElementById('exitIntentPopup').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeExitPopup();
-        }
+    // Click outside to close popups
+    document.getElementById('emailPopup')?.addEventListener('click', function(e) {
+        if (e.target === this) closePopup();
     });
     
-    // Close popups with Escape key
+    document.getElementById('exitIntentPopup')?.addEventListener('click', function(e) {
+        if (e.target === this) closeExitPopup();
+    });
+    
+    // Escape key to close popups
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
-            if (document.getElementById('exitIntentPopup').classList.contains('show')) {
+            const exitPopup = document.getElementById('exitIntentPopup');
+            const mainPopup = document.getElementById('emailPopup');
+            
+            if (exitPopup && exitPopup.classList.contains('show')) {
                 closeExitPopup();
-            } else if (document.getElementById('emailPopup').classList.contains('show')) {
+            } else if (mainPopup && mainPopup.classList.contains('show')) {
                 closePopup();
             }
         }
     });
     
-    // Add click handlers to all CTA buttons - these can trigger multiple times
-    const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
-    ctaButtons.forEach(button => {
-        button.removeAttribute('onclick'); // Remove inline onclick
+    // Setup CTA buttons
+    const buttons = document.querySelectorAll('button[onclick*="openPopup"], .cta-button');
+    buttons.forEach(button => {
+        // Remove any existing onclick attributes
+        button.removeAttribute('onclick');
+        
+        // Add clean click handler
         button.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             openPopup();
         });
     });
 });
 
-// Prevent multiple submissions per form
-let mainFormSubmitted = false;
-let exitFormSubmitted = false;
+// Form submission prevention (simplified)
+let formSubmissions = new Set();
 
 document.addEventListener('submit', function(e) {
-    if (e.target.closest('#emailPopup') && mainFormSubmitted) {
-        e.preventDefault();
-        return false;
-    } else if (e.target.closest('#exitIntentPopup') && exitFormSubmitted) {
+    const form = e.target;
+    const formId = form.closest('#emailPopup') ? 'main' : 'exit';
+    
+    if (formSubmissions.has(formId)) {
         e.preventDefault();
         return false;
     }
     
-    if (e.target.closest('#emailPopup')) {
-        mainFormSubmitted = true;
-    } else if (e.target.closest('#exitIntentPopup')) {
-        exitFormSubmitted = true;
-    }
+    formSubmissions.add(formId);
 });
 
-// Visual feedback for form interactions
+// Input focus effects
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('.form-input');
     inputs.forEach(input => {
         input.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
+            this.style.transform = 'scale(1.02)';
         });
         
         input.addEventListener('blur', function() {
-            this.parentElement.classList.remove('focused');
+            this.style.transform = 'scale(1)';
         });
     });
 });

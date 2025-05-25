@@ -545,4 +545,165 @@
                             <span class="text-white font-bold text-xl">2</span>
                         </div>
                         <h4 class="font-bold text-xl mb-2">Read My Emails</h4>
-                        <p class="text-
+                        <p class="text-gray-300">Get vetted opportunities</p>
+
+                            <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-gold to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <span class="text-white font-bold text-xl">3</span>
+                        </div>
+                        <h4 class="font-bold text-xl mb-2">Take Action</h4>
+                        <p class="text-gray-300">Stack Bitcoin & build wealth</p>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="openPopup()" class="cta-button gradient-border bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:opacity-90 transition-all transform hover:scale-105 mb-6 shadow-2xl animate-glow">
+                💌 YES, Give Me Exclusive Access!
+            </button>
+            
+            <p class="text-gray-300 text-lg">
+                100% Free • No Spam • Trusted by Thousands ✅
+            </p>
+            
+            <div class="mt-8 text-center">
+                <p class="text-2xl font-bold bitcoin-accent">Let's Get This Crypto! ₿</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
+                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
+                    Building generational wealth through Bitcoin, Crypto, and AI opportunities. Join thousands of smart investors who trust our vetted insights. ₿
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Privacy Policy
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">•</span>
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Terms of Service
+                    </a>
+                    <span class="text-gray-600 hidden sm:inline">•</span>
+                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
+                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
+                        Disclaimer
+                    </a>
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-gray-700">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Popup functionality and tracking
+    let mainPopupShown = false;
+    let scrollTriggered = false;
+
+    // Open main popup function - can be triggered multiple times
+    function openPopup() {
+        document.getElementById('emailPopup').classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    // Close main popup function
+    function closePopup() {
+        document.getElementById('emailPopup').classList.remove('show');
+        document.body.style.overflow = 'auto';
+        mainPopupShown = true; // Mark as shown after closing
+    }
+
+    // Handle main form submission
+    function handleFormSubmit(event) {
+        setTimeout(function() {
+            if (window.location.href.indexOf('thankyou') === -1) {
+                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
+            }
+        }, 2000);
+    }
+
+    // Scroll tracking for popup trigger (only if main popup hasn't been shown)
+    function trackScroll() {
+        if (!mainPopupShown && !scrollTriggered) {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent >= 50) {
+                scrollTriggered = true;
+                setTimeout(openPopup, 1000);
+            }
+        }
+    }
+
+    // Initialize event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+        // Scroll trigger for main popup
+        window.addEventListener('scroll', trackScroll);
+        
+        // Close main popup when clicking outside
+        document.getElementById('emailPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+        
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                if (document.getElementById('emailPopup').classList.contains('show')) {
+                    closePopup();
+                }
+            }
+        });
+        
+        // Add click handlers to all CTA buttons - these can trigger multiple times
+        const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
+        ctaButtons.forEach(button => {
+            button.removeAttribute('onclick'); // Remove inline onclick
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                openPopup();
+            });
+        });
+    });
+
+    // Prevent multiple submissions per form
+    let mainFormSubmitted = false;
+    
+    document.addEventListener('submit', function(e) {
+        if (e.target.closest('#emailPopup') && mainFormSubmitted) {
+            e.preventDefault();
+            return false;
+        }
+        
+        if (e.target.closest('#emailPopup')) {
+            mainFormSubmitted = true;
+        }
+    });
+
+    // Visual feedback for form interactions
+    document.addEventListener('DOMContentLoaded', function() {
+        const inputs = document.querySelectorAll('.form-input');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.classList.add('focused');
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.classList.remove('focused');
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

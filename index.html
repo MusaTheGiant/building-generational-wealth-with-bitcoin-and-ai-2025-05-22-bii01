@@ -672,158 +672,172 @@
     </footer>
 
     <script>
-    // Popup functionality and tracking
-    let mainPopupShown = false;
-    let exitPopupShown = false;
-    let scrollTriggered = false;
-    let exitIntentTriggered = false;
-    let sessionExitIntentShown = false; // Track if exit intent was shown this session
+        // Popup functionality and tracking
+let mainPopupShown = false;
+let mainPopupInteracted = false; // Track if user has seen/interacted with main popup
+let exitPopupShown = false;
+let scrollTriggered = false;
+let exitIntentTriggered = false;
+let sessionExitIntentShown = false; // Track if exit intent was shown this session
 
-    // Open main popup function - can be triggered multiple times
-    function openPopup() {
-        document.getElementById('emailPopup').classList.add('show');
+// Open main popup function - can be triggered multiple times
+function openPopup() {
+    document.getElementById('emailPopup').classList.add('show');
+    document.body.style.overflow = 'hidden';
+    mainPopupInteracted = true; // Mark as interacted when opened
+}
+
+// Close main popup function
+function closePopup() {
+    document.getElementById('emailPopup').classList.remove('show');
+    document.body.style.overflow = 'auto';
+    mainPopupShown = true; // Mark as shown after closing
+}
+
+// Open exit intent popup function - only once per session
+function openExitPopup() {
+    if (!sessionExitIntentShown) {
+        document.getElementById('exitIntentPopup').classList.add('show');
         document.body.style.overflow = 'hidden';
+        sessionExitIntentShown = true;
     }
+}
 
-    // Close main popup function
-    function closePopup() {
-        document.getElementById('emailPopup').classList.remove('show');
-        document.body.style.overflow = 'auto';
-        mainPopupShown = true; // Mark as shown after closing
-    }
+// Close exit intent popup function
+function closeExitPopup() {
+    document.getElementById('exitIntentPopup').classList.remove('show');
+    document.body.style.overflow = 'auto';
+    exitPopupShown = true;
+}
 
-    // Open exit intent popup function - only once per session
-    function openExitPopup() {
-        if (!sessionExitIntentShown) {
-            document.getElementById('exitIntentPopup').classList.add('show');
-            document.body.style.overflow = 'hidden';
-            sessionExitIntentShown = true;
+// Handle main form submission
+function handleFormSubmit(event) {
+    setTimeout(function() {
+        if (window.location.href.indexOf('thankyou') === -1) {
+            window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
+        }
+    }, 2000);
+}
+
+// Handle exit form submission
+function handleExitFormSubmit(event) {
+    setTimeout(function() {
+        if (window.location.href.indexOf('thankyou') === -1) {
+            window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
+        }
+    }, 2000);
+}
+
+// Scroll tracking for popup trigger (only if main popup hasn't been shown)
+function trackScroll() {
+    if (!mainPopupShown && !scrollTriggered) {
+        const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        if (scrollPercent >= 50) {
+            scrollTriggered = true;
+            setTimeout(openPopup, 1000);
         }
     }
+}
 
-    // Close exit intent popup function
-    function closeExitPopup() {
-        document.getElementById('exitIntentPopup').classList.remove('show');
-        document.body.style.overflow = 'auto';
-        exitPopupShown = true;
-    }
-
-    // Handle main form submission
-    function handleFormSubmit(event) {
-        setTimeout(function() {
-            if (window.location.href.indexOf('thankyou') === -1) {
-                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
-            }
-        }, 2000);
-    }
-
-    // Handle exit form submission
-    function handleExitFormSubmit(event) {
-        setTimeout(function() {
-            if (window.location.href.indexOf('thankyou') === -1) {
-                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
-            }
-        }, 2000);
-    }
-
-    // Scroll tracking for popup trigger (only if main popup hasn't been shown)
-    function trackScroll() {
-        if (!mainPopupShown && !scrollTriggered) {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent >= 50) {
-                scrollTriggered = true;
-                setTimeout(openPopup, 1000);
-            }
-        }
-    }
-
-    // Exit intent detection - only show exit popup if main popup interaction is done
-    function trackExitIntent(e) {
-        if (!sessionExitIntentShown && mainPopupShown && e.clientY <= 0) {
-            exitIntentTriggered = true;
-            setTimeout(openExitPopup, 200); // Small delay to ensure mouse actually left
-        }
-    }
-
-    // Initialize event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-        // Scroll trigger for main popup
-        window.addEventListener('scroll', trackScroll);
+// Exit intent detection - improved logic
+function trackExitIntent(e) {
+    // Only trigger if:
+    // 1. Exit popup hasn't been shown this session
+    // 2. User has interacted with main popup (opened it at least once)
+    // 3. Mouse is leaving the top of the page
+    // 4. User is not currently in a popup
+    if (!sessionExitIntentShown && 
+        mainPopupInteracted && 
+        e.clientY <= 5 && 
+        e.relatedTarget === null &&
+        !document.getElementById('emailPopup').classList.contains('show')) {
         
-        // Exit intent trigger (desktop only) - for exit popup
-        if (window.innerWidth >= 768) {
-            document.addEventListener('mouseleave', trackExitIntent);
+        exitIntentTriggered = true;
+        setTimeout(openExitPopup, 300); // Slightly longer delay for better UX
+    }
+}
+
+// Initialize event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    // Scroll trigger for main popup
+    window.addEventListener('scroll', trackScroll, { passive: true });
+    
+    // Exit intent trigger (desktop only) - for exit popup
+    if (window.innerWidth >= 768) {
+        document.addEventListener('mouseout', trackExitIntent);
+        // Also listen for mouseleave on document for better detection
+        document.addEventListener('mouseleave', trackExitIntent);
+    }
+    
+    // Close main popup when clicking outside
+    document.getElementById('emailPopup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePopup();
         }
-        
-        // Close main popup when clicking outside
-        document.getElementById('emailPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
+    });
+
+    // Close exit popup when clicking outside
+    document.getElementById('exitIntentPopup').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeExitPopup();
+        }
+    });
+    
+    // Close popups with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            if (document.getElementById('exitIntentPopup').classList.contains('show')) {
+                closeExitPopup();
+            } else if (document.getElementById('emailPopup').classList.contains('show')) {
                 closePopup();
             }
-        });
-
-        // Close exit popup when clicking outside
-        document.getElementById('exitIntentPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeExitPopup();
-            }
-        });
-        
-        // Close popups with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (document.getElementById('exitIntentPopup').classList.contains('show')) {
-                    closeExitPopup();
-                } else if (document.getElementById('emailPopup').classList.contains('show')) {
-                    closePopup();
-                }
-            }
-        });
-        
-        // Add click handlers to all CTA buttons - these can trigger multiple times
-        const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
-        ctaButtons.forEach(button => {
-            button.removeAttribute('onclick'); // Remove inline onclick
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                openPopup();
-            });
-        });
+        }
     });
-
-    // Prevent multiple submissions per form
-    let mainFormSubmitted = false;
-    let exitFormSubmitted = false;
     
-    document.addEventListener('submit', function(e) {
-        if (e.target.closest('#emailPopup') && mainFormSubmitted) {
+    // Add click handlers to all CTA buttons - these can trigger multiple times
+    const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
+    ctaButtons.forEach(button => {
+        button.removeAttribute('onclick'); // Remove inline onclick
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            return false;
-        } else if (e.target.closest('#exitIntentPopup') && exitFormSubmitted) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.target.closest('#emailPopup')) {
-            mainFormSubmitted = true;
-        } else if (e.target.closest('#exitIntentPopup')) {
-            exitFormSubmitted = true;
-        }
-    });
-
-    // Visual feedback for form interactions
-    document.addEventListener('DOMContentLoaded', function() {
-        const inputs = document.querySelectorAll('.form-input');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.classList.add('focused');
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.classList.remove('focused');
-            });
+            openPopup();
         });
     });
+});
+
+// Prevent multiple submissions per form
+let mainFormSubmitted = false;
+let exitFormSubmitted = false;
+
+document.addEventListener('submit', function(e) {
+    if (e.target.closest('#emailPopup') && mainFormSubmitted) {
+        e.preventDefault();
+        return false;
+    } else if (e.target.closest('#exitIntentPopup') && exitFormSubmitted) {
+        e.preventDefault();
+        return false;
+    }
+    
+    if (e.target.closest('#emailPopup')) {
+        mainFormSubmitted = true;
+    } else if (e.target.closest('#exitIntentPopup')) {
+        exitFormSubmitted = true;
+    }
+});
+
+// Visual feedback for form interactions
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('.form-input');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+        
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+    });
+});
 </script>
 
 </body>

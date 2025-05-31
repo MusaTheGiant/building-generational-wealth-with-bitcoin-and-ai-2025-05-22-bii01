@@ -215,6 +215,7 @@
             font-size: 16px;
             transition: all 0.3s ease;
             background: white;
+            box-sizing: border-box;
         }
         
         .form-input:focus {
@@ -270,6 +271,11 @@
             font-weight: bold;
             font-size: 18px;
             margin-top: 2px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
         }
 
         @keyframes pulse-slow {
@@ -439,6 +445,8 @@
             text-align: center;
             width: auto;
             font-family: 'Inter', sans-serif;
+            box-sizing: border-box;
+            margin: 0 auto;
         }
 
         .bitcoin-cta-button:hover,
@@ -452,11 +460,22 @@
             color: #ffffff !important;
         }
 
+        /* Button Container for Centering */
+        .button-container,
+        .cta-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 20px 0;
+        }
+
         /* For full-width buttons like forms */
         .bitcoin-cta-button.full-width,
         .form-submit.full-width {
             width: 100%;
             display: block;
+            margin: 20px auto;
         }
 
         /* Smaller button variant */
@@ -469,6 +488,40 @@
         .bitcoin-cta-button.large {
             font-size: 20px;
             padding: 22px 50px;
+        }
+
+        /* Form-specific button centering */
+        .popup-form .bitcoin-cta-button,
+        .popup-form .form-submit,
+        .popup-form .cta-button {
+            display: block;
+            margin: 20px auto 0 auto;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        /* Hero section button centering */
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .hero-buttons .bitcoin-cta-button {
+            min-width: 250px;
+        }
+
+        /* Section button centering */
+        .section-cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .section-cta .bitcoin-cta-button {
+            display: inline-block;
+            margin: 0 auto;
         }
 
         @media (max-width: 768px) {
@@ -503,12 +556,27 @@
                 font-size: 16px;
                 padding: 16px 35px;
             }
+
+            .hero-buttons {
+                gap: 12px;
+            }
+
+            .hero-buttons .bitcoin-cta-button {
+                min-width: 200px;
+            }
+
+            .popup-form .bitcoin-cta-button,
+            .popup-form .form-submit,
+            .popup-form .cta-button {
+                max-width: 280px;
+            }
         }
         
         @media (max-width: 640px) {
             .popup-form {
                 padding: 30px 20px;
             }
+            
             .popup-content {
                 margin: 10px;
                 border-radius: 15px;
@@ -522,9 +590,48 @@
                 font-size: 15px;
                 padding: 14px 30px;
             }
+
+            .hero-buttons .bitcoin-cta-button {
+                min-width: 180px;
+            }
+
+            .popup-form .bitcoin-cta-button,
+            .popup-form .form-submit,
+            .popup-form .cta-button {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .trust-badges {
+                gap: 15px;
+            }
+
+            .trust-badge {
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .bitcoin-cta-button,
+            .form-submit,
+            .cta-button,
+            .main-cta,
+            .primary-button {
+                font-size: 14px;
+                padding: 12px 25px;
+                letter-spacing: 0.5px;
+            }
+
+            .hero-buttons .bitcoin-cta-button {
+                min-width: 160px;
+            }
+
+            .popup-form {
+                padding: 25px 15px;
+            }
         }
     </style>
-        
+            
 </head>
 <body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
 

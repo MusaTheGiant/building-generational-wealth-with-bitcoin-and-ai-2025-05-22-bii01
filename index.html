@@ -466,6 +466,33 @@
             margin-right: 0.75rem;
             background: none;
             -webkit-text-fill-color: #10b981;
+
+            <--- new cta button style date: 31 may 2025 --->
+
+            .bitcoin-cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #f7931a 0%, #ff8c00 100%);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 40px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 8px 25px rgba(247, 147, 26, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bitcoin-cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(247, 147, 26, 0.4);
+    background: linear-gradient(135deg, #ff8c00 0%, #f7931a 100%);
+}
         }
     </style>
     
@@ -763,9 +790,11 @@
 
             <!-- Strong CTA Button -->
             <div class="text-center mt-12">
-                <a href="https://client.bitharvest.io//register/REALMTG" class="cta-button" target="_blank">
-                    <strong>🚀 Start Mining Bitcoin Now - Get Instant Access!</strong>
-                </a>
+                <a href="https://client.bitharvest.io//register/REALMTG" 
+   class="bitcoin-cta-button" 
+   target="_blank">
+    🚀 Start Building Bitcoin Wealth Now!
+</a>
                 <p class="text-gray-400 text-sm mt-4">
                     Join thousands already earning passive Bitcoin income
                 </p>

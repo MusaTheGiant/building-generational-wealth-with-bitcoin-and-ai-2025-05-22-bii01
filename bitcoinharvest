@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! Your Bitcoin Journey Starts Now</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .bitcoin-accent {
+            background: linear-gradient(135deg, #F7931A 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .success-hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #0f172a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .success-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 30%, rgba(247, 147, 26, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .particle {
+            position: absolute;
+            background: linear-gradient(135deg, #F7931A, #FFD700);
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particle:nth-child(1) {
+            width: 8px;
+            height: 8px;
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .particle:nth-child(2) {
+            width: 12px;
+            height: 12px;
+            top: 60%;
+            left: 85%;
+            animation-delay: 1.5s;
+        }
+
+        .particle:nth-child(3) {
+            width: 6px;
+            height: 6px;
+            top: 40%;
+            left: 10%;
+            animation-delay: 3s;
+        }
+
+        .particle:nth-child(4) {
+            width: 10px;
+            height: 10px;
+            top: 80%;
+            left: 70%;
+            animation-delay: 4.5s;
+        }
+
+        .particle:nth-child(5) {
+            width: 14px;
+            height: 14px;
+            top: 15%;
+            left: 80%;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .success-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            color: white;
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); }
+            50% { transform: scale(1.05); box-shadow: 0 15px 40px rgba(16, 185, 129, 0.5); }
+        }
+
+        .main-headline {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .sub-headline {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: #e2e8f0;
+            margin-bottom: 3rem;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .success-content {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 2rem;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-text {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            color: #f1f5f9;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.2), rgba(255, 215, 0, 0.2));
+            border: 2px solid rgba(247, 147, 26, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .urgency-text {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+
+        .email-info {
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .email-address {
+            color: #F7931A;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #F7931A 0%, #FFD700 100%);
+            color: #000;
+            padding: 1.5rem 3rem;
+            border-radius: 1rem;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 35px rgba(247, 147, 26, 0.4);
+            border: 3px solid transparent;
+            background-clip: padding-box;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 45px rgba(247, 147, 26, 0.6);
+            filter: brightness(1.1);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #F7931A;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .checkmark {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            animation: checkmark-pop 0.6s ease-out;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+        }
+
+        @keyframes checkmark-pop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .checkmark::after {
+            content: '✓';
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .success-container {
+                padding: 1rem;
+            }
+            
+            .success-content {
+                padding: 2rem;
+            }
+            
+            .main-headline {
+                font-size: 2.5rem;
+            }
+            
+            .cta-button {
+                padding: 1.2rem 2rem;
+                font-size: 1.1rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+    </style>
+</head>
+<body>
+    <section class="success-hero">
+        <div class="floating-particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <div class="success-container">
+            <div class="checkmark"></div>
+            
+            <div class="success-badge">
+                🎉 CONGRATULATIONS! YOU'RE IN! 🎉
+            </div>
+            
+            <h1 class="main-headline">
+                Welcome to Your <span class="bitcoin-accent">Bitcoin Mining</span> Future!
+            </h1>
+            
+            <p class="sub-headline">
+                You've just made the smartest financial decision of 2025. Get ready to watch your Bitcoin stack grow daily!
+            </p>
+            
+            <div class="success-content">
+                <p class="content-text">
+                    <strong>Congratulations!</strong> You've just taken control of your financial future by choosing to join the award-winning Bitcoin mining platform that's already transforming thousands of lives worldwide.
+                </p>
+                
+                <p class="content-text">
+                    You saw the <strong>real proof</strong> – the actual withdrawals, the global recognition at CryptoExpo Dubai 2025, and the transparent on-chain mining rewards. Now you're about to experience it firsthand as you start accumulating Bitcoin <strong>passively every single day</strong>.
+                </p>
+                
+                <div class="highlight-box">
+                    <p class="urgency-text">⏰ Your Success Package is Being Prepared Right Now!</p>
+                    <p class="content-text">
+                        <strong>Within the next 3 minutes</strong>, you'll receive a comprehensive email from Musa a.k.a MTG containing:
+                    </p>
+                    <ul style="text-align: left; margin: 1rem 0; padding-left: 2rem;">
+                        <li>Step-by-step video tutorials to get you started</li>
+                        <li>Direct access links to your mining dashboard</li>
+                        <li>Exclusive insider tips for maximizing your Bitcoin earnings</li>
+                        <li>24/7 support channel access</li>
+                    </ul>
+                </div>
+                
+                <div class="email-info">
+                    <p class="content-text">
+                        <strong>📧 Check your email from:</strong><br>
+                        <span class="email-address">hustlewithmtg@gmail.com</span>
+                    </p>
+                    <p style="color: #fbbf24; font-weight: bold; margin-top: 1rem;">
+                        ⚠️ IMPORTANT: Check your Spam, Promotions, or Junk folders and whitelist this email address to ensure you receive all updates!
+                    </p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Passive Mining</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Active Miners</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">🏆</div>
+                        <div class="stat-label">Award Winner</div>
+                    </div>
+                </div>
+                
+                <p class="content-text" style="font-size: 1.4rem; color: #fbbf24; font-weight: bold;">
+                    🚀 While thousands are already earning daily, you're about to join the elite circle of Bitcoin miners who understand the power of passive income!
+                </p>
+                
+                <a href="https://client.bitharvest.io//register/REALMTG" 
+                   class="cta-button" 
+                   target="_blank"
+                   onclick="gtag('event', 'click', {'event_category': 'CTA', 'event_label': 'Thank You Page CTA'});">
+                    🚀 Yes! Let's Get Started Now
+                </a>
+                
+                <p style="color: #94a3b8; font-size: 0.95rem; margin-top: 1rem;">
+                    ↑ Click above to create your account and join the global Bitcoin Mining community
+                </p>
+            </div>
+            
+            <div class="footer-note">
+                <p><strong>This is your moment.</strong> You're not just registering – you're stepping into a future of Bitcoin wealth and financial transformation. The proof is real, the opportunity is here, and your journey to passive Bitcoin income starts right now.</p>
+                <br>
+                <p><em>Welcome to the future. Welcome to financial freedom. Welcome to your Bitcoin mining empire.</em> ₿</p>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <span style="font-size: 2rem;">₿</span>
+        </div>
+    </section>
+
+    <script>
+        // Add some dynamic effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all stat items
+            document.querySelectorAll('.stat-item').forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'all 0.6s ease';
+                observer.observe(item);
+            });
+
+            // Add click tracking
+            document.querySelector('.cta-button').addEventListener('click', function() {
+                console.log('CTA clicked - redirecting to BitHarvest registration');
+            });
+
+            // Add some particle movement
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                setInterval(() => {
+                    const randomX = Math.random() * 20 - 10;
+                    const randomY = Math.random() * 20 - 10;
+                    particle.style.transform = `translate(${randomX}px, ${randomY}px)`;
+                }, 3000 + index * 500);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -631,8 +631,241 @@
             }
         }
     </style>
-            
+
+    <!-- BITHARVEST LEAD CAPTURE FORM CCS STYLE -->
+    <style>
+        /* Modal-specific styles - Won't affect existing buttons */
+        .modal-trigger-btn {
+            /* Inherits your existing bitcoin-cta-button styles */
+        }
+
+        .modal-trust-text {
+            color: #d1d5db;
+            font-size: 14px;
+            text-align: center;
+            margin-top: 8px;
+        }
+
+        .modal-trust-text span {
+            margin: 0 8px;
+            white-space: nowrap;
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            animation: slideUp 0.3s ease;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: #d1d5db;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: #f59e0b;
+        }
+
+        /* Form Header */
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-headline {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-family: serif;
+        }
+
+        .form-subheadline {
+            color: #d1d5db;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        /* Form Styling */
+        .lead-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            color: #f3f4f6;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .form-input {
+            padding: 16px 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+        }
+
+        .form-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background: linear-gradient(135deg, #f59e0b, #d97706, #ea580c);
+            color: white;
+            padding: 18px 30px;
+            border: none;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+        }
+
+        /* Form Trust Text */
+        .form-trust {
+            text-align: center;
+            margin-top: 20px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        .form-trust span {
+            margin: 0 6px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 30px 25px;
+                margin: 20px;
+            }
+
+            .form-headline {
+                font-size: 28px;
+            }
+
+            .form-subheadline {
+                font-size: 16px;
+            }
+
+            .modal-trigger-btn {
+                padding: 16px 30px;
+                font-size: 16px;
+            }
+
+            .modal-trust-text {
+                font-size: 12px;
+            }
+
+            .modal-trust-text span {
+                display: block;
+                margin: 2px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                padding: 25px 20px;
+            }
+
+            .form-headline {
+                font-size: 24px;
+            }
+
+            .form-input {
+                padding: 14px 16px;
+                font-size: 16px;
+            }
+        }
+    </style>
+           
 </head>
+    
 <body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
 
     <!-- Popup Modal -->
@@ -926,11 +1159,9 @@
 
             <!-- Strong CTA Button -->
             <div class="text-center mt-12">
-                <a href="https://client.bitharvest.io//register/REALMTG" 
-   class="bitcoin-cta-button" 
-   target="_blank">
+                <button class="bitcoin-cta-button modal-trigger-btn" id="openModalBtn">
     🚀 Start Building Bitcoin Wealth Now!
-</a>
+</button>
                 <p class="text-gray-400 text-sm mt-4">
                     Join thousands already earning passive Bitcoin income daily ₿
                 </p>
@@ -1283,6 +1514,159 @@
 </script>
 
 <script src="https://cdn.tailwindcss.com"></script>
+
+<!-- THIS IS THE BITHARVEST MODAL CODE -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal-content">
+        <!-- Close Button -->
+        <button class="close-btn" id="closeBtn">&times;</button>
+        
+        <!-- Form Header -->
+        <div class="form-header">
+            <h2 class="form-headline">Almost There...</h2>
+            <p class="form-subheadline">Just Enter Your Name & Best Email Below 👇</p>
+        </div>
+
+        <!-- Lead Capture Form -->
+        <form method="POST" action="https://gogvo.com/subscribe.php" class="lead-form">
+            <!-- Hidden Fields -->
+            <input type="hidden" name="AffiliateName" value="realmtgNLS">
+            <input type="hidden" name="CampaignCode" value="Z8IhKOblCq9c">
+            <input type="hidden" name="TrackParam" value="new_form">
+            <input type="hidden" name="FormId" value="24983767">
+            
+            <!-- First Name Field -->
+            <div class="form-group">
+                <label for="FirstName" class="form-label">First Name:</label>
+                <input 
+                    type="text" 
+                    name="FirstName" 
+                    id="FirstName"
+                    class="form-input"
+                    placeholder="Enter your first name"
+                    required
+                >
+            </div>
+
+            <!-- Email Field -->
+            <div class="form-group">
+                <label for="Email" class="form-label">Best Email Address:</label>
+                <input 
+                    type="email" 
+                    name="Email" 
+                    id="Email"
+                    class="form-input"
+                    placeholder="Enter your best email address"
+                    required
+                >
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">
+                Yes! Let Me Stack Bitcoin Now! 🚀
+            </button>
+
+            <!-- Trust Text -->
+            <div class="form-trust">
+                <span>✓ 100% Free</span>
+                <span>✓ No Spam</span>
+                <span>✓ Trusted by Thousands</span>
+            </div>
+
+            <!-- Tracking Image -->
+            <img src="https://gogvo.com/show_form.php?id=24983767&TrackParam=new_form" width="1" height="1" style="display: none;">
+        </form>
+    </div>
+</div>
+
+<!-- THE BITHARVEST JAVASCRIPT ADDED BELOW -->
+<script>
+    // Get modal elements
+    const modal = document.getElementById('modalOverlay');
+    const openBtn = document.getElementById('openModalBtn');
+    const closeBtn = document.getElementById('closeBtn');
+
+    // Open modal
+    openBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Close modal
+    closeBtn.addEventListener('click', function() {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Form validation and enhancement
+    const form = document.querySelector('.lead-form');
+    const firstNameInput = document.getElementById('FirstName');
+    const emailInput = document.getElementById('Email');
+
+    // Auto-focus first field when modal opens
+    openBtn.addEventListener('click', function() {
+        setTimeout(() => {
+            firstNameInput.focus();
+        }, 300);
+    });
+
+    // Move to email field when Enter is pressed in first name
+    firstNameInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            emailInput.focus();
+        }
+    });
+
+    // Form submission handling
+    form.addEventListener('submit', function(e) {
+        // Basic validation
+        if (!firstNameInput.value.trim()) {
+            e.preventDefault();
+            alert('Please enter your first name');
+            firstNameInput.focus();
+            return;
+        }
+
+        if (!emailInput.value.trim()) {
+            e.preventDefault();
+            alert('Please enter your email address');
+            emailInput.focus();
+            return;
+        }
+
+        // Email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+            e.preventDefault();
+            alert('Please enter a valid email address');
+            emailInput.focus();
+            return;
+        }
+
+        // If validation passes, show loading state
+        const submitBtn = form.querySelector('.submit-btn');
+        submitBtn.textContent = 'Processing... 🚀';
+        submitBtn.disabled = true;
+    });
+</script>
     
 </body>
 </html>

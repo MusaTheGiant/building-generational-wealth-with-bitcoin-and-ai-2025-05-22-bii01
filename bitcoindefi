@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turn $100 into $35,760 in 36 Months | Bitcoin AI Wealth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="a" cx="50%" cy="50%"><stop offset="0%" stop-color="rgba(255,255,255,0.1)"/><stop offset="100%" stop-color="rgba(255,255,255,0)"/></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23a)"/><circle cx="800" cy="300" r="150" fill="url(%23a)"/><circle cx="300" cy="700" r="120" fill="url(%23a)"/></svg>') no-repeat;
+            opacity: 0.1;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .hero-container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        .urgency-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .hero-headline {
+            font-size: 3.2em;
+            font-weight: 900;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subheadline {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .bullet-points {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 40px 0;
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #ff9a56, #ff6b6b);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.4em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 30px 0 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        .reassurance-text {
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .social-proof {
+            background: rgba(46, 204, 113, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-left: 4px solid #2ecc71;
+            font-style: italic;
+            color: #2c3e50;
+        }
+
+        .reality-check {
+            background: rgba(52, 152, 219, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: modalSlideIn 0.5s ease-out;
+            overflow: hidden;
+        }
+
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(-50px) scale(0.8); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .modal-header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .modal-header h2 {
+            color: #2c3e50;
+            font-size: 2em;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .modal-header p {
+            color: #555;
+            font-size: 1.1em;
+        }
+
+        .modal-form {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .modal-form table {
+            width: 100%;
+        }
+
+        .modal-form label {
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 1.1em;
+        }
+
+        .modal-form input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 1.1em;
+            margin-top: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal-form input[type="text"]:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .modal-form input[type="submit"] {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
+        }
+
+        .modal-form input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(46, 204, 113, 0.6);
+        }
+
+        .modal-reassurance {
+            text-align: center;
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        .modal-footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close:hover {
+            color: #000;
+            background: rgba(255, 255, 255, 1);
+        }
+
+        /* Footer */
+        .legal-footer {
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .legal-footer h3 {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .legal-links a:hover {
+            color: #2ecc71;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-container {
+                padding: 40px 20px;
+                margin: 20px;
+            }
+
+            .hero-headline {
+                font-size: 2.2em;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1em;
+            }
+
+            .cta-button {
+                padding: 18px 35px;
+                font-size: 1.2em;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+            }
+
+            .legal-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 1.8em;
+            }
+
+            .cta-button {
+                padding: 15px 25px;
+                font-size: 1.1em;
+            }
+
+            .bullet-points {
+                padding: 20px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="urgency-badge">🔥 The 3 Year Contract is Almost Sold Out!</div>
+            
+            <h1 class="hero-headline">Ready to turn $100 to $35,760 in 36 months?</h1>
+            
+            <p class="hero-subheadline">If yes, or to learn more, click the button below to get instant access to the exclusive, password protected presentation and useful video tutorials.</p>
+            
+            <div class="bullet-points">
+                <strong>HINT: ❌ No Selling, ❌ No Recruiting, ❌ No MLM, & ❌ No Ponzi</strong>
+            </div>
+
+            <div class="social-proof">
+                💡 <strong>Over half a million members can't be wrong? 🤔</strong><br>
+                Join the community that's already transforming their financial future.
+            </div>
+
+            <div class="reality-check">
+                ⏰ <strong>Reality Check:</strong> You'll be 3 years older either way... why not take a shot?<br>
+                <em>Every day you wait delays your reward.</em>
+            </div>
+
+            <p style="color: #e74c3c; font-weight: bold; margin: 20px 0;">
+                💰 <strong>The risk is only $100... the potential reward? $35,760.</strong>
+            </p>
+            
+            <button class="cta-button" id="mainCTA">Yes, Show Me How it Works!</button>
+            
+            <div class="reassurance-text">
+                ✔️ No Selling ✔️ No Trading ✔️ No Stress
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2>Almost There...</h2>
+                <p>Just Enter Your Best Email Below 👇</p>
+            </div>
+            <div class="modal-form">
+                <form method="POST" action="https://gogvo.com/subscribe.php">
+                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                    <input type="hidden" name="CampaignCode" value="SZn4KQLfUqpm">
+                    <input type="hidden" name="TrackParam" value="new_form">
+                    <input type="hidden" name="FormId" value="24987562">
+                    <table align="center" style="width: 100%;">
+                        <tr>
+                            <td style="padding-bottom: 20px;">
+                                <label for="email">Best Email:</label>
+                                <input type="text" name="Email" required style="width: 100%; margin-top: 10px;" placeholder="Enter your email address">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center">
+                                <input type="submit" value="Get Instant Access 👈!">
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="modal-reassurance">
+                        ✔️ No Spam ✔️ Zero Tech Skills ✔️ Trusted by thousands!
+                    </div>
+                    <img src="https://gogvo.com/show_form.php?id=24987562&TrackParam=new_form" style="display: none;">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <strong>NB:</strong> The presentation password will be sent to the provided email.
+            </div>
+        </div>
+    </div>
+
+    <!-- Legal Footer -->
+    <footer class="legal-footer">
+        <h3>Legal</h3>
+        <div class="legal-links">
+            <a href="https://bitcoinaiwealth.com//privacy.html" target="_blank">Privacy Policy</a>
+            <a href="https://bitcoinaiwealth.com//terms.html" target="_blank">Terms of Service</a>
+            <a href="https://bitcoinaiwealth.com//disclaimer.html" target="_blank">Disclaimer</a>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('leadModal');
+        const btn = document.getElementById('mainCTA');
+        const span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function() {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        span.onclick = function() {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Add some interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling animation for elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Add hover effects to bullet points
+            const bulletPoints = document.querySelector('.bullet-points');
+            bulletPoints.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+            
+            bulletPoints.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

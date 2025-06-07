@@ -631,6 +631,98 @@
                 padding: 25px 15px;
             }
         }
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    touch-action: pan-y;
+}
+
+.carousel-card {
+    flex: 0 0 100%;
+    margin-right: 0;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.carousel-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-nav.prev {
+    left: -20px;
+}
+
+.carousel-nav.next {
+    right: -20px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 24px;
+}
+
+.indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: #f7931a;
+    transform: scale(1.2);
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .carousel-card {
+        max-width: 280px;
+    }
+    
+    .carousel-nav {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .carousel-nav.prev {
+        left: 10px;
+    }
+    
+    .carousel-nav.next {
+        right: 10px;
+    }
+}
+        
     </style>
 
     <!-- BITHARVEST LEAD CAPTURE FORM CCS STYLE -->
@@ -949,81 +1041,97 @@
         </div>
     </section>
 
-    <!-- Market Insights Section -->
+    <!-- Market Insights - Bitcoin Price prediction Section -->
+    
     <section id="insights" class="py-24 bg-gradient-to-br from-deep-blue to-slate-blue text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-shadow">
-                    Bitcoin Price <span class="bitcoin-accent">Predictions</span>
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                    Here's what leading industry experts are saying about Bitcoin's future, and why we must accumulate like crazy!
-                </p>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-shadow">
+                Bitcoin Price <span class="bitcoin-accent">Predictions</span>
+            </h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                Here's what leading industry experts are saying about Bitcoin's future, and why we must accumulate like crazy!
+            </p>
+        </div>
+
+        <!-- Carousel Container -->
+        <div class="relative mb-16">
+            <div class="carousel-container" id="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    
+                    <!-- Michael Saylor Card -->
+                    <div class="carousel-card glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold bitcoin-accent mb-3">$13M</div>
+                            <h4 class="font-bold text-lg mb-3 text-white">Michael Saylor</h4>
+                            <p class="text-gray-300 leading-relaxed text-sm">Predicts Bitcoin reaching $13 million by 2045 (29% average return per year)</p>
+                        </div>
+                    </div>
+
+                    <!-- CZ Card -->
+                    <div class="carousel-card glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold bitcoin-accent mb-3">$1M</div>
+                            <h4 class="font-bold text-lg mb-3 text-white">CZ (Binance)</h4>
+                            <p class="text-gray-300 leading-relaxed text-sm">Sees $500K-$1M this cycle due to ETF adoption and institutional buying</p>
+                        </div>
+                    </div>
+
+                    <!-- Cathie Wood Card -->
+                    <div class="carousel-card glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.4M</div>
+                            <h4 class="font-bold text-lg mb-3 text-white">Cathie Wood</h4>
+                            <p class="text-gray-300 leading-relaxed text-sm">Bull case scenario reaching $2.4M by 2030</p>
+                        </div>
+                    </div>
+
+                    <!-- Chamath Palihapitiya Card -->
+                    <div class="carousel-card glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold bitcoin-accent mb-3">$240K</div>
+                            <h4 class="font-bold text-lg mb-3 text-white">Chamath Palihapitiya</h4>
+                            <p class="text-gray-300 leading-relaxed text-sm">Foresees Bitcoin reaching $240,000 based on technical patterns and Fibonacci levels</p>
+                        </div>
+                    </div>
+
+                    <!-- Max Keiser Card -->
+                    <div class="carousel-card glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.2M</div>
+                            <h4 class="font-bold text-lg mb-3 text-white">Max Keiser</h4>
+                            <p class="text-gray-300 leading-relaxed text-sm">Projects Bitcoin could reach $2.2 million long-term if countries accumulate BTC as reserve asset</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
+            <!-- Navigation Arrows -->
+            <button class="carousel-nav prev" id="prevBtn" onclick="previousCard()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <button class="carousel-nav next" id="nextBtn" onclick="nextCard()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
 
-<!-- Updated Grid Container (replace your existing grid div with this) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
+            <!-- Indicators -->
+            <div class="carousel-indicators" id="indicators"></div>
+        </div>
+
+        <div class="bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light p-10 rounded-3xl text-black text-center shadow-2xl">
+            <h3 class="text-3xl font-bold mb-6">The $1 Million Bitcoin Window</h3>
+            <p class="text-xl leading-relaxed max-w-4xl mx-auto">
+                If these predictions are anywhere near correct, imagine what we could earn from the Bitcoin we stack right now. That's why I'm on a mission to help as many people as possible get in while BTC is still under $1 million.
+            </p>
+        </div>
+    </div>
+</section>
     
-    <!-- Existing Michael Saylor Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$13M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Michael Saylor</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Predicts Bitcoin reaching $13 million by 2045 (29% average return per year)</p>
-        </div>
-    </div>
-
-    <!-- Existing CZ Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$1M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">CZ (Binance)</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Sees $500K-$1M this cycle due to ETF adoption and institutional buying</p>
-        </div>
-    </div>
-
-    <!-- Existing Cathie Wood Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.4M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Cathie Wood</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Bull case scenario reaching $2.4M by 2030</p>
-        </div>
-    </div>
-
-    <!-- NEW: Chamath Palihapitiya Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$240K</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Chamath Palihapitiya</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Foresees Bitcoin reaching $240,000 based on technical patterns and Fibonacci levels</p>
-        </div>
-    </div>
-
-    <!-- NEW: Max Keiser Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.2M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Max Keiser</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Projects Bitcoin could reach $2.2 million long-term if countries accumulate BTC as reserve asset</p>
-        </div>
-    </div>
-    
-</div>
-<!-- End of Grid Container -->
-            
-</div>
-
-            <div class="bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light p-10 rounded-3xl text-black text-center shadow-2xl">
-                <h3 class="text-3xl font-bold mb-6">The $1 Million Bitcoin Window</h3>
-                <p class="text-xl leading-relaxed max-w-4xl mx-auto">
-                    If these predictions are anywhere near correct, imagine what we could earn from the Bitcoin we stack right now. That's why I'm on a mission to help as many people as possible get in while BTC is still under $1 million.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- Proof of Withdrawals Section -->
 
     <section class="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden">
@@ -1668,6 +1776,137 @@
         submitBtn.textContent = 'Processing... 🚀';
         submitBtn.disabled = true;
     });
+</script>
+
+    < --- Bitcoin Carousal one card at a time script - >
+
+    <script>
+class BitcoinCarousel {
+    constructor() {
+        this.track = document.getElementById('carouselTrack');
+        this.carousel = document.getElementById('carousel');
+        this.indicators = document.getElementById('indicators');
+        this.cards = document.querySelectorAll('.carousel-card');
+        this.currentIndex = 0;
+        this.cardWidth = this.carousel.offsetWidth;
+        this.visibleCards = 1;
+        this.maxIndex = Math.max(0, this.cards.length - 1);
+        
+        this.init();
+        this.setupEventListeners();
+    }
+    
+    init() {
+        this.createIndicators();
+        this.updateIndicators();
+        this.updateNavigation();
+    }
+    
+    getVisibleCards() {
+        return 1; // Always show only one card
+    }
+    
+    createIndicators() {
+        this.indicators.innerHTML = '';
+        const indicatorCount = this.cards.length;
+        
+        for (let i = 0; i < indicatorCount; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = 'indicator';
+            indicator.addEventListener('click', () => this.goToSlide(i));
+            this.indicators.appendChild(indicator);
+        }
+    }
+    
+    updateIndicators() {
+        const indicators = this.indicators.querySelectorAll('.indicator');
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentIndex);
+        });
+    }
+    
+    updateNavigation() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        if (prevBtn) prevBtn.style.opacity = this.currentIndex === 0 ? '0.5' : '1';
+        if (nextBtn) nextBtn.style.opacity = this.currentIndex >= this.cards.length - 1 ? '0.5' : '1';
+    }
+    
+    goToSlide(index) {
+        this.currentIndex = Math.max(0, Math.min(index, this.cards.length - 1));
+        const translateX = -this.currentIndex * this.cardWidth;
+        this.track.style.transform = `translateX(${translateX}px)`;
+        this.updateIndicators();
+        this.updateNavigation();
+    }
+    
+    next() {
+        if (this.currentIndex < this.cards.length - 1) {
+            this.goToSlide(this.currentIndex + 1);
+        }
+    }
+    
+    previous() {
+        if (this.currentIndex > 0) {
+            this.goToSlide(this.currentIndex - 1);
+        }
+    }
+    
+    setupEventListeners() {
+        // Touch/swipe support
+        let startX = 0;
+        let isDragging = false;
+        
+        this.carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+        
+        this.carousel.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+        
+        this.carousel.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.next();
+                } else {
+                    this.previous();
+                }
+            }
+        });
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+            this.cardWidth = this.carousel.offsetWidth;
+            this.goToSlide(this.currentIndex);
+        });
+    }
+}
+
+function nextCard() {
+    if (window.bitcoinCarousel) {
+        window.bitcoinCarousel.next();
+    }
+}
+
+function previousCard() {
+    if (window.bitcoinCarousel) {
+        window.bitcoinCarousel.previous();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    window.bitcoinCarousel = new BitcoinCarousel();
+});
 </script>
     
 </body>

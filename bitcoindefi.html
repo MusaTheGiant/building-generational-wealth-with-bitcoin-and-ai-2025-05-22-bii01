@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turn $100 into $35,760 in 36 Months | Bitcoin Staking</title>
-    <link rel="icon" href="favicon.png" type="image/png">
+    <title>Turn $100 into $35,760 in 36 Months | Bitcoin AI Wealth</title>
     <style>
         * {
             margin: 0;
@@ -94,13 +93,28 @@
         .hero-headline {
             font-size: 3.2em;
             font-weight: 900;
-            color: #2c3e50;
+            color: #1a1a1a;
             margin-bottom: 20px;
             line-height: 1.2;
-            background: linear-gradient(135deg, #2c3e50, #3498db);
+            background: linear-gradient(135deg, #1a1a1a 0%, #FFD700 50%, #FFA500 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .hero-headline::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700, #FFA500);
+            border-radius: 2px;
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
         }
 
         .hero-subheadline {
@@ -111,14 +125,15 @@
         }
 
         .bullet-points {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             padding: 25px;
             border-radius: 20px;
             margin: 40px 0;
-            color: white;
+            color: #f8f9fa;
             font-weight: bold;
-            font-size: 1.1em;
-            box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+            font-size: 1.2em;
+            box-shadow: 0 10px 30px rgba(44, 62, 80, 0.4);
+            border: 2px solid #ecf0f1;
         }
 
         .cta-button {
@@ -201,14 +216,16 @@
 
         .modal-content {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 5% auto;
+            margin: 2% auto;
             padding: 0;
             border-radius: 20px;
-            width: 90%;
+            width: 95%;
             max-width: 500px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
             animation: modalSlideIn 0.5s ease-out;
             overflow: hidden;
+            max-height: 95vh;
+            overflow-y: auto;
         }
 
         @keyframes modalSlideIn {
@@ -224,28 +241,35 @@
 
         .modal-header {
             background: rgba(255, 255, 255, 0.95);
-            padding: 30px;
+            padding: 25px 20px 15px 20px;
             text-align: center;
         }
 
         .modal-header h2 {
             color: #2c3e50;
-            font-size: 2em;
-            margin-bottom: 10px;
+            font-size: 1.8em;
+            margin-bottom: 8px;
             font-weight: bold;
         }
 
         .modal-header p {
             color: #555;
             font-size: 1.1em;
+            margin-bottom: 0;
         }
 
         .modal-form {
-            padding: 30px;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.95);
         }
 
         .modal-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .modal-form td {
+            padding: 5px 0;
             width: 100%;
         }
 
@@ -253,6 +277,8 @@
             font-weight: bold;
             color: #2c3e50;
             font-size: 1.1em;
+            display: block;
+            margin-bottom: 8px;
         }
 
         .modal-form input[type="text"] {
@@ -261,8 +287,9 @@
             border: 2px solid #ddd;
             border-radius: 10px;
             font-size: 1.1em;
-            margin-top: 10px;
             transition: border-color 0.3s ease;
+            box-sizing: border-box;
+            display: block;
         }
 
         .modal-form input[type="text"]:focus {
@@ -275,17 +302,19 @@
             background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
             border: none;
-            padding: 18px 40px;
-            font-size: 1.3em;
+            padding: 16px 30px;
+            font-size: 1.2em;
             font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
-            margin-top: 20px;
+            margin-top: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 10px 25px rgba(46, 204, 113, 0.4);
+            box-sizing: border-box;
+            display: block;
         }
 
         .modal-form input[type="submit"]:hover {
@@ -297,13 +326,13 @@
             text-align: center;
             color: #27ae60;
             font-weight: bold;
-            margin-top: 15px;
-            font-size: 1.1em;
+            margin-top: 10px;
+            font-size: 1em;
         }
 
         .modal-footer {
             text-align: center;
-            padding: 20px;
+            padding: 15px 20px;
             background: rgba(255, 255, 255, 0.95);
             color: #666;
             font-size: 0.9em;
@@ -374,6 +403,12 @@
 
             .hero-headline {
                 font-size: 2.2em;
+                margin-bottom: 25px;
+            }
+
+            .hero-headline::after {
+                width: 150px;
+                height: 3px;
             }
 
             .hero-subheadline {
@@ -386,8 +421,35 @@
             }
 
             .modal-content {
-                width: 95%;
-                margin: 10% auto;
+                width: 98%;
+                margin: 1% auto;
+                max-height: 98vh;
+            }
+
+            .modal-header {
+                padding: 20px 15px 10px 15px;
+            }
+
+            .modal-header h2 {
+                font-size: 1.6em;
+            }
+
+            .modal-form {
+                padding: 15px;
+            }
+
+            .modal-form input[type="text"] {
+                padding: 12px;
+                font-size: 1em;
+            }
+
+            .modal-form input[type="submit"] {
+                padding: 14px 25px;
+                font-size: 1.1em;
+            }
+
+            .modal-footer {
+                padding: 12px 15px;
             }
 
             .legal-links {
@@ -401,6 +463,11 @@
                 font-size: 1.8em;
             }
 
+            .hero-headline::after {
+                width: 120px;
+                height: 2px;
+            }
+
             .cta-button {
                 padding: 15px 25px;
                 font-size: 1.1em;
@@ -408,6 +475,25 @@
 
             .bullet-points {
                 padding: 20px;
+                font-size: 1em;
+            }
+
+            .modal-content {
+                width: 99%;
+                margin: 0.5% auto;
+            }
+
+            .modal-header h2 {
+                font-size: 1.4em;
+            }
+
+            .modal-form input[type="text"] {
+                padding: 10px;
+                font-size: 0.95em;
+            }
+
+            .modal-form input[type="submit"] {
+                padding: 12px 20px;
                 font-size: 1em;
             }
         }
@@ -465,13 +551,13 @@
                     <input type="hidden" name="FormId" value="24987562">
                     <table align="center" style="width: 100%;">
                         <tr>
-                            <td style="padding-bottom: 20px;">
+                            <td style="padding-bottom: 10px; width: 100%;">
                                 <label for="email">Best Email:</label>
-                                <input type="text" name="Email" required style="width: 100%; margin-top: 10px;" placeholder="Enter your email address">
+                                <input type="text" name="Email" required placeholder="Enter your email address">
                             </td>
                         </tr>
                         <tr>
-                            <td align="center">
+                            <td align="center" style="width: 100%;">
                                 <input type="submit" value="Get Instant Access 👈!">
                             </td>
                         </tr>

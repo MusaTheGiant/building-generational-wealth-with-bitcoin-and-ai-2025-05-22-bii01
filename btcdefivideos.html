@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Congratulations! Your Journey to $35,760 Begins Now</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .success-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.3);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .checkmark {
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        .main-headline {
+            font-size: 3.2em;
+            font-weight: 900;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .sub-headline {
+            font-size: 1.4em;
+            color: #555;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 15px 35px rgba(255, 215, 0, 0.3); }
+            to { box-shadow: 0 20px 45px rgba(255, 215, 0, 0.5); }
+        }
+
+        .highlight-text {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .body-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #444;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .email-timing-section {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .email-timing-text {
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+
+        .video-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            margin: 50px 0;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .video-heading {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-container video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .benefits-section {
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .benefits-heading {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #444;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefits-list li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        .cta-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 25px 50px;
+            font-size: 1.4em;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: ctaGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes ctaGlow {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            }
+            100% { 
+                transform: scale(1.05);
+                box-shadow: 0 20px 45px rgba(238, 90, 36, 0.6), 0 0 30px rgba(238, 90, 36, 0.4);
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 25px 55px rgba(238, 90, 36, 0.7);
+        }
+
+        .email-notice {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .countdown-timer {
+            font-size: 1.5em;
+            font-weight: 800;
+            color: #2d3436;
+            margin: 20px 0;
+        }
+
+        /* Minimal Legal Footer Styling */
+        .legal-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+        }
+
+        .legal-footer h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .legal-links a:hover {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .main-headline {
+                font-size: 1.8em;
+            }
+            
+            .sub-headline {
+                font-size: 1.1em;
+            }
+            
+            .highlight-text {
+                font-size: 1.4em;
+            }
+            
+            .thank-you-card {
+                padding: 40px 15px;
+            }
+            
+            .video-section {
+                padding: 20px 10px;
+            }
+            
+            .video-heading {
+                font-size: 1.3em;
+            }
+            
+            .video-container {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .cta-button {
+                padding: 15px 25px;
+                font-size: 1em;
+            }
+            
+            .countdown-timer {
+                font-size: 1.2em;
+            }
+
+            .legal-footer {
+                padding: 15px;
+                margin-top: 5px;
+            }
+
+            .legal-links {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-headline {
+                font-size: 1.5em;
+            }
+            
+            .sub-headline {
+                font-size: 1em;
+            }
+            
+            .highlight-text {
+                font-size: 1.2em;
+            }
+            
+            .thank-you-card {
+                padding: 30px 10px;
+            }
+            
+            .video-section {
+                padding: 15px 5px;
+            }
+            
+            .video-heading {
+                font-size: 1.1em;
+            }
+            
+            .video-container {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+            
+            .cta-button {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            .legal-footer {
+                padding: 10px;
+            }
+
+            .legal-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: gold;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-coin" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-coin" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
+        <div class="floating-coin" style="bottom: 30%; left: 20%; animation-delay: 2s;"></div>
+        <div class="floating-coin" style="bottom: 10%; right: 10%; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="thank-you-card">
+            <div class="success-icon">
+                <div class="checkmark">✓</div>
+            </div>
+            
+            <h1 class="main-headline">CONGRATULATIONS!</h1>
+            <h2 class="sub-headline">You've Just Made the Smartest Financial Decision of Your Life</h2>
+            
+            <div class="highlight-box">
+                <div class="highlight-text">
+                    🚀 Your Journey to $35,760 Starts NOW! 🚀
+                </div>
+            </div>
+
+            <div class="video-section">
+                <h3 class="video-heading">📋 Brief Overview - Here's How It Works</h3>
+                <div class="video-container">
+                    <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg)'/%3E%3Ccircle cx='400' cy='225' r='50' fill='white' opacity='0.9'/%3E%3Cpolygon points='385,210 385,240 415,225' fill='%23667eea'/%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EBrief Overview%3C/text%3E%3Ctext x='400' y='310' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EHow It Works - Click to Play%3C/text%3E%3C/svg%3E">
+                        <source src="https://bitcoinaiwealth.com/videos/700K.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <div class="countdown-timer">
+                    ⏰ Don't Wait - Others Are Getting Started Right Now!
+                </div>
+                <a href="https://www.ultimatepassiveprofit.com/legacywealth/?refctex=C0510518581" class="cta-button" target="_blank">
+                    🎯 Yes! Let's Get Started Now
+                </a>
+                <p style="margin-top: 20px; font-style: italic; color: #666;">
+                    This is your moment. You're not just registering – you're stepping into a future of wealth and financial transformation.
+                </p>
+            </div>
+
+            <div class="benefits-section">
+                <h3 class="benefits-heading">On the next page, you will get instant access to the...</h3>
+                <ul class="benefits-list">
+                    <li> <strong> Full Presentation Video </strong> - Password-protected exclusive content (Password is on the next page)</li>
+                    <li> <strong>Step-by-Step Tutorials </strong> - Complete video walkthrough guides</li>
+                    <li> <strong>$400K Withdrawal Proof </strong> - Documented evidence of real profits</li>
+                    <li> <strong>Getting Started Tutorial </strong> - Free registration button included</li>
+                </ul>
+            </div>
+
+            <div class="email-timing-section">
+                <div class="email-timing-text">
+                    ⏰ Your Email is Coming in the Next 3 Minutes! ⏰
+                </div>
+            </div>
+
+            <div class="email-notice">
+                <h3>📧 Important Email Instructions</h3>
+                <p><strong>Check your Spam, Promotions, or Junk folder!</strong></p>
+                <p>Whitelist our email address so you never miss important messages about your financial transformation.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minimal Legal Footer -->
+    <footer class="legal-footer">
+        <h3>Legal</h3>
+        <div class="legal-links">
+            <a href="https://bitcoinaiwealth.com//privacy.html" target="_blank">Privacy</a>
+            <a href="https://bitcoinaiwealth.com//terms.html" target="_blank">Terms</a>
+            <a href="https://bitcoinaiwealth.com//disclaimer.html" target="_blank">Disclaimer</a>
+        </div>
+    </footer>
+
+    <script>
+        // Add some dynamic effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate the floating coins
+            const coins = document.querySelectorAll('.floating-coin');
+            coins.forEach((coin, index) => {
+                coin.style.animationDelay = `${index * 0.5}s`;
+            });
+
+            // Add click tracking for the CTA button
+            const ctaButton = document.querySelector('.cta-button');
+            ctaButton.addEventListener('click', function() {
+                console.log('CTA button clicked - redirecting to Ultimate Passive Profit');
+            });
+        });
+    </script>
+</body>
+</html>

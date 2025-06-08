@@ -109,19 +109,18 @@
             text-align: left;
         }
 
-        .urgency-section {
-            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+        .email-timing-section {
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
             color: white;
-            padding: 25px;
+            padding: 20px;
             border-radius: 12px;
             margin: 30px 0;
-            box-shadow: 0 10px 25px rgba(238, 90, 36, 0.3);
+            text-align: center;
         }
 
-        .urgency-text {
-            font-size: 1.3em;
-            font-weight: 700;
-            text-align: center;
+        .email-timing-text {
+            font-size: 1.2em;
+            font-weight: 600;
         }
 
         .video-section {
@@ -157,29 +156,38 @@
             display: block;
         }
 
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+        .benefits-section {
             margin: 40px 0;
+            text-align: left;
         }
 
-        .benefit-item {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        .benefits-heading {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        .benefit-item:hover {
-            transform: translateY(-5px);
+        .benefits-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .benefit-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+        .benefits-list li {
+            padding: 8px 0;
+            font-size: 1.1em;
+            color: #444;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefits-list li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
         }
 
         .cta-section {
@@ -202,18 +210,23 @@
             transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            animation: buttonPulse 2s infinite;
+            animation: ctaGlow 2s ease-in-out infinite alternate;
         }
 
-        @keyframes buttonPulse {
-            0% { box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4); }
-            50% { box-shadow: 0 20px 45px rgba(238, 90, 36, 0.6), 0 0 30px rgba(238, 90, 36, 0.3); }
-            100% { box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4); }
+        @keyframes ctaGlow {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            }
+            100% { 
+                transform: scale(1.05);
+                box-shadow: 0 20px 45px rgba(238, 90, 36, 0.6), 0 0 30px rgba(238, 90, 36, 0.4);
+            }
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 50px rgba(238, 90, 36, 0.6);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 25px 55px rgba(238, 90, 36, 0.7);
         }
 
         .email-notice {
@@ -321,40 +334,19 @@
                 </p>
             </div>
 
-            <div class="body-content">
-                <p><strong>You should feel PROUD right now.</strong> While others hesitate and make excuses, you took action. You chose to take control of your financial future instead of letting it slip away.</p>         
-                <p><strong>Here's the reality:</strong> Thousands are already earning every day. You could be next, if you take action today.. </p>
-            </div>
-
-            <div class="urgency-section">
-                <div class="urgency-text">
-                    ⚡ Your Email is Coming in the Next 3 Minutes! ⚡
-                </div>
-            </div>
-
             <div class="benefits-section">
-                <h3 class="benefits-heading">💡 Here's what You'll Get Access To When You Click "YES! LET'S GET STARTED NOW" above</h3>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🎥</div>
-                        <h4>Full Presentation Video</h4>
-                        <p>Password-protected exclusive content (Password is on the next page).</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">📚</div>
-                        <h4>Step-by-Step Tutorials</h4>
-                        <p>Complete video walkthrough guides</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">💰</div>
-                        <h4>$400K Withdrawal Proof</h4>
-                        <p>Documented evidence of real profits</p>
-                    </div>
-                    <div class="benefit-item">
-                        <div class="benefit-icon">🚀</div>
-                        <h4>Getting Started Tutorial</h4>
-                        <p>Free registration button included</p>
-                    </div>
+                <h3 class="benefits-heading">On the next page, you will get instant access to the...</h3>
+                <ul class="benefits-list">
+                    <li>Full Presentation Video - Password-protected exclusive content (Password is on the next page)</li>
+                    <li>Step-by-Step Tutorials - Complete video walkthrough guides</li>
+                    <li>$400K Withdrawal Proof - Documented evidence of real profits</li>
+                    <li>Getting Started Tutorial - Free registration button included</li>
+                </ul>
+            </div>
+
+            <div class="email-timing-section">
+                <div class="email-timing-text">
+                    ⏰ Your Email is Coming in the Next 3 Minutes! ⏰
                 </div>
             </div>
 

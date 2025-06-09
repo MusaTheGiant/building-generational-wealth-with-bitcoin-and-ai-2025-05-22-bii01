@@ -13,13 +13,14 @@
 
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: #000000;
             color: white;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
+            line-height: 1.6;
         }
 
         .container {
@@ -29,7 +30,7 @@
         }
 
         .header-text {
-            font-size: 18px;
+            font-size: clamp(14px, 2.5vw, 18px);
             font-weight: 300;
             margin-bottom: 20px;
             color: #cccccc;
@@ -38,62 +39,72 @@
         }
 
         .main-title {
-            font-size: 4rem;
+            font-size: clamp(2rem, 6vw, 4rem);
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            padding: 0 10px;
         }
 
         .main-title .highlight {
             color: #FFD700;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            display: inline-block;
         }
 
         .cta-button {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
-            padding: 18px 40px;
-            font-size: 22px;
+            padding: clamp(15px, 3vw, 18px) clamp(25px, 5vw, 40px);
+            font-size: clamp(16px, 3vw, 22px);
             font-weight: bold;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin: 20px 0;
+            margin: 20px auto;
             transition: all 0.3s ease;
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            width: auto;
+            min-width: 200px;
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
             background: linear-gradient(45deg, #FFA500, #FFD700);
         }
 
         .content-section {
             display: flex;
-            gap: 50px;
+            gap: clamp(20px, 5vw, 50px);
             align-items: center;
             margin-top: 60px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .video-container {
             flex: 1;
-            min-width: 400px;
+            min-width: 300px;
+            max-width: 600px;
             position: relative;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
+            border: 2px solid rgba(255, 215, 0, 0.3);
         }
 
         .video-thumbnail {
             width: 100%;
-            height: 300px;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300"><rect width="600" height="300" fill="%23000080"/><rect x="50" y="50" width="500" height="200" fill="%23001140"/><text x="300" y="120" text-anchor="middle" fill="%23fff" font-family="Arial" font-size="24" font-weight="bold">NIGHTLINE</text><circle cx="300" cy="180" r="30" fill="%23FFD700"/><polygon points="290,170 310,180 290,190" fill="%23000"/></svg>');
+            height: clamp(200px, 30vw, 300px);
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300"><rect width="600" height="300" fill="%23111"/><rect x="50" y="50" width="500" height="200" fill="%23222"/><text x="300" y="120" text-anchor="middle" fill="%23fff" font-family="Arial" font-size="24" font-weight="bold">AFFILIATE TRAINING</text><circle cx="300" cy="180" r="30" fill="%23FFD700"/><polygon points="290,170 310,180 290,190" fill="%23000"/></svg>');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -104,66 +115,73 @@
         }
 
         .video-thumbnail:hover {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .play-button {
-            width: 80px;
-            height: 80px;
-            background: rgba(255, 215, 0, 0.9);
+            width: clamp(60px, 8vw, 80px);
+            height: clamp(60px, 8vw, 80px);
+            background: rgba(255, 215, 0, 0.95);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
         }
 
         .play-button:hover {
             background: #FFD700;
             transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
         }
 
         .play-icon {
             width: 0;
             height: 0;
-            border-left: 25px solid #000;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            margin-left: 5px;
+            border-left: clamp(18px, 3vw, 25px) solid #000;
+            border-top: clamp(11px, 2vw, 15px) solid transparent;
+            border-bottom: clamp(11px, 2vw, 15px) solid transparent;
+            margin-left: 3px;
         }
 
         .benefits-section {
             flex: 1;
-            min-width: 400px;
+            min-width: 300px;
+            max-width: 500px;
             text-align: left;
         }
 
         .benefits-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: bold;
             margin-bottom: 30px;
             color: #fff;
+            text-align: center;
         }
 
         .benefit-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 25px;
-            font-size: 18px;
-            line-height: 1.4;
+            font-size: clamp(16px, 2.5vw, 18px);
+            line-height: 1.5;
+            padding: 10px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 215, 0, 0.1);
         }
 
         .check-icon {
-            width: 30px;
-            height: 30px;
+            width: clamp(25px, 4vw, 30px);
+            height: clamp(25px, 4vw, 30px);
             background: #00FF88;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 20px;
+            margin-right: 15px;
             flex-shrink: 0;
             margin-top: 2px;
         }
@@ -171,15 +189,16 @@
         .check-mark {
             color: #000;
             font-weight: bold;
-            font-size: 16px;
+            font-size: clamp(12px, 2vw, 16px);
         }
 
         .benefit-text {
             color: #e0e0e0;
+            flex: 1;
         }
 
         .benefit-text .highlight-text {
-            color: #fff;
+            color: #FFD700;
             font-weight: bold;
         }
 
@@ -188,51 +207,142 @@
             text-align: center;
         }
 
+        /* Mobile-first responsive breakpoints */
         @media (max-width: 768px) {
-            .main-title {
-                font-size: 2.5rem;
+            body {
+                padding: 15px;
             }
             
             .content-section {
                 flex-direction: column;
                 gap: 30px;
+                margin-top: 40px;
             }
             
-            .video-container,
-            .benefits-section {
-                min-width: auto;
+            .video-container {
+                min-width: 280px;
                 width: 100%;
             }
             
             .benefits-section {
+                min-width: auto;
+                width: 100%;
                 text-align: center;
             }
             
             .benefit-item {
-                justify-content: center;
+                text-align: left;
+                margin-bottom: 20px;
+            }
+            
+            .main-title {
+                margin-bottom: 30px;
             }
         }
 
-        /* Floating animation for elements */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header-text {
+                margin-bottom: 15px;
+            }
+            
+            .main-title {
+                margin-bottom: 25px;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                padding: 15px;
+            }
+            
+            .check-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .benefits-title {
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Animations */
         @keyframes floating {
             0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            50% { transform: translateY(-8px); }
             100% { transform: translateY(0px); }
         }
 
         .cta-button {
-            animation: floating 3s ease-in-out infinite;
+            animation: floating 4s ease-in-out infinite;
         }
 
-        /* Pulsing effect for play button */
         @keyframes pulse {
-            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
-            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.5); }
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.9); }
+            100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
         }
 
         .play-button {
-            animation: pulse 2s ease-in-out infinite;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .benefit-item {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Focus styles for accessibility */
+        .cta-button:focus,
+        .video-thumbnail:focus,
+        .play-button:focus {
+            outline: 2px solid #FFD700;
+            outline-offset: 2px;
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .benefit-item {
+                border: 2px solid #FFD700;
+                background: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .cta-button,
+            .play-button,
+            .benefit-item {
+                animation: none;
+            }
+            
+            .video-thumbnail:hover,
+            .cta-button:hover {
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -245,11 +355,11 @@
             Shows You How To Get Started Today.
         </h1>
         
-        <button class="cta-button" onclick="scrollToVideo()">Watch The Video</button>
+        <button class="cta-button" onclick="scrollToVideo()" aria-label="Watch the affiliate marketing training video">Watch The Video</button>
         
         <div class="content-section">
             <div class="video-container">
-                <div class="video-thumbnail" onclick="playVideo()">
+                <div class="video-thumbnail" onclick="playVideo()" role="button" tabindex="0" aria-label="Play training video" onkeypress="handleKeyPress(event)">
                     <div class="play-button">
                         <div class="play-icon"></div>
                     </div>
@@ -287,7 +397,7 @@
                 </div>
                 
                 <div class="secondary-cta">
-                    <button class="cta-button" onclick="playVideo()">Watch The Video</button>
+                    <button class="cta-button" onclick="playVideo()" aria-label="Watch the affiliate marketing training video">Watch The Video</button>
                 </div>
             </div>
         </div>
@@ -301,37 +411,80 @@
         }
 
         function playVideo() {
-            // This would typically link to your actual video
+            // Replace this with your actual video URL or embed code
             alert('Video would play here! Replace this with your actual video player or redirect to your video URL.');
         }
 
-        // Add some interactive effects
-        document.addEventListener('mousemove', function(e) {
-            const cursor = document.createElement('div');
-            cursor.style.position = 'fixed';
-            cursor.style.width = '3px';
-            cursor.style.height = '3px';
-            cursor.style.backgroundColor = '#FFD700';
-            cursor.style.borderRadius = '50%';
-            cursor.style.pointerEvents = 'none';
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            cursor.style.opacity = '0.7';
-            cursor.style.zIndex = '9999';
-            document.body.appendChild(cursor);
-            
-            setTimeout(() => {
-                cursor.remove();
-            }, 500);
+        function handleKeyPress(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                event.preventDefault();
+                playVideo();
+            }
+        }
+
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe benefit items for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const benefitItems = document.querySelectorAll('.benefit-item');
+            benefitItems.forEach(item => {
+                observer.observe(item);
+            });
         });
 
-        // Parallax effect for background
-        window.addEventListener('scroll', function() {
-            const scrolled = window.pageYOffset;
-            const parallax = document.body;
-            const speed = scrolled * 0.5;
-            parallax.style.backgroundPosition = `center ${speed}px`;
-        });
+        // Performance optimized cursor trail (only on desktop)
+        if (window.innerWidth > 768) {
+            let mouseTrail = [];
+            const maxTrailLength = 10;
+
+            document.addEventListener('mousemove', function(e) {
+                if (mouseTrail.length >= maxTrailLength) {
+                    const oldDot = mouseTrail.shift();
+                    oldDot.remove();
+                }
+
+                const dot = document.createElement('div');
+                dot.style.cssText = `
+                    position: fixed;
+                    width: 2px;
+                    height: 2px;
+                    background: #FFD700;
+                    border-radius: 50%;
+                    pointer-events: none;
+                    left: ${e.clientX}px;
+                    top: ${e.clientY}px;
+                    opacity: 0.6;
+                    z-index: 9999;
+                    transition: opacity 0.5s ease-out;
+                `;
+                
+                document.body.appendChild(dot);
+                mouseTrail.push(dot);
+                
+                setTimeout(() => {
+                    dot.style.opacity = '0';
+                }, 100);
+                
+                setTimeout(() => {
+                    if (dot.parentNode) {
+                        dot.remove();
+                    }
+                }, 600);
+            });
+        }
     </script>
 </body>
 </html>

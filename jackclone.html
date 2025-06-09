@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Results not typical. Success requires hard work, focus, and perseverance.">
+    <title>Cinderspark: Jack's Free Course - Landing Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #DBE0EB 0%, #C5D1E8 100%);
+            min-height: 100vh;
+            color: #151B26;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 8px 32px rgba(102, 126, 234, 0.3);
+        }
+
+        .profile-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #151B26;
+            margin-bottom: 12px;
+        }
+
+        .profile-description {
+            font-size: 16px;
+            color: #6B7280;
+            line-height: 1.5;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .step-button {
+            background: linear-gradient(135deg, #DBE0EB 0%, #F3F4F6 100%);
+            border: 2px solid rgba(21, 27, 38, 0.1);
+            border-radius: 16px;
+            padding: 20px;
+            text-decoration: none;
+            color: #151B26;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .step-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border-color: #667eea;
+        }
+
+        .step-button:hover::before {
+            left: 100%;
+        }
+
+        .step-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #151B26;
+        }
+
+        .step-description {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.4;
+        }
+
+        .step-earnings {
+            color: #059669;
+            font-weight: 600;
+        }
+
+        .social-section {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(21, 27, 38, 0.1);
+        }
+
+        .social-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #151B26;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .disclaimer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 12px;
+            color: #9CA3AF;
+            font-style: italic;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                margin: 10px;
+                padding: 20px 15px;
+            }
+            
+            .profile-image {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+            
+            .profile-title {
+                font-size: 20px;
+            }
+            
+            .step-button {
+                padding: 16px;
+            }
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .profile-image {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Gradient background animation */
+        body {
+            background: linear-gradient(-45deg, #DBE0EB, #C5D1E8, #B8C6E0, #DBE0EB);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile-section">
+            <div class="profile-image">
+                JS
+            </div>
+            <h1 class="profile-title">Cinderspark: Jack's Free Course</h1>
+            <p class="profile-description">Results not typical. Success requires hard work, focus, and perseverance.</p>
+        </div>
+
+        <div class="buttons-container">
+            <a href="#" class="step-button" onclick="handleClick('step1')">
+                <div class="step-title">Step 1: My Highest Recommended Program!</div>
+                <div class="step-description">I've made over <span class="step-earnings">$39k</span> with this so far and it's FREE to start!</div>
+            </a>
+
+            <a href="#" class="step-button" onclick="handleClick('step2')">
+                <div class="step-title">Step 2: My Second Highest Recommended Program!</div>
+                <div class="step-description">I've made over <span class="step-earnings">$7k</span> with this so far and it's FREE to start an account!</div>
+            </a>
+
+            <a href="#" class="step-button" onclick="handleClick('step3')">
+                <div class="step-title">Step 3: My Third Highest Recommended Program!</div>
+                <div class="step-description">I've made over <span class="step-earnings">$3k</span> with this so far and it starts with FREE training!</div>
+            </a>
+
+            <a href="#" class="step-button" onclick="handleClick('step4')">
+                <div class="step-title">Step 4: Get Instant Premium Traffic Here!</div>
+                <div class="step-description">One of my favorite sources of traffic to send to your offers!</div>
+            </a>
+
+            <a href="#" class="step-button" onclick="handleClick('step5')">
+                <div class="step-title">Step 5: Create Faceless AI Videos on Autopilot!</div>
+                <div class="step-description">Use AI to create enticing videos to drive traffic to your link!</div>
+            </a>
+
+            <a href="#" class="step-button" onclick="handleClick('step6')">
+                <div class="step-title">Step 6: Get Advanced Mentorship!</div>
+                <div class="step-description">Get mentorship from the same elite group of 7-figure online entrepreneurs that taught me almost everything!</div>
+            </a>
+        </div>
+
+        <div class="social-section">
+            <h3 class="social-title">Connect with Jack</h3>
+            <div class="social-links">
+                <a href="#" class="social-link" onclick="handleSocial('youtube')" title="YouTube">
+                    📺
+                </a>
+                <a href="#" class="social-link" onclick="handleSocial('facebook')" title="Facebook">
+                    📘
+                </a>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            Results not typical. Success requires hard work, focus, and perseverance.
+        </div>
+    </div>
+
+    <script>
+        function handleClick(step) {
+            // In a real implementation, these would redirect to the actual URLs
+            const messages = {
+                'step1': 'Redirecting to highest recommended program...',
+                'step2': 'Redirecting to second highest recommended program...',
+                'step3': 'Redirecting to third highest recommended program...',
+                'step4': 'Redirecting to premium traffic source...',
+                'step5': 'Redirecting to AI video creation tool...',
+                'step6': 'Redirecting to advanced mentorship program...'
+            };
+            
+            alert(messages[step] || 'Redirecting...');
+            
+            // Add click animation
+            event.target.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                event.target.style.transform = '';
+            }, 150);
+        }
+
+        function handleSocial(platform) {
+            const messages = {
+                'youtube': 'Redirecting to YouTube channel...',
+                'facebook': 'Redirecting to Facebook page...'
+            };
+            
+            alert(messages[platform] || 'Redirecting to social media...');
+        }
+
+        // Add subtle parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.container');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Add entrance animations
+        window.addEventListener('load', () => {
+            const elements = document.querySelectorAll('.step-button');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                setTimeout(() => {
+                    el.style.transition = 'all 0.6s ease';
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

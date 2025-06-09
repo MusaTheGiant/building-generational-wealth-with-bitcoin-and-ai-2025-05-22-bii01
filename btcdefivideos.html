@@ -509,7 +509,7 @@
         });
     </script>
 
-<!-- ✅ START: Social Proof Popups -->
+<!-- ✅ START: Social Proof Popups With Close Button -->
 <style>
   #popup-container {
     position: fixed;
@@ -529,6 +529,21 @@
     animation: fadeInOut 6s ease-in-out;
     max-width: 300px;
     font-size: 14px;
+    position: relative;
+  }
+
+  .popup .close-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .popup .close-btn:hover {
+    color: #000;
   }
 
   @keyframes fadeInOut {
@@ -554,42 +569,49 @@
 
 <script>
   const messages = [
-    "James from New York, USA just joined Cryptex – 2 minutes ago",
-    "Emily from London, UK activated her first contract – just now",
-    "Liam from Toronto, Canada earned a 30% referral commission – 3 minutes ago",
-    "Chloe from Brisbane, Australia referred 3 new members – just now",
-    "Ethan from Dublin, Ireland activated 10 new contracts – 5 minutes ago",
-    "Sarah from Cape Town, South Africa requested a withdrawal – a few moments ago",
+    "Kabelo from Johanessburg, South Africa just joined Cryptex – 2 minutes ago",
+    "Mfikiseni from Durban, South Africa activated his 5th contract – just now",
+    "Liam from Toronto, Canada just joined Cryptex – 3 minutes ago",
+    "Chloe from Brisbane, Australia just joined Cryptex – 14 minutes ago",
+    "Musa from Durban, South Africa activated 10 new contracts – 8 minutes ago",
+    "Sarah from Cape Town, South Africa just joined Cryptex – a few moments ago",
     "Jacob from Chicago, USA just joined Cryptex – 1 minute ago",
-    "Olivia from Auckland, New Zealand activated her third contract – 2 minutes ago",
-    "Daniel from Birmingham, UK earned a 30% referral commission – just now",
-    "Grace from Vancouver, Canada referred 3 new members – 4 minutes ago",
-    "Matthew from Los Angeles, USA activated 10 contracts – a moment ago",
+    "Olivia from Auckland, New Zealand activated her first contract – 2 minutes ago",
+    "Daniel from Birmingham, UK is watching the videos on this page – right now",
+    "Grace from Vancouver, Canada joined Cryptex – 4 minutes ago",
+    "Matthew from Los Angeles, just joined Cryptex – a moment ago",
     "Abigail from Sydney, Australia just joined Cryptex – 2 minutes ago",
     "Benjamin from Belfast, Northern Ireland activated his first contract – just now",
-    "Ella from Wellington, New Zealand made a 30% commission – 3 minutes ago",
-    "Michael from Johannesburg, South Africa activated his third contract – 1 minute ago",
-    "Sophie from Melbourne, Australia referred 3 new members – a few seconds ago",
-    "Noah from Dallas, USA requested a withdrawal – just now",
-    "Isla from Durban, South Africa just joined Cryptex – 3 minutes ago",
-    "Lucas from Edinburgh, UK activated his first contract – 2 minutes ago",
-    "Zoe from Hamilton, New Zealand earned a 30% referral commission – a moment ago",
+    "Ella from Wellington, New Zealand is on this page right now",
+    "Cleo from Johannesburg, South Africa activated her 3rd contract – 1 minute ago",
+    "Sophie from Melbourne, Australia just joined Cryptex – a few seconds ago",
+    "Noah from Dallas, USA just joined Cryptex – just now",
+    "Melusi from Durban, South Africa just joined Cryptex – 7 minutes ago",
+    "Lucas from Edinburgh, UK activated his first contract – a while ago",
+    "Barry from Lagos, Nigeria just joined Cryptex – a moment ago",
     "Aiden from Perth, Australia activated 10 new contracts – just now",
-    "Mia from Boston, USA referred 3 new members – 4 minutes ago",
-    "Jack from Cape Town, South Africa made a withdrawal – a few seconds ago",
-    "Lily from Calgary, Canada just joined Cryptex – 2 minutes ago",
-    "Henry from Glasgow, UK activated his third contract – 5 minutes ago"
+    "Olusegun from Abuja, Nigeria joined Cryptex – 4 minutes ago",
+    "Thandiwe from Cape Town, South Africa joined Cryptex – a few seconds ago",
+    "Chinua from Aba, Nigeria just joined Cryptex – 2 minutes ago",
+    "Thembi from Richards Bay, South Africa activated her 7th contract – 5 minutes ago"
   ];
 
   function showPopup(message) {
     const container = document.getElementById("popup-container");
     const popup = document.createElement("div");
     popup.className = "popup";
+
+    const closeBtn = document.createElement("span");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = "&times;";
+    closeBtn.onclick = () => popup.remove();
+
     popup.innerText = message;
+    popup.appendChild(closeBtn);
     container.appendChild(popup);
 
     setTimeout(() => {
-      popup.remove();
+      if (popup.parentElement) popup.remove();
     }, 6000);
   }
 
@@ -597,12 +619,12 @@
     setInterval(() => {
       const randomMessage = messages[Math.floor(Math.random() * messages.length)];
       showPopup(randomMessage);
-    }, 9000); // Show a new popup every 9 seconds
+    }, 9000);
   }
 
   document.addEventListener("DOMContentLoaded", startPopups);
 </script>
-<!-- ✅ END: Social Proof Popups -->
+<!-- ✅ END: Social Proof Popups With Close Button -->
     
 </body>
 </html>

@@ -208,6 +208,78 @@
             text-align: center;
         }
 
+        /* Footer Styles */
+        .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+            padding: 60px 20px 40px;
+            margin-top: 80px;
+            width: 100%;
+            border-top: 2px solid rgba(255, 215, 0, 0.2);
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .footer-description {
+            font-size: clamp(16px, 2.5vw, 18px);
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-link {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: clamp(14px, 2vw, 16px);
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .footer-link:hover {
+            color: #FFD700;
+            background: rgba(255, 215, 0, 0.1);
+            border-color: rgba(255, 215, 0, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
+            margin: 40px 0 30px;
+        }
+
+        .footer-copyright {
+            color: #888888;
+            font-size: clamp(12px, 2vw, 14px);
+            line-height: 1.5;
+        }
+
         /* Mobile-first responsive breakpoints */
         @media (max-width: 768px) {
             body {
@@ -239,6 +311,16 @@
             .main-title {
                 margin-bottom: 30px;
             }
+
+            .footer {
+                padding: 40px 15px 30px;
+                margin-top: 60px;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -268,6 +350,10 @@
             
             .benefits-title {
                 margin-bottom: 20px;
+            }
+
+            .footer {
+                padding: 30px 10px 20px;
             }
         }
 
@@ -319,14 +405,16 @@
         /* Focus styles for accessibility */
         .cta-button:focus,
         .video-thumbnail:focus,
-        .play-button:focus {
+        .play-button:focus,
+        .footer-link:focus {
             outline: 2px solid #FFD700;
             outline-offset: 2px;
         }
 
         /* High contrast mode support */
         @media (prefers-contrast: high) {
-            .benefit-item {
+            .benefit-item,
+            .footer-link {
                 border: 2px solid #FFD700;
                 background: rgba(0, 0, 0, 0.8);
             }
@@ -341,7 +429,8 @@
             }
             
             .video-thumbnail:hover,
-            .cta-button:hover {
+            .cta-button:hover,
+            .footer-link:hover {
                 transform: none;
             }
         }
@@ -403,6 +492,38 @@
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <h3 class="footer-title">Bitcoin AI Wealth</h3>
+            <p class="footer-description">
+                ₿uilding generational wealth through Bitcoin, Crypto, AI, Affiliate, and Digital Marketing opportunities. Join thousands of smart subscribers who trust our vetted insights.
+            </p>
+            
+            <div class="footer-links">
+                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
+                   class="footer-link">
+                    Privacy Policy
+                </a>
+                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
+                   class="footer-link">
+                    Terms of Service
+                </a>
+                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
+                   class="footer-link">
+                    Disclaimer
+                </a>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <p class="footer-copyright">
+                © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀<br>
+                Made with ❤️ by MTG 👑
+            </p>
+        </div>
+    </footer>
 
     <script>
         function scrollToVideo() {
@@ -487,41 +608,6 @@
             });
         }
     </script>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-                    ₿uilding generational wealth through Bitcoin, Crypto, AI, Affiliate, and Digital Marketing opportunities. Join thousands of smart subscribers who trust our vetted insights.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Privacy Policy
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Terms of Service
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Disclaimer
-                    </a>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-700">
-                    <p class="text-gray-400 text-sm">
-                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
     
 </body>
 </html>

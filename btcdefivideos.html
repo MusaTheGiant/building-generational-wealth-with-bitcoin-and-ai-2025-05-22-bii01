@@ -358,9 +358,40 @@
                 gap: 10px;
             }
         }
+
+#notification-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 9999;
+}
+
+.notification-bubble {
+  background-color: #1c1c1e;
+  color: #fff;
+  padding: 12px 16px;
+  margin-top: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  font-size: 14px;
+  max-width: 300px;
+  opacity: 0;
+  animation: fadeInOut 6s ease-in-out;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateY(20px); }
+  10% { opacity: 1; transform: translateY(0); }
+  90% { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+        
     </style>
 </head>
 <body>
+    <div id="notification-container"></div>
+    
     <div class="floating-elements">
         <div class="floating-coin" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
         <div class="floating-coin" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
@@ -507,5 +538,58 @@
             console.log('Get Started Now button clicked - redirecting to Cryptex registration');
         });
     </script>
+
+// Social Proof Notification Scrypt 
+
+    <script>
+const messages = [
+  "Jason from Toronto, Canada just joined Cryptex – 2 minutes ago",
+  "Aisha from Nairobi, Kenya activated her first contract – just now",
+  "Lucas from São Paulo, Brazil made a 30% referral commission – 5 minutes ago",
+  "Emily from Manchester, UK referred 3 new members – 4 minutes ago",
+  "Arun from Mumbai, India activated 10 new contracts – 6 minutes ago",
+  "Sophia from Berlin, Germany requested a withdrawal – a moment ago",
+  "Kofi from Accra, Ghana just joined Cryptex – just now",
+  "Hannah from Perth, Australia activated her third contract – 3 minutes ago",
+  "Thabo from Johannesburg, South Africa earned a 30% referral commission – 1 minute ago",
+  "Maya from Dubai, UAE referred 3 new members – just now",
+  "Nicolas from Paris, France just joined Cryptex – 2 minutes ago",
+  "Olga from Warsaw, Poland activated her first contract – 4 minutes ago",
+  "Pedro from Lisbon, Portugal made a 30% referral commission – 6 minutes ago",
+  "Emily from Cape Town, South Africa activated her third contract – 3 minutes ago",
+  "Tom from Dublin, Ireland just referred 3 new members – 5 minutes ago",
+  "Yuki from Tokyo, Japan requested a withdrawal – just now",
+  "Sarah from New York, USA activated 10 new contracts – a few seconds ago",
+  "Mateo from Buenos Aires, Argentina just joined Cryptex – 2 minutes ago",
+  "Leila from Casablanca, Morocco earned a 30% commission – 3 minutes ago",
+  "Zanele from Durban, South Africa activated her third contract – just now",
+  "Liam from Auckland, New Zealand referred 3 new members – 6 minutes ago",
+  "Maria from Madrid, Spain activated 10 new contracts – a moment ago",
+  "Ahmed from Cairo, Egypt just joined Cryptex – 1 minute ago",
+  "Isabella from Rome, Italy made a referral commission – just now",
+  "Kwame from Lagos, Nigeria activated his first contract – a few moments ago"
+];
+
+function showNotification() {
+  const container = document.getElementById("notification-container");
+  const message = messages[Math.floor(Math.random() * messages.length)];
+  
+  const bubble = document.createElement("div");
+  bubble.className = "notification-bubble";
+  bubble.textContent = message;
+  container.appendChild(bubble);
+
+  setTimeout(() => {
+    container.removeChild(bubble);
+  }, 6000); // Matches the CSS animation duration
+}
+
+// Show a new notification every 12 seconds
+setInterval(showNotification, 12000);
+
+// Optionally show the first one immediately
+setTimeout(showNotification, 1000);
+</script>
+    
 </body>
 </html>

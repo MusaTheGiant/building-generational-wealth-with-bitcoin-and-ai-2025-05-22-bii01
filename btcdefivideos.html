@@ -508,5 +508,101 @@
             console.log('Get Started Now button clicked - redirecting to Cryptex registration');
         });
     </script>
+
+<!-- ✅ START: Social Proof Popups -->
+<style>
+  #popup-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+  }
+
+  .popup {
+    background-color: #fff;
+    color: #333;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    animation: fadeInOut 6s ease-in-out;
+    max-width: 300px;
+    font-size: 14px;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+</style>
+
+<div id="popup-container"></div>
+
+<script>
+  const messages = [
+    "James from New York, USA just joined Cryptex – 2 minutes ago",
+    "Emily from London, UK activated her first contract – just now",
+    "Liam from Toronto, Canada earned a 30% referral commission – 3 minutes ago",
+    "Chloe from Brisbane, Australia referred 3 new members – just now",
+    "Ethan from Dublin, Ireland activated 10 new contracts – 5 minutes ago",
+    "Sarah from Cape Town, South Africa requested a withdrawal – a few moments ago",
+    "Jacob from Chicago, USA just joined Cryptex – 1 minute ago",
+    "Olivia from Auckland, New Zealand activated her third contract – 2 minutes ago",
+    "Daniel from Birmingham, UK earned a 30% referral commission – just now",
+    "Grace from Vancouver, Canada referred 3 new members – 4 minutes ago",
+    "Matthew from Los Angeles, USA activated 10 contracts – a moment ago",
+    "Abigail from Sydney, Australia just joined Cryptex – 2 minutes ago",
+    "Benjamin from Belfast, Northern Ireland activated his first contract – just now",
+    "Ella from Wellington, New Zealand made a 30% commission – 3 minutes ago",
+    "Michael from Johannesburg, South Africa activated his third contract – 1 minute ago",
+    "Sophie from Melbourne, Australia referred 3 new members – a few seconds ago",
+    "Noah from Dallas, USA requested a withdrawal – just now",
+    "Isla from Durban, South Africa just joined Cryptex – 3 minutes ago",
+    "Lucas from Edinburgh, UK activated his first contract – 2 minutes ago",
+    "Zoe from Hamilton, New Zealand earned a 30% referral commission – a moment ago",
+    "Aiden from Perth, Australia activated 10 new contracts – just now",
+    "Mia from Boston, USA referred 3 new members – 4 minutes ago",
+    "Jack from Cape Town, South Africa made a withdrawal – a few seconds ago",
+    "Lily from Calgary, Canada just joined Cryptex – 2 minutes ago",
+    "Henry from Glasgow, UK activated his third contract – 5 minutes ago"
+  ];
+
+  function showPopup(message) {
+    const container = document.getElementById("popup-container");
+    const popup = document.createElement("div");
+    popup.className = "popup";
+    popup.innerText = message;
+    container.appendChild(popup);
+
+    setTimeout(() => {
+      popup.remove();
+    }, 6000);
+  }
+
+  function startPopups() {
+    setInterval(() => {
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      showPopup(randomMessage);
+    }, 9000); // Show a new popup every 9 seconds
+  }
+
+  document.addEventListener("DOMContentLoaded", startPopups);
+</script>
+<!-- ✅ END: Social Proof Popups -->
+    
 </body>
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Revolutionary Affiliate System - Lifetime Commissions Revealed</title>
     <link rel="icon" href="favicon.png" type="image/png">
-    <link rel="icon" href="favicon.png" type="image/png">
     <style>
         * {
             margin: 0;
@@ -13,44 +12,109 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-gold: #FFD700;
+            --secondary-gold: #FFA500;
+            --accent-gold: #FF8C00;
+            --success-green: #00FF88;
+            --text-light: #E5E5E5;
+            --text-medium: #CCCCCC;
+            --text-gold: #FFED4A;
+            --bg-dark: #000000;
+            --bg-medium: #1a1a1a;
+            --bg-light: #0d0d0d;
+            --shadow-gold: rgba(255, 215, 0, 0.4);
+            --shadow-gold-intense: rgba(255, 215, 0, 0.6);
+        }
+
         body {
             font-family: 'Arial', sans-serif;
-            background: #000000;
-            color: white;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-medium) 50%, var(--bg-light) 100%);
+            color: var(--text-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding: 20px;
             line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background particles */
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-gold);
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
         }
 
         .container {
             max-width: 1200px;
             width: 100%;
             text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Urgency banner */
+        .urgency-banner {
+            background: linear-gradient(45deg, #FF6B35, #FF8C00, #FFA500);
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: clamp(12px, 2vw, 14px);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            display: inline-block;
+            box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
+            animation: pulse-banner 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-banner {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .header-text {
             font-size: clamp(12px, 2vw, 16px);
             font-weight: 400;
             margin-bottom: 20px;
-            color: #cccccc;
+            color: var(--text-medium);
             letter-spacing: 1px;
             text-transform: uppercase;
             line-height: 1.4;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
         }
 
         .main-title {
-            /* Mobile-first approach - smaller size for mobile */
             font-size: clamp(1.5rem, 4vw, 2.5rem);
             font-weight: 700;
             line-height: 1.3;
             margin-bottom: 40px;
             padding: 0 10px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
         }
 
-        /* Desktop/tablet override for main title */
         @media (min-width: 769px) {
             .main-title {
                 font-size: clamp(3rem, 6vw, 4.5rem);
@@ -60,7 +124,10 @@
         }
 
         .yellow-text {
-            color: #FFD700;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 50%, var(--accent-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .white-text {
@@ -68,74 +135,86 @@
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #FFD700, #FFA500);
+            background: linear-gradient(45deg, var(--primary-gold) 0%, var(--secondary-gold) 50%, var(--accent-gold) 100%);
             color: #000;
-            padding: clamp(15px, 3vw, 18px) clamp(25px, 5vw, 40px);
+            padding: clamp(18px, 3vw, 22px) clamp(30px, 5vw, 45px);
             font-size: clamp(16px, 3vw, 22px);
             font-weight: bold;
             border: none;
-            border-radius: 8px;
+            border-radius: 12px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin: 20px auto;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 12px 35px var(--shadow-gold);
             display: inline-block;
             text-decoration: none;
             text-align: center;
             width: auto;
-            min-width: 200px;
+            min-width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.5);
-            background: linear-gradient(45deg, #FFA500, #FFD700);
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 20px 50px var(--shadow-gold-intense);
         }
 
-        .content-section {
-            display: flex;
-            gap: clamp(20px, 5vw, 50px);
-            align-items: center;
+        /* New layout: video section separate from benefits */
+        .video-section {
             margin-top: 60px;
-            flex-wrap: wrap;
+            margin-bottom: 60px;
+            display: flex;
             justify-content: center;
         }
 
         .video-container {
-            flex: 1;
-            min-width: 300px;
-            max-width: 600px;
+            min-width: 320px;
+            max-width: 700px;
+            width: 100%;
             position: relative;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.2);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            /* Fixed aspect ratio to maintain proper proportions */
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+            border: 3px solid;
+            border-image: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold), var(--accent-gold)) 1;
             aspect-ratio: 16/9;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .video-container:hover {
-            transform: scale(1.02);
-            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+            transform: scale(1.03) rotateY(2deg);
+            box-shadow: 0 35px 80px rgba(255, 215, 0, 0.4);
         }
 
         .video-thumbnail {
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 338"><rect width="600" height="338" fill="%23111"/><rect x="50" y="50" width="500" height="238" fill="%23222"/><text x="300" y="120" text-anchor="middle" fill="%23FFD700" font-family="Arial" font-size="18" font-weight="bold">REVOLUTIONARY SYSTEM</text><text x="300" y="145" text-anchor="middle" fill="%23fff" font-family="Arial" font-size="16">LIFETIME COMMISSIONS</text></svg>');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,0.6) 50%, rgba(13,13,13,0.8) 100%), 
+                        radial-gradient(circle at center, var(--bg-medium) 0%, var(--bg-dark) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
             position: relative;
         }
 
@@ -144,43 +223,62 @@
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(255, 215, 0, 0.95);
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
             color: #000;
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 10px 18px;
+            border-radius: 20px;
             font-size: clamp(12px, 2vw, 14px);
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
         }
 
         .play-button {
-            width: clamp(60px, 8vw, 80px);
-            height: clamp(60px, 8vw, 80px);
-            background: rgba(255, 215, 0, 0.95);
+            width: clamp(70px, 10vw, 90px);
+            height: clamp(70px, 10vw, 90px);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
-            margin-bottom: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 40px var(--shadow-gold-intense);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .play-button::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
+            opacity: 0.6;
+            animation: ripple 2s infinite;
+        }
+
+        @keyframes ripple {
+            0% { transform: scale(1); opacity: 0.6; }
+            100% { transform: scale(1.4); opacity: 0; }
         }
 
         .play-button:hover {
-            background: #FFD700;
-            transform: scale(1.1);
-            box-shadow: 0 0 40px rgba(255, 215, 0, 0.8);
+            transform: scale(1.15);
+            box-shadow: 0 0 60px var(--shadow-gold-intense);
         }
 
         .play-icon {
             width: 0;
             height: 0;
-            border-left: clamp(18px, 3vw, 25px) solid #000;
-            border-top: clamp(11px, 2vw, 15px) solid transparent;
-            border-bottom: clamp(11px, 2vw, 15px) solid transparent;
-            margin-left: 3px;
+            border-left: clamp(22px, 4vw, 30px) solid #000;
+            border-top: clamp(13px, 2.5vw, 18px) solid transparent;
+            border-bottom: clamp(13px, 2.5vw, 18px) solid transparent;
+            margin-left: 4px;
+            z-index: 2;
+            position: relative;
         }
 
         .video-teaser {
@@ -188,83 +286,139 @@
             bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
-            color: #FFD700;
-            font-size: clamp(11px, 2vw, 13px);
+            color: var(--text-gold);
+            font-size: clamp(12px, 2.5vw, 15px);
             font-weight: bold;
             text-align: center;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 8px 16px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
         }
 
         .benefits-section {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .benefits-title {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
             font-weight: 600;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
             color: #fff;
             text-align: center;
             line-height: 1.3;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
         }
 
         .benefit-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 25px;
-            font-size: clamp(14px, 2vw, 16px);
+            font-size: clamp(15px, 2.5vw, 17px);
             line-height: 1.6;
-            padding: 10px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 215, 0, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 215, 0, 0.02) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+            text-align: left;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+            border-color: rgba(255, 215, 0, 0.4);
         }
 
         .check-icon {
-            width: clamp(25px, 4vw, 30px);
-            height: clamp(25px, 4vw, 30px);
-            background: #00FF88;
+            width: clamp(32px, 5vw, 38px);
+            height: clamp(32px, 5vw, 38px);
+            background: linear-gradient(135deg, var(--success-green) 0%, #00CC70 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            margin-right: 18px;
             flex-shrink: 0;
-            margin-top: 2px;
+            margin-top: 3px;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
         }
 
         .check-mark {
             color: #000;
             font-weight: bold;
-            font-size: clamp(12px, 2vw, 16px);
+            font-size: clamp(14px, 2.5vw, 18px);
         }
 
         .benefit-text {
-            color: #e0e0e0;
+            color: var(--text-light);
             flex: 1;
         }
 
         .benefit-text .highlight-text {
-            color: #FFD700;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-weight: bold;
         }
 
         .secondary-cta {
-            margin-top: 40px;
             text-align: center;
         }
 
-        /* Footer Styles */
+        /* Social proof section */
+        .social-proof {
+            margin-top: 60px;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, rgba(255, 165, 0, 0.02) 100%);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-proof-title {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--text-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .testimonial {
+            font-style: italic;
+            color: var(--text-medium);
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            color: var(--primary-gold);
+            font-weight: bold;
+            font-size: clamp(13px, 2vw, 15px);
+        }
+
+        /* Footer */
         .footer {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            padding: 60px 20px 40px;
-            margin-top: 80px;
+            background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-light) 100%);
+            padding: 80px 20px 50px;
+            margin-top: 100px;
             width: 100%;
-            border-top: 2px solid rgba(255, 215, 0, 0.2);
+            border-top: 3px solid;
+            border-image: linear-gradient(90deg, transparent, var(--primary-gold), transparent) 1;
             text-align: center;
+            position: relative;
         }
 
         .footer-container {
@@ -273,19 +427,21 @@
         }
 
         .footer-title {
-            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
             font-weight: 700;
-            color: #FFD700;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
             line-height: 1.3;
         }
 
         .footer-description {
-            font-size: clamp(14px, 2vw, 16px);
-            color: #cccccc;
-            line-height: 1.7;
-            margin-bottom: 40px;
+            font-size: clamp(15px, 2.5vw, 17px);
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: 50px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
@@ -296,81 +452,70 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 35px;
+            margin-bottom: 50px;
         }
 
         .footer-link {
-            color: #e0e0e0;
+            color: var(--text-light);
             text-decoration: none;
             font-size: clamp(14px, 2vw, 16px);
             transition: all 0.3s ease;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 215, 0, 0.1);
-            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 20px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(5px);
         }
 
         .footer-link:hover {
-            color: #FFD700;
+            color: var(--primary-gold);
             background: rgba(255, 215, 0, 0.1);
-            border-color: rgba(255, 215, 0, 0.3);
-            transform: translateY(-2px);
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
         }
 
         .footer-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.3), transparent);
-            margin: 40px 0 30px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+            margin: 50px 0 35px;
         }
 
         .footer-copyright {
             color: #888888;
-            font-size: clamp(12px, 2vw, 14px);
-            line-height: 1.5;
+            font-size: clamp(13px, 2vw, 15px);
+            line-height: 1.6;
         }
 
-        /* Mobile-first responsive breakpoints */
+        /* Mobile optimizations */
         @media (max-width: 768px) {
             body {
                 padding: 15px;
             }
             
-            .content-section {
-                flex-direction: column;
-                gap: 30px;
-                margin-top: 40px;
+            .video-section {
+                margin-top: 50px;
+                margin-bottom: 50px;
             }
             
             .video-container {
                 min-width: 280px;
-                width: 100%;
                 max-width: 100%;
             }
             
-            .benefits-section {
-                min-width: auto;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .benefit-item {
-                text-align: left;
-                margin-bottom: 20px;
-            }
-            
             .main-title {
-                margin-bottom: 30px;
+                margin-bottom: 35px;
             }
 
             .footer {
-                padding: 40px 15px 30px;
-                margin-top: 60px;
+                padding: 50px 15px 35px;
+                margin-top: 70px;
             }
 
             .footer-links {
                 flex-direction: column;
-                gap: 15px;
+                gap: 20px;
             }
         }
 
@@ -391,91 +536,51 @@
                 flex-direction: column;
                 text-align: center;
                 align-items: center;
-                padding: 15px;
+                padding: 20px;
             }
             
             .check-icon {
                 margin-right: 0;
-                margin-bottom: 10px;
+                margin-bottom: 12px;
             }
             
             .benefits-title {
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
 
             .footer {
-                padding: 30px 10px 20px;
+                padding: 35px 10px 25px;
             }
         }
 
-        /* Animations */
-        @keyframes floating {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
-            100% { transform: translateY(0px); }
+        /* Enhanced scroll animations - now optional */
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
         }
 
-        .cta-button {
-            animation: floating 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
-            50% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.9); }
-            100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
-        }
-
-        .play-button {
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .benefit-item {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .benefit-item:nth-child(1) { animation-delay: 0.1s; }
-        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
-        .benefit-item:nth-child(3) { animation-delay: 0.3s; }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Focus styles for accessibility */
+        /* Accessibility */
         .cta-button:focus,
         .video-thumbnail:focus,
         .play-button:focus,
         .footer-link:focus {
-            outline: 2px solid #FFD700;
-            outline-offset: 2px;
+            outline: 3px solid var(--primary-gold);
+            outline-offset: 3px;
         }
 
-        /* High contrast mode support */
         @media (prefers-contrast: high) {
             .benefit-item,
             .footer-link {
-                border: 2px solid #FFD700;
-                background: rgba(0, 0, 0, 0.8);
+                border: 2px solid var(--primary-gold);
+                background: rgba(0, 0, 0, 0.9);
             }
         }
 
-        /* Reduced motion support */
         @media (prefers-reduced-motion: reduce) {
             .cta-button,
             .play-button,
-            .benefit-item {
+            .benefit-item,
+            .particle {
                 animation: none;
             }
             
@@ -488,29 +593,38 @@
     </style>
 </head>
 <body>
+    <!-- Animated background particles -->
+    <div class="bg-particles" id="particles"></div>
+
     <div class="container">
+        <div class="urgency-banner">⚡ Limited Time: Exclusive Access Available Now ⚡</div>
+        
         <div class="header-text">The Affiliate Ecosystem That Actually Has Your Back:</div>
         
         <h1 class="main-title">
             <span class="yellow-text">Revolutionary System</span> <span class="white-text">Pays You Lifetime Commissions + Built-In Traffic</span>
         </h1>
         
-        <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">GET INSTANT FREE ACCESS</a>
+        <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">🚀 GET INSTANT FREE ACCESS</a>
         
-        <div class="content-section">
-            <div class="video-container" onclick="openVideo()">
-                <div class="video-thumbnail" role="button" tabindex="0" aria-label="Watch revolutionary system presentation" onkeypress="handleKeyPress(event)">
-
+        <!-- Video section now separate and above benefits -->
+        <div class="video-section">
+            <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="video-container" style="text-decoration: none; color: inherit;">
+                <div class="video-thumbnail">
+                    <div class="video-header">EXCLUSIVE REVEAL</div>
                     <div class="play-button">
                         <div class="play-icon"></div>
                     </div>
-                    <div class="video-teaser">Click to discover the system that pays forever</div>
+                    <div class="video-teaser">🎯 Click to discover the system that pays forever</div>
                 </div>
-            </div>
+            </a>
+        </div>
+        
+        <!-- Benefits section now separate -->
+        <div class="benefits-section">
+            <h2 class="benefits-title">What Industry Insiders Don't Want You To Know:</h2>
             
-            <div class="benefits-section">
-                <h2 class="benefits-title">What Industry Insiders Don't Want You To Know:</h2>
-                
+            <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="check-icon">
                         <span class="check-mark">✓</span>
@@ -537,11 +651,20 @@
                         Access the complete <span class="highlight-text">done-for-you system</span> for FREE today
                     </div>
                 </div>
-                
-                <div class="secondary-cta">
-                    <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">GET INSTANT FREE ACCESS</a>
-                </div>
             </div>
+                
+            <div class="secondary-cta">
+                <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">YES! Show Me The System Now 🙏</a>
+            </div>
+        </div>
+
+        <!-- Social proof section -->
+        <div class="social-proof">
+            <h3 class="social-proof-title">Join 20,000+ Smart Marketers Already Earning</h3>
+            <div class="testimonial">
+                "I've made more in the last 3 months than my entire previous year. The lifetime commissions are game-changing!"
+            </div>
+            <div class="testimonial-author">- Jack, Digital Marketer</div>
         </div>
     </div>
 
@@ -572,30 +695,29 @@
             
             <p class="footer-copyright">
                 © 2025 Revolutionary Affiliate System. Unlock your potential for lifetime passive income! 🚀<br>
-                Made with ❤️ by MTG 👑
+                This site is operated with ❤️ by real affiliates who earn daily! No corporate nonsense. 👑
             </p>
         </div>
     </footer>
 
     <script>
-        function scrollToVideo() {
-            document.querySelector('.video-container').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        function openVideo() {
-            window.open('https://masteraffiliateprofits.com/tdf/NOyg4M', '_blank');
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                openVideo();
+        // Enhanced particle system
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = window.innerWidth > 768 ? 50 : 25;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particlesContainer.appendChild(particle);
             }
         }
 
-        // Intersection Observer for scroll animations
+        // Enhanced scroll animations (now optional enhancement)
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -604,53 +726,68 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animate-in');
+                    // Add subtle animation enhancement for visible items
+                    entry.target.style.transform = 'translateY(-2px)';
+                    setTimeout(() => {
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 200);
                 }
             });
         }, observerOptions);
 
-        // Observe benefit items for scroll animations
+        // Initialize on DOM load
         document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Observe benefit items for optional scroll enhancements
             const benefitItems = document.querySelectorAll('.benefit-item');
-            benefitItems.forEach(item => {
+            benefitItems.forEach((item, index) => {
                 observer.observe(item);
             });
+
+            // Observe social proof
+            const socialProof = document.querySelector('.social-proof');
+            if (socialProof) {
+                observer.observe(socialProof);
+            }
         });
 
-        // Performance optimized cursor trail (only on desktop)
-        if (window.innerWidth > 768) {
+        // Enhanced cursor trail (desktop only)
+        if (window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             let mouseTrail = [];
-            const maxTrailLength = 10;
+            const maxTrailLength = 15;
 
             document.addEventListener('mousemove', function(e) {
                 if (mouseTrail.length >= maxTrailLength) {
                     const oldDot = mouseTrail.shift();
-                    oldDot.remove();
+                    if (oldDot && oldDot.parentNode) {
+                        oldDot.remove();
+                    }
                 }
 
                 const dot = document.createElement('div');
                 dot.style.cssText = `
                     position: fixed;
-                    width: 2px;
-                    height: 2px;
-                    background: #FFD700;
+                    width: 3px;
+                    height: 3px;
+                    background: linear-gradient(45deg, #FFD700, #FFA500);
                     border-radius: 50%;
                     pointer-events: none;
-                    left: ${e.clientX}px;
-                    top: ${e.clientY}px;
-                    opacity: 0.6;
+                    left: ${e.clientX - 1}px;
+                    top: ${e.clientY - 1}px;
+                    opacity: 0.8;
                     z-index: 9999;
-                    transition: opacity 0.5s ease-out;
+                    transition: opacity 0.6s ease-out;
+                    box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
                 `;
-                
                 document.body.appendChild(dot);
                 mouseTrail.push(dot);
-                
+
                 setTimeout(() => {
                     dot.style.opacity = '0';
                 }, 100);
-                
+
                 setTimeout(() => {
                     if (dot.parentNode) {
                         dot.remove();
@@ -659,6 +796,5 @@
             });
         }
     </script>
-    
 </body>
 </html>

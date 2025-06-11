@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Revolutionary Affiliate System - Lifetime Commissions Revealed</title>
+    <title>Revolutionary Bitcoin Mining Breakthrough - Daily Passive Income</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         * {
@@ -177,7 +177,140 @@
             box-shadow: 0 20px 50px var(--shadow-gold-intense);
         }
 
-        /* New layout: video section separate from benefits */
+        /* Pop-up Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
+            border: 2px solid var(--primary-gold);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            transform: scale(0.8) translateY(50px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary-gold);
+        }
+
+        .modal-title {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-weight: bold;
+            color: var(--primary-gold);
+            margin-bottom: 20px;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .modal-description {
+            color: var(--text-medium);
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Form Styling */
+        .lead-form {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .form-input::placeholder {
+            color: #999;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(45deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            color: #000;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Video section */
         .video-section {
             margin-top: 60px;
             margin-bottom: 60px;
@@ -205,96 +338,11 @@
             box-shadow: 0 35px 80px rgba(255, 215, 0, 0.4);
         }
 
-        .video-thumbnail {
+        .video-player {
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,0.6) 50%, rgba(13,13,13,0.8) 100%), 
-                        radial-gradient(circle at center, var(--bg-medium) 0%, var(--bg-dark) 100%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .video-header {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
-            color: #000;
-            padding: 10px 18px;
-            border-radius: 20px;
-            font-size: clamp(12px, 2vw, 14px);
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .play-button {
-            width: clamp(70px, 10vw, 90px);
-            height: clamp(70px, 10vw, 90px);
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 0 40px var(--shadow-gold-intense);
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .play-button::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-            opacity: 0.6;
-            animation: ripple 2s infinite;
-        }
-
-        @keyframes ripple {
-            0% { transform: scale(1); opacity: 0.6; }
-            100% { transform: scale(1.4); opacity: 0; }
-        }
-
-        .play-button:hover {
-            transform: scale(1.15);
-            box-shadow: 0 0 60px var(--shadow-gold-intense);
-        }
-
-        .play-icon {
-            width: 0;
-            height: 0;
-            border-left: clamp(22px, 4vw, 30px) solid #000;
-            border-top: clamp(13px, 2.5vw, 18px) solid transparent;
-            border-bottom: clamp(13px, 2.5vw, 18px) solid transparent;
-            margin-left: 4px;
-            z-index: 2;
-            position: relative;
-        }
-
-        .video-teaser {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--text-gold);
-            font-size: clamp(12px, 2.5vw, 15px);
-            font-weight: bold;
-            text-align: center;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-            background: rgba(0, 0, 0, 0.7);
-            padding: 8px 16px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 17px;
         }
 
         .benefits-section {
@@ -376,6 +424,7 @@
 
         .secondary-cta {
             text-align: center;
+            margin-top: 40px;
         }
 
         /* Social proof section */
@@ -517,6 +566,11 @@
                 flex-direction: column;
                 gap: 20px;
             }
+
+            .modal-content {
+                padding: 30px 20px;
+                margin: 20px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -553,17 +607,11 @@
             }
         }
 
-        /* Enhanced scroll animations - now optional */
-        .animate-in {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
-        }
-
         /* Accessibility */
         .cta-button:focus,
-        .video-thumbnail:focus,
-        .play-button:focus,
-        .footer-link:focus {
+        .video-container:focus,
+        .footer-link:focus,
+        .modal-close:focus {
             outline: 3px solid var(--primary-gold);
             outline-offset: 3px;
         }
@@ -578,13 +626,14 @@
 
         @media (prefers-reduced-motion: reduce) {
             .cta-button,
-            .play-button,
             .benefit-item,
-            .particle {
+            .particle,
+            .modal-content {
                 animation: none;
+                transition: none;
             }
             
-            .video-thumbnail:hover,
+            .video-container:hover,
             .cta-button:hover,
             .footer-link:hover {
                 transform: none;
@@ -596,33 +645,51 @@
     <!-- Animated background particles -->
     <div class="bg-particles" id="particles"></div>
 
+    <!-- Pop-up Modal -->
+    <div class="modal-overlay" id="leadModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <h3 class="modal-title">🚀 Join The Bitcoin Mining Revolution!</h3>
+            <p class="modal-description">
+                Get exclusive access to the USB mining breakthrough that's disrupting the $60 billion industry. Start earning daily Bitcoin payouts without expensive hardware!
+            </p>
+            <div class="lead-form">
+                <form action="https://submit-form.com/your-form-id" method="POST">
+                    <input type="email" name="email" class="form-input" placeholder="Enter Your Email Address" required>
+                    <input type="text" name="name" class="form-input" placeholder="Enter Your First Name" required>
+                    <button type="submit" class="form-submit">🔥 Yes! Show Me The Secret Now!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <div class="urgency-banner">⚡ Limited Time: Exclusive Access Available Now ⚡</div>
+        <div class="urgency-banner">⚡ WARNING: Elite Mining Farms Don't Want You To See This ⚡</div>
         
-        <div class="header-text">The Affiliate Ecosystem That Actually Has Your Back:</div>
+        <div class="header-text">The USB Device That's Disrupting A $60 Billion Industry:</div>
         
         <h1 class="main-title">
-            <span class="yellow-text">Revolutionary System</span> <span class="white-text">Pays You Lifetime Commissions + Built-In Traffic</span>
+            <span class="yellow-text">Revolutionary Breakthrough</span> <span class="white-text">Pays Daily Bitcoin Without Expensive Hardware</span>
         </h1>
         
-        <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">🚀 GET INSTANT FREE ACCESS</a>
+        <!-- Main CTA Button -->
+        <button class="cta-button" onclick="openModal()">
+            🚀 Start Building Bitcoin Wealth Now!
+        </button>
         
-        <!-- Video section now separate and above benefits -->
+        <!-- Video section -->
         <div class="video-section">
-            <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="video-container" style="text-decoration: none; color: inherit;">
-                <div class="video-thumbnail">
-                    <div class="video-header">EXCLUSIVE REVEAL</div>
-                    <div class="play-button">
-                        <div class="play-icon"></div>
-                    </div>
-                    <div class="video-teaser">🎯 Click to discover the system that pays forever</div>
-                </div>
-            </a>
+            <div class="video-container">
+                <video class="video-player" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23FFD700' font-size='24' font-family='Arial'%3EBREAKING: Mining Revolution Exposed%3C/text%3E%3C/svg%3E">
+                    <source src="https://bitcoinaiwealth.com/videos/bitharvestmining.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
         
-        <!-- Benefits section now separate -->
+        <!-- Benefits section -->
         <div class="benefits-section">
-            <h2 class="benefits-title">What Industry Insiders Don't Want You To Know:</h2>
+            <h2 class="benefits-title">What The Mining Elite Are Desperately Hiding:</h2>
             
             <div class="benefits-grid">
                 <div class="benefit-item">
@@ -630,7 +697,7 @@
                         <span class="check-mark">✓</span>
                     </div>
                     <div class="benefit-text">
-                        Earn <span class="highlight-text">75% commissions</span> that pay you for <span class="highlight-text">LIFE</span> - not just once
+                        Get <span class="highlight-text">daily Bitcoin payouts</span> without buying expensive ASIC miners or paying high electricity bills
                     </div>
                 </div>
                 
@@ -639,7 +706,7 @@
                         <span class="check-mark">✓</span>
                     </div>
                     <div class="benefit-text">
-                        Get <span class="highlight-text">FREE built-in traffic</span> delivered directly to your offers
+                        <span class="highlight-text">USB acceleration technology</span> that democratizes mining for ordinary people worldwide
                     </div>
                 </div>
                 
@@ -648,32 +715,34 @@
                         <span class="check-mark">✓</span>
                     </div>
                     <div class="benefit-text">
-                        Access the complete <span class="highlight-text">done-for-you system</span> for FREE today
+                        Join the <span class="highlight-text">award-winning platform</span> that's already operating in 48+ countries with verified results
                     </div>
                 </div>
             </div>
                 
             <div class="secondary-cta">
-                <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">YES! Show Me The System Now 🙏</a>
+                <button class="cta-button" onclick="openModal()">
+                    YES! Show Me How This Works 🙏
+                </button>
             </div>
         </div>
 
         <!-- Social proof section -->
         <div class="social-proof">
-            <h3 class="social-proof-title">Join 20,000+ Smart Marketers Already Earning</h3>
+            <h3 class="social-proof-title">Join Thousands Already Mining Bitcoin Daily</h3>
             <div class="testimonial">
-                "I've made more in the last 3 months than my entire previous year. The lifetime commissions are game-changing!"
+                "I never thought I could mine Bitcoin without those massive machines. This USB technology changed everything - now I get daily payouts!"
             </div>
-            <div class="testimonial-author">- Jack, Digital Marketer</div>
+            <div class="testimonial-author">- Sarah M., Early Adopter</div>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
-            <h3 class="footer-title">The Future of Affiliate Marketing</h3>
+            <h3 class="footer-title">The Mining Revolution Starts Here</h3>
             <p class="footer-description">
-                Discover the revolutionary ecosystem that's redefining how smart marketers build lasting wealth. Join the exclusive community that's already earning lifetime commissions while others struggle with one-time payouts.
+                Discover the breakthrough technology that's making Bitcoin mining accessible to everyone. While big mining farms try to keep this secret, thousands of ordinary people are already earning daily Bitcoin rewards. Don't let this opportunity pass you by.
             </p>
             
             <div class="footer-links">
@@ -694,13 +763,44 @@
             <div class="footer-divider"></div>
             
             <p class="footer-copyright">
-                © 2025 Revolutionary Affiliate System. Unlock your potential for lifetime passive income! 🚀<br>
-                This site is operated with ❤️ by real affiliates who earn daily! No corporate nonsense. 👑
+                © 2025 Revolutionary Bitcoin Mining System. Join the mining revolution today! ₿<br>
+                Democratizing Bitcoin mining for everyone, everywhere. No corporate gatekeepers. 🚀
             </p>
         </div>
     </footer>
 
     <script>
+        // Modal functionality
+        const modal = document.getElementById('leadModal');
+        const closeModalBtn = document.getElementById('closeModal');
+
+        function openModal() {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking the X button
+        closeModalBtn.addEventListener('click', closeModal);
+
+        // Close modal when clicking outside the modal content
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
         // Enhanced particle system
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -712,89 +812,19 @@
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
                 particlesContainer.appendChild(particle);
             }
         }
 
-        // Enhanced scroll animations (now optional enhancement)
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-in');
-                    // Add subtle animation enhancement for visible items
-                    entry.target.style.transform = 'translateY(-2px)';
-                    setTimeout(() => {
-                        entry.target.style.transform = 'translateY(0)';
-                    }, 200);
-                }
-            });
-        }, observerOptions);
-
-        // Initialize on DOM load
-        document.addEventListener('DOMContentLoaded', () => {
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', function() {
             createParticles();
-            
-            // Observe benefit items for optional scroll enhancements
-            const benefitItems = document.querySelectorAll('.benefit-item');
-            benefitItems.forEach((item, index) => {
-                observer.observe(item);
-            });
-
-            // Observe social proof
-            const socialProof = document.querySelector('.social-proof');
-            if (socialProof) {
-                observer.observe(socialProof);
-            }
         });
 
-        // Enhanced cursor trail (desktop only)
-        if (window.innerWidth > 768 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            let mouseTrail = [];
-            const maxTrailLength = 15;
-
-            document.addEventListener('mousemove', function(e) {
-                if (mouseTrail.length >= maxTrailLength) {
-                    const oldDot = mouseTrail.shift();
-                    if (oldDot && oldDot.parentNode) {
-                        oldDot.remove();
-                    }
-                }
-
-                const dot = document.createElement('div');
-                dot.style.cssText = `
-                    position: fixed;
-                    width: 3px;
-                    height: 3px;
-                    background: linear-gradient(45deg, #FFD700, #FFA500);
-                    border-radius: 50%;
-                    pointer-events: none;
-                    left: ${e.clientX - 1}px;
-                    top: ${e.clientY - 1}px;
-                    opacity: 0.8;
-                    z-index: 9999;
-                    transition: opacity 0.6s ease-out;
-                    box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
-                `;
-                document.body.appendChild(dot);
-                mouseTrail.push(dot);
-
-                setTimeout(() => {
-                    dot.style.opacity = '0';
-                }, 100);
-
-                setTimeout(() => {
-                    if (dot.parentNode) {
-                        dot.remove();
-                    }
-                }, 600);
-            });
-        }
-    </script>
-</body>
-</html>
+        // Form submission handling
+        document.querySelector('.lead-form form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const email = this.querySelector('input[name="email"]

@@ -177,19 +177,18 @@
             box-shadow: 0 20px 50px var(--shadow-gold-intense);
         }
 
-        .content-section {
-            display: flex;
-            gap: clamp(30px, 6vw, 60px);
-            align-items: center;
+        /* New layout: video section separate from benefits */
+        .video-section {
             margin-top: 60px;
-            flex-wrap: wrap;
+            margin-bottom: 60px;
+            display: flex;
             justify-content: center;
         }
 
         .video-container {
-            flex: 1;
             min-width: 320px;
-            max-width: 600px;
+            max-width: 700px;
+            width: 100%;
             position: relative;
             border-radius: 20px;
             overflow: hidden;
@@ -299,10 +298,9 @@
         }
 
         .benefits-section {
-            flex: 1;
-            min-width: 320px;
-            max-width: 500px;
-            text-align: left;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .benefits-title {
@@ -315,10 +313,15 @@
             text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
         }
 
+        .benefits-grid {
+            display: grid;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
         .benefit-item {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 30px;
             font-size: clamp(15px, 2.5vw, 17px);
             line-height: 1.6;
             padding: 20px;
@@ -327,9 +330,9 @@
             border: 1px solid rgba(255, 215, 0, 0.2);
             backdrop-filter: blur(10px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            /* Fixed: Remove the initial opacity: 0 and transform that was hiding the items */
             opacity: 1;
             transform: translateY(0);
+            text-align: left;
         }
 
         .benefit-item:hover {
@@ -372,7 +375,6 @@
         }
 
         .secondary-cta {
-            margin-top: 50px;
             text-align: center;
         }
 
@@ -492,28 +494,14 @@
                 padding: 15px;
             }
             
-            .content-section {
-                flex-direction: column;
-                gap: 40px;
+            .video-section {
                 margin-top: 50px;
+                margin-bottom: 50px;
             }
             
             .video-container {
                 min-width: 280px;
-                width: 100%;
                 max-width: 100%;
-            }
-            
-            .benefits-section {
-                min-width: auto;
-                width: 100%;
-                text-align: center;
-            }
-            
-            .benefit-item {
-                text-align: left;
-                margin-bottom: 25px;
-                padding: 15px;
             }
             
             .main-title {
@@ -619,20 +607,24 @@
         
         <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">🚀 GET INSTANT FREE ACCESS</a>
         
-        <div class="content-section">
-            <div class="video-container" onclick="openVideo()">
-                <div class="video-thumbnail" role="button" tabindex="0" aria-label="Watch revolutionary system presentation" onkeypress="handleKeyPress(event)">
+        <!-- Video section now separate and above benefits -->
+        <div class="video-section">
+            <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="video-container" style="text-decoration: none; color: inherit;">
+                <div class="video-thumbnail">
                     <div class="video-header">EXCLUSIVE REVEAL</div>
                     <div class="play-button">
                         <div class="play-icon"></div>
                     </div>
                     <div class="video-teaser">🎯 Click to discover the system that pays forever</div>
                 </div>
-            </div>
+            </a>
+        </div>
+        
+        <!-- Benefits section now separate -->
+        <div class="benefits-section">
+            <h2 class="benefits-title">What Industry Insiders Don't Want You To Know:</h2>
             
-            <div class="benefits-section">
-                <h2 class="benefits-title">What Industry Insiders Don't Want You To Know:</h2>
-                
+            <div class="benefits-grid">
                 <div class="benefit-item">
                     <div class="check-icon">
                         <span class="check-mark">✓</span>
@@ -659,10 +651,10 @@
                         Access the complete <span class="highlight-text">done-for-you system</span> for FREE today
                     </div>
                 </div>
+            </div>
                 
-                <div class="secondary-cta">
-                    <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">💰 CLAIM YOUR SPOT NOW</a>
-                </div>
+            <div class="secondary-cta">
+                <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" target="_blank" class="cta-button" aria-label="Get instant free access to the revolutionary system">💰 CLAIM YOUR SPOT NOW</a>
             </div>
         </div>
 
@@ -722,23 +714,6 @@
                 particle.style.animationDelay = Math.random() * 6 + 's';
                 particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
                 particlesContainer.appendChild(particle);
-            }
-        }
-
-        function scrollToVideo() {
-            document.querySelector('.video-container').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-        }
-
-        function openVideo() {
-            window.open('https://masteraffiliateprofits.com/tdf/NOyg4M', '_blank');
-        }
-
-        function handleKeyPress(event) {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                openVideo();
             }
         }
 
@@ -804,4 +779,22 @@
                     opacity: 0.8;
                     z-index: 9999;
                     transition: opacity 0.6s ease-out;
-                    box-shadow: 0 0 6px rgba(255, 215, 0,
+                    box-shadow: 0 0 6px rgba(255, 215, 0, 0.4);
+                `;
+                document.body.appendChild(dot);
+                mouseTrail.push(dot);
+
+                setTimeout(() => {
+                    dot.style.opacity = '0';
+                }, 100);
+
+                setTimeout(() => {
+                    if (dot.parentNode) {
+                        dot.remove();
+                    }
+                }, 600);
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cryptex Tutorial Videos - Your Journey to $35,760 Begins Now</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header-section {
+            text-align: center;
+            margin: 40px 0 60px 0;
+            color: white;
+        }
+
+        .main-title {
+            font-size: 3.5em;
+            font-weight: 900;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            font-weight: 600;
+            opacity: 0.9;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .video-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px 0;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-title {
+            font-size: 1.8em;
+            font-weight: 800;
+            color: #333;
+            margin-bottom: 25px;
+            text-align: center;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            background: #000;
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .thumbnail-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail:hover .thumbnail-image {
+            transform: scale(1.05);
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .play-button:hover {
+            background: white;
+            transform: translate(-50%, -50%) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid #667eea;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .video-player {
+            width: 100%;
+            height: auto;
+            display: none;
+        }
+
+        .video-player.active {
+            display: block;
+        }
+
+        /* YouTube iframe responsive styling - FIXED */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            display: none;
+        }
+
+        .iframe-container.active {
+            display: block;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .cta-section {
+            margin: 80px 0 60px 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 2.2em;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 25px 50px;
+            font-size: 1.4em;
+            font-weight: 800;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: ctaGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes ctaGlow {
+            0% { 
+                transform: scale(1);
+                box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            }
+            100% { 
+                transform: scale(1.05);
+                box-shadow: 0 20px 45px rgba(238, 90, 36, 0.6), 0 0 30px rgba(238, 90, 36, 0.4);
+            }
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 25px 55px rgba(238, 90, 36, 0.7);
+        }
+
+        /* Legal Footer Styling */
+        .legal-footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+        }
+
+        .legal-footer h3 {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .legal-links a:hover {
+            color: white;
+            border-bottom-color: rgba(255, 255, 255, 0.6);
+        }
+
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .floating-coin {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: gold;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 768px) {
+            .main-title {
+                font-size: 2.2em;
+            }
+            
+            .subtitle {
+                font-size: 1.1em;
+            }
+            
+            .video-section {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .video-title {
+                font-size: 1.4em;
+            }
+            
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .play-button::after {
+                border-left: 18px solid #667eea;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
+                margin-left: 3px;
+            }
+            
+            .cta-button {
+                padding: 20px 40px;
+                font-size: 1.2em;
+            }
+            
+            .cta-title {
+                font-size: 1.8em;
+            }
+
+            .legal-links {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .main-title {
+                font-size: 1.8em;
+            }
+            
+            .subtitle {
+                font-size: 1em;
+            }
+            
+            .video-section {
+                padding: 15px;
+            }
+            
+            .video-title {
+                font-size: 1.2em;
+            }
+            
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1em;
+            }
+            
+            .cta-title {
+                font-size: 1.5em;
+            }
+
+            .legal-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-elements">
+        <div class="floating-coin" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="floating-coin" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
+        <div class="floating-coin" style="bottom: 30%; left: 20%; animation-delay: 2s;"></div>
+        <div class="floating-coin" style="bottom: 10%; right: 10%; animation-delay: 3s;"></div>
+    </div>
+
+    <div class="container">
+        <div class="header-section">
+            <h1 class="main-title">Cryptex Tutorial Videos</h1>
+            <p class="subtitle">Your Cryptex Complete Guide to Financial Success...</p>
+        </div>
+
+        <!-- Video 1: Intro – Brief Overview -->
+        <div class="video-section">
+            <h2 class="video-title">🎬 Intro – Cryptex Brief Overview</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/700K.mp4')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg1)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E🚀 Brief Overview%3C/text%3E%3Ctext x='400' y='240' text-anchor='middle' fill='white' font-family='Arial' font-size='18'%3EYour Journey to $35,760%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EClick to Play%3C/text%3E%3C/svg%3E" alt="Brief Overview Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <video class="video-player" controls>
+                    <source src="https://bitcoinaiwealth.com/videos/700K.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Video 2: Deposit BTC and Buy a Contract -->
+        <div class="video-section">
+            <h2 class="video-title">💰 Deposit BTC and Buy a Contract</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/CryptexDepositandBuyaContract.mp4')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700'/%3E%3Cstop offset='100%25' style='stop-color:%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg2)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E💰 Deposit BTC%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E and Buy Contract%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EStep-by-Step Tutorial%3C/text%3E%3C/svg%3E" alt="Deposit BTC Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <video class="video-player" controls>
+                    <source src="https://bitcoinaiwealth.com/videos/CryptexDepositandBuyaContract.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- Video 3: How To Make a BTC Withdrawal -->
+        <div class="video-section">
+            <h2 class="video-title">🏦 How To Make a BTC Withdrawal</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/CryptexWithdrawal.mp4')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234CAF50'/%3E%3Cstop offset='100%25' style='stop-color:%2345a049'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg3)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E🏦 BTC Withdrawal%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3ETutorial%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EGet Your Profits Out%3C/text%3E%3C/svg%3E" alt="BTC Withdrawal Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <video class="video-player" controls>
+                    <source src="https://bitcoinaiwealth.com/videos/CryptexWithdrawal.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+
+        <!-- NEW Video 4: Best Cryptex Review -->
+        <div class="video-section">
+            <h2 class="video-title">⭐ Best Cryptex Review</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'al6DzxOirlE')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg6' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a8e6cf'/%3E%3Cstop offset='100%25' style='stop-color:%2388d8c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg6)'/%3E%3Ctext x='400' y='180' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E⭐ Best Cryptex%3C/text%3E%3Ctext x='400' y='220' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3EReview%3C/text%3E%3Ctext x='400' y='270' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EComplete Honest Review%3C/text%3E%3C/svg%3E" alt="Best Cryptex Review Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video 5: Compensation Plan -->
+        <div class="video-section">
+            <h2 class="video-title">📊 Cryptex Compensation Plan</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'Jlv6MBMs3Ks')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b'/%3E%3Cstop offset='100%25' style='stop-color:%23ee5a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg4)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E📊 Compensation%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3EPlan Details%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EHow You Get Paid%3C/text%3E%3C/svg%3E" alt="Compensation Plan Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video 6: FAQ -->
+        <div class="video-section">
+            <h2 class="video-title">❓ FAQ – Frequently Asked Questions</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'HhNKz81Zb4c')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg5' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2374b9ff'/%3E%3Cstop offset='100%25' style='stop-color:%230984e3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg5)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E❓ FAQ%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EFrequently Asked%3C/text%3E%3Ctext x='400' y='260' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EQuestions%3C/text%3E%3Ctext x='400' y='300' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EGet Your Answers%3C/text%3E%3C/svg%3E" alt="FAQ Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2 class="cta-title">Ready to Start Your Journey?</h2>
+            <a href="https://secure.cryptex.to/MyRegister.php?a=C0510518581" class="cta-button" target="_blank">
+                🚀 Get Started Now!
+            </a>
+        </div>
+    </div>
+
+    <!-- Legal Footer -->
+    <footer class="legal-footer">
+        <h3>Legal</h3>
+        <div class="legal-links">
+            <a href="https://bitcoinaiwealth.com//privacy.html" target="_blank">Privacy</a>
+            <a href="https://bitcoinaiwealth.com//terms.html" target="_blank">Terms</a>
+            <a href="https://bitcoinaiwealth.com//disclaimer.html" target="_blank">Disclaimer</a>
+        </div>
+    </footer>
+
+    <script>
+        // Animate floating coins
+        document.addEventListener('DOMContentLoaded', function() {
+            const coins = document.querySelectorAll('.floating-coin');
+            coins.forEach((coin, index) => {
+                coin.style.animationDelay = `${index * 0.5}s`;
+            });
+        });
+
+        // Play regular video function
+        function playVideo(thumbnail, videoSrc) {
+            const container = thumbnail.parentElement;
+            const videoPlayer = container.querySelector('.video-player');
+            
+            thumbnail.style.display = 'none';
+            videoPlayer.classList.add('active');
+            videoPlayer.src = videoSrc;
+            videoPlayer.play();
+        }
+
+        // Play YouTube video function - FIXED for maximization
+        function playYouTubeVideo(thumbnail, videoId) {
+            const container = thumbnail.parentElement;
+            const iframeContainer = container.querySelector('.iframe-container');
+            const iframe = iframeContainer.querySelector('iframe');
+            
+            // Hide thumbnail
+            thumbnail.style.display = 'none';
+            
+            // Show iframe container with proper aspect ratio
+            iframeContainer.classList.add('active');
+            
+            // Set the YouTube embed URL with proper parameters for fullscreen
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=1`;
+        }
+
+        // CTA button click tracking
+        document.querySelector('.cta-button').addEventListener('click', function() {
+            console.log('Get Started Now button clicked - redirecting to Cryptex registration');
+        });
+    </script>
+
+<!-- ✅ START: Social Proof Popups With Close Button -->
+<style>
+  #popup-container {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+  }
+
+  .popup {
+    background-color: #fff;
+    color: #333;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    animation: fadeInOut 6s ease-in-out;
+    max-width: 300px;
+    font-size: 14px;
+    position: relative;
+  }
+
+  .popup .close-btn {
+    position: absolute;
+    top: 6px;
+    right: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .popup .close-btn:hover {
+    color: #000;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+</style>
+
+<div id="popup-container"></div>
+
+<script>
+  const messages = [
+"Kabelo from Johannesburg, South Africa just joined BitHarvest – 2 minutes ago",
+"Khanyie from KZN, South Africa activated her first BitBooter – 8 hours ago",
+"Mfikiseni from Durban, South Africa activated his 5th BitBooter – just now",
+"Liam from Toronto, Canada just joined BitHarvest – 3 minutes ago",
+"Chloe from Brisbane, Australia just joined BitHarvest – 14 minutes ago",
+"Musa from Durban, South Africa activated 10 new BitBoosters – 8 minutes ago",
+"Sarah from Cape Town, South Africa just joined BitHarvest – a few moments ago",
+"Jacob from Chicago, USA just joined BitHarvest – 1 minute ago",
+"Olivia from Auckland, New Zealand activated her first BitBooter – 2 minutes ago",
+"Daniel from Birmingham, UK is watching the videos on this page – right now",
+"Grace from Vancouver, Canada joined BitHarvest – 4 minutes ago",
+"Matthew from Los Angeles, just joined BitHarvest – a moment ago",
+"Abigail from Sydney, Australia just joined BitHarvest – 2 minutes ago",
+"Benjamin from Belfast, Northern Ireland activated his first BitBooter – just now",
+"Ella from Wellington, New Zealand is on this page right now",
+"Cleo from Johannesburg, South Africa activated her 3rd BitBooter – 1 minute ago",
+"Sophie from Melbourne, Australia just joined BitHarvest – a few seconds ago",
+"Noah from Dallas, USA just joined BitHarvest – just now",
+"Melusi from Durban, South Africa just joined BitHarvest – 7 minutes ago",
+"Lucas from Edinburgh, UK activated his first BitBooter – a while ago",
+"Barry from Lagos, Nigeria just joined BitHarvest – a moment ago",
+"Aiden from Perth, Australia activated 10 new BitBoosters – just now",
+"Olusegun from Abuja, Nigeria joined BitHarvest – 4 minutes ago",
+"Thandiwe from Cape Town, South Africa joined BitHarvest – a few seconds ago",
+"Chinua from Aba, Nigeria just joined BitHarvest – 2 minutes ago",
+"Thembi from Richards Bay, South Africa activated her 7th BitBooter – 5 minutes ago",
+"Carlos from Madrid, Spain just joined BitHarvest – 6 minutes ago",
+"Anika from Mumbai, India activated her first BitBooter – 10 minutes ago",
+"Leo from São Paulo, Brazil is exploring BitHarvest dashboard – right now"
+  ];
+
+  function showPopup(message) {
+    const container = document.getElementById("popup-container");
+    const popup = document.createElement("div");
+    popup.className = "popup";
+
+    const closeBtn = document.createElement("span");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = "&times;";
+    closeBtn.onclick = () => popup.remove();
+
+    popup.innerText = message;
+    popup.appendChild(closeBtn);
+    container.appendChild(popup);
+
+    setTimeout(() => {
+      if (popup.parentElement) popup.remove();
+    }, 6000);
+  }
+
+  function startPopups() {
+    setInterval(() => {
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      showPopup(randomMessage);
+    }, 9000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startPopups);
+</script>
+<!-- ✅ END: Social Proof Popups With Close Button -->
+    
+</body>
+</html>

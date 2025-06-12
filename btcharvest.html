@@ -184,8 +184,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(15px);
             z-index: 1000;
             display: flex;
             align-items: center;
@@ -204,13 +204,14 @@
             background: linear-gradient(135deg, var(--bg-medium) 0%, var(--bg-dark) 100%);
             border: 2px solid var(--primary-gold);
             border-radius: 20px;
-            padding: 40px;
+            padding: 50px 40px;
             max-width: 500px;
             width: 90%;
             position: relative;
             transform: scale(0.8) translateY(50px);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 25px 60px rgba(255, 215, 0, 0.4);
+            text-align: center;
         }
 
         .modal-overlay.active .modal-content {
@@ -224,7 +225,7 @@
             background: none;
             border: none;
             color: var(--text-light);
-            font-size: 24px;
+            font-size: 28px;
             cursor: pointer;
             padding: 5px;
             border-radius: 50%;
@@ -234,80 +235,128 @@
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
+            font-weight: bold;
         }
 
         .modal-close:hover {
             background: rgba(255, 255, 255, 0.1);
             color: var(--primary-gold);
+            transform: scale(1.1);
         }
 
         .modal-title {
-            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
             font-weight: bold;
-            color: var(--primary-gold);
-            margin-bottom: 20px;
+            color: white;
+            margin-bottom: 15px;
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.2;
         }
 
-        .modal-description {
+        .modal-subtitle {
             color: var(--text-medium);
-            font-size: clamp(14px, 2vw, 16px);
-            line-height: 1.6;
-            margin-bottom: 30px;
+            font-size: clamp(14px, 2.5vw, 16px);
+            line-height: 1.5;
+            margin-bottom: 35px;
             text-align: center;
         }
 
-        /* Form Styling */
-        .lead-form {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 15px;
-            padding: 25px;
-            backdrop-filter: blur(10px);
+        /* Lead Capture Form Styling */
+        .lead-capture-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--text-light);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
         }
 
         .form-input {
             width: 100%;
-            padding: 15px 20px;
-            margin: 10px 0;
+            padding: 18px 20px;
             border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             font-size: 16px;
             transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--primary-gold);
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .form-input::placeholder {
-            color: #999;
+            color: #888;
         }
 
         .form-submit {
             width: 100%;
             background: linear-gradient(45deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
             color: #000;
-            padding: 18px;
+            padding: 20px;
             font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 15px;
+            margin-top: 25px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
         }
 
         .form-submit:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+        }
+
+        .form-disclaimer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        .form-disclaimer span {
+            margin: 0 10px;
+        }
+
+        .form-disclaimer span:before {
+            content: '✓ ';
+            color: var(--success-green);
+            font-weight: bold;
         }
 
         /* Video section */
@@ -343,6 +392,65 @@
             height: 100%;
             border: none;
             border-radius: 17px;
+        }
+
+        /* Enhanced video controls */
+        .video-player::-webkit-media-controls-play-button {
+            background-color: var(--primary-gold);
+            border-radius: 50%;
+            transform: scale(1.5);
+            opacity: 0.9;
+        }
+
+        .video-player::-webkit-media-controls-panel {
+            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.8));
+        }
+
+        /* Custom play button overlay for better cross-browser support */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .video-overlay.hidden {
+            opacity: 0;
+        }
+
+        .custom-play-button {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            pointer-events: all;
+        }
+
+        .custom-play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+        }
+
+        .play-icon {
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
         }
 
         .benefits-section {
@@ -568,8 +676,19 @@
             }
 
             .modal-content {
-                padding: 30px 20px;
+                padding: 40px 25px;
                 margin: 20px;
+            }
+
+            .custom-play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-icon {
+                border-left: 18px solid #000;
+                border-top: 12px solid transparent;
+                border-bottom: 12px solid transparent;
             }
         }
 
@@ -605,20 +724,27 @@
             .footer {
                 padding: 35px 10px 25px;
             }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
         }
 
         /* Accessibility */
         .cta-button:focus,
         .video-container:focus,
         .footer-link:focus,
-        .modal-close:focus {
+        .modal-close:focus,
+        .form-input:focus,
+        .form-submit:focus {
             outline: 3px solid var(--primary-gold);
             outline-offset: 3px;
         }
 
         @media (prefers-contrast: high) {
             .benefit-item,
-            .footer-link {
+            .footer-link,
+            .modal-content {
                 border: 2px solid var(--primary-gold);
                 background: rgba(0, 0, 0, 0.9);
             }
@@ -628,14 +754,16 @@
             .cta-button,
             .benefit-item,
             .particle,
-            .modal-content {
+            .modal-content,
+            .custom-play-button {
                 animation: none;
                 transition: none;
             }
             
             .video-container:hover,
             .cta-button:hover,
-            .footer-link:hover {
+            .footer-link:hover,
+            .custom-play-button:hover {
                 transform: none;
             }
         }
@@ -645,21 +773,51 @@
     <!-- Animated background particles -->
     <div class="bg-particles" id="particles"></div>
 
-    <!-- Pop-up Modal -->
+    <!-- Lead Capture Modal -->
     <div class="modal-overlay" id="leadModal">
         <div class="modal-content">
             <button class="modal-close" id="closeModal">&times;</button>
-            <h3 class="modal-title">🚀 Join The Bitcoin Mining Revolution!</h3>
-            <p class="modal-description">
-                Get exclusive access to the USB mining breakthrough that's disrupting the $60 billion industry. Start earning daily Bitcoin payouts without expensive hardware!
-            </p>
-            <div class="lead-form">
-                <form action="https://submit-form.com/your-form-id" method="POST">
-                    <input type="email" name="email" class="form-input" placeholder="Enter Your Email Address" required>
-                    <input type="text" name="name" class="form-input" placeholder="Enter Your First Name" required>
-                    <button type="submit" class="form-submit">🔥 Yes! Show Me The Secret Now!</button>
-                </form>
-            </div>
+            <h2 class="modal-title">Almost There...</h2>
+            <p class="modal-subtitle">Just Enter Your Name & Best Email Below 👇</p>
+            
+            <form class="lead-capture-form" method="POST" action="https://gogvo.com/subscribe.php">
+                <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                <input type="hidden" name="CampaignCode" value="Z8IhKOblCq9c">
+                <input type="hidden" name="TrackParam" value="new_form">
+                <input type="hidden" name="FormId" value="24983767">
+                
+                <div class="form-group">
+                    <label class="form-label" for="firstName">First Name:</label>
+                    <input type="text" 
+                           id="firstName" 
+                           name="FirstName" 
+                           class="form-input" 
+                           placeholder="Enter your first name" 
+                           required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="email">Best Email Address:</label>
+                    <input type="email" 
+                           id="email" 
+                           name="Email" 
+                           class="form-input" 
+                           placeholder="Enter your best email address" 
+                           required>
+                </div>
+                
+                <button type="submit" class="form-submit">
+                    Yes! Let Me Stack Bitcoin Now! 🚀
+                </button>
+                
+                <div class="form-disclaimer">
+                    <span>100% Free</span>
+                    <span>No Spam</span>
+                    <span>Trusted by Thousands</span>
+                </div>
+                
+                <img src="https://gogvo.com/show_form.php?id=24983767&TrackParam=new_form" style="display: none;">
+            </form>
         </div>
     </div>
 
@@ -680,10 +838,15 @@
         <!-- Video section -->
         <div class="video-section">
             <div class="video-container">
-                <video class="video-player" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23FFD700' font-size='24' font-family='Arial'%3EBREAKING: Mining Revolution Exposed%3C/text%3E%3C/svg%3E">
+                <video class="video-player" controls preload="metadata" poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23FFD700' font-size='24' font-family='Arial'%3EBREAKING: Mining Revolution Exposed%3C/text%3E%3C/svg%3E">
                     <source src="https://bitcoinaiwealth.com/videos/bitharvestmining.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <div class="video-overlay" id="videoOverlay">
+                    <div class="custom-play-button" onclick="playVideo()">
+                        <div class="play-icon"></div>
+                    </div>
+                </div>
             </div>
         </div>
         
@@ -702,129 +865,4 @@
                 </div>
                 
                 <div class="benefit-item">
-                    <div class="check-icon">
-                        <span class="check-mark">✓</span>
-                    </div>
-                    <div class="benefit-text">
-                        <span class="highlight-text">USB acceleration technology</span> that democratizes mining for ordinary people worldwide
-                    </div>
-                </div>
-                
-                <div class="benefit-item">
-                    <div class="check-icon">
-                        <span class="check-mark">✓</span>
-                    </div>
-                    <div class="benefit-text">
-                        Join the <span class="highlight-text">award-winning platform</span> that's already operating in 48+ countries with verified results
-                    </div>
-                </div>
-            </div>
-                
-            <div class="secondary-cta">
-                <button class="cta-button" onclick="openModal()">
-                    YES! Show Me How This Works 🙏
-                </button>
-            </div>
-        </div>
-
-        <!-- Social proof section -->
-        <div class="social-proof">
-            <h3 class="social-proof-title">Join Thousands Already Mining Bitcoin Daily</h3>
-            <div class="testimonial">
-                "I never thought I could mine Bitcoin without those massive machines. This USB technology changed everything - now I get daily payouts!"
-            </div>
-            <div class="testimonial-author">- Sarah M., Early Adopter</div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <h3 class="footer-title">The Mining Revolution Starts Here</h3>
-            <p class="footer-description">
-                Discover the breakthrough technology that's making Bitcoin mining accessible to everyone. While big mining farms try to keep this secret, thousands of ordinary people are already earning daily Bitcoin rewards. Don't let this opportunity pass you by.
-            </p>
-            
-            <div class="footer-links">
-                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
-                   class="footer-link" target="_blank">
-                    Privacy Policy
-                </a>
-                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
-                   class="footer-link" target="_blank">
-                    Terms of Service
-                </a>
-                <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
-                   class="footer-link" target="_blank">
-                    Disclaimer
-                </a>
-            </div>
-            
-            <div class="footer-divider"></div>
-            
-            <p class="footer-copyright">
-                © 2025 Revolutionary Bitcoin Mining System. Join the mining revolution today! ₿<br>
-                Democratizing Bitcoin mining for everyone, everywhere. No corporate gatekeepers. 🚀
-            </p>
-        </div>
-    </footer>
-
-    <script>
-        // Modal functionality
-        const modal = document.getElementById('leadModal');
-        const closeModalBtn = document.getElementById('closeModal');
-
-        function openModal() {
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModal() {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        // Close modal when clicking the X button
-        closeModalBtn.addEventListener('click', closeModal);
-
-        // Close modal when clicking outside the modal content
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeModal();
-            }
-        });
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-        // Enhanced particle system
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth > 768 ? 50 : 25;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.top = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 6 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // Initialize particles when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-        });
-
-        // Form submission handling
-        document.querySelector('.lead-form form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const email = this.querySelector('input[name="email"]
+                    <div class="

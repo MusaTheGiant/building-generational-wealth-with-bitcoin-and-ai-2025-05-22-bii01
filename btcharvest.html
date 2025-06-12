@@ -274,62 +274,85 @@
 
         .form-label {
             display: block;
-            color: var(--text-light);
+            color: var(--primary-gold);
             font-size: 14px;
-            font-weight: bold;
+            font-weight: 600;
             margin-bottom: 8px;
-            text-align: left;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .form-input {
             width: 100%;
-            padding: 15px 20px;
+            padding: 16px 20px;
             border: 2px solid rgba(255, 215, 0, 0.3);
-            border-radius: 10px;
-            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             font-size: 16px;
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .form-input:focus {
             outline: none;
             border-color: var(--primary-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            background: rgba(0, 0, 0, 0.9);
         }
 
         .form-input::placeholder {
             color: #999;
+            font-style: italic;
         }
 
         .form-submit {
             width: 100%;
-            background: linear-gradient(45deg, var(--primary-gold) 0%, var(--secondary-gold) 100%);
+            background: linear-gradient(45deg, #FF8C00 0%, #FFD700 50%, #FF8C00 100%);
             color: #000;
-            padding: 18px;
+            padding: 18px 20px;
             font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 15px;
+            margin-top: 10px;
             transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .form-submit:hover::before {
+            left: 100%;
         }
 
         .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
         }
 
         .form-trust-indicators {
             display: flex;
-            justify-content: space-around;
-            margin-top: 15px;
-            font-size: 12px;
-            color: var(--success-green);
-            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #999;
+            flex-wrap: wrap;
         }
 
         .form-trust-indicators span {
@@ -372,6 +395,44 @@
             border: none;
             border-radius: 17px;
             object-fit: cover;
+        }
+
+        /* Custom play button overlay */
+        .custom-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 215, 0, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            border: none;
+        }
+
+        .custom-play-button:hover {
+            background: rgba(255, 215, 0, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .custom-play-button::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 25px solid #000;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            margin-left: 5px;
+        }
+
+        .custom-play-button.hidden {
+            display: none;
         }
 
         .benefits-section {
@@ -674,205 +735,6 @@
                 transform: none;
             }
         }
-
-/* Enhanced Form Styling */
-.form-group {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.form-label {
-    display: block;
-    color: var(--primary-gold);
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 8px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.form-input {
-    width: 100%;
-    padding: 16px 20px;
-    border: 2px solid rgba(255, 215, 0, 0.3);
-    border-radius: 12px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-.form-input:focus {
-    outline: none;
-    border-color: var(--primary-gold);
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-    background: rgba(0, 0, 0, 0.9);
-}
-
-.form-input::placeholder {
-    color: #999;
-    font-style: italic;
-}
-
-.form-submit {
-    width: 100%;
-    background: linear-gradient(45deg, #FF8C00 0%, #FFD700 50%, #FF8C00 100%);
-    color: #000;
-    padding: 18px 20px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 10px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.form-submit::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.6s;
-}
-
-.form-submit:hover::before {
-    left: 100%;
-}
-
-.form-submit:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(255, 140, 0, 0.4);
-}
-
-.form-trust-indicators {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    margin-top: 20px;
-    font-size: 13px;
-    color: #999;
-    flex-wrap: wrap;
-}
-
-.form-trust-indicators span {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-/* Video Play Button Fix */
-.video-container {
-    min-width: 320px;
-    max-width: 700px;
-    width: 100%;
-    position: relative;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
-    border: 3px solid;
-    border-image: linear-gradient(45deg, var(--primary-gold), var(--secondary-gold), var(--accent-gold)) 1;
-    aspect-ratio: 16/9;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.video-player {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 17px;
-    object-fit: cover;
-}
-
-/* Ensure video controls are always visible */
-.video-player::-webkit-media-controls {
-    display: flex !important;
-}
-
-.video-player::-webkit-media-controls-panel {
-    display: flex !important;
-}
-
-.video-player::-webkit-media-controls-play-button {
-    display: block !important;
-}
-
-/* Firefox video controls */
-.video-player::-moz-media-controls {
-    display: block !important;
-}
-
-/* Custom play button overlay for better cross-browser support */
-.custom-play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 215, 0, 0.9);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-}
-
-.custom-play-button:hover {
-    background: rgba(255, 215, 0, 1);
-    transform: translate(-50%, -50%) scale(1.1);
-}
-
-.custom-play-button::after {
-    content: '';
-    width: 0;
-    height: 0;
-    border-left: 25px solid #000;
-    border-top: 15px solid transparent;
-    border-bottom: 15px solid transparent;
-    margin-left: 5px;
-}
-
-.custom-play-button.hidden {
-    display: none;
-}
-
-/* Mobile responsiveness for form */
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 25px 20px;
-        margin: 15px;
-    }
-    
-    .form-trust-indicators {
-        gap: 15px;
-        font-size: 12px;
-    }
-    
-    .form-trust-indicators span {
-        flex-direction: column;
-        gap: 2px;
-    }
-}
-
-@media (max-width: 480px) {
-    .form-trust-indicators {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
         
     </style>
 </head>
@@ -935,11 +797,12 @@
         
         <!-- Video section -->
         <div class="video-section">
-            <div class="video-container">
-                <video class="video-player" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23FFD700' font-size='24' font-family='Arial'%3EBREAKING: Mining Revolution Exposed%3C/text%3E%3C/svg%3E">
+            <div class="video-container" id="videoContainer">
+                <video class="video-player" id="mainVideo" controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23000'/%3E%3Ctext x='400' y='225' text-anchor='middle' fill='%23FFD700' font-size='24' font-family='Arial'%3EBREAKING: Mining Revolution Exposed%3C/text%3E%3C/svg%3E">
                     <source src="https://bitcoinaiwealth.com/videos/bitharvestmining.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
+                <button class="custom-play-button" id="customPlayButton"></button>
             </div>
         </div>
         

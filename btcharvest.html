@@ -950,17 +950,16 @@ video::-webkit-media-controls-overlay-play-button {
         const videoContainer = document.getElementById('videoContainer');
 
         // Custom play button functionality
-        function toggleVideo() {
-        if (video.paused) {
-            video.setAttribute('controls', 'true');
-            video.play();
-            customPlayButton.classList.add('hidden');
-            } else {
-                video.pause();
-                customPlayButton.classList.remove('hidden');
-            }
-        }
-
+      function toggleVideo() {
+    if (video.paused) {
+        video.setAttribute('controls', 'true'); // Enable native controls for fullscreen
+        video.play();
+        customPlayButton.classList.add('hidden');
+    } else {
+        video.pause();
+        customPlayButton.classList.remove('hidden');
+    }
+}
         // Event listeners for video
         customPlayButton.addEventListener('click', toggleVideo);
         videoContainer.addEventListener('click', function(e) {

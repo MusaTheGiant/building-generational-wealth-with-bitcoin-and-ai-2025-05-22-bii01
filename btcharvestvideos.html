@@ -220,7 +220,7 @@
 
         .video-player {
             width: 100%;
-            height: auto;
+            aspect-ratio: 16/9;
             display: none;
             border-radius: 20px;
         }
@@ -588,7 +588,7 @@
             videoPlayer.play();
         }
 
-        // Play YouTube video function
+        // Play YouTube video function - Updated with parameters to prevent recommended videos
         function playYouTubeVideo(thumbnail, videoId) {
             const container = thumbnail.parentElement;
             const iframeContainer = container.querySelector('.iframe-container');
@@ -600,8 +600,8 @@
             // Show iframe container
             iframeContainer.classList.add('active');
             
-            // Set the YouTube embed URL
-            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=1`;
+            // Set the YouTube embed URL with parameters to prevent recommended videos
+            iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1&fs=1&end_screen_info=0&iv_load_policy=3&showinfo=0`;
         }
 
         // CTA button click tracking
@@ -610,7 +610,7 @@
         });
     </script>
 
-<!-- Social Proof Popups -->
+<!-- ✅ START: Social Proof Popups With Close Button -->
 <style>
   #popup-container {
     position: fixed;
@@ -621,24 +621,112 @@
   }
 
   .popup {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
-    color: white;
-    padding: 14px 18px;
-    margin-top: 12px;
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
+    background-color: #fff;
+    color: #333;
+    padding: 12px 16px;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
     animation: fadeInOut 6s ease-in-out;
-    max-width: 320px;
+    max-width: 300px;
     font-size: 14px;
     position: relative;
-    border: 1px solid rgba(233, 69, 96, 0.2);
   }
 
   .popup .close-btn {
     position: absolute;
-    top: 8px;
-    right: 12px;
+    top: 6px;
+    right: 10px;
     cursor: pointer;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 16
+    color: #aaa;
+    font-size: 14px;
+  }
+
+  .popup .close-btn:hover {
+    color: #000;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    10% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+</style>
+
+<div id="popup-container"></div>
+
+<script>
+  const messages = [
+    "Kabelo from Johanessburg, South Africa just joined Cryptex – 2 minutes ago",
+    "Khanyie from KZN, South Africa activated her first contract – 8 hours ago",
+    "Mfikiseni from Durban, South Africa activated his 5th contract – just now",
+    "Liam from Toronto, Canada just joined Cryptex – 3 minutes ago",
+    "Chloe from Brisbane, Australia just joined Cryptex – 14 minutes ago",
+    "Musa from Durban, South Africa activated 10 new contracts – 8 minutes ago",
+    "Sarah from Cape Town, South Africa just joined Cryptex – a few moments ago",
+    "Jacob from Chicago, USA just joined Cryptex – 1 minute ago",
+    "Olivia from Auckland, New Zealand activated her first contract – 2 minutes ago",
+    "Daniel from Birmingham, UK is watching the videos on this page – right now",
+    "Grace from Vancouver, Canada joined Cryptex – 4 minutes ago",
+    "Matthew from Los Angeles, just joined Cryptex – a moment ago",
+    "Abigail from Sydney, Australia just joined Cryptex – 2 minutes ago",
+    "Benjamin from Belfast, Northern Ireland activated his first contract – just now",
+    "Ella from Wellington, New Zealand is on this page right now",
+    "Cleo from Johannesburg, South Africa activated her 3rd contract – 1 minute ago",
+    "Sophie from Melbourne, Australia just joined Cryptex – a few seconds ago",
+    "Noah from Dallas, USA just joined Cryptex – just now",
+    "Melusi from Durban, South Africa just joined Cryptex – 7 minutes ago",
+    "Lucas from Edinburgh, UK activated his first contract – a while ago",
+    "Barry from Lagos, Nigeria just joined Cryptex – a moment ago",
+    "Aiden from Perth, Australia activated 10 new contracts – just now",
+    "Olusegun from Abuja, Nigeria joined Cryptex – 4 minutes ago",
+    "Thandiwe from Cape Town, South Africa joined Cryptex – a few seconds ago",
+    "Chinua from Aba, Nigeria just joined Cryptex – 2 minutes ago",
+    "Thembi from Richards Bay, South Africa activated her 7th contract – 5 minutes ago"
+  ];
+
+  function showPopup(message) {
+    const container = document.getElementById("popup-container");
+    const popup = document.createElement("div");
+    popup.className = "popup";
+
+    const closeBtn = document.createElement("span");
+    closeBtn.className = "close-btn";
+    closeBtn.innerHTML = "&times;";
+    closeBtn.onclick = () => popup.remove();
+
+    popup.innerText = message;
+    popup.appendChild(closeBtn);
+    container.appendChild(popup);
+
+    setTimeout(() => {
+      if (popup.parentElement) popup.remove();
+    }, 6000);
+  }
+
+  function startPopups() {
+    setInterval(() => {
+      const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+      showPopup(randomMessage);
+    }, 9000);
+  }
+
+  document.addEventListener("DOMContentLoaded", startPopups);
+</script>
+<!-- ✅ END: Social Proof Popups With Close Button -->
+    
+</body>
+</html>

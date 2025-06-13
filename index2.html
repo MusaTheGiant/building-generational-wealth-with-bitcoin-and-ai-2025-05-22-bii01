@@ -19,9 +19,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
         body::before {
@@ -55,6 +55,7 @@
             border: 1px solid rgba(247, 147, 26, 0.3);
             position: relative;
             z-index: 1;
+            margin: 20px auto;
         }
 
         .hero-container:hover {
@@ -217,22 +218,88 @@
         }
 
         @media (max-width: 480px) {
+            body {
+                padding: 30px 15px 50px 15px;
+                min-height: 100vh;
+            }
+            
             .hero-container {
-                padding: 40px 24px;
+                padding: 40px 24px 50px 24px;
+                margin: 10px auto 30px auto;
+                border-radius: 24px;
             }
             
             .username {
                 font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .bio {
+                font-size: 16px;
+                margin-bottom: 35px;
+                line-height: 1.6;
             }
             
             .social-links {
                 gap: 16px;
+                margin-bottom: 10px;
             }
             
             .social-link {
                 width: 50px;
                 height: 50px;
                 font-size: 20px;
+                border-radius: 16px;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                padding: 25px 10px 40px 10px;
+            }
+            
+            .hero-container {
+                padding: 35px 20px 45px 20px;
+                margin: 5px auto 25px auto;
+            }
+            
+            .username {
+                font-size: 24px;
+            }
+            
+            .bio {
+                font-size: 15px;
+            }
+            
+            .social-links {
+                gap: 12px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+        }
+
+        /* Ensure proper viewport height on mobile browsers */
+        @media screen and (max-height: 640px) and (max-width: 480px) {
+            body {
+                min-height: 100vh;
+                padding: 20px 15px 40px 15px;
+                align-items: flex-start;
+                justify-content: center;
+            }
+            
+            .hero-container {
+                margin-top: 20px;
+                margin-bottom: 30px;
             }
         }
 
@@ -276,7 +343,8 @@
         <div class="sparkle"></div>
         
         <div class="profile-image">
-            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTAwIiBmaWxsPSIjMkEyQTJBIi8+CjxwYXRoIGQ9Ik0xMDAgNDBDMTMzLjEzNyA0MCA2MCA2Ni44NjI5IDYwIDEwMEM2MCA5Ni41IDYzIDkzIDY3IDkzUzc0IDk2LjUgNzQgMTAwQzc0IDExNi41IDgzLjUgMTMwIDEwMCAxMzBTMTI2IDExNi41IDEyNiAxMDBDMTI2IDk2LjUgMTI5IDkzIDEzMyA5M1MxNDAgOTYuNSAxNDAgMTAwQzE0MCA2Ni44NjI5IDEzMy4xMzcgNDAgMTAwIDQwWiIgZmlsbD0iI0Y3OTMxQSIvPgo8cGF0aCBkPSJNMTAwIDUwQzEyNy42MTQgNTAgMTUwIDcyLjM4NTggMTUwIDEwMEMxNTAgMTI3LjYxNCAxMjcuNjE0IDE1MCAxMDAgMTUwQzcyLjM4NTggMTUwIDUwIDEyNy42MTQgNTAgMTAwQzUwIDcyLjM4NTggNzIuMzg1OCA1MCAxMDAgNTBaIiBzdHJva2U9IiNGRkZGRkYiIHN0cm9rZS13aWR0aD0iMiIvPgo8dGV4dCB4PSIxMDAiIHk9IjExNSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0iI0Y3OTMxQSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+4oK/PC90ZXh0Pgo8cGF0aCBkPSJNNTAgMTYwSDE1ME0xMDAgMTQwVjE4MCIgc3Ryb2tlPSIjRkZGRkZGIiBzdHJva2Utd2lkdGg9IjIiLz4KPHRleHQgeD0iMTAwIiB5PSIxOTAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMiIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+Yml0Y29pbmFpd2VhbHRoLmNvbTwvdGV4dD4KPC9zdmc+" alt="Bitcoin AI Wealth Logo">
+            <!-- REPLACE THE SRC ATTRIBUTE BELOW WITH YOUR CUSTOM LOGO -->
+            <img src="https://bitcoinaiwealth.com/images/bitcoinaiwealth.jpeg">
         </div>
         
         <h1 class="username">Let's ₿uild Wealth Together!</h1>

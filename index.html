@@ -1,1674 +1,829 @@
 
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin Wealth Building | Bitcoin AI Wealth</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <meta name="description" content="Join MTG's exclusive email list for vetted Bitcoin opportunities. Learn from 7+ years of crypto experience and build wealth safely.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        // Wait for Tailwind to load before configuring
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof tailwind !== 'undefined') {
-                tailwind.config = {
-                    theme: {
-                        extend: {
-                            colors: {
-                                'bitcoin': '#F7931A',
-                                'bitcoin-light': '#FFB84D',
-                                'bitcoin-dark': '#E6830F',
-                                'deep-blue': '#0F172A',
-                                'slate-blue': '#1E293B',
-                                'slate-darker': '#0D1520',
-                                'warm-gray': '#F8FAFC',
-                                'gold': '#FFD700',
-                                'emerald': '#10B981'
-                            },
-                            fontFamily: {
-                                'sans': ['Inter', 'sans-serif'],
-                                'serif': ['Playfair Display', 'serif']
-                            },
-                            animation: {
-                                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                                'float': 'float 6s ease-in-out infinite',
-                                'glow': 'glow 2s ease-in-out infinite alternate',
-                                'slideIn': 'slideIn 0.3s ease-out',
-                                'fadeIn': 'fadeIn 0.3s ease-out'
-                            },
-                            keyframes: {
-                                float: {
-                                    '0%, 100%': { transform: 'translateY(0px)' },
-                                    '50%': { transform: 'translateY(-10px)' }
-                                },
-                                glow: {
-                                    '0%': { boxShadow: '0 0 20px rgba(247, 147, 26, 0.3)' },
-                                    '100%': { boxShadow: '0 0 30px rgba(247, 147, 26, 0.6)' }
-                                },
-                                slideIn: {
-                                    '0%': { transform: 'translateY(-50px)', opacity: '0' },
-                                    '100%': { transform: 'translateY(0)', opacity: '1' }
-                                },
-                                fadeIn: {
-                                    '0%': { opacity: '0' },
-                                    '100%': { opacity: '1' }
-                                }
-                            }
-                        }
-                    }
-                };
-            }
-        });
-    </script>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-        
-        :root {
-            --bitcoin: #f7931a;
-            --bitcoin-light: #ffb347;
-            --gold: #ffd700;
-            --emerald: #10b981;
-        }
-        
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Passive Income | Multiple Streams of Income</title>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<style>
         * {
-            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .gradient-hero {
-            background: linear-gradient(135deg, #0D1520 0%, #0F172A 25%, #1E293B 75%, #334155 100%);
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #000000;
+            background-attachment: scroll;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
             position: relative;
-            overflow: hidden;
+            overflow-x: hidden;
         }
-        
-        .gradient-hero::before {
+
+        body::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(247, 147, 26, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(247, 147, 26, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(247, 147, 26, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(247, 147, 26, 0.08) 0%, transparent 50%);
             pointer-events: none;
         }
-        
-        .bitcoin-accent {
-            background: linear-gradient(135deg, var(--bitcoin), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.3));
-        }
-        
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-        
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
+
+        .hero-container {
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .gradient-border {
-            background: linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) padding-box,
-                        linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) border-box;
-            border: 2px solid transparent;
-        }
-        
-        .text-shadow {
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        
-        .story-section {
-            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
-        }
-        
-        .story-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 32px;
+            padding: 60px 40px;
+            text-align: center;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(247, 147, 26, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            max-width: 520px;
+            width: 100%;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(247, 147, 26, 0.3);
+            position: relative;
+            z-index: 1;
+            margin: 20px auto 60px auto;
         }
 
-        /* Popup Styles */
-        .popup-overlay {
-            display: none;
-            position: fixed;
+        .hero-container:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.6),
+                0 0 0 1px rgba(247, 147, 26, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            border-color: rgba(247, 147, 26, 0.6);
+        }
+
+        .hero-container::before {
+            content: '';
+            position: absolute;
             top: 0;
             left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(247, 147, 26, 0.03) 50%, transparent 100%);
+            border-radius: 32px;
+            pointer-events: none;
+        }
+
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            background: linear-gradient(45deg, #f7931a, #ff9500);
+            padding: 6px;
+            position: relative;
+            overflow: hidden;
+            animation: pulse 3s infinite;
+            box-shadow: 
+                0 10px 30px rgba(247, 147, 26, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .profile-image img {
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(8px);
-            z-index: 10000;
-            opacity: 0;
-            transition: all 0.3s ease;
-        }
-        
-        .popup-overlay.show {
-            display: flex;
-            opacity: 1;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .popup-content {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border-radius: 20px;
-            max-width: 600px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            position: relative;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border: 3px solid transparent;
-            background-clip: padding-box;
-            transform: scale(0.7);
-            transition: transform 0.3s ease;
-        }
-        
-        .popup-overlay.show .popup-content {
-            transform: scale(1);
-        }
-        
-        .popup-close {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 28px;
-            color: #666;
-            cursor: pointer;
-            z-index: 10001;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             border-radius: 50%;
-            transition: all 0.2s ease;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
         }
-        
-        .popup-close:hover {
-            background: rgba(0, 0, 0, 0.1);
-            color: #333;
+
+        .profile-image::before {
+            display: none;
         }
-        
-        .popup-form {
-            padding: 40px 30px;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 16px 20px;
-            border: 2px solid #e2e8f0;
-            border-radius: 12px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-            background: white;
-            box-sizing: border-box;
-        }
-        
-        .form-input:focus {
-            outline: none;
-            border-color: #F7931A;
-            box-shadow: 0 0 0 3px rgba(247, 147, 26, 0.1);
-        }
-        
-        .trust-badges {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
-        
-        .trust-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #10B981;
-            font-size: 14px;
-            font-weight: 500;
-        }
-        
-        .urgency-timer {
-            background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            display: inline-block;
-            font-weight: bold;
-            margin: 10px 0;
-            animation: pulse 2s infinite;
-        }
-        
-        .benefit-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .benefit-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            margin: 12px 0;
-            font-size: 16px;
-            line-height: 1.5;
-        }
-        
-        .benefit-check {
-            color: #10B981;
-            font-weight: bold;
-            font-size: 18px;
-            margin-top: 2px;
+
+        .profile-image::after {
+            display: none;
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        @keyframes pulse-slow {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
-        }
-        
-        .animate-pulse-slow {
-            animation: pulse-slow 3s ease-in-out infinite;
-        }
-        
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(247, 147, 26, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(247, 147, 26, 0.6); }
-        }
-        
-        .animate-glow {
-            animation: glow 2s ease-in-out infinite;
-        }
-        
-        /* Video Container Styles */
-        .video-container {
+        .username {
+            font-size: 36px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
             position: relative;
-            width: 100%;
-            height: 300px;
-            background: linear-gradient(135deg, #1f2937, #111827);
-            border-radius: 1rem;
+        }
+
+        .username::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f7931a, transparent);
+        }
+
+        .bio {
+            font-size: 17px;
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .bitcoin-symbol {
+            color: #f7931a;
+            text-shadow: 0 0 10px rgba(247, 147, 26, 0.5);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            width: 64px;
+            height: 64px;
+            border-radius: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(247, 147, 26, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            transition: all 0.4s ease;
+            position: relative;
             overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
-        
-        .video-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-color: rgba(247, 147, 26, 0.3);
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            border-color: rgba(247, 147, 26, 0.8);
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(247, 147, 26, 0.3);
         }
-        
-        .video-preview {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
-            height: 100%;
+
+        .social-link:nth-child(1):hover {
+            background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%);
+        }
+
+        .social-link:nth-child(2):hover {
+            background: linear-gradient(135deg, #ff0000 0%, #ff4444 100%);
+        }
+
+        .social-link:nth-child(3):hover {
+            background: linear-gradient(135deg, #1da1f2 0%, #0077b5 100%);
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .social-link:hover::before {
+            transform: translateX(100%);
+        }
+
+        /* Income Streams Section */
+        .income-streams-section {
+            max-width: 900px;
             width: 100%;
+            margin: 0 auto 60px auto;
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
+            padding: 50px 40px;
+            text-align: center;
+            box-shadow: none;
+            border: none;
+            position: relative;
+            z-index: 1;
+            transition: none;
         }
-        
-        .play-button {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(135deg, #f7931a, #ffd700);
+
+        .income-streams-section:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        .income-streams-section::before {
+            display: none;
+        }
+
+        .income-streams-title {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: white;
+            line-height: 1.3;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .income-streams-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #f7931a, transparent);
+        }
+
+        .benefits-grid {
+            display: grid;
+            gap: 25px;
+            margin-bottom: 0;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: flex-start;
+            font-size: clamp(16px, 2.5vw, 18px);
+            line-height: 1.7;
+            padding: 25px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.08) 0%, rgba(255, 165, 0, 0.03) 100%);
+            border: 1px solid rgba(247, 147, 26, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            transform: translateY(0);
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .benefit-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .benefit-item:hover::before {
+            left: 100%;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(247, 147, 26, 0.25);
+            border-color: rgba(247, 147, 26, 0.6);
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.12) 0%, rgba(255, 165, 0, 0.05) 100%);
+        }
+
+        .check-icon {
+            width: clamp(36px, 5vw, 42px);
+            height: clamp(36px, 5vw, 42px);
+            background: linear-gradient(135deg, #f7931a 0%, #ff9500 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(247, 147, 26, 0.4);
-            border: 4px solid white;
-            margin-bottom: 1.5rem;
-        }
-        
-        .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(247, 147, 26, 0.6);
-        }
-        
-        .play-button::before {
-            content: '';
-            width: 0;
-            height: 0;
-            border-left: 25px solid white;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
-            margin-left: 5px;
-        }
-        
-        .video-info {
-            color: white;
-            text-align: center;
-        }
-        
-        .video-amount {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(135deg, #f7931a, #ffd700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-        }
-        
-        .video-label {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #d1d5db;
-            margin-bottom: 0.75rem;
-        }
-        
-        .video-cta {
-            font-size: 0.95rem;
-            color: #9ca3af;
-            font-weight: 500;
-        }
-        
-        .actual-video {
-            display: none;
-            width: 100%;
-            height: 300px;
-            border-radius: 1rem;
-        }
-        
-        /* Custom bullet points styling */
-        .proof-list {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .proof-item {
-            background: linear-gradient(135deg, var(--bitcoin), var(--gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-weight: 600;
-            font-size: 1.125rem;
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .proof-item::before {
-            content: '✅';
-            margin-right: 0.75rem;
-            background: none;
-            -webkit-text-fill-color: #10b981;
-        }
-
-        /* UNIFIED CTA BUTTON STYLES - All buttons use this style */
-        .bitcoin-cta-button,
-        .form-submit,
-        .cta-button,
-        .main-cta,
-        .primary-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #f7931a 0%, #ff8c00 100%);
-            color: #ffffff !important;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 18px 40px;
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 8px 25px rgba(247, 147, 26, 0.3);
-            transition: all 0.3s ease;
+            margin-right: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            box-shadow: 0 6px 20px rgba(247, 147, 26, 0.4);
             position: relative;
-            overflow: hidden;
-            text-align: center;
-            width: auto;
-            font-family: 'Inter', sans-serif;
-            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .check-mark {
+            font-size: clamp(16px, 2.5vw, 20px);
+        }
+
+        .benefit-text {
+            color: #e0e0e0;
+            flex: 1;
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+        }
+
+        .benefit-text .highlight-text {
+            background: linear-gradient(135deg, #f7931a 0%, #ffa500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #f7931a;
+            border-radius: 50%;
+            animation: sparkle 3s infinite;
+        }
+
+        .sparkle:nth-child(1) {
+            top: 20%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .sparkle:nth-child(2) {
+            top: 40%;
+            right: 20%;
+            animation-delay: 1s;
+        }
+
+        .sparkle:nth-child(3) {
+            bottom: 30%;
+            left: 25%;
+            animation-delay: 2s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Footer Styles */
+        .footer {
+            width: 100%;
+            max-width: 1200px;
             margin: 0 auto;
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
+            padding: 60px 40px 40px 40px;
+            text-align: center;
+            box-shadow: none;
+            border: none;
+            position: relative;
+            z-index: 1;
+            transition: none;
+            margin-bottom: 40px;
         }
 
-        .bitcoin-cta-button:hover,
-        .form-submit:hover,
-        .cta-button:hover,
-        .main-cta:hover,
-        .primary-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(247, 147, 26, 0.4);
-            background: linear-gradient(135deg, #ff8c00 0%, #f7931a 100%);
-            color: #ffffff !important;
+        .footer:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: transparent;
         }
 
-        /* Button Container for Centering */
-        .button-container,
-        .cta-container {
+        .footer::before {
+            display: none;
+        }
+
+        .footer-title {
+            font-size: clamp(2rem, 4.5vw, 2.6rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            text-shadow: 0 0 30px rgba(247, 147, 26, 0.4);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #f7931a, transparent);
+            border-radius: 2px;
+        }
+
+        .footer-description {
+            font-size: clamp(17px, 2.8vw, 19px);
+            color: #e0e0e0;
+            line-height: 1.8;
+            margin-bottom: 50px;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-description .bitcoin-symbol {
+            color: #f7931a;
+            text-shadow: 0 0 15px rgba(247, 147, 26, 0.6);
+            font-weight: 600;
+        }
+
+        .footer-description .highlight {
+            background: linear-gradient(135deg, #f7931a 0%, #ffa500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .footer-links {
             display: flex;
             justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin: 20px 0;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
         }
 
-        /* For full-width buttons like forms */
-        .bitcoin-cta-button.full-width,
-        .form-submit.full-width {
-            width: 100%;
-            display: block;
-            margin: 20px auto;
-        }
-
-        /* Smaller button variant */
-        .bitcoin-cta-button.small {
+        .footer-link {
+            padding: 15px 25px;
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(247, 147, 26, 0.4);
+            border-radius: 16px;
+            text-decoration: none;
+            color: #e0e0e0;
             font-size: 16px;
-            padding: 14px 30px;
+            font-weight: 500;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
         }
 
-        /* Large button variant */
-        .bitcoin-cta-button.large {
-            font-size: 20px;
-            padding: 22px 50px;
-        }
-
-        /* Form-specific button centering */
-        .popup-form .bitcoin-cta-button,
-        .popup-form .form-submit,
-        .popup-form .cta-button {
-            display: block;
-            margin: 20px auto 0 auto;
+        .footer-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
             width: 100%;
-            max-width: 300px;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(247, 147, 26, 0.15), transparent);
+            transition: left 0.6s;
         }
 
-        /* Hero section button centering */
-        .hero-buttons {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            margin: 30px 0;
+        .footer-link:hover::before {
+            left: 100%;
         }
 
-        .hero-buttons .bitcoin-cta-button {
-            min-width: 250px;
+        .footer-link:hover {
+            transform: translateY(-3px);
+            border-color: rgba(247, 147, 26, 0.8);
+            box-shadow: 0 12px 25px rgba(247, 147, 26, 0.25);
+            background: linear-gradient(135deg, rgba(247, 147, 26, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+            color: #f7931a;
         }
 
-        /* Section button centering */
-        .section-cta {
+        .footer-copyright {
+            font-size: 15px;
+            color: #b0b0b0;
+            line-height: 1.6;
             text-align: center;
-            margin: 40px 0;
+            border-top: 1px solid rgba(247, 147, 26, 0.2);
+            padding-top: 30px;
+            position: relative;
+            z-index: 2;
         }
 
-        .section-cta .bitcoin-cta-button {
-            display: inline-block;
-            margin: 0 auto;
+        .footer-copyright .emoji {
+            font-size: 16px;
+        }
+
+        .footer-copyright .highlight {
+            background: linear-gradient(135deg, #f7931a 0%, #ffa500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        /* Floating particles animation */
+        .footer-sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #f7931a;
+            border-radius: 50%;
+            animation: footerSparkle 4s infinite;
+            opacity: 0.6;
+        }
+
+        .footer-sparkle:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .footer-sparkle:nth-child(2) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 1.5s;
+        }
+
+        .footer-sparkle:nth-child(3) {
+            bottom: 35%;
+            left: 20%;
+            animation-delay: 3s;
+        }
+
+        .footer-sparkle:nth-child(4) {
+            top: 60%;
+            right: 25%;
+            animation-delay: 2s;
+        }
+
+        @keyframes footerSparkle {
+            0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+            50% { opacity: 0.8; transform: scale(1) rotate(180deg); }
         }
 
         @media (max-width: 768px) {
-            .video-container {
-                height: 280px;
+            .footer {
+                padding: 50px 30px 35px 30px;
+                margin-bottom: 30px;
+                border-radius: 0;
             }
             
-            .play-button {
-                width: 80px;
-                height: 80px;
+            .footer-description {
+                margin-bottom: 40px;
             }
             
-            .play-button::before {
-                border-left: 20px solid white;
-                border-top: 12px solid transparent;
-                border-bottom: 12px solid transparent;
+            .footer-links {
+                gap: 20px;
+                margin-bottom: 35px;
             }
             
-            .video-amount {
-                font-size: 2rem;
-            }
-            
-            .actual-video {
-                height: 280px;
-            }
-
-            .bitcoin-cta-button,
-            .form-submit,
-            .cta-button,
-            .main-cta,
-            .primary-button {
-                font-size: 16px;
-                padding: 16px 35px;
-            }
-
-            .hero-buttons {
-                gap: 12px;
-            }
-
-            .hero-buttons .bitcoin-cta-button {
-                min-width: 200px;
-            }
-
-            .popup-form .bitcoin-cta-button,
-            .popup-form .form-submit,
-            .popup-form .cta-button {
-                max-width: 280px;
-            }
-        }
-        
-        @media (max-width: 640px) {
-            .popup-form {
-                padding: 30px 20px;
-            }
-            
-            .popup-content {
-                margin: 10px;
-                border-radius: 15px;
-            }
-
-            .bitcoin-cta-button,
-            .form-submit,
-            .cta-button,
-            .main-cta,
-            .primary-button {
+            .footer-link {
+                padding: 12px 20px;
                 font-size: 15px;
-                padding: 14px 30px;
             }
-
-            .hero-buttons .bitcoin-cta-button {
-                min-width: 180px;
-            }
-
-            .popup-form .bitcoin-cta-button,
-            .popup-form .form-submit,
-            .popup-form .cta-button {
-                max-width: 100%;
-                width: 100%;
-            }
-
-            .trust-badges {
-                gap: 15px;
-            }
-
-            .trust-badge {
-                font-size: 13px;
+            
+            .footer-copyright {
+                font-size: 14px;
+                padding-top: 25px;
+                line-height: 1.7;
             }
         }
 
         @media (max-width: 480px) {
-            .bitcoin-cta-button,
-            .form-submit,
-            .cta-button,
-            .main-cta,
-            .primary-button {
-                font-size: 14px;
-                padding: 12px 25px;
-                letter-spacing: 0.5px;
+            body {
+                padding: 30px 15px 50px 15px;
+                min-height: 100vh;
+            }
+            
+            .hero-container {
+                padding: 40px 24px 50px 24px;
+                margin: 10px auto 50px auto;
+                border-radius: 24px;
+            }
+            
+            .username {
+                font-size: 28px;
+                margin-bottom: 20px;
+            }
+            
+            .bio {
+                font-size: 16px;
+                margin-bottom: 35px;
+                line-height: 1.6;
+            }
+            
+            .social-links {
+                gap: 16px;
+                margin-bottom: 10px;
+            }
+            
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                border-radius: 16px;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 25px;
+            }
+            
+            .income-streams-section {
+                padding: 30px 20px;
+                margin-bottom: 40px;
+                border-radius: 0;
+            }
+            
+            .benefit-item {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                padding: 20px;
+            }
+            
+            .check-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .benefit-text {
+                text-align: center;
             }
 
-            .hero-buttons .bitcoin-cta-button {
-                min-width: 160px;
+            .footer {
+                padding: 40px 20px 30px 20px;
+                margin-bottom: 25px;
+                border-radius: 0;
             }
+            
+            .footer-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+            
+            .footer-link {
+                width: 100%;
+                max-width: 200px;
+                text-align: center;
+                padding: 14px 25px;
+            }
+            
+            .footer-copyright {
+                font-size: 13px;
+                padding-top: 20px;
+            }
+        }
 
-            .popup-form {
+        @media (max-width: 360px) {
+            body {
+                padding: 25px 10px 40px 10px;
+            }
+            
+            .hero-container {
+                padding: 35px 20px 45px 20px;
+                margin: 5px auto 40px auto;
+            }
+            
+            .username {
+                font-size: 24px;
+            }
+            
+            .bio {
+                font-size: 15px;
+            }
+            
+            .social-links {
+                gap: 12px;
+            }
+            
+            .social-link {
+                width: 45px;
+                height: 45px;
+                font-size: 18px;
+            }
+            
+            .income-streams-section {
                 padding: 25px 15px;
+                margin-bottom: 35px;
+            }
+
+            .footer {
+                padding: 35px 15px 25px 15px;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Ensure proper viewport height on mobile browsers */
+        @media screen and (max-height: 640px) and (max-width: 480px) {
+            body {
+                min-height: 100vh;
+                padding: 20px 15px 40px 15px;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+            
+            .hero-container {
+                margin-top: 20px;
+                margin-bottom: 40px;
             }
         }
     </style>
-
-    <!-- BITHARVEST LEAD CAPTURE FORM CCS STYLE -->
-
-    <style>
-/* Modal-specific styles - Won't affect existing buttons or forms */
-.modal-trigger-btn {
-    /* Inherits your existing bitcoin-cta-button styles */
-}
-
-.modal-trust-text {
-    color: #d1d5db;
-    font-size: 14px;
-    text-align: center;
-    margin-top: 8px;
-}
-
-.modal-trust-text span {
-    margin: 0 8px;
-    white-space: nowrap;
-}
-
-/* Modal Overlay */
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    padding: 20px;
-}
-
-.modal-overlay.active {
-    display: flex;
-    animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Modal Content */
-.modal-content {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 24px;
-    padding: 40px;
-    max-width: 500px;
-    width: 100%;
-    position: relative;
-    animation: slideUp 0.3s ease;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-}
-
-@keyframes slideUp {
-    from { 
-        opacity: 0;
-        transform: translateY(50px) scale(0.95);
-    }
-    to { 
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-
-/* Close button */
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: #d1d5db;
-    font-size: 24px;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.close-btn:hover {
-    color: #f59e0b;
-}
-
-/* Modal Form Header - Only affects modal */
-.modal-overlay .form-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.modal-overlay .form-headline {
-    color: white;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    font-family: serif;
-}
-
-.modal-overlay .form-subheadline {
-    color: #d1d5db;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-/* Modal Form Styling - Only affects modal */
-.modal-overlay .lead-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.modal-overlay .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.modal-overlay .form-label {
-    color: #f3f4f6;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.modal-overlay .form-input {
-    padding: 16px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    color: white;
-    font-size: 16px;
-    transition: all 0.3s ease;
-}
-
-.modal-overlay .form-input:focus {
-    outline: none;
-    border-color: #f59e0b;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
-}
-
-.modal-overlay .form-input::placeholder {
-    color: rgba(255, 255, 255, 0.6);
-}
-
-/* Modal Submit Button - Only affects modal */
-.modal-overlay .submit-btn {
-    background: linear-gradient(135deg, #f59e0b, #d97706, #ea580c);
-    color: white;
-    padding: 18px 30px;
-    border: none;
-    border-radius: 12px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(245, 158, 11, 0.4);
-    margin-top: 10px;
-}
-
-.modal-overlay .submit-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 35px rgba(245, 158, 11, 0.6);
-    background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
-}
-
-/* Modal Form Trust Text - Only affects modal */
-.modal-overlay .form-trust {
-    text-align: center;
-    margin-top: 20px;
-    color: #9ca3af;
-    font-size: 14px;
-}
-
-.modal-overlay .form-trust span {
-    margin: 0 6px;
-}
-
-/* Responsive Design - Only affects modal */
-@media (max-width: 768px) {
-    .modal-content {
-        padding: 30px 25px;
-        margin: 20px;
-    }
-
-    .modal-overlay .form-headline {
-        font-size: 28px;
-    }
-
-    .modal-overlay .form-subheadline {
-        font-size: 16px;
-    }
-
-    .modal-trigger-btn {
-        padding: 16px 30px;
-        font-size: 16px;
-    }
-
-    .modal-trust-text {
-        font-size: 12px;
-    }
-
-    .modal-trust-text span {
-        display: block;
-        margin: 2px 0;
-    }
-}
-
-@media (max-width: 480px) {
-    .modal-content {
-        padding: 25px 20px;
-    }
-
-    .modal-overlay .form-headline {
-        font-size: 24px;
-    }
-
-    .modal-overlay .form-input {
-        padding: 14px 16px;
-        font-size: 16px;
-    }
-}
-</style>
-           
 </head>
-    
-<body class="font-sans antialiased bg-white text-gray-900 leading-relaxed">
-
-    <!-- Popup Modal -->
-    <div id="emailPopup" class="popup-overlay">
-    <div class="popup-content">
-        <button class="popup-close" onclick="closePopup()">&times;</button>
-        
-        <div class="popup-form">
-            <div class="text-center mb-6">
-                <h2 class="font-serif text-2xl md:text-3xl font-bold mb-3">
-                    Almost There...</span>
-                </h2>
-                <p class="text-lg text-gray-600 mb-4">
-                    Just Enter Your Name & Best Email Below 👇
-                </p>
-            </div>
-
-            <form method="POST" action="https://gogvo.com/subscribe.php" onsubmit="handleFormSubmit(event)">
-                <input type="hidden" name="AffiliateName" value="realmtgNLS">
-                <input type="hidden" name="CampaignCode" value="QJNKzfoqxNm9">
-                <input type="hidden" name="TrackParam" value="new_form">
-                <input type="hidden" name="FormId" value="24972917">
-                
-                <div class="space-y-4 mb-6">
-                    <div>
-                        <input type="text" name="FirstName" id="firstName" class="form-input" placeholder="First Name" required>
-                    </div>
-                    <div>
-                        <input type="email" name="Email" id="email" class="form-input" placeholder="Best Email Address" required>
-                    </div>
-                </div>
-
-                <button type="submit" class="form-submit">
-                    👉 Subscribe Now!
-                </button>
-
-                <div class="trust-badges mt-4">
-                    <div class="trust-badge">
-                        <span>✓</span> 100% Free
-                    </div>
-                    <div class="trust-badge">
-                        <span>✓</span> No Spam
-                    </div>
-                    <div class="trust-badge">
-                        <span>✓</span> Zero Tech Skills
-                    </div>
-                </div>
-
-                <img src="https://gogvo.com/show_form.php?id=24972917&TrackParam=new_form" style="display:none;">
-            </form>
-        </div>
-    </div>
+<body>
+<div class="hero-container">
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="sparkle"></div>
+<div class="profile-image">
+<!-- REPLACE THE SRC ATTRIBUTE BELOW WITH YOUR CUSTOM LOGO -->
+<img src="https://bitcoinaiwealth.com/images/bitcoinaiwealth.jpeg"/>
 </div>
-        
-    <!-- Hero Section -->
-    <section class="gradient-hero pt-24 pb-24 text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-5xl mx-auto text-center">
-                <div class="animate-float mb-8">
-                    <h1 class="font-serif text-6xl md:text-8xl font-bold mb-6 leading-tight text-shadow">
-                        Let's ₿uild
-                        <span class="bitcoin-accent block">Wealth Together</span>
-                    </h1>
-                </div>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    Unlock your path to financial freedom with exclusive access to meticulously vetted Bitcoin, Crypto, AI, Affiliate, and Digital Marketing opportunities!
-                </p>
-                <div class="flex flex-col sm:flex-row gap-6 justify-center mb-8">
-                    <button onclick="openPopup()" class="cta-button gradient-border bg-gradient-to-r from-bitcoin to-bitcoin-light text-white px-10 py-5 rounded-xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow">
-                        YES, I Want Exclusive Access!
-                    </button>
-                </div>
-                <div class="flex items-center justify-center space-x-8 text-sm text-gray-400">
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> 100% Free</span>
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> No Spam</span>
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Trusted by Thousands</span>
-                </div>
-            </div>
+<h1 class="username">Let's ₿uild Wealth Together!</h1>
+<div class="bio">
+            Unlock your path to financial freedom with exclusive access to meticulously vetted <span class="bitcoin-symbol">₿</span>itcoin, Crypto, AI, Affiliate, and Digital Marketing opportunities! Discover more below...👇
         </div>
-    </section>
-
-    <!-- Market Insights Section -->
-    <section id="insights" class="py-24 bg-gradient-to-br from-deep-blue to-slate-blue text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6 text-shadow">
-                    Bitcoin Price <span class="bitcoin-accent">Predictions</span>
-                </h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-                    Here's what leading industry experts are saying about Bitcoin's future, and why we must accumulate like crazy!
-                </p>
-            </div>
-
-
-<!-- Updated Grid Container (replace your existing grid div with this) -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 mb-16">
-    
-    <!-- Existing Michael Saylor Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$13M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Michael Saylor</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Predicts Bitcoin reaching $13 million by 2045 (29% average return per year)</p>
-        </div>
-    </div>
-
-    <!-- Existing CZ Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$1M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">CZ (Binance)</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Sees $500K-$1M this cycle due to ETF adoption and institutional buying</p>
-        </div>
-    </div>
-
-    <!-- Existing Cathie Wood Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.4M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Cathie Wood</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Bull case scenario reaching $2.4M by 2030</p>
-        </div>
-    </div>
-
-    <!-- NEW: Chamath Palihapitiya Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$240K</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Chamath Palihapitiya</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Foresees Bitcoin reaching $240,000 based on technical patterns and Fibonacci levels</p>
-        </div>
-    </div>
-
-    <!-- NEW: Max Keiser Card -->
-    <div class="glass-effect bg-white/10 p-6 rounded-2xl shadow-2xl card-hover border border-white/20">
-        <div class="text-center">
-            <div class="text-4xl font-bold bitcoin-accent mb-3">$2.2M</div>
-            <h4 class="font-bold text-lg mb-3 text-white">Max Keiser</h4>
-            <p class="text-gray-300 leading-relaxed text-sm">Projects Bitcoin could reach $2.2 million long-term if countries accumulate BTC as reserve asset</p>
-        </div>
-    </div>
-    
+<div class="social-links">
+<a class="social-link" href="https://web.facebook.com/Musa.TheMTG" target="_blank" title="Facebook">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path>
+</svg>
+</a>
+<a class="social-link" href="https://www.youtube.com/@MusaTheGiant" target="_blank" title="YouTube">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path>
+</svg>
+</a>
+<a class="social-link" href="https://x.com/MusaDums" target="_blank" title="Twitter">
+<svg fill="currentColor" height="24" viewbox="0 0 24 24" width="24">
+<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+</svg>
+</a>
 </div>
-<!-- End of Grid Container -->
-            
 </div>
-
-            <div class="bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light p-10 rounded-3xl text-black text-center shadow-2xl">
-                <h3 class="text-3xl font-bold mb-6">The $1 Million Bitcoin Window</h3>
-                <p class="text-xl leading-relaxed max-w-4xl mx-auto">
-                    If these predictions are anywhere near correct, imagine what we could earn from the Bitcoin we stack right now. That's why I'm on a mission to help as many people as possible get in while BTC is still under $1 million.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Proof of Withdrawals Section -->
-
-    <section class="py-24 bg-gradient-to-br from-slate-900 via-gray-900 to-black text-white relative overflow-hidden">
-        <!-- Background Effects -->
-        <div class="absolute inset-0 bg-gradient-to-r from-orange-500/5 to-yellow-500/5 opacity-50"></div>
-        <div class="absolute top-0 left-0 w-full h-full">
-            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-yellow-500/10 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 1s;"></div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-16">
-                <div class="inline-block bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
-                    ⛏️ SEIZE THE BITCOIN MINING OPPORTUNITY NOW! ₿
-                </div>
-                
-                <h2 class="font-serif text-5xl md:text-7xl font-bold mb-6 text-shadow leading-tight">
-                    Real Bitcoin <span class="bitcoin-accent">Payouts</span>
-                    <span class="block text-3xl md:text-4xl text-gray-300 font-normal mt-4">Multiple Withdrawals PROVEN!</span>
-                </h2>
-                
-                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-                    Tired of "gurus" showing fake screenshots? Here's <strong>live video proof</strong> of real Bitcoin withdrawals from an award-winning Bitcoin Mining company. No photoshop, no BS, just raw footage of Bitcoin hitting wallets!
-                </p>
-            </div>
-
-            <!-- Video Proof Grid -->
-            <div class="grid lg:grid-cols-2 gap-12 mb-16">
-                <!-- Bitcoin Mining Proof -->
-                <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl card-hover">
-                    <div class="text-center mb-6">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-2xl mb-4 animate-glow">
-                            <span class="text-white text-2xl">⛏️</span>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-3">Bitcoin Mining Withdrawals</h3>
-                    </div>
-                    
-                    <!-- Video Container -->
-                    <div class="video-container mb-6" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/bitharvestmining.mp4')">
-                        <div class="video-preview">
-                            <div class="play-button"></div>
-                            <div class="video-info">
-                                <div class="video-amount">$11,725</div>
-                                <div class="video-label">TOTAL MINING WITHDRAWALS</div>
-                                <div class="video-cta">▶️ Click to Watch Live Proof</div>
-                            </div>
-                        </div>
-                        
-                        <video class="actual-video" controls preload="none">
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    
-                    <ul class="proof-list">
-                        <li class="proof-item">Live screen recording - no editing</li>
-                        <li class="proof-item">Real withdrawals to wallets</li>
-                        <li class="proof-item">Passive income while you sleep</li>
-                    </ul>
-                </div>
-
-                <!-- Best Blockchain Project Winner at CryptoExpo Dubai 2025 -->
-                <div class="bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/20 shadow-2xl card-hover">
-                    <div class="text-center mb-6">
-                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl mb-4 animate-glow" style="animation-delay: 0.5s;">
-                            <span class="text-white text-2xl">🏆</span>
-                        </div>
-                        <h3 class="text-2xl md:text-3xl font-bold mb-3">Best Blockchain Project Winner!</h3>
-                    </div>
-                    
-                    <!-- Video Container -->
-                    <div class="video-container mb-6" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/BitHarvestAwardWinner.mp4')">
-                        <div class="video-preview">
-                            <div class="play-button"></div>
-                            <div class="video-info">
-                                <div class="video-amount">WATCH THIS</div>
-                                <div class="video-label">CryptoExpo Dubai 2025</div>
-                                <div class="video-cta">▶️ Click to Watch Live Proof</div>
-                            </div>
-                        </div>
-                        
-                        <video class="actual-video" controls preload="none">
-                            <source src="" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    
-                    <ul class="proof-list">
-                        <li class="proof-item">Transparent: Fully on-chain Mining Rewards</li>
-                        <li class="proof-item">Seamless: Activate and start mining</li>
-                        <li class="proof-item">Simplicity: No Setup required</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Trust Builder -->
-            <div class="bg-gradient-to-r from-orange-500/20 via-yellow-500/20 to-orange-500/20 backdrop-blur-sm border-2 border-orange-500/30 rounded-3xl p-10 text-center shadow-2xl">
-                <div class="max-w-4xl mx-auto">
-                    <h3 class="text-3xl md:text-4xl font-bold mb-6">
-                        This is Why People Trust Our Recommendations 🛡️
-                    </h3>
-                    <p class="text-xl md:text-2xl text-gray-200 mb-8 leading-relaxed">
-                        We don't just talk about Bitcoin opportunities – <strong>we show you the actual money</strong>. These aren't one-time lucky breaks. These are <strong>consistent, repeatable systems</strong> that generate real Bitcoin mining <strong>passive recurring income</strong> month after month.
-                    </p>
-                    
-                    <div class="grid md:grid-cols-3 gap-6 mb-8">
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                            <div class="text-3xl mb-3">🎥</div>
-                            <h4 class="font-bold text-lg mb-2">Video Proof</h4>
-                            <p class="text-gray-300">Raw, unedited screen recordings</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                            <div class="text-3xl mb-3">💎</div>
-                            <h4 class="font-bold text-lg mb-2">Real Bitcoin</h4>
-                            <p class="text-gray-300">Actual withdrawals to wallets</p>
-                        </div>
-                        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-                            <div class="text-3xl mb-3">🔄</div>
-                            <h4 class="font-bold text-lg mb-2">Repeatable</h4>
-                            <p class="text-gray-300">Systems that work consistently</p>
-                        </div>
-                    </div>
-                    
-                    <div class="text-center">
-                        <p class="text-2xl font-bold bitcoin-accent mb-4">
-                            Ready to Start Your Bitcoin Mining Journey? 🚀
-                        </p>
-                        <p class="text-gray-300 text-lg mb-8">
-                            Join the award-winning Bitcoin mining platform and start earning passive income today!
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Strong CTA Button -->
-            <div class="text-center mt-12">
-                <button class="bitcoin-cta-button modal-trigger-btn" id="openModalBtn">
-    👉 Start Building Bitcoin Wealth Now!
-</button>
-                <p class="text-gray-400 text-sm mt-4">
-                    👆 Join thousands already earning passive Bitcoin income daily ₿
-                </p>
-            </div>
-        </div>
-    </section>
-    
-    <script>
-        function playVideo(container, videoSrc) {
-            const videoPreview = container.querySelector('.video-preview');
-            const video = container.querySelector('.actual-video');
-            
-            // Hide preview and show video
-            videoPreview.style.display = 'none';
-            video.style.display = 'block';
-            
-            // Set video source and play
-            video.querySelector('source').src = videoSrc;
-            video.load();
-            video.play();
-            
-            // Handle video end - show preview again
-            video.addEventListener('ended', function() {
-                videoPreview.style.display = 'flex';
-                video.style.display = 'none';
-                video.querySelector('source').src = '';
-            });
-            
-            // Handle video pause/stop - option to return to preview
-            video.addEventListener('pause', function() {
-                setTimeout(() => {
-                    if (video.paused && video.currentTime > 0) {
-                        // Video was paused, not ended - keep showing video
-                        return;
-                    }
-                }, 100);
-            });
-        }
-    </script>
-    
-    <!-- What You Get Section -->
-    <section id="benefits" class="py-24 bg-gradient-to-br from-warm-gray to-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="font-serif text-5xl md:text-6xl font-bold mb-6">
-                    What You'll Get <span class="bitcoin-accent">as an Insider</span>
-                </h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-                    Join our private email list and get access to the exact tools, programs, and AI-powered strategies I personally use to earn Bitcoin, Crypto, and build passive income, no hype, no guesswork. Every opportunity is vetted, beginner-friendly, and built to last, so you can stack crypto safely and confidently.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-bitcoin to-bitcoin-light rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">🔍</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">New Bitcoin, Crypto, & AI Programs</h3>
-                    <p class="text-gray-600 leading-relaxed">Be the first to hear about programs I'm testing or using right now, only thoroughly researched opportunities that pass my strict checklist.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-emerald to-green-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">💰</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">Passive Income Opportunities</h3>
-                    <p class="text-gray-600 leading-relaxed">Legit, low-barrier, newbie-friendly, and global passive income opportunities I personally vet and use.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">🤖</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">AI + Crypto Synergies</h3>
-                    <p class="text-gray-600 leading-relaxed">Cutting-edge AI innovations in the Bitcoin and crypto space that I'm diving deep into.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">🛡️</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">Scam Protection</h3>
-                    <p class="text-gray-600 leading-relaxed">Learn to identify and avoid the costly traps that catch millions, I've sharpened my instincts through painful experience.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">📊</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">Market Analysis & News</h3>
-                    <p class="text-gray-600 leading-relaxed">Regular Bitcoin market updates, trends analysis, and educational content from my daily research.</p>
-                </div>
-
-                <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-100 card-hover">
-                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6">
-                        <span class="text-white text-2xl">📚</span>
-                    </div>
-                    <h3 class="font-bold text-xl mb-4">Vetted Company Updates</h3>
-                    <p class="text-gray-600 leading-relaxed">Updates on the companies I've vetted and joined, plus continuous learning resources.</p>
-                </div>
-            </div>
-
-            <div class="bg-gradient-to-r from-bitcoin/10 to-gold/10 p-8 rounded-2xl border-2 border-bitcoin/20 text-center">
-                <h3 class="text-2xl font-bold mb-4">Perfect for people who want to stack sats and crypto without spending hours researching or falling into traps.</h3>
-                <p class="text-lg text-gray-700">I still encourage everyone to do their own research, because at the end of the day, it's your money, and everything involving money has risk. But I'll help cut through the noise.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exclusive Bonus Section -->
-    <section class="py-20 bg-gradient-to-r from-purple-900 via-indigo-900 to-blue-900 text-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-r from-bitcoin/10 to-gold/10 opacity-30"></div>
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center">
-                <div class="inline-block bg-gradient-to-r from-bitcoin to-gold text-black px-6 py-2 rounded-full text-sm font-bold mb-6 animate-pulse">
-                    🎁 EXCLUSIVE SUBSCRIBER BONUS
-                </div>
-                
-                <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6 text-shadow">
-                    <span class="bitcoin-accent">Secret AI Arsenal</span> Revealed !
-                </h2>
-                
-                <p class="text-xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    Get instant access to my <strong>personal AI marketing toolkit</strong> – the exact systems I use daily to generate leads, drive traffic, and create multiple streams of passive income on autopilot. These tools fuel my crypto investments and can scale ANY online business! 🚀
-                </p>
-                
-                <div class="bg-black/40 backdrop-blur-sm rounded-2xl p-8 mb-8 border border-bitcoin/30">
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-xl flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">🤖</span>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">AI Traffic Systems</h4>
-                            <p class="text-gray-300 text-sm">Automated lead generation</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-emerald to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">💰</span>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Income Automation</h4>
-                            <p class="text-gray-300 text-sm">Passive revenue streams</p>
-                        </div>
-                        <div class="text-center">
-                            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">📈</span>
-                            </div>
-                            <h4 class="font-bold text-lg mb-2">Scaling Blueprints</h4>
-                            <p class="text-gray-300 text-sm">Works for any business</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="text-center">
-                    <p class="text-2xl font-bold bitcoin-accent mb-4">
-                        Worth $2,997 → Yours FREE When You Subscribe! 🔥
-                    </p>
-                    <p class="text-gray-300 text-lg">
-                        Limited time: Only for the next 500 subscribers
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Section -->
-    <section id="join" class="py-24 gradient-hero text-white relative">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <div class="animate-float mb-8">
-                <h2 class="font-serif text-5xl md:text-7xl font-bold mb-8 text-shadow">
-                    Ready to ₿uild Your <span class="bitcoin-accent">Generational Wealth?</span>
-                </h2>
-            </div>
-            <p class="text-xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-                Join thousands who are ₿uilding their generational wealth with Bitcoin, Crypto, AI, Affiliate, and Digital Marketing through exclusive insights and vetted opportunities. Let's ₿uild wealth that lasts, together. Join us today!
-            </p>
-
-            <div class="glass-effect bg-white/10 backdrop-blur-sm p-10 rounded-3xl mb-12 border border-white/20">
-                <h3 class="text-3xl font-bold mb-8">🚀 How It Works</h3>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-bitcoin to-bitcoin-light rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">1</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Join Our Email List</h4>
-                        <p class="text-gray-300">100% Free to join</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-emerald to-green-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">2</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Read Our Emails</h4>
-                        <p class="text-gray-300">Get vetted opportunities</p>
-                            </div>
-                            <div class="text-center">
-                        <div class="w-16 h-16 bg-gradient-to-r from-gold to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
-                            <span class="text-white font-bold text-xl">3</span>
-                        </div>
-                        <h4 class="font-bold text-xl mb-2">Take Action</h4>
-                        <p class="text-gray-300">Stack Bitcoin & build wealth</p>
-                    </div>
-                </div>
-            </div>
-
-            <button onclick="openPopup()" class="cta-button gradient-border bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light text-white px-12 py-6 rounded-2xl text-2xl font-bold hover:opacity-90 transition-all transform hover:scale-105 mb-6 shadow-2xl animate-glow">
-                YES, Give Me Exclusive Access!
-            </button>
-            
-            <p class="text-gray-300 text-lg">
-                100% Free • No Spam • Trusted by Thousands ✅
-            </p>
-            
-            <div class="mt-8 text-center">
-                <p class="text-2xl font-bold bitcoin-accent">Let's Get This Crypto! ₿</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-                    ₿uilding generational wealth through Bitcoin, Crypto, AI, Affiliate, and Digital Marketing opportunities. Join thousands of smart subscribers who trust our vetted insights.
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//privacy.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Privacy Policy
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//terms.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Terms of Service
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01//disclaimer.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Disclaimer
-                    </a>
-                </div>
-                
-                <div class="mt-8 pt-8 border-t border-gray-700">
-                    <p class="text-gray-400 text-sm">
-                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-    // Popup functionality and tracking
-    let mainPopupShown = false;
-    let scrollTriggered = false;
-
-    // Open main popup function - can be triggered multiple times
-    function openPopup() {
-        document.getElementById('emailPopup').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
-
-    // Close main popup function
-    function closePopup() {
-        document.getElementById('emailPopup').classList.remove('show');
-        document.body.style.overflow = 'auto';
-        mainPopupShown = true; // Mark as shown after closing
-    }
-
-    // Handle main form submission
-    function handleFormSubmit(event) {
-        setTimeout(function() {
-            if (window.location.href.indexOf('thankyou') === -1) {
-                window.location.href = 'https://www.bitcoinaiwealth.com/thankyou.html';
-            }
-        }, 2000);
-    }
-
-    // Scroll tracking for popup trigger (only if main popup hasn't been shown)
-    function trackScroll() {
-        if (!mainPopupShown && !scrollTriggered) {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent >= 50) {
-                scrollTriggered = true;
-                setTimeout(openPopup, 1000);
-            }
-        }
-    }
-
-    // Initialize event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-        // Scroll trigger for main popup
-        window.addEventListener('scroll', trackScroll);
-        
-        // Close main popup when clicking outside
-        document.getElementById('emailPopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePopup();
-            }
-        });
-        
-        // Close popup with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                if (document.getElementById('emailPopup').classList.contains('show')) {
-                    closePopup();
-                }
-            }
-        });
-        
-        // Add click handlers to all CTA buttons - these can trigger multiple times
-        const ctaButtons = document.querySelectorAll('.cta-button, button[onclick="openPopup()"]');
-        ctaButtons.forEach(button => {
-            button.removeAttribute('onclick'); // Remove inline onclick
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                openPopup();
-            });
-        });
-    });
-
-    // Prevent multiple submissions per form
-    let mainFormSubmitted = false;
-    
-    document.addEventListener('submit', function(e) {
-        if (e.target.closest('#emailPopup') && mainFormSubmitted) {
-            e.preventDefault();
-            return false;
-        }
-        
-        if (e.target.closest('#emailPopup')) {
-            mainFormSubmitted = true;
-        }
-    });
-
-    // Visual feedback for form interactions
-    document.addEventListener('DOMContentLoaded', function() {
-        const inputs = document.querySelectorAll('.form-input');
-        inputs.forEach(input => {
-            input.addEventListener('focus', function() {
-                this.parentElement.classList.add('focused');
-            });
-            
-            input.addEventListener('blur', function() {
-                this.parentElement.classList.remove('focused');
-            });
-        });
-    });
-</script>
-
-<script src="https://cdn.tailwindcss.com"></script>
-
-<!-- THIS IS THE BITHARVEST MODAL CODE -->
-<div class="modal-overlay" id="modalOverlay">
-    <div class="modal-content">
-        <!-- Close Button -->
-        <button class="close-btn" id="closeBtn">&times;</button>
-        
-        <!-- Form Header -->
-        <div class="form-header">
-            <h2 class="form-headline">Almost There...</h2>
-            <p class="form-subheadline">Just Enter Your Name & Best Email Below 👇</p>
-        </div>
-
-        <!-- Lead Capture Form -->
-        <form method="POST" action="https://gogvo.com/subscribe.php" class="lead-form">
-            <!-- Hidden Fields -->
-            <input type="hidden" name="AffiliateName" value="realmtgNLS">
-            <input type="hidden" name="CampaignCode" value="Z8IhKOblCq9c">
-            <input type="hidden" name="TrackParam" value="new_form">
-            <input type="hidden" name="FormId" value="24983767">
-            
-            <!-- First Name Field -->
-            <div class="form-group">
-                <label for="FirstName" class="form-label">First Name:</label>
-                <input 
-                    type="text" 
-                    name="FirstName" 
-                    id="FirstName"
-                    class="form-input"
-                    placeholder="Enter your first name"
-                    required
-                >
-            </div>
-
-            <!-- Email Field -->
-            <div class="form-group">
-                <label for="Email" class="form-label">Best Email Address:</label>
-                <input 
-                    type="email" 
-                    name="Email" 
-                    id="Email"
-                    class="form-input"
-                    placeholder="Enter your best email address"
-                    required
-                >
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">
-                Yes! Let Me Stack Bitcoin Now! 🚀
-            </button>
-
-            <!-- Trust Text -->
-            <div class="form-trust">
-                <span>✓ 100% Free</span>
-                <span>✓ No Spam</span>
-                <span>✓ Trusted by Thousands</span>
-            </div>
-
-            <!-- Tracking Image -->
-            <img src="https://gogvo.com/show_form.php?id=24983767&TrackParam=new_form" width="1" height="1" style="display: none;">
-        </form>
-    </div>
+<!-- Income Streams Section -->
+<div class="income-streams-section">
+<h2 class="income-streams-title">Salary-Replacing Income Streams</h2>
+<div class="benefits-grid">
+<a class="benefit-item" href="https://bitcoinaiwealth.com/map" target="_blank">
+<div class="check-icon">
+<span class="check-mark">💼</span>
 </div>
-
-<!-- THE BITHARVEST JAVASCRIPT ADDED BELOW -->
-<script>
-    // Get modal elements
-    const modal = document.getElementById('modalOverlay');
-    const openBtn = document.getElementById('openModalBtn');
-    const closeBtn = document.getElementById('closeBtn');
-
-    // Open modal
-    openBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-    // Close modal
-    closeBtn.addEventListener('click', function() {
-        modal.classList.remove('active');
-        document.body.style.overflow = 'auto';
-    });
-
-    // Close modal when clicking outside
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Close modal with Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            modal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-    });
-
-    // Form validation and enhancement
-    const form = document.querySelector('.lead-form');
-    const firstNameInput = document.getElementById('FirstName');
-    const emailInput = document.getElementById('Email');
-
-    // Auto-focus first field when modal opens
-    openBtn.addEventListener('click', function() {
-        setTimeout(() => {
-            firstNameInput.focus();
-        }, 300);
-    });
-
-    // Move to email field when Enter is pressed in first name
-    firstNameInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            e.preventDefault();
-            emailInput.focus();
-        }
-    });
-
-    // Form submission handling
-    form.addEventListener('submit', function(e) {
-        // Basic validation
-        if (!firstNameInput.value.trim()) {
-            e.preventDefault();
-            alert('Please enter your first name');
-            firstNameInput.focus();
-            return;
-        }
-
-        if (!emailInput.value.trim()) {
-            e.preventDefault();
-            alert('Please enter your email address');
-            emailInput.focus();
-            return;
-        }
-
-        // Email format validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value.trim())) {
-            e.preventDefault();
-            alert('Please enter a valid email address');
-            emailInput.focus();
-            return;
-        }
-
-        // If validation passes, show loading state
-        const submitBtn = form.querySelector('.submit-btn');
-        submitBtn.textContent = 'Processing... 🚀';
-        submitBtn.disabled = true;
-    });
-</script>
-    
+<div class="benefit-text">
+                    Earn <span class="highlight-text">75% commissions</span> that pay you for <span class="highlight-text">LIFE</span> - not just once. Tap here to discover more. 👈
+                </div>
+</a>
+<a class="benefit-item" href="https://bitcoinaiwealth.com/bitcoindefi" target="_blank">
+<div class="check-icon">
+<span class="check-mark">📈</span>
+</div>
+<div class="benefit-text">
+                    Turn <span class="highlight-text">$100 to $35,760</span> in just 36 months! Tap here to see how it works 👈 
+                </div>
+</a>
+<a class="benefit-item" href="https://bitcoinaiwealth.com/btcharvest" target="_blank">
+<div class="check-icon">
+<span class="check-mark">🤑</span>
+</div>
+<div class="benefit-text">
+                    Get <span class="highlight-text">daily Bitcoin payouts</span> without buying expensive ASIC miners or paying high electricity. Tap here to cash in now! 👈
+                </div>
+</a>
+</div>
+</div>
+<!-- Footer Section -->
+<footer class="footer">
+<div class="footer-sparkle"></div>
+<div class="footer-sparkle"></div>
+<div class="footer-sparkle"></div>
+<div class="footer-sparkle"></div>
+<div class="footer-links">
+<a class="footer-link" href="https://bitcoinaiwealth.com/privacy.html" target="_blank">Privacy Policy</a>
+<a class="footer-link" href="https://bitcoinaiwealth.com/disclaimer.html" target="_blank">Disclaimer</a>
+<a class="footer-link" href="https://bitcoinaiwealth.com/terms.html" target="_blank">Terms of Service</a>
+</div>
+<div class="footer-copyright">
+            © 2025 <span class="highlight">Bitcoin AI Wealth System</span>. Unlock your potential for lifetime passive income! <span class="emoji">🚀</span><br/>
+            This site is operated with <span class="emoji">❤️</span> by real Crypto enthusiasts & affiliate marketers who earn daily! No corporate nonsense. <span class="emoji">👑</span>
+</div>
+</footer>
 </body>
 </html>

@@ -1,3 +1,10 @@
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 User-agent: *
 Allow: /
+
 Sitemap: https://bitcoinaiwealth.com/sitemap.xml

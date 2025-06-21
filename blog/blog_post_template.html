@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Template - Bitcoin AI Wealth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bitcoin-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .back-link {
+            color: #94a3b8;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #f59e0b;
+            border-color: #f59e0b;
+            transform: translateY(-1px);
+        }
+
+        /* Article Header */
+        .article-header {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .article-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .article-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Article Content */
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 0;
+        }
+
+        .article-body {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #d1d5db;
+        }
+
+        .article-body h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .article-body h2::before {
+            content: '';
+            position: absolute;
+            left: -2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 2rem;
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            border-radius: 2px;
+        }
+
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 2rem 0 1rem;
+            color: #f59e0b;
+        }
+
+        .article-body p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body ul, .article-body ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .article-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border-left: 4px solid #f59e0b;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '💡';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .highlight-box h4 {
+            color: #f59e0b;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Quote */
+        .quote {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 4rem;
+            color: #f59e0b;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .quote-author {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Sections */
+        .cta-section {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-description {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #f59e0b;
+            border: 2px solid #f59e0b;
+        }
+
+        .btn-secondary:hover {
+            background: #f59e0b;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Social Share */
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(15, 15, 15, 0.5);
+            border-radius: 12px;
+        }
+
+        .social-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-btn.twitter { background: #1da1f2; color: white; }
+        .social-btn.facebook { background: #4267b2; color: white; }
+        .social-btn.linkedin { background: #0077b5; color: white; }
+        .social-btn.copy { background: #6b7280; color: white; }
+
+        .social-btn:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Author Bio */
+        .author-bio {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #000;
+            flex-shrink: 0;
+        }
+
+        .author-info h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-info p {
+            color: #94a3b8;
+            margin-bottom: 1rem;
+        }
+
+        .author-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .author-links a {
+            color: #f59e0b;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .author-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Related Articles */
+        .related-articles {
+            margin: 4rem 0;
+        }
+
+        .related-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .related-card {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            border-color: #f59e0b;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        }
+
+        .related-card h4 {
+            color: #ffffff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .related-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        /* Newsletter Signup */
+        .newsletter {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 3rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .newsletter h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            gap: 1rem;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 15, 15, 0.8);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .article-title {
+                font-size: 2rem;
+            }
+
+            .article-body h2::before {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .author-bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .social-share {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Reading Progress */
+        .reading-progress {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(15, 15, 15, 0.9);
+            border: 2px solid #f59e0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #f59e0b;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <div class="bitcoin-icon">₿</div>
+                    Bitcoin AI Wealth Blog
+                </a>
+                <a href="#" class="back-link">← Back to Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">
+                <div class="meta-item">
+                    <span>📅</span>
+                    <span>June 16, 2025</span>
+                </div>
+                <div class="meta-item">
+                    <span>⏱️</span>
+                    <span>8 min read</span>
+                </div>
+                <div class="meta-item">
+                    <span>👁️</span>
+                    <span>2,847 views</span>
+                </div>
+                <div class="tag">🔥 Trending</div>
+                <div class="tag">📊 Analysis</div>
+            </div>
+            <h1 class="article-title">The Ultimate Guide to AI-Powered Bitcoin Wealth Building in 2025</h1>
+            <p class="article-subtitle">Discover how artificial intelligence is revolutionizing cryptocurrency investment strategies and creating unprecedented opportunities for wealth generation</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <article class="article-content">
+            <div class="article-body">
+                <p>The convergence of artificial intelligence and Bitcoin is creating a paradigm shift in how we approach wealth building. As we navigate through 2025, early adopters who understand and leverage these technologies are positioning themselves for extraordinary financial success.</p>
+
+                <div class="highlight-box">
+                    <h4>Key Insight</h4>
+                    <p>AI-powered trading algorithms are now capable of analyzing over 10,000 market indicators simultaneously, providing unprecedented accuracy in Bitcoin price predictions and investment timing.</p>
+                </div>
+
+                <h2>The AI Revolution in Cryptocurrency</h2>
+                <p>Artificial intelligence has fundamentally transformed how we analyze and interact with cryptocurrency markets. Modern AI systems can process vast amounts of data, identify patterns invisible to human traders, and execute trades with precision that was unimaginable just a few years ago.</p>
+
+                <p>The most successful Bitcoin investors of 2025 are those who have embraced AI as their strategic partner, not their replacement. They understand that while AI provides the analytical power, human insight and strategic thinking remain crucial for long-term wealth building.</p>
+
+                <h3>Machine Learning Models That Actually Work</h3>
+                <p>Not all AI trading systems are created equal. The most effective models combine multiple approaches:</p>
+
+                <ul>
+                    <li><strong>Sentiment Analysis:</strong> Processing social media, news, and market sentiment in real-time</li>
+                    <li><strong>Technical Pattern Recognition:</strong> Identifying complex chart patterns across multiple timeframes</li>
+                    <li><strong>Fundamental Analysis Automation:</strong> Evaluating on-chain metrics and network health indicators</li>
+                    <li><strong>Risk Management Algorithms:</strong> Automatically adjusting position sizes based on market volatility</li>
+                </ul>
+
+                <div class="quote">
+                    <p class="quote-text">The future belongs to those who can harness the power of AI while maintaining the wisdom to know when human judgment should prevail.</p>
+                    <p class="quote-author">— Leading Cryptocurrency Strategist</p>
+                </div>
+
+                <h2>Building Your AI-Enhanced Bitcoin Strategy</h2>
+                <p>Creating a successful AI-powered Bitcoin wealth building strategy requires more than just using the latest tools. It demands a comprehensive understanding of both the technology and the market dynamics that drive cryptocurrency valuations.</p>
+
+                <div class="cta-section">
+                    <h3 class="cta-title">Ready to Supercharge Your Bitcoin Strategy?</h3>
+                    <p class="cta-description">Get exclusive access to our AI-powered Bitcoin analysis tools and join thousands of successful investors building generational wealth.</p>
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">🚀 Get Started Now</a>
+                        <a href="#" class="btn btn-secondary">📊 View Live Demo</a>
+                    </div>
+                </div>
+
+                <h3>The Three Pillars of Success</h3>
+                <p>Our research has identified three critical components that separate successful AI-enhanced Bitcoin investors from the rest:</p>
+
+                <ol>
+                    <li><strong>Data Quality:</strong> Access to clean, real-time, and comprehensive market data</li>
+                    <li><strong>Algorithm Sophistication:</strong> Advanced machine learning models that adapt to changing market conditions</li>
+                    <li><strong>Risk Management:</strong> Robust systems that protect capital during volatile periods</li>
+                </ol>
+
+                <p>Each of these pillars requires careful attention and continuous optimization. The most successful investors treat their AI systems as living, evolving tools that require regular updates and refinements.</p>
+
+                <h2>Real-World Results and Case Studies</h2>
+                <p>The proof is in the performance. Our analysis of AI-enhanced Bitcoin strategies over the past 18 months reveals compelling results that demonstrate the power of this approach.</p>
+
+                <div class="highlight-box">
+                    <h4>Performance Highlight</h4>
+                    <p>AI-enhanced portfolios have outperformed traditional buy-and-hold strategies by an average of 340% over the past 18 months, while maintaining 60% lower volatility.</p>
+                </div>
+
+                <p>These results aren't just theoretical. Real investors using AI-powered strategies have achieved remarkable success, even during periods of market uncertainty and volatility.</p>
+            </div>
+
+            <!-- Social Share -->
+            <div class="social-share">
+                <a href="#" class="social-btn twitter">🐦</a>
+                <a href="#" class="social-btn facebook">📘</a>
+                <a href="#" class="social-btn linkedin">💼</a>
+                <a href="#" class="social-btn copy">🔗</a>
+            </div>
+
+            <!-- Author Bio -->
+            <div class="author-bio">
+                <div class="author-avatar">M</div>
+                <div class="author-info">
+                    <h4>Musa TheGiant</h4>
+                    <p>Crypto enthusiast and affiliate marketer with over 8 years of experience in Bitcoin and AI technologies. Passionate about helping others build sustainable wealth through innovative investment strategies.</p>
+                    <div class="author-links">
+                        <a href="#">Follow on Twitter</a>
+                        <a href="#">Connect on LinkedIn</a>
+                        <a href="#">View Profile</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter">
+                <h3>Never Miss a Game-Changing Insight</h3>
+                <p>Join thousands of smart investors who get exclusive Bitcoin, crypto, and AI insights delivered directly to their inbox. Plus, get instant access to our secret AI marketing arsenal worth $2,997!</p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
+                    <button type="submit" class="btn btn-primary">Subscribe Now</button>
+                </form>
+            </div>
+
+            <!-- Related Articles -->
+            <section class="related-articles">
+                <h3 class="related-title">Continue Your Journey</h3>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <h4>DeFi vs Traditional Banking: The Ultimate Comparison</h4>
+                        <p>A comprehensive analysis of decentralized finance protocols versus traditional banking systems for wealth preservation and growth.</p>
+                        <div class="related-meta">
+                            <span>📊 Wealth Strategy</span>
+                            <span>5 min read</span>
+                        </div>
+                    </a>
+                    <a href="#" class="related-card">
+                        <h4>AI Trading Strategies for 2025</h4>
+                        <p>Discover the latest AI-powered trading algorithms and how they're reshaping cryptocurrency markets.</p>
+                        <div class="related-meta">
+                            <span>🤖 Technical Analysis</span>
+                            <span>7 min read</span>
+                        </div>
+                    </a>
+                    <a href="#" class="related-card">
+                        <h4>Building Multiple Income Streams with Crypto</h4>
+                        <p>Learn how to create diversified cryptocurrency income streams that generate passive revenue.</p>
+                        <div class="related-meta">
+                            <span>💰 Income Generation</span>
+                            <span>6 min read</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Reading Progress Indicator -->
+    <div class="reading-progress" id="readingProgress">0%</div>
+
+    <script>
+        // Reading progress
+        window.addEventListener('scroll', function() {
+            const article = document.querySelector('.article-content');
+            const progressBar = document.getElementById('progressBar');
+            const progressIndicator = document.getElementById('readingProgress');
+            
+            const articleTop = article.offsetTop;
+            const articleHeight = article.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollTop = window.pageYOffset;
+            
+            const progress = Math.min(100, Math.max(0, ((scrollTop - articleTop + windowHeight) / articleHeight) * 100));
+            
+            progressBar.style.width = progress + '%';
+            progressIndicator.textContent = Math.round(progress) + '%';
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Copy link functionality
+        document.querySelector('.social-btn.copy').addEventListener('click', function(e) {
+            e.preventDefault();
+            navigator.clipboard.writeText(window.location.href).then(function() {
+                alert('Link copied to clipboard!');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.highlight-box, .quote, .cta-section, .author-bio, .related-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+

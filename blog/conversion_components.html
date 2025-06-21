@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion Optimization Components - Bitcoin AI Wealth</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .component-section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(15, 15, 15, 0.5);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+        }
+
+        .component-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #f59e0b;
+            margin-bottom: 1rem;
+        }
+
+        .component-description {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        /* 1. Exit Intent Popup */
+        .exit-intent-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(5px);
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: popupSlideIn 0.3s ease-out;
+        }
+
+        @keyframes popupSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .popup-close:hover {
+            color: #f59e0b;
+        }
+
+        .popup-emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .popup-subtitle {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .popup-form {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .popup-input {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 15, 15, 0.8);
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .popup-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .popup-btn {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .popup-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .popup-guarantee {
+            font-size: 0.8rem;
+            color: #6b7280;
+            margin-top: 1rem;
+        }
+
+        /* 2. Sticky CTA Bar */
+        .sticky-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-top: 2px solid #f59e0b;
+            padding: 1rem;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .sticky-cta-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .sticky-cta-text {
+            flex: 1;
+        }
+
+        .sticky-cta-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .sticky-cta-subtitle {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .sticky-cta-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .sticky-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* 3. Content Upgrade Box */
+        .content-upgrade {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-upgrade::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(245, 158, 11, 0.1), transparent);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .upgrade-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .upgrade-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .upgrade-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .upgrade-description {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .upgrade-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .upgrade-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #d1d5db;
+        }
+
+        .upgrade-feature-icon {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        /* 4. Social Proof Ticker */
+        .social-proof-ticker {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 2rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ticker-content {
+            display: flex;
+            animation: scroll 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            margin-right: 3rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .ticker-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 0.8rem;
+        }
+
+        /* 5. Urgency Timer */
+        .urgency-timer {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .timer-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .timer-unit {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 1rem;
+            min-width: 60px;
+        }
+
+        .timer-number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        /* 6. Progress Bar CTA */
+        .progress-cta {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .progress-percentage {
+            color: #f59e0b;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(245, 158, 11, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #f59e0b, #fbbf24);
+            width: 0%;
+            transition: width 2s ease;
+            border-radius: 4px;
+        }
+
+        .progress-description {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+
+        /* 7. Testimonial Carousel */
+        .testimonial-carousel {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-slide {
+            display: none;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .testimonial-quote {
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #d1d5db;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .testimonial-info h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-info p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+
+        .testimonial-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(245, 158, 11, 0.3);
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background: #f59e0b;
+        }
+
+        /* 8. Floating Action Button */
+        .floating-action {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(245, 158, 11, 0.6); }
+            100% { box-shadow: 0 4px 20px rgba(245, 158, 11, 0.3); }
+        }
+
+        .floating-action:hover {
+            transform: scale(1.1);
+        }
+
+        /* 9. Smart Notification */
+        .smart-notification {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #f59e0b;
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            max-width: 300px;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .smart-notification.visible {
+            transform: translateX(0);
+        }
+
+        .notification-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .notification-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            font-size: 0.9rem;
+        }
+
+        .notification-text {
+            flex: 1;
+        }
+
+        .notification-name {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .notification-action {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        .notification-time {
+            color: #6b7280;
+            font-size: 0.7rem;
+            margin-top: 0.25rem;
+        }
+
+        /* Utility Classes */
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #f59e0b;
+            border: 2px solid #f59e0b;
+        }
+
+        .btn-secondary:hover {
+            background: #f59e0b;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .popup-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .popup-form {
+                flex-direction: column;
+            }
+
+            .sticky-cta-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .timer-display {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .upgrade-features {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-action {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .smart-notification {
+                left: 1rem;
+                right: 1rem;
+                max-width: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="color: #f59e0b; text-align: center; margin-bottom: 3rem; font-size: 2.5rem;">High-Converting Blog Components</h1>
+
+        <!-- 1. Exit Intent Popup -->
+        <div class="component-section">
+            <h2 class="component-title">1. Exit Intent Popup</h2>
+            <p class="component-description">Captures visitors who are about to leave with an irresistible offer.</p>
+            <button onclick="showExitPopup()" class="btn btn-primary">Demo Exit Popup</button>
+        </div>
+
+        <!-- 2. Sticky CTA Bar -->
+        <div class="component-section">
+            <h2 class="component-title">2. Sticky CTA Bar</h2>
+            <p class="component-description">Persistent call-to-action that appears after scrolling to maintain engagement.</p>
+            <button onclick="showStickyBar()" class="btn btn-primary">Demo Sticky Bar</button>
+        </div>
+
+        <!-- 3. Content Upgrade Box -->
+        <div class="component-section">
+            <h2 class="component-title">3. Content Upgrade Box</h2>
+            <p class="component-description">Contextual lead magnet that offers additional value related to the article content.</p>
+            
+            <div class="content-upgrade">
+                <div class="upgrade-content">
+                    <div class="upgrade-icon">🎯</div>
+                    <h3 class="upgrade-title">Get the Complete Bitcoin AI Strategy Guide</h3>
+                    <p class="upgrade-description">Download our exclusive 47-page guide with step-by-step instructions, tools, and templates used by successful Bitcoin AI investors.</p>
+                    
+                    <div class="upgrade-features">
+                        <div class="upgrade-feature">
+                            <span class="upgrade-feature-icon">✓</span>
+                            <span>AI Trading Algorithm Templates</span>
+                        </div>
+                        <div class="upgrade-feature">
+                            <span class="upgrade-feature-icon">✓</span>
+                            <span>Risk Management Calculators</span>
+                        </div>
+                        <div class="upgrade-feature">
+                            <span class="upgrade-feature-icon">✓</span>
+                            <span>Market Analysis Checklists</span>
+                        </div>
+                        <div class="upgrade-feature">
+                            <span class="upgrade-feature-icon">✓</span>
+                            <span>Portfolio Optimization Tools</span>
+                        </div>
+                    </div>
+                    
+                    <form style="display: flex; gap: 1rem; max-width: 400px; margin: 0 auto;">
+                        <input type="email" placeholder="Enter your email" style="flex: 1; padding: 1rem; border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; background: rgba(15, 15, 15, 0.8); color: #ffffff;">
+                        <button type="submit" class="btn btn-primary">Get Free Guide</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Social Proof Ticker -->
+        <div class="component-section">
+            <h2 class="component-title">4. Social Proof Ticker</h2>
+            <p class="component-description">Scrolling testimonials and social proof to build trust and credibility.</p>
+            
+            <div class="social-proof-ticker">
+                <div class="ticker-content">
+                    <div class="ticker-item">
+                        <div class="ticker-avatar">JD</div>
+                        <span>John D. just earned $2,847 using our AI strategy</span>
+                    </div>
+                    <div class="ticker-item">
+                        <div class="ticker-avatar">SM</div>
+                        <span>Sarah M. downloaded the Bitcoin guide 5 minutes ago</span>
+                    </div>
+                    <div class="ticker-item">
+                        <div class="ticker-avatar">MR</div>
+                        <span>Mike R. joined our premium community</span>
+                    </div>
+                    <div class="ticker-item">
+                        <div class="ticker-avatar">LK</div>
+                        <span>Lisa K. increased her portfolio by 340% last month</span>
+                    </div>
+                    <div class="ticker-item">
+                        <div class="ticker-avatar">TP</div>
+                        <span>Tom P. just subscribed to our newsletter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Urgency Timer -->
+        <div class="component-section">
+            <h2 class="component-title">5. Urgency Timer</h2>
+            <p class="component-description">Creates scarcity and urgency to drive immediate action.</p>
+            
+            <div class="urgency-timer">
+                <h3 class="timer-title">🔥 Limited Time: Free AI Trading Masterclass</h3>
+                <div class="timer-display">
+                    <div class="timer-unit">
+                        <span class="timer-number" id="hours">23</span>
+                        <span class="timer-label">Hours</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-number" id="minutes">45</span>
+                        <span class="timer-label">Minutes</span>
+                    </div>
+                    <div class="timer-unit">
+                        <span class="timer-number" id="seconds">32</span>
+                        <span class="timer-label">Seconds</span>
+                    </div>
+                </div>
+                <button class="btn btn-primary">Reserve My Spot Now</button>
+            </div>
+        </div>
+
+        <!-- 6. Progress Bar CTA -->
+        <div class="component-section">
+            <h2 class="component-title">6. Progress Bar CTA</h2>
+            <p class="component-description">Shows progress towards a goal to encourage completion.</p>
+            
+            <div class="progress-cta">
+                <div class="progress-header">
+                    <h3 class="progress-title">🎯 Goal: 1,000 New Members</h3>
+                    <span class="progress-percentage">73%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <p class="progress-description">Join 730 smart investors who've already claimed their spot in our exclusive Bitcoin AI community. Only 270 spots remaining!</p>
+                <button class="btn btn-primary">Claim Your Spot</button>
+            </div>
+        </div>
+
+        <!-- 7. Testimonial Carousel -->
+        <div class="component-section">
+            <h2 class="component-title">7. Testimonial Carousel</h2>
+            <p class="component-description">Rotating testimonials to showcase social proof and success stories.</p>
+            
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide active">
+                    <p class="testimonial-quote">"The AI trading strategies from Bitcoin AI Wealth helped me increase my portfolio by 340% in just 6 months. The insights are incredibly valuable and easy to implement."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JD</div>
+                        <div class="testimonial-info">
+                            <h4>John Davidson</h4>
+                            <p>Portfolio Manager, $2.3M Portfolio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"I was skeptical about AI trading at first, but the results speak for themselves. I've generated more passive income in the last 3 months than I did all of last year."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Mitchell</h4>
+                            <p>Entrepreneur, $850K Portfolio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <p class="testimonial-quote">"The Bitcoin AI Wealth community is amazing. The strategies are cutting-edge, and the support is incredible. I've learned more here than anywhere else."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">MR</div>
+                        <div class="testimonial-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Tech Executive, $1.8M Portfolio</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active" onclick="showTestimonial(0)"></div>
+                    <div class="testimonial-dot" onclick="showTestimonial(1)"></div>
+                    <div class="testimonial-dot" onclick="showTestimonial(2)"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 8. Floating Action Button -->
+        <div class="component-section">
+            <h2 class="component-title">8. Floating Action Button</h2>
+            <p class="component-description">Persistent action button that follows users as they scroll.</p>
+            <p style="color: #94a3b8;">Check the bottom-right corner of your screen for the floating button demo.</p>
+        </div>
+
+        <!-- 9. Smart Notification -->
+        <div class="component-section">
+            <h2 class="component-title">9. Smart Notification</h2>
+            <p class="component-description">Real-time notifications showing user activity to create social proof.</p>
+            <button onclick="showNotification()" class="btn btn-primary">Demo Notification</button>
+        </div>
+    </div>
+
+    <!-- Exit Intent Popup -->
+    <div class="exit-intent-popup" id="exitPopup">
+        <div class="popup-content">
+            <button class="popup-close" onclick="hideExitPopup()">&times;</button>
+            <div class="popup-emoji">🚀</div>
+            <h3 class="popup-title">Wait! Don't Miss Out!</h3>
+            <p class="popup-subtitle">Get our exclusive Bitcoin AI Strategy Guide worth $297 - absolutely FREE!</p>
+            <form class="popup-form">
+                <input type="email" class="popup-input" placeholder="Enter your email address">
+                <button type="submit" class="popup-btn">Get Free Guide</button>
+            </form>
+            <p class="popup-guarantee">🔒 100% Privacy Guaranteed. No spam, ever.</p>
+        </div>
+    </div>
+
+    <!-- Sticky CTA Bar -->
+    <div class="sticky-cta" id="stickyBar">
+        <div class="sticky-cta-content">
+            <div class="sticky-cta-text">
+                <div class="sticky-cta-title">🎯 Ready to Build Bitcoin Wealth?</div>
+                <div class="sticky-cta-subtitle">Join 10,000+ investors using AI to maximize returns</div>
+            </div>
+            <div class="sticky-cta-actions">
+                <button class="btn btn-primary">Get Started Free</button>
+                <button class="sticky-close" onclick="hideStickyBar()">&times;</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="floating-action" onclick="showExitPopup()">
+        💬
+    </div>
+
+    <!-- Smart Notification -->
+    <div class="smart-notification" id="smartNotification">
+        <div class="notification-content">
+            <div class="notification-avatar">JD</div>
+            <div class="notification-text">
+                <div class="notification-name">John D.</div>
+                <div class="notification-action">just downloaded the Bitcoin guide</div>
+                <div class="notification-time">2 minutes ago</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Exit Intent Popup
+        function showExitPopup() {
+            document.getElementById('exitPopup').style.display = 'flex';
+        }
+
+        function hideExitPopup() {
+            document.getElementById('exitPopup').style.display = 'none';
+        }
+
+        // Sticky CTA Bar
+        function showStickyBar() {
+            document.getElementById('stickyBar').classList.add('visible');
+        }
+
+        function hideStickyBar() {
+            document.getElementById('stickyBar').classList.remove('visible');
+        }
+
+        // Progress Bar Animation
+        setTimeout(() => {
+            document.getElementById('progressFill').style.width = '73%';
+        }, 1000);
+
+        // Testimonial Carousel
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial-slide');
+        const dots = document.querySelectorAll('.testimonial-dot');
+
+        function showTestimonial(index) {
+            testimonials[currentTestimonial].classList.remove('active');
+            dots[currentTestimonial].classList.remove('active');
+            
+            currentTestimonial = index;
+            
+            testimonials[currentTestimonial].classList.add('active');
+            dots[currentTestimonial].classList.add('active');
+        }
+
+        // Auto-rotate testimonials
+        setInterval(() => {
+            const nextIndex = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(nextIndex);
+        }, 5000);
+
+        // Smart Notification
+        function showNotification() {
+            const notification = document.getElementById('smartNotification');
+            notification.classList.add('visible');
+            
+            setTimeout(() => {
+                notification.classList.remove('visible');
+            }, 5000);
+        }
+
+        // Countdown Timer
+        function updateTimer() {
+            const now = new Date().getTime();
+            const tomorrow = new Date();
+            tomorrow.setDate(tomorrow.getDate() + 1);
+            tomorrow.setHours(0, 0, 0, 0);
+            
+            const distance = tomorrow.getTime() - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update timer every second
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Auto-show smart notifications
+        setInterval(() => {
+            if (!document.getElementById('smartNotification').classList.contains('visible')) {
+                showNotification();
+            }
+        }, 15000);
+
+        // Exit intent detection
+        document.addEventListener('mouseleave', function(e) {
+            if (e.clientY <= 0) {
+                showExitPopup();
+            }
+        });
+
+        // Scroll-triggered sticky bar
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 1000) {
+                showStickyBar();
+            }
+        });
+
+        // Close popups on outside click
+        document.getElementById('exitPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideExitPopup();
+            }
+        });
+    </script>
+</body>
+</html>
+

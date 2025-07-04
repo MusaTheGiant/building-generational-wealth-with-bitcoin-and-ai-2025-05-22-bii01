@@ -1,11 +1,14 @@
-
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Bitcoin AI Wealth Blog - Expert Insights &amp; Strategies</title>
+<title>Bitcoin AI Wealth Blog - Expert Insights & Strategies</title>
+<meta name="description" content="Discover expert insights, proven strategies, and cutting-edge analysis for building generational wealth through Bitcoin, AI, and affiliate marketing technologies."/>
+<meta name="keywords" content="bitcoin, AI, affiliate marketing, wealth building, financial freedom, cryptocurrency, passive income"/>
+<meta property="og:title" content="Bitcoin AI Wealth Blog - Expert Insights & Strategies"/>
+<meta property="og:description" content="Your roadmap to financial freedom through Bitcoin, AI, and affiliate marketing technologies."/>
+<meta property="og:type" content="website"/>
 <style>
         * {
             margin: 0;
@@ -419,7 +422,7 @@
             margin: 3rem 0;
         }
 
-        /* Newsletter CTA */
+        /* Enhanced Newsletter CTA */
         .newsletter-cta {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border: 2px solid #f59e0b;
@@ -427,82 +430,156 @@
             padding: 3rem;
             margin: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
         }
 
         .newsletter-cta h3 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .newsletter-cta p {
             color: #94a3b8;
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
         .newsletter-form {
             display: flex;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 0 auto 2rem;
             gap: 1rem;
+            position: relative;
         }
 
         .newsletter-input {
             flex: 1;
-            padding: 1rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 1.2rem;
+            border: 2px solid rgba(245, 158, 11, 0.3);
             border-radius: 8px;
-            background: rgba(15, 15, 15, 0.8);
+            background: rgba(15, 15, 15, 0.9);
             color: #ffffff;
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
         .newsletter-input:focus {
             outline: none;
             border-color: #f59e0b;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
         }
 
-        /* Sidebar */
-        .sidebar {
-            background: rgba(15, 15, 15, 0.8);
+        .newsletter-input::placeholder {
+            color: #6b7280;
+        }
+
+        .newsletter-submit {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            white-space: nowrap;
+        }
+
+        .newsletter-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .newsletter-submit:active {
+            transform: translateY(0);
+        }
+
+        /* Success message */
+        .success-message {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            display: none;
+            font-weight: 600;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .newsletter-benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
             border: 1px solid rgba(245, 158, 11, 0.2);
-            border-radius: 12px;
-            padding: 2rem;
         }
 
-        .sidebar h4 {
-            color: #ffffff;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
         }
 
-        .popular-posts {
-            list-style: none;
-        }
-
-        .popular-posts li {
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
-        }
-
-        .popular-posts li:last-child {
-            border-bottom: none;
-        }
-
-        .popular-posts a {
-            color: #94a3b8;
-            text-decoration: none;
+        .benefit-text {
+            color: #e5e5e5;
             font-size: 0.9rem;
-            line-height: 1.4;
-        }
-
-        .popular-posts a:hover {
-            color: #f59e0b;
+            font-weight: 500;
         }
 
         /* Responsive Design */
@@ -545,6 +622,14 @@
             .featured-cta {
                 justify-content: center;
             }
+
+            .newsletter-cta h3 {
+                font-size: 1.8rem;
+            }
+
+            .newsletter-benefits {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Animations */
@@ -562,6 +647,19 @@
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
         }
+
+        /* Form validation styles */
+        .newsletter-input.error {
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -569,7 +667,7 @@
 <header class="header">
 <div class="container">
 <nav class="nav">
-<a class="logo" href="#">
+<a class="logo" href="#" aria-label="Bitcoin AI Wealth Blog Home">
 <div class="bitcoin-icon">₿</div>
                     Bitcoin AI Wealth Blog
                 </a>
@@ -579,12 +677,13 @@
 <a class="nav-link" href="#">About</a>
 <div class="search-box">
 <span class="search-icon">🔍</span>
-<input class="search-input" placeholder="Search articles..." type="text"/>
+<input class="search-input" placeholder="Search articles..." type="text" aria-label="Search articles"/>
 </div>
 </div>
 </nav>
 </div>
 </header>
+
 <!-- Hero Section -->
 <section class="hero">
 <div class="container">
@@ -606,24 +705,26 @@
 </div>
 </div>
 </section>
+
 <!-- Filter Bar -->
 <div class="container">
 <div class="filter-bar">
 <div class="filter-tags">
-<a class="filter-tag active" href="#">All Posts</a>
-<a class="filter-tag" href="#">Bitcoin</a>
-<a class="filter-tag" href="#">AI</a>
-<a class="filter-tag" href="#">Affiliate Marketing</a>
-<a class="filter-tag" href="#">Traffic Generation</a>
-<a class="filter-tag" href="#">Reviews</a>
+<a class="filter-tag active" href="#" data-filter="all">All Posts</a>
+<a class="filter-tag" href="#" data-filter="bitcoin">Bitcoin</a>
+<a class="filter-tag" href="#" data-filter="ai">AI</a>
+<a class="filter-tag" href="#" data-filter="affiliate">Affiliate Marketing</a>
+<a class="filter-tag" href="#" data-filter="traffic">Traffic Generation</a>
+<a class="filter-tag" href="#" data-filter="reviews">Reviews</a>
 </div>
 <select class="sort-dropdown">
-<option>Latest First</option>
-<option>Most Popular</option>
-<option>Most Viewed</option>
+<option value="latest">Latest First</option>
+<option value="popular">Most Popular</option>
+<option value="viewed">Most Viewed</option>
 </select>
 </div>
 </div>
+
 <!-- Featured Article -->
 <div class="container">
 <section class="featured-section">
@@ -631,7 +732,7 @@
 <span>🔥</span>
                 Featured Article
             </h2>
-<div class="featured-article">
+<article class="featured-article">
 <div class="featured-content">
 <div class="featured-meta">
 <div class="meta-item">
@@ -655,14 +756,15 @@
 <span class="tag">🤖 AI</span>
 </div>
 <div class="featured-cta">
-<a class="btn btn-primary" href="#">📖 Read Full Article</a>
-<a class="btn btn-secondary" href="#">💌 Get More Insights</a>
+<a class="btn btn-primary" href="#" aria-label="Read full article about affiliate and AI secrets">📖 Read Full Article</a>
+<a class="btn btn-secondary" href="#newsletter" aria-label="Get more insights via newsletter">💌 Get More Insights</a>
 </div>
 </div>
-<div class="featured-image">📊</div>
-</div>
+<div class="featured-image" aria-label="Featured article visualization">📊</div>
+</article>
 </section>
 </div>
+
 <!-- Articles Grid -->
 <div class="container">
 <section class="articles-section">
@@ -671,7 +773,7 @@
                 Latest Insights
             </h2>
 <div class="articles-grid">
-<article class="article-card">
+<article class="article-card" data-category="ai affiliate">
 <div class="card-image">🤖</div>
 <div class="card-content">
 <div class="card-meta">
@@ -689,7 +791,8 @@
 </div>
 </div>
 </article>
-<article class="article-card">
+
+<article class="article-card" data-category="bitcoin affiliate">
 <div class="card-image">🚀</div>
 <div class="card-content">
 <div class="card-meta">
@@ -707,7 +810,8 @@
 </div>
 </div>
 </article>
-<article class="article-card">
+
+<article class="article-card" data-category="bitcoin">
 <div class="card-image">💡</div>
 <div class="card-content">
 <div class="card-meta">
@@ -725,7 +829,8 @@
 </div>
 </div>
 </article>
-<article class="article-card">
+
+<article class="article-card" data-category="traffic affiliate">
 <div class="card-image">🎯</div>
 <div class="card-content">
 <div class="card-meta">
@@ -743,7 +848,8 @@
 </div>
 </div>
 </article>
-<article class="article-card">
+
+<article class="article-card" data-category="bitcoin">
 <div class="card-image">🔐</div>
 <div class="card-content">
 <div class="card-meta">
@@ -761,7 +867,8 @@
 </div>
 </div>
 </article>
-<article class="article-card">
+
+<article class="article-card" data-category="ai affiliate">
 <div class="card-image">💼</div>
 <div class="card-content">
 <div class="card-meta">
@@ -780,47 +887,177 @@
 </div>
 </article>
 </div>
+
 <div class="load-more">
-<button class="btn btn-secondary">Load More Articles</button>
+<button class="btn btn-secondary" id="loadMoreBtn">Load More Articles</button>
 </div>
 </section>
 </div>
-<!-- Newsletter CTA -->
+
+<!-- Enhanced Newsletter CTA -->
 <div class="container">
-<div class="newsletter-cta">
+<section class="newsletter-cta" id="newsletter">
+<div class="newsletter-content">
 <h3>Get Your Weekly Financial Freedom Blueprint</h3>
 <p>Every Sunday, receive one focused strategy to accelerate your path to financial independence. From Bitcoin wealth-building to AI-powered affiliate marketing. Each newsletter delivers actionable insights you can implement immediately to supplement your income, eliminate debt, or achieve complete financial freedom.</p>
-<form class="newsletter-form">
-<input class="newsletter-input" placeholder="Enter your email address" type="email"/>
-<button class="btn btn-primary" type="submit">Subscribe Now</button>
+<form class="newsletter-form" id="newsletterForm" novalidate>
+<input 
+    class="newsletter-input" 
+    id="emailInput"
+    placeholder="Enter your email address" 
+    type="email" 
+    required
+    aria-label="Email address for newsletter subscription"
+/>
+<button class="newsletter-submit" type="submit" id="submitBtn">
+    <span id="buttonText">Subscribe Now</span>
+</button>
 </form>
+<div class="error-message" id="errorMessage">Please enter a valid email address</div>
+<div class="success-message" id="successMessage">
+    🎉 Success! Check your email to confirm your subscription and receive your first wealth-building strategy.
+</div>
+
+<div class="newsletter-benefits">
+<div class="benefit-item">
+<div class="benefit-icon">💰</div>
+<div class="benefit-text">Weekly Profit Strategies</div>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">🤖</div>
+<div class="benefit-text">AI-Powered Insights</div>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">₿</div>
+<div class="benefit-text">Bitcoin Investment Tips</div>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">📈</div>
+<div class="benefit-text">Market Analysis</div>
 </div>
 </div>
+</div>
+</section>
+</div>
+
 <script>
+        // Enhanced Newsletter Form Handling
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('emailInput');
+            const submitBtn = document.getElementById('submitBtn');
+            const buttonText = document.getElementById('buttonText');
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+            
+            // Reset previous states
+            emailInput.classList.remove('error');
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+            
+            // Validate email
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email || !emailRegex.test(email)) {
+                emailInput.classList.add('error');
+                errorMessage.style.display = 'block';
+                emailInput.focus();
+                return;
+            }
+            
+            // Simulate form submission
+            submitBtn.disabled = true;
+            buttonText.textContent = 'Subscribing...';
+            
+            // Simulate API call delay
+            setTimeout(() => {
+                // Show success message
+                successMessage.style.display = 'block';
+                emailInput.value = '';
+                submitBtn.disabled = false;
+                buttonText.textContent = 'Subscribe Now';
+                
+                // Scroll success message into view
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Track conversion (replace with your analytics code)
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'subscribe', {
+                        'event_category': 'newsletter',
+                        'event_label': 'financial_freedom_blueprint'
+                    });
+                }
+                
+                // Optional: Redirect to thank you page after delay
+                // setTimeout(() => {
+                //     window.location.href = '/thank-you.html';
+                // }, 3000);
+                
+            }, 2000);
+        });
+
         // Filter functionality
         document.querySelectorAll('.filter-tag').forEach(tag => {
             tag.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Update active state
                 document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
                 this.classList.add('active');
+                
+                // Get filter value
+                const filter = this.dataset.filter;
+                const articles = document.querySelectorAll('.article-card');
+                
+                articles.forEach(article => {
+                    if (filter === 'all' || article.dataset.category.includes(filter)) {
+                        article.style.display = 'block';
+                        article.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
             });
         });
 
-        // Search functionality
+        // Enhanced Search functionality
         document.querySelector('.search-input').addEventListener('input', function() {
             const searchTerm = this.value.toLowerCase();
             const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
             
             articles.forEach(article => {
                 const title = article.querySelector('.card-title').textContent.toLowerCase();
                 const excerpt = article.querySelector('.card-excerpt').textContent.toLowerCase();
+                const tags = article.querySelectorAll('.card-tag');
+                const tagText = Array.from(tags).map(tag => tag.textContent.toLowerCase()).join(' ');
                 
-                if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tagText.includes(searchTerm)) {
                     article.style.display = 'block';
+                    article.style.animation = 'fadeInUp 0.6s ease-out';
+                    visibleCount++;
                 } else {
                     article.style.display = 'none';
                 }
             });
+            
+            // Show "no results" message if needed
+            const noResultsMsg = document.getElementById('noResults');
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!noResultsMsg) {
+                    const message = document.createElement('div');
+                    message.id = 'noResults';
+                    message.className = 'text-center';
+                    message.style.color = '#94a3b8';
+                    message.style.padding = '2rem';
+                    message.innerHTML = `<p>No articles found for "${searchTerm}". Try searching for "Bitcoin", "AI", or "Affiliate Marketing".</p>`;
+                    document.querySelector('.articles-grid').appendChild(message);
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
         });
 
         // Smooth animations on scroll
@@ -842,16 +1079,118 @@
             observer.observe(el);
         });
 
-        // Load more functionality
-        document.querySelector('.load-more button').addEventListener('click', function() {
+        // Enhanced Load more functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Loading...';
+            button.disabled = true;
+            
             // Simulate loading more articles
-            this.textContent = 'Loading...';
             setTimeout(() => {
-                this.textContent = 'Load More Articles';
-                // Here you would typically load more articles via AJAX
-            }, 1000);
+                // Create new article cards (you would typically fetch these from an API)
+                const newArticles = [
+                    {
+                        icon: '💎',
+                        title: 'Advanced Bitcoin Mining Strategies for 2025',
+                        excerpt: 'Explore the latest mining techniques and hardware recommendations for maximum profitability.',
+                        date: 'June 9, 2025',
+                        readTime: '10 min read',
+                        tags: ['Mining', 'Hardware'],
+                        category: 'bitcoin'
+                    },
+                    {
+                        icon: '🎯',
+                        title: 'Email Marketing Automation for Crypto Affiliates',
+                        excerpt: 'Build automated email sequences that convert crypto leads into high-value customers.',
+                        date: 'June 8, 2025',
+                        readTime: '7 min read',
+                        tags: ['Email', 'Automation'],
+                        category: 'affiliate ai'
+                    }
+                ];
+                
+                const articlesGrid = document.querySelector('.articles-grid');
+                
+                newArticles.forEach(article => {
+                    const articleHTML = `
+                        <article class="article-card" data-category="${article.category}">
+                            <div class="card-image">${article.icon}</div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span>${article.date}</span>
+                                    <span>${article.readTime}</span>
+                                </div>
+                                <h3 class="card-title">${article.title}</h3>
+                                <p class="card-excerpt">${article.excerpt}</p>
+                                <div class="card-footer">
+                                    <div class="card-tags">
+                                        ${article.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
+                                    </div>
+                                    <span class="read-more">Read More →</span>
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                    articlesGrid.insertAdjacentHTML('beforeend', articleHTML);
+                });
+                
+                button.textContent = originalText;
+                button.disabled = false;
+                
+                // Animate new articles
+                const newArticleElements = articlesGrid.querySelectorAll('.article-card:nth-last-child(-n+2)');
+                newArticleElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animation = 'fadeInUp 0.6s ease-out';
+                        observer.observe(el);
+                    }, index * 200);
+                });
+                
+            }, 1500);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Email input real-time validation
+        document.getElementById('emailInput').addEventListener('input', function() {
+            const errorMessage = document.getElementById('errorMessage');
+            this.classList.remove('error');
+            errorMessage.style.display = 'none';
+        });
+
+        // Auto-update year in footer
+        document.getElementById('dynamic-year').textContent = new Date().getFullYear();
+        
+        // Newsletter form auto-focus on scroll
+        let hasScrolledToNewsletter = false;
+        window.addEventListener('scroll', function() {
+            const newsletter = document.getElementById('newsletter');
+            const rect = newsletter.getBoundingClientRect();
+            const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+            
+            if (isVisible && !hasScrolledToNewsletter) {
+                hasScrolledToNewsletter = true;
+                setTimeout(() => {
+                    document.getElementById('emailInput').focus();
+                }, 1000);
+            }
         });
     </script>
+
 <footer style="text-align:center; padding:2rem 1rem; border-top:1px solid rgba(245,158,11,0.2); margin-top:4rem; color:#94a3b8; font-size:0.9rem;">
 <p>© <span id="dynamic-year">2025</span> Bitcoin AI Wealth. All rights reserved.</p>
 <p>
@@ -860,9 +1199,6 @@
         <a href="https://bitcoinaiwealth.com/terms.html" style="color:#f59e0b; text-decoration:none; margin:0 10px;">Disclaimer</a>
 </p>
 </footer>
-<script>
-    // Auto-update year
-    document.getElementById('dynamic-year').textContent = new Date().getFullYear();
-</script>
+
 </body>
 </html>

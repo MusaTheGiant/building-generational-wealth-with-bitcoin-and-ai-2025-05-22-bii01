@@ -476,16 +476,32 @@
             line-height: 1.7;
         }
 
-        .newsletter-form {
-            display: flex;
+        /* Lead Capture Form Styling */
+        .lead-capture-form {
             max-width: 600px;
             margin: 0 auto 1.5rem;
-            gap: 1rem;
             position: relative;
         }
 
-        .newsletter-input {
-            flex: 1;
+        .lead-capture-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lead-capture-form td {
+            padding: 0.5rem;
+        }
+
+        .lead-capture-form label {
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .lead-capture-form input[type="text"] {
+            width: 100%;
             padding: 1.2rem;
             border: 2px solid rgba(245, 158, 11, 0.3);
             border-radius: 8px;
@@ -495,18 +511,18 @@
             transition: all 0.3s ease;
         }
 
-        .newsletter-input:focus {
+        .lead-capture-form input[type="text"]:focus {
             outline: none;
             border-color: #f59e0b;
             box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
             transform: translateY(-2px);
         }
 
-        .newsletter-input::placeholder {
+        .lead-capture-form input[type="text"]::placeholder {
             color: #6b7280;
         }
 
-        .newsletter-submit {
+        .lead-capture-form input[type="submit"] {
             background: linear-gradient(45deg, #f59e0b, #fbbf24);
             color: #000;
             border: none;
@@ -517,15 +533,20 @@
             transition: all 0.3s ease;
             font-size: 1rem;
             white-space: nowrap;
+            width: 100%;
         }
 
-        .newsletter-submit:hover {
+        .lead-capture-form input[type="submit"]:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
         }
 
-        .newsletter-submit:active {
+        .lead-capture-form input[type="submit"]:active {
             transform: translateY(0);
+        }
+
+        .lead-capture-form img {
+            display: none; /* Hide tracking pixel */
         }
 
         /* Success message */
@@ -610,8 +631,8 @@
                 grid-template-columns: 1fr;
             }
 
-            .newsletter-form {
-                flex-direction: column;
+            .lead-capture-form {
+                padding: 0 1rem;
             }
 
             .featured-cta {
@@ -624,6 +645,19 @@
 
             .newsletter-benefits {
                 grid-template-columns: 1fr;
+            }
+
+            .lead-capture-form table {
+                width: 100%;
+            }
+
+            .lead-capture-form td:first-child {
+                text-align: left;
+                padding-bottom: 0;
+            }
+
+            .lead-capture-form td:last-child {
+                padding-top: 0;
             }
         }
 
@@ -644,7 +678,7 @@
         }
 
         /* Form validation styles */
-        .newsletter-input.error {
+        .lead-capture-form input[type="text"].error {
             border-color: #ef4444;
             box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
         }
@@ -795,28 +829,35 @@
 </section>
 </div>
 
-<!-- Enhanced Newsletter CTA -->
+<!-- Enhanced Newsletter CTA with Integrated Lead Capture Form -->
 <div class="container">
 <section class="newsletter-cta" id="newsletter">
 <div class="newsletter-content">
 <h3>Get Your Weekly Financial Freedom Blueprint</h3>
 <p>Every Sunday, receive one focused strategy to accelerate your path to financial independence. From Bitcoin wealth-building to AI-powered affiliate marketing. Each newsletter delivers actionable insights you can implement immediately to supplement your income, eliminate debt, or achieve complete financial freedom.</p>
-<form class="newsletter-form" id="newsletterForm" novalidate>
-<input 
-    class="newsletter-input" 
-    id="emailInput"
-    placeholder="Enter your email address" 
-    type="email" 
-    required
-    aria-label="Email address for newsletter subscription"
-/>
-<button class="newsletter-submit" type="submit" id="submitBtn">
-    <span id="buttonText">Subscribe Now</span>
-</button>
+<div class="lead-capture-form">
+<form method="POST" action="https://gogvo.com/subscribe.php">
+<input type="hidden" name="AffiliateName" value="realmtgNLS">
+<input type="hidden" name="CampaignCode" value="zRSJGm0tfjzJ">
+<input type="hidden" name="TrackParam" value="new_form">
+<input type="hidden" name="FormId" value="24995584">
+<table align="center">
+<tr>
+<td>
+<label for="email">Please enter your email:</label>
+</td>
+<td>
+<input type="text" name="Email" id="email" placeholder="Enter your email address" required>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<input type="submit" value="Subscribe Now!">
+</td>
+</tr>
+</table>
+<img src="https://gogvo.com/show_form.php?id=24995584&TrackParam=new_form">
 </form>
-<div class="error-message" id="errorMessage">Please enter a valid email address</div>
-<div class="success-message" id="successMessage">
-    🎉 Welcome to the community! You're now subscribed and will receive your first wealth-building strategy this Sunday.
 </div>
 
 <div class="newsletter-benefits">
@@ -827,72 +868,6 @@
 </div>
 
 <script>
-        // Enhanced Newsletter Form Handling
-        document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            const emailInput = document.getElementById('emailInput');
-            const submitBtn = document.getElementById('submitBtn');
-            const buttonText = document.getElementById('buttonText');
-            const errorMessage = document.getElementById('errorMessage');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Reset previous states
-            emailInput.classList.remove('error');
-            errorMessage.style.display = 'none';
-            successMessage.style.display = 'none';
-            
-            // Validate email
-            const email = emailInput.value.trim();
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            
-            if (!email || !emailRegex.test(email)) {
-                emailInput.classList.add('error');
-                errorMessage.style.display = 'block';
-                emailInput.focus();
-                return;
-            }
-            
-            // Show loading state
-            submitBtn.disabled = true;
-            buttonText.textContent = 'Subscribing...';
-            
-            try {
-                // TODO: Replace this with your actual email service endpoint
-                // For now, we'll simulate the API call
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                
-                // Show success message
-                successMessage.style.display = 'block';
-                emailInput.value = '';
-                
-                // Scroll success message into view
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
-                // Track conversion for analytics
-                if (typeof gtag !== 'undefined') {
-                    gtag('event', 'subscribe', {
-                        'event_category': 'newsletter',
-                        'event_label': 'financial_freedom_blueprint',
-                        'value': 1
-                    });
-                }
-                
-                // Optional: Send to Facebook Pixel
-                if (typeof fbq !== 'undefined') {
-                    fbq('track', 'Lead');
-                }
-                
-            } catch (error) {
-                console.error('Subscription error:', error);
-                errorMessage.textContent = 'Something went wrong. Please try again.';
-                errorMessage.style.display = 'block';
-            } finally {
-                submitBtn.disabled = false;
-                buttonText.textContent = 'Subscribe Now';
-            }
-        });
-
         // Filter functionality
         document.querySelectorAll('.filter-tag').forEach(tag => {
             tag.addEventListener('click', function(e) {
@@ -1069,29 +1044,110 @@
             });
         });
 
-        // Email input real-time validation
-        document.getElementById('emailInput').addEventListener('input', function() {
-            const errorMessage = document.getElementById('errorMessage');
+        // Lead capture form enhancement
+        const leadForm = document.querySelector('.lead-capture-form form');
+        const emailInput = document.querySelector('input[name="Email"]');
+        
+        // Add real-time email validation
+        emailInput.addEventListener('input', function() {
             this.classList.remove('error');
-            errorMessage.style.display = 'none';
+            const errorMsg = this.parentNode.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.style.display = 'none';
+            }
+        });
+
+        // Enhanced form submission with validation
+        leadForm.addEventListener('submit', function(e) {
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Remove any existing error messages
+            const existingError = emailInput.parentNode.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            if (!email || !emailRegex.test(email)) {
+                e.preventDefault();
+                emailInput.classList.add('error');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = 'Please enter a valid email address';
+                emailInput.parentNode.appendChild(errorDiv);
+                
+                emailInput.focus();
+                return;
+            }
+            
+            // Track form submission for analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'subscribe', {
+                    'event_category': 'newsletter',
+                    'event_label': 'financial_freedom_blueprint',
+                    'value': 1
+                });
+            }
+            
+            // Optional: Send to Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('input[type="submit"]');
+            const originalValue = submitBtn.value;
+            submitBtn.value = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            // The form will naturally submit to gogvo.com
+            // We'll restore the button state after a delay in case of errors
+            setTimeout(() => {
+                submitBtn.value = originalValue;
+                submitBtn.disabled = false;
+            }, 3000);
         });
 
         // Auto-update year in footer
-        document.getElementById('dynamic-year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('dynamic-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
         
         // Newsletter form auto-focus on scroll
         let hasScrolledToNewsletter = false;
         window.addEventListener('scroll', function() {
             const newsletter = document.getElementById('newsletter');
-            const rect = newsletter.getBoundingClientRect();
-            const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
-            
-            if (isVisible && !hasScrolledToNewsletter) {
-                hasScrolledToNewsletter = true;
-                setTimeout(() => {
-                    document.getElementById('emailInput').focus();
-                }, 1000);
+            if (newsletter) {
+                const rect = newsletter.getBoundingClientRect();
+                const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+                
+                if (isVisible && !hasScrolledToNewsletter) {
+                    hasScrolledToNewsletter = true;
+                    setTimeout(() => {
+                        emailInput.focus();
+                    }, 1000);
+                }
             }
+        });
+
+        // Enhanced click tracking for article cards
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Track article clicks for analytics
+                if (typeof gtag !== 'undefined') {
+                    const title = this.querySelector('.card-title').textContent;
+                    gtag('event', 'click', {
+                        'event_category': 'article',
+                        'event_label': title,
+                        'value': 1
+                    });
+                }
+            });
         });
     </script>
 

@@ -389,6 +389,163 @@
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
         }
 
+        /* POPUP STYLES */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-overlay.active .popup-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .popup-close:hover {
+            color: #f59e0b;
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .popup-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .popup-form {
+            margin-bottom: 1.5rem;
+        }
+
+        .popup-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .popup-form td {
+            padding: 0.5rem 0;
+            vertical-align: middle;
+        }
+
+        .popup-form label {
+            color: #d1d5db;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .popup-form input[type="text"] {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 15, 15, 0.8);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .popup-form input[type="text"]:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        .popup-form input[type="submit"] {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .popup-form input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .popup-benefits {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .popup-benefits span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -423,6 +580,20 @@
             .quote-text {
                 font-size: 1.4rem;
             }
+
+            .popup-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
+            }
+
+            .popup-title {
+                font-size: 1.8rem;
+            }
+
+            .popup-benefits {
+                gap: 0.5rem;
+                flex-direction: column;
+            }
         }
 
         /* Animations */
@@ -439,6 +610,23 @@
 
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Pulse animation for CTA button */
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(245, 158, 11, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+            }
+        }
+
+        .btn-primary:hover {
+            animation: pulse 2s infinite;
         }
     </style>
 </head>
@@ -582,13 +770,130 @@ I believe that financial freedom is not just about accumulating wealth, it's abo
 <p>
 Join thousands of forward-thinking individuals who are already using Bitcoin, AI, and affiliate marketing to build their path to financial freedom. Get my proven strategies delivered directly to your inbox every Sunday.
 </p>
-<a href="index.html#newsletter" class="btn btn-primary">
+<button class="btn btn-primary" id="openPopupBtn">
 📧 Get Weekly Wealth Strategies
-</a>
+</button>
 </section>
 </div>
 
+<!-- POPUP MODAL -->
+<div class="popup-overlay" id="popupOverlay">
+<div class="popup-container">
+<button class="popup-close" id="closePopupBtn">&times;</button>
+<div class="popup-header">
+<h2 class="popup-title">Almost Done...</h2>
+<p class="popup-subtitle">Just enter your name & best email below 👇</p>
+</div>
+<div class="popup-form">
+<form method="POST" action="https://gogvo.com/subscribe.php">
+<input type="hidden" name="AffiliateName" value="realmtgNLS">
+<input type="hidden" name="CampaignCode" value="zRSJGm0tfjzJ">
+<input type="hidden" name="TrackParam" value="new_form">
+<input type="hidden" name="FormId" value="24995584">
+<table width="100%">
+<tr>
+<td>
+<label for="firstname">First Name:</label>
+<input type="text" name="FirstName" id="firstname" required placeholder="Enter your first name">
+</td>
+</tr>
+<tr>
+<td>
+<label for="email">Email Address:</label>
+<input type="text" name="Email" id="email" required placeholder="Enter your best email address">
+</td>
+</tr>
+<tr>
+<td>
+<input type="submit" value="🚀 Get My Free Wealth Strategies!">
+</td>
+</tr>
+</table>
+<img src="https://gogvo.com/show_form.php?id=24995584&TrackParam=new_form" style="display:none;">
+</form>
+</div>
+<div class="popup-benefits">
+<span>✔️ 100% Free</span>
+<span>✔️ No Spam</span>
+<span>✔️ Trusted by Thousands</span>
+</div>
+</div>
+</div>
+
 <script>
+        // Popup functionality
+        const openPopupBtn = document.getElementById('openPopupBtn');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        const popupOverlay = document.getElementById('popupOverlay');
+
+        // Open popup
+        openPopupBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            
+            // Focus on first input after animation
+            setTimeout(() => {
+                document.getElementById('firstname').focus();
+            }, 300);
+        });
+
+        // Close popup
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        closePopupBtn.addEventListener('click', closePopup);
+
+        // Close popup when clicking outside
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Form validation and submission tracking
+        const popupForm = document.querySelector('.popup-form form');
+        popupForm.addEventListener('submit', function(e) {
+            const firstName = document.getElementById('firstname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            if (!firstName || !email) {
+                e.preventDefault();
+                alert('Please fill in both your name and email address.');
+                return;
+            }
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Track conversion (you can add analytics here)
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'newsletter_signup', {
+                    'event_category': 'engagement',
+                    'event_label': 'about_page_popup'
+                });
+            }
+            
+            // Show success message (optional)
+            const submitBtn = this.querySelector('input[type="submit"]');
+            submitBtn.value = '✅ Submitting...';
+            submitBtn.disabled = true;
+        });
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

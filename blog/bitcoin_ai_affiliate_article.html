@@ -316,24 +316,30 @@
 
         .btn-primary {
             background: linear-gradient(45deg, #f59e0b, #fbbf24);
-            color: #000;
+            color: #000000 !important;
+            font-weight: 700;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+            color: #000000 !important;
         }
 
         .btn-secondary {
             background: transparent;
-            color: #f59e0b;
-            border: 2px solid #f59e0b;
+            color: #f59e0b !important;
+            border: 2px solid #f59e0b !important;
+            font-weight: 600;
+            box-sizing: border-box;
         }
 
         .btn-secondary:hover {
-            background: #f59e0b;
-            color: #000;
+            background: #f59e0b !important;
+            color: #000000 !important;
+            border: 2px solid #f59e0b !important;
             transform: translateY(-2px);
+            box-sizing: border-box;
         }
 
         /* Social Share */
@@ -357,12 +363,59 @@
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 1.2rem;
+            position: relative;
         }
 
-        .social-btn.twitter { background: #1da1f2; color: white; }
-        .social-btn.facebook { background: #4267b2; color: white; }
-        .social-btn.linkedin { background: #0077b5; color: white; }
-        .social-btn.copy { background: #6b7280; color: white; }
+        .social-btn.twitter { 
+            background: #1da1f2; 
+            color: white; 
+        }
+        
+        .social-btn.twitter::before {
+            content: '𝕏';
+            font-size: 1.1rem;
+            font-weight: bold;
+        }
+
+        .social-btn.whatsapp { 
+            background: #25d366; 
+            color: white; 
+        }
+        
+        .social-btn.whatsapp::before {
+            content: '📱';
+            font-size: 1.2rem;
+        }
+
+        .social-btn.telegram { 
+            background: #0088cc; 
+            color: white; 
+        }
+        
+        .social-btn.telegram::before {
+            content: '✈️';
+            font-size: 1.2rem;
+        }
+
+        .social-btn.email { 
+            background: #ea4335; 
+            color: white; 
+        }
+        
+        .social-btn.email::before {
+            content: '✉️';
+            font-size: 1.2rem;
+        }
+
+        .social-btn.linkedin { 
+            background: #0077b5; 
+            color: white; 
+        }
+        
+        .social-btn.linkedin::before {
+            content: '💼';
+            font-size: 1.2rem;
+        }
 
         .social-btn:hover {
             transform: translateY(-3px) scale(1.1);
@@ -388,10 +441,31 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+            position: relative;
+            border: 3px solid #fbbf24;
+            box-sizing: border-box;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+        }
+
+        .author-avatar::before {
+            content: 'M';
             font-size: 2rem;
             font-weight: bold;
             color: #000;
-            flex-shrink: 0;
+            position: absolute;
+            z-index: 1;
         }
 
         .author-info h4 {
@@ -408,16 +482,22 @@
         .author-links {
             display: flex;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
         .author-links a {
             color: #f59e0b;
             text-decoration: none;
             font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 6px;
+            transition: all 0.3s ease;
         }
 
         .author-links a:hover {
-            text-decoration: underline;
+            background: #f59e0b;
+            color: #000;
         }
 
         /* Related Articles */
@@ -476,51 +556,214 @@
         }
 
         /* Newsletter Signup */
-        .newsletter {
+        .newsletter-cta {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border: 2px solid #f59e0b;
             border-radius: 16px;
-            padding: 3rem;
+            padding: 3rem 2.5rem;
             margin: 4rem 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
-        .newsletter h3 {
-            font-size: 2rem;
+        .newsletter-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-cta h3 {
+            font-size: 2.2rem;
             font-weight: 700;
             color: #ffffff;
             margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .newsletter p {
+        .newsletter-cta p {
             color: #94a3b8;
             font-size: 1.1rem;
             margin-bottom: 2rem;
-            max-width: 600px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
         }
 
-        .newsletter-form {
+        /* POPUP STYLES */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
             display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
         }
 
-        .newsletter-input {
-            flex: 1;
-            padding: 1rem;
-            border: 1px solid rgba(245, 158, 11, 0.3);
+        .popup-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-container {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: scale(0.8) translateY(30px);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-overlay.active .popup-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            line-height: 1;
+            transition: color 0.3s ease;
+        }
+
+        .popup-close:hover {
+            color: #f59e0b;
+        }
+
+        .popup-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .popup-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .popup-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.5;
+        }
+
+        .popup-form {
+            margin-bottom: 1.5rem;
+        }
+
+        .popup-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .popup-form td {
+            padding: 0.5rem 0;
+            vertical-align: middle;
+        }
+
+        .popup-form label {
+            color: #d1d5db;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .popup-form input[type="text"] {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(245, 158, 11, 0.3);
             border-radius: 8px;
             background: rgba(15, 15, 15, 0.8);
             color: #ffffff;
             font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .newsletter-input:focus {
+        .popup-form input[type="text"]:focus {
             outline: none;
             border-color: #f59e0b;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        .popup-form input[type="submit"] {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .popup-form input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .popup-benefits {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.95rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .popup-benefits span {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         /* Responsive Design */
@@ -557,29 +800,23 @@
                 text-align: center;
             }
 
-            .newsletter-form {
-                flex-direction: column;
-            }
-
             .social-share {
                 flex-wrap: wrap;
             }
-        }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
+            .popup-container {
+                padding: 2rem 1.5rem;
+                margin: 1rem;
             }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
-        .fade-in {
-            animation: fadeInUp 0.6s ease-out;
+            .popup-title {
+                font-size: 1.8rem;
+            }
+
+            .popup-benefits {
+                gap: 0.5rem;
+                flex-direction: column;
+            }
         }
 
         /* Reading Progress */
@@ -600,13 +837,29 @@
             color: #f59e0b;
             z-index: 100;
         }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
     </style>
 </head>
 <body>
 
 <header class="header" style="background:#111; padding:1rem 0; border-bottom:1px solid rgba(245,158,11,0.2);">
     <div class="container" style="display:flex; justify-content:center; align-items:center;">
-        <a href="blog_index_template.html" style="color:#f59e0b; font-weight:bold; font-size:1.2rem; text-decoration:none;">
+        <a href="https://bitcoinaiwealth.com/blog.html" style="color:#f59e0b; font-weight:bold; font-size:1.2rem; text-decoration:none;">
             ← Back to Home
         </a>
     </div>
@@ -785,7 +1038,7 @@
 
                 <div class="cta-section">
                     <h3 class="cta-title">Start Your Wealth-Building Journey Today</h3>
-                    <p class="cta-description">Join thousands who are already building automated income streams and systematic Bitcoin wealth. The best time to start was yesterday—the second best time is now.</p>
+                    <p class="cta-description">Join thousands who are already building automated income streams and systematic Bitcoin wealth. The best time to start was yesterday, the second best time is now.</p>
                     <div class="cta-buttons">
                         <a href="https://www.affiliatementor.com/vsl1/mtglegacy" class="btn btn-primary">💎 Meet Spark – The $25 Gateway to $500/Day</a>
                         <a href="https://masteraffiliateprofits.com/tdf/NOyg4M" class="btn btn-secondary">🎯 Master Affiliate Profits System</a>
@@ -881,46 +1134,53 @@
 
             <!-- Social Share -->
             <div class="social-share">
-                <a href="#" class="social-btn twitter">🐦</a>
-                <a href="#" class="social-btn facebook">📘</a>
-                <a href="#" class="social-btn linkedin">💼</a>
-                <a href="#" class="social-btn copy">🔗</a>
+                <a href="https://twitter.com/intent/tweet?text=Top%20Affiliate%20%2B%20AI%20Secrets%20for%20Building%20Bitcoin%20Wealth&url=https://bitcoinaiwealth.com/blog/bitcoin_ai_affiliate_article.html" class="social-btn twitter" target="_blank" rel="noopener" title="Share on Twitter/X"></a>
+                <a href="https://wa.me/?text=Check%20out%20this%20amazing%20article%20about%20Bitcoin%20wealth%20building:%20https://bitcoinaiwealth.com/blog/bitcoin_ai_affiliate_article.html" class="social-btn whatsapp" target="_blank" rel="noopener" title="Share on WhatsApp"></a>
+                <a href="https://t.me/share/url?url=https://bitcoinaiwealth.com/blog/bitcoin_ai_affiliate_article.html&text=Top%20Affiliate%20%2B%20AI%20Secrets%20for%20Building%20Bitcoin%20Wealth" class="social-btn telegram" target="_blank" rel="noopener" title="Share on Telegram"></a>
+                <a href="mailto:?subject=Top%20Affiliate%20%2B%20AI%20Secrets%20for%20Building%20Bitcoin%20Wealth&body=I%20thought%20you%20might%20find%20this%20article%20interesting:%20https://bitcoinaiwealth.com/blog/bitcoin_ai_affiliate_article.html" class="social-btn email" title="Share via Email"></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://bitcoinaiwealth.com/blog/bitcoin_ai_affiliate_article.html" class="social-btn linkedin" target="_blank" rel="noopener" title="Share on LinkedIn"></a>
             </div>
 
             <!-- Author Bio -->
             <div class="author-bio">
-                <div class="author-avatar">M</div>
+                <div class="author-avatar">
+                    <img src="https://bitcoinaiwealth.com/images/MusaTheGiant.jpg" alt="Musa TheGiant" onload="this.style.opacity='1';" onerror="this.style.display='none';" style="opacity: 0; transition: opacity 0.3s;">
+                </div>
                 <div class="author-info">
                     <h4>Musa TheGiant</h4>
                     <p>Crypto enthusiast and affiliate marketer with over 8 years of experience in Bitcoin and AI technologies. Passionate about helping others build sustainable wealth through innovative investment strategies and automated income systems.</p>
                     <div class="author-links">
-                        <a href="#">Follow on Twitter</a>
-                        <a href="#">Connect on LinkedIn</a>
-                        <a href="#">View Profile</a>
+                        <a href="https://www.facebook.com/Musa.TheMTG" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://www.tiktok.com/@musathegiant" target="_blank" rel="noopener">TikTok</a>
+                        <a href="https://www.instagram.com/musa.themtg" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://www.youtube.com/@MusaTheGiant" target="_blank" rel="noopener">YouTube</a>
                     </div>
                 </div>
             </div>
 
-            <!-- Newsletter Signup -->
-            <div class="newsletter">
-                <h3>Never Miss a Game-Changing Insight</h3>
-                <p>Join thousands of smart investors who get exclusive Bitcoin, crypto, and AI insights delivered directly to their inbox. Plus, get instant access to our secret AI marketing arsenal worth $2,997!</p>
-                <form class="newsletter-form">
-                    <input type="email" class="newsletter-input" placeholder="Enter your email address">
-                    <button type="submit" class="btn btn-primary">Subscribe Now</button>
-                </form>
+            <!-- Newsletter Signup - Copied from blog.html -->
+            <div class="newsletter-cta" id="newsletter">
+                <div class="newsletter-content">
+                    <h3>Ready to Start Your Wealth-Building Journey?</h3>
+                    <p>
+                        Join thousands of forward-thinking individuals who are already using Bitcoin, AI, and affiliate marketing to build their path to financial freedom. Get my proven strategies delivered directly to your inbox every Sunday.
+                    </p>
+                    <button class="btn btn-primary" id="openPopupBtnNewsletter">
+                        📧 Get Weekly Wealth Strategies
+                    </button>
+                </div>
             </div>
 
             <!-- Related Articles -->
             <section class="related-articles">
                 <h3 class="related-title">Continue Your Journey</h3>
                 <div class="related-grid">
-                    <a href="#" class="related-card">
-                        <h4>Advanced AI Trading Strategies for 2025</h4>
-                        <p>Discover cutting-edge AI trading techniques that are generating consistent profits in volatile cryptocurrency markets.</p>
+                    <a href="bitcoin_ai_affiliate_article.html" class="related-card">
+                        <h4>Top Affiliate + AI Secrets for Building Bitcoin Wealth</h4>
+                        <p>Unlock the power of affiliate marketing combined with AI-driven automation to generate daily income online. Discover smart ways to stack Bitcoin for long-term wealth through DCA, staking, and mining strategies.</p>
                         <div class="related-meta">
-                            <span>🤖 AI Trading</span>
-                            <span>8 min read</span>
+                            <span>🤖 AI & Bitcoin</span>
+                            <span>12 min read</span>
                         </div>
                     </a>
                 </div>
@@ -928,10 +1188,124 @@
         </article>
     </main>
 
+    <!-- POPUP MODAL - Copied from blog.html -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            <button class="popup-close" id="closePopupBtn">&times;</button>
+            <div class="popup-header">
+                <h2 class="popup-title">Almost Done...</h2>
+                <p class="popup-subtitle">Just enter your name & best email below 👇</p>
+            </div>
+            <div class="popup-form">
+                <form method="POST" action="https://gogvo.com/subscribe.php">
+                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                    <input type="hidden" name="CampaignCode" value="zRSJGm0tfjzJ">
+                    <input type="hidden" name="TrackParam" value="new_form">
+                    <input type="hidden" name="FormId" value="24995584">
+                    <table width="100%">
+                        <tr>
+                            <td>
+                                <label for="firstname">First Name:</label>
+                                <input type="text" name="FirstName" id="firstname" required placeholder="Enter your first name">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label for="email">Email Address:</label>
+                                <input type="text" name="Email" id="email" required placeholder="Enter your best email address">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="submit" value="🚀 Get My Free Wealth Strategies!">
+                            </td>
+                        </tr>
+                    </table>
+                    <img src="https://gogvo.com/show_form.php?id=24995584&TrackParam=new_form" style="display:none;">
+                </form>
+            </div>
+            <div class="popup-benefits">
+                <span>✔️ 100% Free</span>
+                <span>✔️ No Spam</span>
+                <span>✔️ Trusted by Thousands</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Reading Progress Indicator -->
     <div class="reading-progress" id="readingProgress">0%</div>
 
     <script>
+        // Popup functionality - Copied from blog.html
+        const openPopupBtnNewsletter = document.getElementById('openPopupBtnNewsletter');
+        const closePopupBtn = document.getElementById('closePopupBtn');
+        const popupOverlay = document.getElementById('popupOverlay');
+
+        // Open popup function
+        function openPopup() {
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                document.getElementById('firstname').focus();
+            }, 300);
+        }
+
+        // Close popup function
+        function closePopup() {
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Event listeners for popup buttons
+        if (openPopupBtnNewsletter) {
+            openPopupBtnNewsletter.addEventListener('click', function(e) {
+                e.preventDefault();
+                openPopup();
+            });
+        }
+
+        closePopupBtn.addEventListener('click', closePopup);
+
+        // Close popup when clicking outside
+        popupOverlay.addEventListener('click', function(e) {
+            if (e.target === popupOverlay) {
+                closePopup();
+            }
+        });
+
+        // Close popup with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
+                closePopup();
+            }
+        });
+
+        // Form validation and submission tracking
+        const popupForm = document.querySelector('.popup-form form');
+        popupForm.addEventListener('submit', function(e) {
+            const firstName = document.getElementById('firstname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            
+            if (!firstName || !email) {
+                e.preventDefault();
+                alert('Please fill in both your name and email address.');
+                return;
+            }
+            
+            // Basic email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Show success message
+            const submitBtn = this.querySelector('input[type="submit"]');
+            submitBtn.value = '✅ Submitting...';
+            submitBtn.disabled = true;
+        });
+
         // Reading progress
         window.addEventListener('scroll', function() {
             const article = document.querySelector('.article-content');
@@ -960,14 +1334,6 @@
                         block: 'start'
                     });
                 }
-            });
-        });
-
-        // Copy link functionality
-        document.querySelector('.social-btn.copy').addEventListener('click', function(e) {
-            e.preventDefault();
-            navigator.clipboard.writeText(window.location.href).then(function() {
-                alert('Link copied to clipboard!');
             });
         });
 

@@ -345,6 +345,7 @@
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
+            cursor: pointer;
         }
 
         .article-card:hover {
@@ -818,7 +819,7 @@
 <span class="tag">🤖 AI</span>
 </div>
 <div class="featured-cta">
-<a class="btn btn-primary" href="bitcoin_ai_affiliate_article.html" aria-label="Read full article about affiliate and AI secrets">📖 Read Full Article</a>
+<a class="btn btn-primary" href="blog/bitcoin_ai_affiliate_article.html" aria-label="Read full article about affiliate and AI secrets">📖 Read Full Article</a>
 <button class="btn btn-secondary" id="openPopupBtn" aria-label="Get more insights via newsletter">💌 Get More Insights</button>
 </div>
 </div>
@@ -834,8 +835,8 @@
 <span>📚</span>
                 Latest Insights
             </h2>
-<div class="articles-grid">
-<article class="article-card" data-category="ai affiliate bitcoin">
+            <div class="articles-grid">
+<article class="article-card" data-category="ai affiliate bitcoin" onclick="window.location.href='blog/bitcoin_ai_affiliate_article.html'">
 <div class="card-image">🤖</div>
 <div class="card-content">
 <div class="card-meta">
@@ -1070,15 +1071,6 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
             }
         });
 
-        // Make article cards clickable
-        document.querySelectorAll('.article-card').forEach(card => {
-            card.addEventListener('click', function(e) {
-                e.preventDefault();
-                // Navigate to the article
-                window.location.href = 'bitcoin_ai_affiliate_article.html';
-            });
-        });
-
         // Smooth animations on scroll
         const observerOptions = {
             threshold: 0.1,
@@ -1117,7 +1109,8 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                         date: 'July 3, 2025',
                         readTime: '10 min read',
                         tags: ['Mining', 'Hardware'],
-                        category: 'bitcoin'
+                        category: 'bitcoin',
+                        link: 'blog/bitcoin_ai_affiliate_article.html'
                     },
                     {
                         icon: '🎯',
@@ -1126,7 +1119,8 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                         date: 'July 2, 2025',
                         readTime: '7 min read',
                         tags: ['Email', 'Automation'],
-                        category: 'affiliate ai'
+                        category: 'affiliate ai',
+                        link: 'blog/bitcoin_ai_affiliate_article.html'
                     }
                 ];
                 
@@ -1134,7 +1128,7 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                 
                 newArticles.forEach(article => {
                     const articleHTML = `
-                        <article class="article-card" data-category="${article.category}">
+                        <article class="article-card" data-category="${article.category}" onclick="window.location.href='${article.link}'">
                             <div class="card-image">${article.icon}</div>
                             <div class="card-content">
                                 <div class="card-meta">
@@ -1164,6 +1158,18 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                     setTimeout(() => {
                         el.style.animation = 'fadeInUp 0.6s ease-out';
                         observer.observe(el);
+                        
+                        // Add click functionality to new articles
+                        el.addEventListener('click', function() {
+                            if (typeof gtag !== 'undefined') {
+                                const title = this.querySelector('.card-title').textContent;
+                                gtag('event', 'click', {
+                                    'event_category': 'article',
+                                    'event_label': title,
+                                    'value': 1
+                                });
+                            }
+                        });
                     }, index * 200);
                 });
                 

@@ -656,9 +656,6 @@
         .social-btn.whatsapp { background: #25d366; color: white; }
         .social-btn.whatsapp::before { content: '📱'; font-size: 1.2rem; }
 
-        .social-btn.telegram { background: #0088cc; color: white; }
-        .social-btn.telegram::before { content: '✈️'; font-size: 1.2rem; }
-
         .social-btn.email { background: #ea4335; color: white; }
         .social-btn.email::before { content: '✉️'; font-size: 1.2rem; }
 
@@ -667,12 +664,6 @@
 
         .social-btn.facebook { background: #1877f2; color: white; }
         .social-btn.facebook::before { content: '📘'; font-size: 1.2rem; }
-
-        .social-btn.pinterest { background: #bd081c; color: white; }
-        .social-btn.pinterest::before { content: '📌'; font-size: 1.2rem; }
-
-        .social-btn.reddit { background: #ff4500; color: white; }
-        .social-btn.reddit::before { content: '🔶'; font-size: 1.2rem; }
 
         .social-btn:hover {
             transform: translateY(-3px) scale(1.1);
@@ -885,6 +876,8 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
+            padding: 0.5rem;
+            box-sizing: border-box;
         }
 
         .popup-overlay.active {
@@ -895,16 +888,19 @@
         .popup-container {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border: 2px solid var(--primary-color);
-            border-radius: 20px;
-            padding: 3rem 2.5rem;
-            max-width: 500px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
+            border-radius: 12px;
+            padding: 1.5rem 1.2rem;
+            max-width: 380px;
+            width: 100%;
+            max-height: calc(100vh - 1rem);
+            overflow: visible;
             position: relative;
             transform: scale(0.8) translateY(30px);
             transition: all 0.3s ease;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            margin: auto;
+            display: flex;
+            flex-direction: column;
         }
 
         .popup-overlay.active .popup-container {
@@ -913,16 +909,17 @@
 
         .popup-close {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.5rem;
+            right: 0.5rem;
             background: none;
             border: none;
             color: var(--text-secondary);
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             cursor: pointer;
-            padding: 0.5rem;
+            padding: 0.2rem;
             line-height: 1;
             transition: color 0.3s ease;
+            z-index: 1;
         }
 
         .popup-close:hover {
@@ -931,28 +928,31 @@
 
         .popup-header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
         }
 
         .popup-title {
-            font-size: 2.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: #ffffff;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             background: linear-gradient(135deg, #ffffff 0%, var(--primary-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            line-height: 1.1;
         }
 
         .popup-subtitle {
             color: var(--text-secondary);
-            font-size: 1.1rem;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            line-height: 1.3;
         }
 
         .popup-form {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
+            flex-shrink: 0;
         }
 
         .popup-form table {
@@ -961,7 +961,7 @@
         }
 
         .popup-form td {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
             vertical-align: middle;
         }
 
@@ -969,20 +969,21 @@
             color: var(--text-primary);
             font-weight: 600;
             display: block;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
         }
 
         .popup-form input[type="text"],
         .popup-form input[type="email"] {
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 0.8rem 1rem;
             border: 2px solid var(--border-color);
-            border-radius: 8px;
+            border-radius: 6px;
             background: rgba(15, 15, 15, 0.8);
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
+            box-sizing: border-box;
         }
 
         .popup-form input[type="text"]:focus,
@@ -994,16 +995,16 @@
 
         .popup-form input[type="submit"] {
             width: 100%;
-            padding: 1.2rem 2rem;
+            padding: 1rem 1.5rem;
             background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             color: #000;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            margin-top: 0.8rem;
         }
 
         .popup-form input[type="submit"]:hover {
@@ -1014,11 +1015,11 @@
         .popup-benefits {
             text-align: center;
             color: var(--text-secondary);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
             flex-wrap: wrap;
         }
 
@@ -1097,6 +1098,11 @@
             .container {
                 padding: 0 16px;
             }
+
+            .popup-container {
+                max-width: 400px;
+                padding: 1.8rem 1.3rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1156,17 +1162,39 @@
             }
 
             .popup-container {
-                padding: 2rem 1.5rem;
-                margin: 1rem;
+                padding: 1.5rem 1rem;
+                margin: 0.5rem;
+                max-width: 380px;
+                border-radius: 12px;
             }
 
             .popup-title {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
+            }
+
+            .popup-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .popup-header {
+                margin-bottom: 1.2rem;
+            }
+
+            .popup-form input[type="text"],
+            .popup-form input[type="email"] {
+                padding: 0.7rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .popup-form input[type="submit"] {
+                padding: 0.9rem 1.2rem;
+                font-size: 0.95rem;
             }
 
             .popup-benefits {
                 gap: 0.5rem;
                 flex-direction: column;
+                font-size: 0.8rem;
             }
 
             .newsletter-cta h3 {
@@ -1209,6 +1237,50 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1rem;
+            }
+
+            .popup-container {
+                padding: 1.2rem 0.8rem;
+                margin: 0.3rem;
+                max-width: calc(100vw - 0.6rem);
+                border-radius: 10px;
+            }
+
+            .popup-title {
+                font-size: 1.3rem;
+                line-height: 1.1;
+            }
+
+            .popup-subtitle {
+                font-size: 0.85rem;
+            }
+
+            .popup-header {
+                margin-bottom: 1rem;
+            }
+
+            .popup-form input[type="text"],
+            .popup-form input[type="email"] {
+                padding: 0.6rem 0.7rem;
+                font-size: 0.85rem;
+            }
+
+            .popup-form input[type="submit"] {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+                margin-top: 0.6rem;
+            }
+
+            .popup-benefits {
+                font-size: 0.75rem;
+                gap: 0.3rem;
+            }
+
+            .popup-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                font-size: 1.3rem;
+                padding: 0.3rem;
             }
         }
 
@@ -1423,12 +1495,9 @@
             <div class="social-share">
                 <a href="https://twitter.com/intent/tweet?text={{ENCODED_TITLE}}&url={{ENCODED_URL}}" class="social-btn twitter" target="_blank" rel="noopener" title="Share on Twitter/X"></a>
                 <a href="https://wa.me/?text={{ENCODED_SHARE_TEXT}}" class="social-btn whatsapp" target="_blank" rel="noopener" title="Share on WhatsApp"></a>
-                <a href="https://t.me/share/url?url={{ENCODED_URL}}&text={{ENCODED_TITLE}}" class="social-btn telegram" target="_blank" rel="noopener" title="Share on Telegram"></a>
-                <a href="mailto:?subject={{ENCODED_TITLE}}&body={{ENCODED_EMAIL_BODY}}" class="social-btn email" title="Share via Email"></a>
-                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ENCODED_URL}}" class="social-btn linkedin" target="_blank" rel="noopener" title="Share on LinkedIn"></a>
                 <a href="https://www.facebook.com/sharer/sharer.php?u={{ENCODED_URL}}" class="social-btn facebook" target="_blank" rel="noopener" title="Share on Facebook"></a>
-                <a href="https://pinterest.com/pin/create/button/?url={{ENCODED_URL}}&description={{ENCODED_TITLE}}" class="social-btn pinterest" target="_blank" rel="noopener" title="Share on Pinterest"></a>
-                <a href="https://reddit.com/submit?url={{ENCODED_URL}}&title={{ENCODED_TITLE}}" class="social-btn reddit" target="_blank" rel="noopener" title="Share on Reddit"></a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ENCODED_URL}}" class="social-btn linkedin" target="_blank" rel="noopener" title="Share on LinkedIn"></a>
+                <a href="mailto:?subject={{ENCODED_TITLE}}&body={{ENCODED_EMAIL_BODY}}" class="social-btn email" title="Share via Email"></a>
             </div>
 
             <!-- Author Bio -->
@@ -1550,8 +1619,7 @@
         <p>© <span id="dynamic-year">2025</span> Bitcoin AI Wealth. All rights reserved.</p>
         <p>
             <a href="https://bitcoinaiwealth.com/privacy.html" style="color:var(--primary-color); text-decoration:none; margin:0 10px;">Privacy Policy</a> |
-            <a href="https://bitcoinaiwealth.com/disclaimer.html" style="color:var(--primary-color); text-decoration:none; margin:0 10px;">Terms of Use</a> |
-            <a href="https://bitcoinaiwealth.com/sitemap.xml" style="color:var(--primary-color); text-decoration:none; margin:0 10px;">Sitemap</a>
+            <a href="https://bitcoinaiwealth.com/disclaimer.html" style="color:var(--primary-color); text-decoration:none; margin:0 10px;">Disclaimer</a>
         </p>
     </footer>
 
@@ -1560,6 +1628,49 @@
         
         // Auto-update year
         document.getElementById('dynamic-year').textContent = new Date().getFullYear();
+
+        // Session-based popup control
+        const POPUP_SESSION_KEY = 'bitcoinaiwealth_popup_shown';
+        let hasShownPopupThisSession = false;
+
+        // Check if popup was already shown in this session
+        function checkPopupSession() {
+            try {
+                const popupShown = sessionStorage.getItem(POPUP_SESSION_KEY);
+                if (popupShown === 'true') {
+                    hasShownPopupThisSession = true;
+                    return true;
+                }
+            } catch (e) {
+                // Fallback if sessionStorage is not available
+                console.log('SessionStorage not available, using memory-based tracking');
+            }
+            return false;
+        }
+
+        // Mark popup as shown in session
+        function markPopupShown() {
+            hasShownPopupThisSession = true;
+            try {
+                sessionStorage.setItem(POPUP_SESSION_KEY, 'true');
+            } catch (e) {
+                // Fallback if sessionStorage is not available
+                console.log('SessionStorage not available for popup tracking');
+            }
+        }
+
+        // Enhanced popup opening function
+        function openPopupOnce() {
+            if (!hasShownPopupThisSession && !popupOverlay.classList.contains('active')) {
+                markPopupShown();
+                openPopup();
+                return true;
+            }
+            return false;
+        }
+
+        // Initialize session check
+        checkPopupSession();
 
         // Popup functionality
         const openPopupBtnNewsletter = document.getElementById('openPopupBtnNewsletter');
@@ -1582,6 +1693,7 @@
         if (openPopupBtnNewsletter) {
             openPopupBtnNewsletter.addEventListener('click', function(e) {
                 e.preventDefault();
+                // Manual click should always open popup, regardless of session
                 openPopup();
             });
         }
@@ -1600,7 +1712,7 @@
             }
         });
 
-        // Form validation and submission
+        // Form validation and submission with session tracking
         const popupForm = document.querySelector('.popup-form form');
         popupForm.addEventListener('submit', function(e) {
             const firstName = document.getElementById('firstname').value.trim();
@@ -1619,9 +1731,49 @@
                 return;
             }
             
+            // Mark as successful submission to prevent future popups
+            markPopupShown();
+            
             const submitBtn = this.querySelector('input[type="submit"]');
             submitBtn.value = '✅ Submitting...';
             submitBtn.disabled = true;
+        });
+
+        // Exit intent popup (improved timing and detection)
+        let exitIntentTriggered = false;
+        let mouseLeavePage = false;
+        
+        document.addEventListener('mouseout', function(e) {
+            // Check if mouse is leaving the top of the page and popup hasn't been shown
+            if (e.clientY < 0 && e.relatedTarget === null && !exitIntentTriggered && !hasShownPopupThisSession) {
+                mouseLeavePage = true;
+                setTimeout(() => {
+                    if (mouseLeavePage && !exitIntentTriggered && !hasShownPopupThisSession) {
+                        exitIntentTriggered = true;
+                        openPopupOnce();
+                    }
+                }, 100);
+            }
+        });
+
+        document.addEventListener('mouseenter', function() {
+            mouseLeavePage = false;
+        });
+
+        // Scroll-based popup (after 60% of page) - only if exit intent hasn't triggered
+        let scrollPopupTriggered = false;
+        window.addEventListener('scroll', function() {
+            if (!scrollPopupTriggered && !hasShownPopupThisSession && !exitIntentTriggered) {
+                const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                if (scrollPercent > 60) {
+                    scrollPopupTriggered = true;
+                    setTimeout(() => {
+                        if (!hasShownPopupThisSession && !popupOverlay.classList.contains('active')) {
+                            openPopupOnce();
+                        }
+                    }, 3000);
+                }
+            }
         });
 
         // Reading progress
@@ -1763,39 +1915,23 @@
 
         updateViewCount();
 
-        // Exit intent popup (improved timing and detection)
-        let exitIntentShown = false;
-        let mouseLeavePage = false;
-        
-        document.addEventListener('mouseout', function(e) {
-            // Check if mouse is leaving the top of the page
-            if (e.clientY < 0 && e.relatedTarget === null && !exitIntentShown && !popupOverlay.classList.contains('active')) {
-                mouseLeavePage = true;
-                setTimeout(() => {
-                    if (mouseLeavePage && !exitIntentShown) {
-                        exitIntentShown = true;
-                        openPopup();
-                    }
-                }, 100);
-            }
-        });
+        // Print functionality
+        function printArticle() {
+            window.print();
+        }
 
-        document.addEventListener('mouseenter', function() {
-            mouseLeavePage = false;
-        });
-
-        // Scroll-based popup (after 60% of page)
-        let scrollPopupShown = false;
-        window.addEventListener('scroll', function() {
-            if (!scrollPopupShown && !popupOverlay.classList.contains('active')) {
-                const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
-                if (scrollPercent > 60) {
-                    scrollPopupShown = true;
-                    setTimeout(() => {
-                        if (!popupOverlay.classList.contains('active')) {
-                            openPopup();
-                        }
-                    }, 3000);
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                switch(e.key) {
+                    case 'k':
+                        e.preventDefault();
+                        document.getElementById('firstname').focus();
+                        break;
+                    case 'p':
+                        e.preventDefault();
+                        printArticle();
+                        break;
                 }
             }
         });
@@ -1840,35 +1976,6 @@
             });
         }
 
-        // Print functionality
-        function printArticle() {
-            window.print();
-        }
-
-        // Add print button (optional)
-        const printBtn = document.createElement('button');
-        printBtn.innerHTML = '🖨️ Print';
-        printBtn.className = 'btn btn-small btn-secondary';
-        printBtn.style.cssText = 'position: fixed; bottom: 120px; right: 2rem; z-index: 100;';
-        printBtn.addEventListener('click', printArticle);
-        document.body.appendChild(printBtn);
-
-        // Keyboard navigation
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey || e.metaKey) {
-                switch(e.key) {
-                    case 'k':
-                        e.preventDefault();
-                        document.getElementById('firstname').focus();
-                        break;
-                    case 'p':
-                        e.preventDefault();
-                        printArticle();
-                        break;
-                }
-            }
-        });
-
         // Enhanced error handling with better logging
         window.addEventListener('error', function(e) {
             // Only log actual errors, not missing optional resources
@@ -1884,16 +1991,33 @@
             }
         });
 
-        // Performance monitoring with better error handling
+        // Performance monitoring with enhanced metrics
         window.addEventListener('load', function() {
             try {
                 if ('performance' in window && performance.timing) {
                     setTimeout(() => {
                         const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                        const domContentLoaded = performance.timing.domContentLoadedEventEnd - performance.timing.navigationStart;
+                        const firstPaint = performance.timing.responseEnd - performance.timing.navigationStart;
+                        
                         if (loadTime > 0) {
-                            console.log(`Page load time: ${loadTime}ms`);
+                            console.log(`✅ Performance Metrics:`);
+                            console.log(`📊 Total load time: ${loadTime}ms`);
+                            console.log(`🚀 DOM ready: ${domContentLoaded}ms`);
+                            console.log(`🎨 First paint: ${firstPaint}ms`);
                             
-                            // Send to analytics if available
+                            // Performance benchmarks
+                            if (loadTime < 500) {
+                                console.log('🏆 EXCELLENT: Load time under 500ms');
+                            } else if (loadTime < 1000) {
+                                console.log('👍 GOOD: Load time under 1 second');
+                            } else if (loadTime < 2000) {
+                                console.log('⚠️ FAIR: Load time under 2 seconds');
+                            } else {
+                                console.log('❌ SLOW: Load time over 2 seconds');
+                            }
+                            
+                            // Send to analytics if available (deferred to avoid blocking)
                             if (typeof gtag !== 'undefined') {
                                 gtag('event', 'timing_complete', {
                                     name: 'load',
@@ -1998,32 +2122,37 @@
     }
     </script>
 
-    <!-- Google Analytics (Replace GA_MEASUREMENT_ID with your actual ID) -->
+    <!-- Optimized Google Analytics (Replace GA_MEASUREMENT_ID with your actual ID) -->
     <script>
         // Only load Google Analytics if measurement ID is provided
         const GA_ID = 'GA_MEASUREMENT_ID'; // Replace with your actual GA4 ID
         
         if (GA_ID && GA_ID !== 'GA_MEASUREMENT_ID') {
-            // Load Google Analytics
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-            document.head.appendChild(script);
-            
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', GA_ID, {
-                page_title: document.title,
-                page_location: window.location.href
+            // Defer Google Analytics loading to improve initial page load
+            window.addEventListener('load', function() {
+                setTimeout(() => {
+                    const script = document.createElement('script');
+                    script.async = true;
+                    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+                    document.head.appendChild(script);
+                    
+                    window.dataLayer = window.dataLayer || [];
+                    function gtag(){dataLayer.push(arguments);}
+                    gtag('js', new Date());
+                    gtag('config', GA_ID, {
+                        page_title: document.title,
+                        page_location: window.location.href
+                    });
+                }, 1000); // Delay analytics by 1 second
             });
         }
     </script>
 
-    <!-- Preload critical resources -->
+    <!-- Critical resource preloading -->
     <link rel="preload" href="https://bitcoinaiwealth.com/images/MusaTheGiant.jpg" as="image">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://gogvo.com">
 
 </body>
 </html>

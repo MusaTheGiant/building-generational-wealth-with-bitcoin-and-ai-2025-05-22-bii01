@@ -1,401 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bitcoin AI Wealth Blog - Insights on Building Generational Wealth</title>
-    <link rel="icon" href="favicon.png" type="image/png">
-    <meta name="description" content="Learn how to build generational wealth through Bitcoin and AI technologies">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'bitcoin': '#F7931A',
-                        'bitcoin-light': '#FFB84D',
-                        'bitcoin-dark': '#E6830F',
-                        'deep-blue': '#0F172A',
-                        'slate-blue': '#1E293B',
-                        'slate-darker': '#0D1520',
-                        'warm-gray': '#F8FAFC',
-                        'gold': '#FFD700',
-                        'emerald': '#10B981'
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'serif': ['Playfair Display', 'serif']
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'glow': 'glow 2s ease-in-out infinite alternate'
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' }
-                        },
-                        glow: {
-                            '0%': { boxShadow: '0 0 20px rgba(247, 147, 26, 0.3)' },
-                            '100%': { boxShadow: '0 0 30px rgba(247, 147, 26, 0.6)' }
-                        }
-                    }
-                }
-            }
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Bitcoin AI Wealth Blog - Expert Insights & Strategies</title>
+<meta name="description" content="Discover expert insights, proven strategies, and cutting-edge analysis for building generational wealth through Bitcoin, AI, and affiliate marketing technologies."/>
+<meta name="keywords" content="bitcoin, AI, affiliate marketing, wealth building, financial freedom, cryptocurrency, passive income"/>
+<meta property="og:title" content="Bitcoin AI Wealth Blog - Expert Insights & Strategies"/>
+<meta property="og:description" content="Your roadmap to financial freedom through Bitcoin, AI, and affiliate marketing technologies."/>
+<meta property="og:type" content="website"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-    </script>
-    <style>
-        .gradient-hero {
-            background: linear-gradient(135deg, #0D1520 0%, #0F172A 25%, #1E293B 75%, #334155 100%);
-            position: relative;
-            overflow: hidden;
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            color: #e5e5e5;
+            line-height: 1.6;
         }
-        .gradient-hero::before {
-            content: '';
-            position: absolute;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(247, 147, 26, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            z-index: 100;
+            padding: 1rem 0;
         }
-        .bitcoin-accent {
-            background: linear-gradient(135deg, #F7931A 0%, #FFD700 50%, #FFB84D 100%);
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f59e0b;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bitcoin-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #f59e0b;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-input {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 20px;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+            color: #ffffff;
+            width: 250px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #f59e0b;
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 0.75rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            filter: drop-shadow(0 0 8px rgba(247, 147, 26, 0.3));
+            line-height: 1.2;
         }
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #94a3b8;
+            max-width: 800px;
+            margin: 0 auto 2rem;
         }
-        .card-hover:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
         }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #f59e0b;
+            font-weight: 600;
         }
-        .gradient-border {
-            background: linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) padding-box,
-                        linear-gradient(135deg, #F7931A, #FFD700, #FFB84D) border-box;
-            border: 2px solid transparent;
+
+        /* Filter Bar */
+        .filter-bar {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
-        .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+        .filter-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
-        .blog-article {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 250, 252, 0.95) 100%);
-            backdrop-filter: blur(20px);
-            border: 2px solid rgba(247, 147, 26, 0.1);
-        }
-        .coming-soon-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.6) 0%, rgba(248, 250, 252, 0.4) 100%);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        .floating-nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(247, 147, 26, 0.2);
-        }
-        .btn-cta {
-            cursor: pointer;
-            display: inline-block;
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 20px;
+            color: #94a3b8;
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
-        .btn-cta:hover {
-            opacity: 0.9;
-            transform: scale(1.05);
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: #f59e0b;
+            color: #000;
+            border-color: #f59e0b;
+        }
+
+        .sort-dropdown {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 6px;
+            padding: 0.5rem 1rem;
+            color: #ffffff;
+        }
+
+        /* Featured Article */
+        .featured-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .featured-article {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 16px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .featured-content h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .featured-meta {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .featured-excerpt {
+            color: #d1d5db;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .featured-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .featured-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #f59e0b;
+            border: 2px solid #f59e0b;
+        }
+
+        .btn-secondary:hover {
+            background: #f59e0b;
+            color: #000;
+            transform: translateY(-2px);
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #000;
+        }
+
+        /* Articles Grid */
+        .articles-section {
+            margin: 4rem 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .article-card {
+            background: rgba(15, 15, 15, 0.8);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            border-color: #f59e0b;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #374151, #1f2937);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #9ca3af;
+        }
+
+        .card-content {
+            padding: 2rem;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .card-excerpt {
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+        }
+
+        .read-more {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Load More */
+        .load-more {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        /* Enhanced Newsletter CTA */
+        .newsletter-cta {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 16px;
+            padding: 4rem 3rem;
+            margin: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .newsletter-cta h3 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ffffff 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .newsletter-cta p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        /* Lead Capture Form Styling */
+        .lead-capture-form {
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .lead-capture-form table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .lead-capture-form td {
+            padding: 0.5rem;
+        }
+
+        .lead-capture-form label {
+            color: #94a3b8;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .lead-capture-form input[type="text"] {
+            width: 100%;
+            padding: 1.2rem;
+            border: 2px solid rgba(245, 158, 11, 0.3);
+            border-radius: 8px;
+            background: rgba(15, 15, 15, 0.9);
+            color: #ffffff;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .lead-capture-form input[type="text"]:focus {
+            outline: none;
+            border-color: #f59e0b;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .lead-capture-form input[type="text"]::placeholder {
+            color: #6b7280;
+        }
+
+        .lead-capture-form input[type="submit"] {
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: #000;
+            border: none;
+            padding: 1.2rem 2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            white-space: nowrap;
+            width: 100%;
+        }
+
+        .lead-capture-form input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+        }
+
+        .lead-capture-form input[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        .lead-capture-form img {
+            display: none; /* Hide tracking pixel */
+        }
+
+        /* Success message */
+        .success-message {
+            background: linear-gradient(45deg, #10b981, #34d399);
+            color: #fff;
+            padding: 1.5rem 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            display: none;
+            font-weight: 600;
+            animation: slideIn 0.5s ease-out;
+            box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .newsletter-benefits {
+            display: none;
+        }
+
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .benefit-text {
+            color: #e5e5e5;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* About Section Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .search-input {
+                width: 100%;
+            }
+
+            .hero-features {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .filter-bar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .featured-article {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lead-capture-form {
+                padding: 0 1rem;
+            }
+
+            .featured-cta {
+                justify-content: center;
+            }
+
+            .newsletter-cta h3 {
+                font-size: 1.8rem;
+            }
+
+            .newsletter-benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .lead-capture-form table {
+                width: 100%;
+            }
+
+            .lead-capture-form td:first-child {
+                text-align: left;
+                padding-bottom: 0;
+            }
+
+            .lead-capture-form td:last-child {
+                padding-top: 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Form validation styles */
+        .lead-capture-form input[type="text"].error {
+            border-color: #ef4444;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+        }
+
+        .error-message {
+            color: #ef4444;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
         }
     </style>
 </head>
-<body class="font-sans antialiased bg-gradient-to-br from-warm-gray to-gray-100 text-gray-900">
-
-    <!-- Header -->
-    <header class="fixed w-full floating-nav shadow-lg z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-            <div class="flex items-center justify-between">
-                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" 
-                   class="text-2xl font-bold bitcoin-accent hover:scale-105 transition-transform">
+<body>
+<!-- Header -->
+<header class="header">
+<div class="container">
+<nav class="nav">
+<a class="logo" href="#" aria-label="Bitcoin AI Wealth Blog Home">
+<div class="bitcoin-icon">₿</div>
                     Bitcoin AI Wealth Blog
                 </a>
-                <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01" 
-                   class="flex items-center space-x-2 text-gray-600 hover:text-bitcoin transition-colors duration-300 font-semibold">
-                    <span>← Back to Home</span>
-                </a>
-            </div>
-        </nav>
-    </header>
+<div class="nav-links">
+<a class="nav-link" href="#home">Home</a>
+<a class="nav-link" href="#categories">Categories</a>
+<a class="nav-link" href="about.html">About</a>
+<div class="search-box">
+<span class="search-icon">🔍</span>
+<input class="search-input" placeholder="Search articles..." type="text" aria-label="Search articles"/>
+</div>
+</div>
+</nav>
+</div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="gradient-hero pt-32 pb-24 text-white relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-5xl mx-auto text-center">
-                <div class="animate-float mb-8">
-                    <h1 class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight text-shadow">
-                        Bitcoin Wealth
-                        <span class="bitcoin-accent block">Insights Blog</span>
-                    </h1>
-                </div>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto leading-relaxed">
-                    Discover expert insights, proven strategies, and cutting-edge analysis for building generational wealth through Bitcoin, crypto, and AI technologies. Your roadmap to financial freedom starts here. ₿
-                </p>
-                <div class="flex items-center justify-center space-x-8 text-sm text-gray-400">
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Expert Analysis</span>
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Proven Strategies</span>
-                    <span class="flex items-center"><span class="text-emerald mr-2">✓</span> Weekly Updates</span>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- Hero Section -->
+<section class="hero" id="home">
+<div class="container">
+<h1 class="hero-title">Bitcoin, AI, &amp; Affiliate Marketing Wealth Insights</h1>
+<p class="hero-subtitle">Discover expert insights, proven strategies, and cutting-edge analysis for building generational wealth through Bitcoin, AI, and affiliate marketing technologies. Your roadmap to financial freedom starts here.</p>
+<div class="hero-features">
+<div class="feature-item">
+<span>✅</span>
+<span>Proven Bitcoin Strategies</span>
+</div>
+<div class="feature-item">
+<span>✅</span>
+<span>Smart AI Marketing Tools</span>
+</div>
+<div class="feature-item">
+<span>✅</span>
+<span>Affiliate Programs That Pay</span>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Main Blog Content -->
-    <main class="py-20 relative">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Filter Bar -->
+<div class="container" id="categories">
+<div class="filter-bar">
+<div class="filter-tags">
+<a class="filter-tag active" href="#" data-filter="all">All Posts</a>
+<a class="filter-tag" href="#" data-filter="bitcoin">Bitcoin</a>
+<a class="filter-tag" href="#" data-filter="ai">AI</a>
+<a class="filter-tag" href="#" data-filter="affiliate">Affiliate Marketing</a>
+<a class="filter-tag" href="#" data-filter="traffic">Traffic Generation</a>
+<a class="filter-tag" href="#" data-filter="reviews">Reviews</a>
+</div>
+<select class="sort-dropdown">
+<option value="latest">Latest First</option>
+<option value="popular">Most Popular</option>
+<option value="viewed">Most Viewed</option>
+</select>
+</div>
+</div>
+
+<!-- Featured Article -->
+<div class="container">
+<section class="featured-section">
+<h2 class="section-title">
+<span>🔥</span>
+                Featured Article
+            </h2>
+<article class="featured-article">
+<div class="featured-content">
+<div class="featured-meta">
+<div class="meta-item">
+<span>📅</span>
+<span>July 4, 2025</span>
+</div>
+<div class="meta-item">
+<span>⏱️</span>
+<span>12 min read</span>
+</div>
+<div class="meta-item">
+<span>👁️</span>
+<span>1,245 views</span>
+</div>
+</div>
+<h3>Top Affiliate + AI Secrets for Building Bitcoin Wealth</h3>
+<p class="featured-excerpt">Unlock the power of affiliate marketing combined with AI-driven automation to generate daily income online. Then, discover smart ways to stack Bitcoin for long-term wealth through strategies like DCA, staking, and mining.</p>
+<div class="featured-tags">
+<span class="tag">🔥 Trending</span>
+<span class="tag">📊 Strategy</span>
+<span class="tag">🤖 AI</span>
+</div>
+<div class="featured-cta">
+<a class="btn btn-primary" href="bitcoin_ai_affiliate_article.html" aria-label="Read full article about affiliate and AI secrets">📖 Read Full Article</a>
+<a class="btn btn-secondary" href="#newsletter" aria-label="Get more insights via newsletter">💌 Get More Insights</a>
+</div>
+</div>
+<div class="featured-image" aria-label="Featured article visualization">📊</div>
+</article>
+</section>
+</div>
+
+<!-- Articles Grid -->
+<div class="container">
+<section class="articles-section">
+<h2 class="section-title">
+<span>📚</span>
+                Latest Insights
+            </h2>
+<div class="articles-grid">
+<article class="article-card" data-category="ai affiliate bitcoin">
+<div class="card-image">🤖</div>
+<div class="card-content">
+<div class="card-meta">
+<span>July 4, 2025</span>
+<span>12 min read</span>
+</div>
+<h3 class="card-title">Top Affiliate + AI Secrets for Building Bitcoin Wealth</h3>
+<p class="card-excerpt">Unlock the power of affiliate marketing combined with AI-driven automation to generate daily income online. Discover smart ways to stack Bitcoin for long-term wealth.</p>
+<div class="card-footer">
+<div class="card-tags">
+<span class="card-tag">AI</span>
+<span class="card-tag">Affiliate</span>
+<span class="card-tag">Bitcoin</span>
+</div>
+<span class="read-more">Read More →</span>
+</div>
+</div>
+</article>
+</div>
+
+<div class="load-more">
+<button class="btn btn-secondary" id="loadMoreBtn">Load More Articles</button>
+</div>
+</section>
+</div>
+
+<!-- Enhanced Newsletter CTA with Integrated Lead Capture Form -->
+<div class="container">
+<section class="newsletter-cta" id="newsletter">
+<div class="newsletter-content">
+<h3>Get Your Weekly Financial Freedom Blueprint</h3>
+<p>Every Sunday, receive one focused strategy to accelerate your path to financial independence. From Bitcoin wealth-building to AI-powered affiliate marketing. Each newsletter delivers actionable insights you can implement immediately to supplement your income, eliminate debt, or achieve complete financial freedom.</p>
+<div class="lead-capture-form">
+<form method="POST" action="https://gogvo.com/subscribe.php">
+<input type="hidden" name="AffiliateName" value="realmtgNLS">
+<input type="hidden" name="CampaignCode" value="zRSJGm0tfjzJ">
+<input type="hidden" name="TrackParam" value="new_form">
+<input type="hidden" name="FormId" value="24995584">
+<table align="center">
+<tr>
+<td>
+<label for="email">Please enter your email:</label>
+</td>
+<td>
+<input type="text" name="Email" id="email" placeholder="Enter your email address" required>
+</td>
+</tr>
+<tr>
+<td align="center" colspan="2">
+<input type="submit" value="Subscribe Now!">
+</td>
+</tr>
+</table>
+<img src="https://gogvo.com/show_form.php?id=24995584&TrackParam=new_form">
+</form>
+</div>
+
+<div class="newsletter-benefits">
+<!-- Benefits removed as requested -->
+</div>
+</div>
+</section>
+</div>
+
+<script>
+        // Filter functionality
+        document.querySelectorAll('.filter-tag').forEach(tag => {
+            tag.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Update active state
+                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Get filter value
+                const filter = this.dataset.filter;
+                const articles = document.querySelectorAll('.article-card');
+                
+                articles.forEach(article => {
+                    if (filter === 'all' || article.dataset.category.includes(filter)) {
+                        article.style.display = 'block';
+                        article.style.animation = 'fadeInUp 0.6s ease-out';
+                    } else {
+                        article.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Enhanced Search functionality
+        document.querySelector('.search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const articles = document.querySelectorAll('.article-card');
+            let visibleCount = 0;
             
-            <!-- Featured Article -->
-            <div class="mb-16">
-                <div class="text-center mb-12">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
-                        Featured <span class="bitcoin-accent">Article</span>
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        Our latest deep-dive analysis on the future of wealth building in the digital age
-                    </p>
-                </div>
+            articles.forEach(article => {
+                const title = article.querySelector('.card-title').textContent.toLowerCase();
+                const excerpt = article.querySelector('.card-excerpt').textContent.toLowerCase();
+                const tags = article.querySelectorAll('.card-tag');
+                const tagText = Array.from(tags).map(tag => tag.textContent.toLowerCase()).join(' ');
                 
-                <article class="blog-article rounded-3xl shadow-2xl p-8 md:p-12 card-hover">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
-                        <div class="flex items-center space-x-4 mb-4 md:mb-0">
-                            <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-full flex items-center justify-center">
-                                <span class="text-white font-bold">₿</span>
-                            </div>
-                            <div>
-                                <span class="text-sm text-gray-500 font-medium">Published</span>
-                                <p class="text-lg font-semibold text-gray-800">May 22, 2025</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <span class="bg-gradient-to-r from-bitcoin/10 to-gold/10 text-bitcoin font-semibold px-4 py-2 rounded-full text-sm border border-bitcoin/20">
-                                🔥 Trending
-                            </span>
-                            <span class="bg-emerald/10 text-emerald font-semibold px-4 py-2 rounded-full text-sm border border-emerald/20">
-                                📈 Analysis
-                            </span>
-                        </div>
-                    </div>
-                    
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                        The Future of Bitcoin and AI in Building Generational Wealth
-                    </h2>
-                    
-                    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed mb-8">
-                        <p class="text-xl mb-6">
-                            The convergence of Bitcoin and artificial intelligence is revolutionizing generational wealth building strategies. As we stand at the intersection of these two transformative technologies, early adopters are positioning themselves for unprecedented opportunities.
-                        </p>
-                        
-                        <p class="mb-6">
-                            Bitcoin's fixed supply and decentralized nature make it an ideal store of value for the digital age, while AI transforms investment approaches through advanced market analysis and automated trading systems. This powerful combination creates a framework for building wealth that can span generations.
-                        </p>
-                        
-                        <div class="bg-gradient-to-r from-bitcoin/5 to-gold/5 p-6 rounded-2xl border-l-4 border-bitcoin mb-6">
-                            <h3 class="font-bold text-xl mb-3 text-gray-900">Key Success Factors:</h3>
-                            <ul class="space-y-2 text-gray-700">
-                                <li class="flex items-start space-x-2">
-                                    <span class="text-bitcoin font-bold">•</span>
-                                    <span><strong>Strategic Bitcoin accumulation</strong> during market cycles</span>
-                                </li>
-                                <li class="flex items-start space-x-2">
-                                    <span class="text-bitcoin font-bold">•</span>
-                                    <span><strong>AI-powered market timing</strong> and analysis tools</span>
-                                </li>
-                                <li class="flex items-start space-x-2">
-                                    <span class="text-bitcoin font-bold">•</span>
-                                    <span><strong>Careful portfolio diversification</strong> across digital assets</span>
-                                </li>
-                                <li class="flex items-start space-x-2">
-                                    <span class="text-bitcoin font-bold">•</span>
-                                    <span><strong>Robust security measures</strong> and estate planning</span>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <p>
-                            As these technologies mature, those who combine Bitcoin's long-term potential with AI-driven strategies will be best positioned to create and maintain lasting wealth for future generations. The window of opportunity is narrowing as institutional adoption accelerates.
-                        </p>
-                    </div>
-                    
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://MusaTheGiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/blog/the-future-of-bitcoin-and-ai-in-building-generatio.html" 
-                           class="gradient-border bg-gradient-to-r from-bitcoin to-bitcoin-light text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 text-center shadow-lg">
-                            📖 Read Full Article
-                        </a>
-                        <a href="https://bitcoinaiwealth.com" 
-                           class="btn-cta bg-white border-2 border-gray-200 text-gray-700 px-8 py-4 rounded-xl font-bold hover:border-bitcoin hover:text-bitcoin transition-all transform hover:scale-105 text-center">
-                            💌 Get More Insights Like This
-                        </a>
-                    </div>
-                </article>
-            </div>
+                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tagText.includes(searchTerm)) {
+                    article.style.display = 'block';
+                    article.style.animation = 'fadeInUp 0.6s ease-out';
+                    visibleCount++;
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+            
+            // Show "no results" message if needed
+            const noResultsMsg = document.getElementById('noResults');
+            if (visibleCount === 0 && searchTerm.length > 0) {
+                if (!noResultsMsg) {
+                    const message = document.createElement('div');
+                    message.id = 'noResults';
+                    message.className = 'text-center';
+                    message.style.color = '#94a3b8';
+                    message.style.padding = '2rem';
+                    message.innerHTML = `<p>No articles found for "${searchTerm}". Try searching for "Bitcoin", "AI", or "Affiliate Marketing".</p>`;
+                    document.querySelector('.articles-grid').appendChild(message);
+                }
+            } else if (noResultsMsg) {
+                noResultsMsg.remove();
+            }
+        });
 
-            <!-- Upcoming Articles Section -->
-            <div class="mb-16">
-                <div class="text-center mb-12">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4">
-                        Coming <span class="bitcoin-accent">Soon</span>
-                    </h2>
-                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-                        We're constantly researching and analyzing the latest trends to bring you cutting-edge insights
-                    </p>
-                </div>
+        // Make article cards clickable
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Navigate to the article
+                window.location.href = 'bitcoin_ai_affiliate_article.html';
+            });
+        });
+
+        // Smooth animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.article-card, .featured-article, .newsletter-cta').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced Load more functionality
+        document.getElementById('loadMoreBtn').addEventListener('click', function() {
+            const button = this;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Loading...';
+            button.disabled = true;
+            
+            // Simulate loading more articles
+            setTimeout(() => {
+                // Create new article cards (you would typically fetch these from an API)
+                const newArticles = [
+                    {
+                        icon: '💎',
+                        title: 'Advanced Bitcoin Mining Strategies for 2025',
+                        excerpt: 'Explore the latest mining techniques and hardware recommendations for maximum profitability.',
+                        date: 'July 3, 2025',
+                        readTime: '10 min read',
+                        tags: ['Mining', 'Hardware'],
+                        category: 'bitcoin'
+                    },
+                    {
+                        icon: '🎯',
+                        title: 'Email Marketing Automation for Crypto Affiliates',
+                        excerpt: 'Build automated email sequences that convert crypto leads into high-value customers.',
+                        date: 'July 2, 2025',
+                        readTime: '7 min read',
+                        tags: ['Email', 'Automation'],
+                        category: 'affiliate ai'
+                    }
+                ];
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="coming-soon-card rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-gradient-to-r from-purple-500/20 to-indigo-500/20 text-purple-700 font-semibold px-3 py-1 rounded-full text-sm border border-purple-500/30">
-                                Coming Soon
-                            </span>
-                        </div>
-                        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6">
-                            <span class="text-white text-xl">🤖</span>
-                        </div>
-                        <h3 class="font-bold text-2xl text-gray-800 mb-4">AI Trading Strategies for 2025</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            Discover the latest AI-powered trading algorithms and how they're reshaping cryptocurrency markets. Learn which tools are worth your time and money.
-                        </p>
-                        <div class="flex items-center space-x-4 text-sm text-gray-500">
-                            <span class="flex items-center space-x-1">
-                                <span>📅</span>
-                                <span>Expected: June 2025</span>
-                            </span>
-                            <span class="flex items-center space-x-1">
-                                <span>📊</span>
-                                <span>Technical Analysis</span>
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="coming-soon-card rounded-2xl shadow-lg p-8 card-hover relative overflow-hidden">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-gradient-to-r from-emerald/20 to-green-500/20 text-emerald font-semibold px-3 py-1 rounded-full text-sm border border-emerald/30">
-                                Coming Soon
-                            </span>
-                        </div>
-                        <div class="w-14 h-14 bg-gradient-to-r from-emerald to-green-500 rounded-2xl flex items-center justify-center mb-6">
-                            <span class="text-white text-xl">🏦</span>
-                        </div>
-                        <h3 class="font-bold text-2xl text-gray-800 mb-4">DeFi vs Traditional Banking</h3>
-                        <p class="text-gray-600 leading-relaxed mb-6">
-                            A comprehensive comparison of decentralized finance protocols versus traditional banking systems for wealth preservation and growth.
-                        </p>
-                        <div class="flex items-center space-x-4 text-sm text-gray-500">
-                            <span class="flex items-center space-x-1">
-                                <span>📅</span>
-                                <span>Expected: June 2025</span>
-                            </span>
-                            <span class="flex items-center space-x-1">
-                                <span>💰</span>
-                                <span>Wealth Strategy</span>
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Newsletter Signup Section -->
-            <div class="bg-gradient-to-r from-deep-blue via-slate-blue to-slate-darker rounded-3xl p-12 text-white text-center shadow-2xl">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-shadow">
-                        Never Miss a <span class="bitcoin-accent">Game-Changing</span> Insight
-                    </h2>
-                    <p class="text-xl text-gray-300 mb-8 leading-relaxed">
-                        Join thousands of smart investors who get exclusive Bitcoin, crypto, and AI insights delivered directly to their inbox. Plus, get instant access to our secret AI marketing arsenal worth $2,997!
-                    </p>
-                    
-                    <div class="glass-effect bg-white/10 backdrop-blur-sm p-8 rounded-2xl mb-8 border border-white/20">
-                        <div class="grid md:grid-cols-3 gap-6">
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-bitcoin to-gold rounded-xl flex items-center justify-center mx-auto mb-3">
-                                    <span class="text-white font-bold">📈</span>
+                const articlesGrid = document.querySelector('.articles-grid');
+                
+                newArticles.forEach(article => {
+                    const articleHTML = `
+                        <article class="article-card" data-category="${article.category}">
+                            <div class="card-image">${article.icon}</div>
+                            <div class="card-content">
+                                <div class="card-meta">
+                                    <span>${article.date}</span>
+                                    <span>${article.readTime}</span>
                                 </div>
-                                <h4 class="font-bold text-lg mb-2">Market Analysis</h4>
-                                <p class="text-gray-300 text-sm">Weekly deep-dives</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-emerald to-green-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                                    <span class="text-white font-bold">💰</span>
+                                <h3 class="card-title">${article.title}</h3>
+                                <p class="card-excerpt">${article.excerpt}</p>
+                                <div class="card-footer">
+                                    <div class="card-tags">
+                                        ${article.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
+                                    </div>
+                                    <span class="read-more">Read More →</span>
                                 </div>
-                                <h4 class="font-bold text-lg mb-2">Vetted Opportunities</h4>
-                                <p class="text-gray-300 text-sm">Exclusive access</p>
                             </div>
-                            <div class="text-center">
-                                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3">
-                                    <span class="text-white font-bold">🎁</span>
-                                </div>
-                                <h4 class="font-bold text-lg mb-2">AI Arsenal Bonus</h4>
-                                <p class="text-gray-300 text-sm">Worth $2,997</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <a href="https://bitcoinaiwealth.com" 
-                       class="btn-cta gradient-border bg-gradient-to-r from-bitcoin via-gold to-bitcoin-light text-white px-12 py-6 rounded-2xl text-xl font-bold hover:opacity-90 transition-all transform hover:scale-105 shadow-2xl animate-glow mb-4">
-                        🚀 Get Exclusive Bitcoin Insights + Free AI Arsenal
-                    </a>
-                    
-                    <p class="text-gray-300">
-                        100% Free • No Spam • Join 10,000+ Smart Investors
-                    </p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gradient-to-r from-slate-darker to-deep-blue text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-2xl font-bold bitcoin-accent mb-4">Bitcoin AI Wealth</h3>
-                <p class="text-gray-300 max-w-2xl mx-auto mb-6">
-                    ₿uilding generational wealth through Bitcoin, Crypto, and AI opportunities. Join thousands of smart investors who trust our vetted insights.
-                </p>
+                        </article>
+                    `;
+                    articlesGrid.insertAdjacentHTML('beforeend', articleHTML);
+                });
                 
-                <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-8 text-sm">
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/privacy.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Privacy Policy
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/terms.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Terms of Service
-                    </a>
-                    <span class="text-gray-600 hidden sm:inline">•</span>
-                    <a href="https://musathegiant.github.io/building-generational-wealth-with-bitcoin-and-ai-2025-05-22-bii01/disclaimer.html" 
-                       class="text-gray-300 hover:text-bitcoin transition-colors duration-300 hover:underline">
-                        Disclaimer
-                    </a>
-                </div>
+                button.textContent = originalText;
+                button.disabled = false;
                 
-                <div class="mt-8 pt-8 border-t border-gray-700">
-                    <p class="text-gray-400 text-sm">
-                        © 2025 Bitcoin AI Wealth. Your wealth-building journey has officially begun! 🚀. Made with ❤️ by MTG 👑
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
+                // Animate new articles
+                const newArticleElements = articlesGrid.querySelectorAll('.article-card:nth-last-child(-n+2)');
+                newArticleElements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.style.animation = 'fadeInUp 0.6s ease-out';
+                        observer.observe(el);
+                    }, index * 200);
+                });
+                
+            }, 1500);
+        });
 
-    <script>
-        // Smooth scrolling for anchor links
+        // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -409,28 +1044,121 @@
             });
         });
 
-        // Add subtle animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Lead capture form enhancement
+        const leadForm = document.querySelector('.lead-capture-form form');
+        const emailInput = document.querySelector('input[name="Email"]');
+        
+        // Add real-time email validation
+        emailInput.addEventListener('input', function() {
+            this.classList.remove('error');
+            const errorMsg = this.parentNode.querySelector('.error-message');
+            if (errorMsg) {
+                errorMsg.style.display = 'none';
+            }
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+        // Enhanced form submission with validation
+        leadForm.addEventListener('submit', function(e) {
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            // Remove any existing error messages
+            const existingError = emailInput.parentNode.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+            
+            if (!email || !emailRegex.test(email)) {
+                e.preventDefault();
+                emailInput.classList.add('error');
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.display = 'block';
+                errorDiv.textContent = 'Please enter a valid email address';
+                emailInput.parentNode.appendChild(errorDiv);
+                
+                emailInput.focus();
+                return;
+            }
+            
+            // Track form submission for analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'subscribe', {
+                    'event_category': 'newsletter',
+                    'event_label': 'financial_freedom_blueprint',
+                    'value': 1
+                });
+            }
+            
+            // Optional: Send to Facebook Pixel
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Lead');
+            }
+            
+            // Show loading state
+            const submitBtn = this.querySelector('input[type="submit"]');
+            const originalValue = submitBtn.value;
+            submitBtn.value = 'Subscribing...';
+            submitBtn.disabled = true;
+            
+            // The form will naturally submit to gogvo.com
+            // We'll restore the button state after a delay in case of errors
+            setTimeout(() => {
+                submitBtn.value = originalValue;
+                submitBtn.disabled = false;
+            }, 3000);
+        });
+
+        // Auto-update year in footer
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('dynamic-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+        
+        // Newsletter form auto-focus on scroll
+        let hasScrolledToNewsletter = false;
+        window.addEventListener('scroll', function() {
+            const newsletter = document.getElementById('newsletter');
+            if (newsletter) {
+                const rect = newsletter.getBoundingClientRect();
+                const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+                
+                if (isVisible && !hasScrolledToNewsletter) {
+                    hasScrolledToNewsletter = true;
+                    setTimeout(() => {
+                        emailInput.focus();
+                    }, 1000);
+                }
+            }
+        });
+
+        // Enhanced click tracking for article cards
+        document.querySelectorAll('.article-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // Track article clicks for analytics
+                if (typeof gtag !== 'undefined') {
+                    const title = this.querySelector('.card-title').textContent;
+                    gtag('event', 'click', {
+                        'event_category': 'article',
+                        'event_label': title,
+                        'value': 1
+                    });
                 }
             });
-        }, observerOptions);
-
-        // Observe all cards and sections
-        document.querySelectorAll('.card-hover, .blog-article, .coming-soon-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
+
+<footer style="text-align:center; padding:2rem 1rem; border-top:1px solid rgba(245,158,11,0.2); margin-top:4rem; color:#94a3b8; font-size:0.9rem;">
+<p>© <span id="dynamic-year">2025</span> Bitcoin AI Wealth. All rights reserved.</p>
+<p>
+<a href="https://bitcoinaiwealth.com/privacy.html" style="color:#f59e0b; text-decoration:none; margin:0 10px;">Privacy Policy</a> |
+        <a href="https://bitcoinaiwealth.com/disclaimer.html" style="color:#f59e0b; text-decoration:none; margin:0 10px;">Terms of Use</a> |
+        <a href="https://bitcoinaiwealth.com/terms.html" style="color:#f59e0b; text-decoration:none; margin:0 10px;">Disclaimer</a>
+</p>
+</footer>
+
 </body>
 </html>

@@ -81,10 +81,56 @@
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
-        .nav-link:hover {
+        .nav-link:hover,
+        .nav-link.active {
             color: #f59e0b;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(245, 158, 11, 0.2);
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav {
+                position: relative;
+            }
+
+            .search-input {
+                width: 100%;
+                margin-top: 1rem;
+            }
         }
 
         .search-box {
@@ -641,14 +687,6 @@
                 padding: 0 15px;
             }
 
-            .nav {
-                flex-direction: column;
-            }
-
-            .search-input {
-                width: 100%;
-            }
-
             .hero-features {
                 flex-direction: column;
                 gap: 1rem;
@@ -730,13 +768,14 @@
 <header class="header">
 <div class="container">
 <nav class="nav">
-<a class="logo" href="#" aria-label="Bitcoin AI Wealth Blog Home">
+<a class="logo" href="index.html" aria-label="Bitcoin AI Wealth Home">
 <div class="bitcoin-icon">₿</div>
-                    Bitcoin AI Wealth Blog
+                    Bitcoin AI Wealth
                 </a>
-<div class="nav-links">
-<a class="nav-link" href="#home">Home</a>
-<a class="nav-link" href="#categories">Categories</a>
+<button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+<div class="nav-links" id="navLinks">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link active" href="blog.html">Blog</a>
 <a class="nav-link" href="about.html">About</a>
 <div class="search-box">
 <span class="search-icon">🔍</span>
@@ -806,9 +845,9 @@
 <span>⏱️</span>
 <span>12 min read</span>
 </div>
-<div class="meta-item">
+                <div class="meta-item">
 <span>👁️</span>
-<span>1,245 views</span>
+<span id="featuredViews">1,245 views</span>
 </div>
 </div>
 <h3>Top Affiliate + AI Secrets for Building Bitcoin Wealth</h3>
@@ -923,6 +962,185 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
 </div>
 
 <script>
+        // Dynamic view counter system
+        class ViewCounter {
+            constructor() {
+                this.storageKey = 'bitcoinAIWealthViews';
+                this.sessionKey = 'currentSession';
+                this.initializeViewCounts();
+                this.updateViewCounts();
+            }
+
+            initializeViewCounts() {
+                // Initialize default view counts if not exists
+                const defaultCounts = {
+                    'featured-article': Math.floor(Math.random() * 500) + 1200, // 1200-1700 range
+                    'bitcoin-ai-affiliate': Math.floor(Math.random() * 300) + 800, // 800-1100 range
+                    'bitcoin-mining': Math.floor(Math.random() * 200) + 600, // 600-800 range
+                    'email-automation': Math.floor(Math.random() * 150) + 400, // 400-550 range
+                    lastUpdated: Date.now()
+                };
+
+                const stored = localStorage.getItem(this.storageKey);
+                if (!stored) {
+                    localStorage.setItem(this.storageKey, JSON.stringify(defaultCounts));
+                    this.viewCounts = defaultCounts;
+                } else {
+                    this.viewCounts = JSON.parse(stored);
+                    // Add small random increment over time
+                    this.addTimeBasedViews();
+                }
+            }
+
+            addTimeBasedViews() {
+                const now = Date.now();
+                const lastUpdate = this.viewCounts.lastUpdated || now;
+                const hoursPassed = Math.floor((now - lastUpdate) / (1000 * 60 * 60));
+                
+                if (hoursPassed > 0) {
+                    // Add 1-5 views per hour that has passed for each article
+                    Object.keys(this.viewCounts).forEach(key => {
+                        if (key !== 'lastUpdated') {
+                            const increment = Math.floor(Math.random() * 5) + 1;
+                            this.viewCounts[key] += increment * Math.min(hoursPassed, 24); // Max 24 hours worth
+                        }
+                    });
+                    this.viewCounts.lastUpdated = now;
+                    this.saveViewCounts();
+                }
+            }
+
+            updateViewCounts() {
+                // Check if this is a new session
+                const isNewSession = !sessionStorage.getItem(this.sessionKey);
+                
+                if (isNewSession) {
+                    // Increment view counts for current page visit
+                    this.viewCounts['featured-article'] += 1;
+                    this.viewCounts['bitcoin-ai-affiliate'] += Math.random() < 0.7 ? 1 : 0; // 70% chance
+                    
+                    // Mark session
+                    sessionStorage.setItem(this.sessionKey, 'true');
+                    this.saveViewCounts();
+                }
+
+                // Update display
+                this.displayViewCounts();
+                
+                // Set up periodic updates (every 30 seconds)
+                setInterval(() => {
+                    this.simulateRealTimeViews();
+                }, 30000);
+            }
+
+            simulateRealTimeViews() {
+                // Randomly add views to simulate real-time activity
+                const articles = ['featured-article', 'bitcoin-ai-affiliate'];
+                const randomArticle = articles[Math.floor(Math.random() * articles.length)];
+                
+                // 20% chance every 30 seconds to add a view
+                if (Math.random() < 0.2) {
+                    this.viewCounts[randomArticle] += 1;
+                    this.saveViewCounts();
+                    this.displayViewCounts();
+                    
+                    // Add subtle animation to show the update
+                    this.animateViewUpdate(randomArticle);
+                }
+            }
+
+            animateViewUpdate(articleKey) {
+                let element;
+                if (articleKey === 'featured-article') {
+                    element = document.getElementById('featuredViews');
+                } else if (articleKey === 'bitcoin-ai-affiliate') {
+                    element = document.querySelector('.article-card .card-meta span:last-child');
+                }
+                
+                if (element) {
+                    element.style.color = '#f59e0b';
+                    element.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        element.style.color = '';
+                        element.style.transform = '';
+                    }, 1000);
+                }
+            }
+
+            displayViewCounts() {
+                // Update featured article views
+                const featuredElement = document.getElementById('featuredViews');
+                if (featuredElement) {
+                    featuredElement.textContent = `${this.formatNumber(this.viewCounts['featured-article'])} views`;
+                }
+
+                // Update article card views when they exist
+                const articleCards = document.querySelectorAll('.article-card');
+                articleCards.forEach((card, index) => {
+                    const metaElement = card.querySelector('.card-meta');
+                    if (metaElement) {
+                        const spans = metaElement.querySelectorAll('span');
+                        if (spans.length >= 2) {
+                            let viewCount;
+                            switch(index) {
+                                case 0:
+                                    viewCount = this.viewCounts['bitcoin-ai-affiliate'];
+                                    break;
+                                default:
+                                    viewCount = this.viewCounts['featured-article'] - Math.floor(Math.random() * 200);
+                            }
+                            spans[spans.length - 1].textContent = `${this.formatNumber(viewCount)} views`;
+                        }
+                    }
+                });
+            }
+
+            formatNumber(num) {
+                if (num >= 1000) {
+                    return (num / 1000).toFixed(1).replace(/\.0$/, '') + 'k';
+                }
+                return num.toLocaleString();
+            }
+
+            saveViewCounts() {
+                localStorage.setItem(this.storageKey, JSON.stringify(this.viewCounts));
+            }
+
+            // Method to manually increment views (for article clicks)
+            incrementView(articleKey) {
+                this.viewCounts[articleKey] = (this.viewCounts[articleKey] || 0) + 1;
+                this.saveViewCounts();
+                this.displayViewCounts();
+            }
+        }
+
+        // Initialize view counter system
+        const viewCounter = new ViewCounter();
+
+        // Mobile menu toggle functionality
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('.nav');
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            
+            if (!nav.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
         // Popup functionality
         const openPopupBtn = document.getElementById('openPopupBtn');
         const openPopupBtnNewsletter = document.getElementById('openPopupBtnNewsletter');
@@ -1218,7 +1436,15 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                         'value': 1
                     });
                 }
+                
+                // Increment view count when article is clicked
+                viewCounter.incrementView('bitcoin-ai-affiliate');
             });
+        });
+
+        // Track featured article clicks
+        document.querySelector('.featured-article .btn-primary').addEventListener('click', function() {
+            viewCounter.incrementView('featured-article');
         });
     </script>
 

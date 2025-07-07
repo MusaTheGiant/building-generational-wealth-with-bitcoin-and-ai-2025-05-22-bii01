@@ -6,6 +6,7 @@
     
     <!-- SEO OPTIMIZATION - REPLACE THESE VALUES FOR EACH POST -->
     <title>{{BLOG_POST_TITLE}} - Bitcoin AI Wealth</title>
+    <link href="favicon.png" rel="icon" type="image/png"/>
     <meta name="description" content="{{META_DESCRIPTION}}">
     <meta name="keywords" content="{{KEYWORDS}}">
     <meta name="author" content="Musa TheGiant">
@@ -261,38 +262,131 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        /* TABLE OF CONTENTS */
+        /* IMPROVED TABLE OF CONTENTS */
         .table-of-contents {
-            background: rgba(15, 15, 15, 0.8);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
-            max-width: 400px;
+            background: linear-gradient(135deg, rgba(15, 15, 15, 0.9) 0%, rgba(26, 26, 26, 0.9) 100%);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            max-width: 450px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.1);
+        }
+
+        .table-of-contents::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
         }
 
         .table-of-contents h3 {
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .table-of-contents ul {
+        .table-of-contents ol {
             list-style: none;
+            counter-reset: toc-counter;
+            padding: 0;
+            margin: 0;
         }
 
         .table-of-contents li {
-            margin: 0.5rem 0;
+            counter-increment: toc-counter;
+            margin: 0 0 1rem 0;
+            position: relative;
+            padding-left: 2.5rem;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+
+        .table-of-contents li:last-child {
+            margin-bottom: 0;
+        }
+
+        .table-of-contents li::before {
+            content: counter(toc-counter);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .table-of-contents li:hover::before {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
         }
 
         .table-of-contents a {
             color: var(--text-secondary);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            display: block;
+            padding: 0.25rem 0;
+            border-radius: 4px;
+            position: relative;
+        }
+
+        .table-of-contents a::after {
+            content: '.';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-left: 2px;
         }
 
         .table-of-contents a:hover {
             color: var(--primary-color);
+            transform: translateX(5px);
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
+        }
+
+        .table-of-contents a.active {
+            color: var(--primary-color);
+            font-weight: 600;
+            background: rgba(245, 158, 11, 0.1);
+            padding: 0.5rem;
+            border-radius: 6px;
+            margin: -0.25rem 0;
+            transform: translateX(5px);
+        }
+
+        .table-of-contents .estimated-time {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         /* ARTICLE CONTENT */
@@ -1331,6 +1425,11 @@
                 padding: 0 16px;
             }
 
+            .table-of-contents {
+                max-width: 100%;
+                margin: 2rem 0;
+            }
+
             .popup-container {
                 max-width: 360px;
                 padding: 1.3rem 1rem;
@@ -1378,7 +1477,23 @@
             }
 
             .table-of-contents {
-                max-width: 100%;
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .table-of-contents h3 {
+                font-size: 1.2rem;
+            }
+
+            .table-of-contents li {
+                padding-left: 2rem;
+                font-size: 0.95rem;
+            }
+
+            .table-of-contents li::before {
+                width: 1.5rem;
+                height: 1.5rem;
+                font-size: 0.8rem;
             }
 
             .cta-buttons {
@@ -1469,6 +1584,34 @@
 
             .article-subtitle {
                 font-size: 1rem;
+            }
+
+            .table-of-contents {
+                padding: 1.5rem;
+                margin: 1.5rem 0;
+            }
+
+            .table-of-contents h3 {
+                font-size: 1.1rem;
+                margin-bottom: 1rem;
+            }
+
+            .table-of-contents li {
+                padding-left: 1.8rem;
+                font-size: 0.9rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .table-of-contents li::before {
+                width: 1.3rem;
+                height: 1.3rem;
+                font-size: 0.75rem;
+            }
+
+            .table-of-contents .estimated-time {
+                font-size: 0.8rem;
+                margin-top: 1rem;
+                padding-top: 1rem;
             }
 
             .highlight-box,
@@ -1669,17 +1812,20 @@
                 <img src="https://bitcoinaiwealth.com/images/{{FEATURED_IMAGE}}" alt="{{FEATURED_IMAGE_ALT}}" loading="lazy">
             </div>
 
-            <!-- Table of Contents (Optional - Add if post is long) -->
+            <!-- Improved Table of Contents -->
             <div class="table-of-contents">
                 <h3>📋 Table of Contents</h3>
-                <ul>
+                <ol>
                     <!-- REPLACE WITH ACTUAL HEADINGS FROM YOUR CONTENT -->
                     <li><a href="#section1">{{TOC_ITEM_1}}</a></li>
                     <li><a href="#section2">{{TOC_ITEM_2}}</a></li>
                     <li><a href="#section3">{{TOC_ITEM_3}}</a></li>
                     <li><a href="#section4">{{TOC_ITEM_4}}</a></li>
                     <li><a href="#section5">{{TOC_ITEM_5}}</a></li>
-                </ul>
+                </ol>
+                <div class="estimated-time">
+                    ⏱️ Estimated reading time: {{READ_TIME}} minutes
+                </div>
             </div>
 
             <div class="article-body">

@@ -81,11 +81,51 @@
             color: #94a3b8;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
 
         .nav-link:hover,
         .nav-link.active {
             color: #f59e0b;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(245, 158, 11, 0.2);
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav {
+                position: relative;
+            }
         }
 
         /* Page Header */
@@ -636,13 +676,14 @@
 <header class="header">
 <div class="container">
 <nav class="nav">
-<a class="logo" href="blog.html" aria-label="Bitcoin AI Wealth Blog Home">
+<a class="logo" href="index.html" aria-label="Bitcoin AI Wealth Home">
 <div class="bitcoin-icon">₿</div>
-                    Bitcoin AI Wealth Blog
+                    Bitcoin AI Wealth
                 </a>
-<div class="nav-links">
-<a class="nav-link" href="blog.html">Home</a>
-<a class="nav-link" href="blog.html#categories">Categories</a>
+<button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+<div class="nav-links" id="navLinks">
+<a class="nav-link" href="index.html">Home</a>
+<a class="nav-link" href="blog.html">Blog</a>
 <a class="nav-link active" href="about.html">About</a>
 </div>
 </nav>
@@ -822,6 +863,30 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
 </div>
 
 <script>
+        // Mobile menu toggle functionality
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            const nav = document.querySelector('.nav');
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            
+            if (!nav.contains(e.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+
         // Popup functionality
         const openPopupBtn = document.getElementById('openPopupBtn');
         const closePopupBtn = document.getElementById('closePopupBtn');

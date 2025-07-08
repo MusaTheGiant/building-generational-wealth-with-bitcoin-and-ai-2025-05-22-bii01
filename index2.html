@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en">
@@ -23,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 40px 20px;
+            padding: 0 20px 40px 20px;
             position: relative;
             overflow-x: hidden;
         }
@@ -40,6 +39,109 @@
                 radial-gradient(circle at 80% 20%, rgba(247, 147, 26, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 40% 80%, rgba(247, 147, 26, 0.08) 0%, transparent 50%);
             pointer-events: none;
+        }
+
+        /* Header Navigation Styles */
+        .header {
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(247, 147, 26, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #f7931a;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .bitcoin-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(45deg, #f7931a, #ffa500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #f7931a;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 15, 0.98);
+                backdrop-filter: blur(20px);
+                border-top: 1px solid rgba(247, 147, 26, 0.2);
+                flex-direction: column;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav {
+                position: relative;
+            }
         }
 
         .hero-container {
@@ -577,6 +679,14 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding: 0 15px 40px 15px;
+            }
+
+            .header {
+                margin-bottom: 30px;
+            }
+
             .footer {
                 padding: 50px 30px 35px 30px;
                 margin-bottom: 30px;
@@ -606,7 +716,7 @@
 
         @media (max-width: 480px) {
             body {
-                padding: 30px 15px 50px 15px;
+                padding: 0 15px 50px 15px;
                 min-height: 100vh;
             }
             
@@ -695,7 +805,7 @@
 
         @media (max-width: 360px) {
             body {
-                padding: 25px 10px 40px 10px;
+                padding: 0 10px 40px 10px;
             }
             
             .hero-container {
@@ -736,7 +846,7 @@
         @media screen and (max-height: 640px) and (max-width: 480px) {
             body {
                 min-height: 100vh;
-                padding: 20px 15px 40px 15px;
+                padding: 0 15px 40px 15px;
                 align-items: flex-start;
                 justify-content: flex-start;
             }
@@ -776,6 +886,23 @@
 </head>
 <body>
   <div class="bg-particles" id="particles"></div>
+  
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="nav">
+      <a class="logo" href="index.html" aria-label="Bitcoin AI Wealth Home">
+        <div class="bitcoin-icon">₿</div>
+        Bitcoin AI Wealth
+      </a>
+      <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+      <div class="nav-links" id="navLinks">
+        <a class="nav-link active" href="index.html">Home</a>
+        <a class="nav-link" href="blog.html">Blog</a>
+        <a class="nav-link" href="about.html">About</a>
+      </div>
+    </div>
+  </header>
+
 <div class="hero-container">
 <div class="sparkle"></div>
 <div class="sparkle"></div>
@@ -818,9 +945,19 @@
                     Earn <span class="highlight-text">75% commissions</span> that pay you for <span class="highlight-text">LIFE</span> - not just once. <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to discover more.
                 </div>
 </a>
-<a class="benefit-item" href="https://bitcoinaiwealth.com/bitcoindefi" target="_blank">
+
+<a class="benefit-item" href="https://www.affiliatementor.com/vsl1/mtglegacy" target="_blank">
 <div class="check-icon">
 <span class="check-mark">2️⃣</span>
+</div>
+<div class="benefit-text">
+                    Turn <span class="highlight-text">$25 One-Time into $500 Daily!</span>. (With an Automated AI System That Works for You 🫵 24/7). <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 Get ALL The Details Now!
+                </div>
+</a>
+       
+<a class="benefit-item" href="https://bitcoinaiwealth.com/bitcoindefi" target="_blank">
+<div class="check-icon">
+<span class="check-mark">3️⃣</span>
 </div>
 <div class="benefit-text">
                     Turn <span class="highlight-text">$100 to $35,760</span> in just 36 months! <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to see how it works.
@@ -828,7 +965,7 @@
 </a>
 <a class="benefit-item" href="https://bitcoinaiwealth.com/btcharvest" target="_blank">
 <div class="check-icon">
-<span class="check-mark">3️⃣</span>
+<span class="check-mark">4️⃣</span>
 </div>
 <div class="benefit-text">
                     Get <span class="highlight-text">daily Bitcoin payouts</span> without buying expensive ASIC miners or paying high electricity. <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to cash in now!
@@ -837,19 +974,10 @@
 
 <a class="benefit-item" href="https://trafficzest.com/?rft1=604cb69f-06e7-4e5f-871a-6d68f08a4bdb" target="_blank">
 <div class="check-icon">
-<span class="check-mark">4️⃣</span>
-</div>
-<div class="benefit-text">
-                    Get <span class="highlight-text">Instant Laser-Targeted</span> traffic. The fastest, most scalable, way to get converting traffic to your offers. <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to get it now!
-                </div>
-</a>
-
-       <a class="benefit-item" href="https://magai.co/?via=musa" target="_blank">
-<div class="check-icon">
 <span class="check-mark">5️⃣</span>
 </div>
 <div class="benefit-text">
-                    Grab <span class="highlight-text">50+ AI Tools for the price of One</span>. Everything you need from AI without paying $500/month. <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to Get Instant Access now!
+                    Get <span class="highlight-text">Instant Laser-Targeted</span> traffic. The fastest, most scalable, way to get converting traffic to your offers. <strong><span style="background: linear-gradient(135deg, #f7931a 0%, #ffa500 50%, #ff9500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Tap or click HERE</span></strong> 👈 to get it now!
                 </div>
 </a>
        
@@ -873,6 +1001,30 @@
 </footer>
 
 <script>
+// Mobile menu toggle functionality
+document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(e) {
+    const nav = document.querySelector('.nav');
+    const navLinks = document.getElementById('navLinks');
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    
+    if (!nav.contains(e.target)) {
+        navLinks.classList.remove('active');
+    }
+});
+
+// Close mobile menu when clicking on a nav link
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('active');
+    });
+});
+
 function createParticles() {
   const particlesContainer = document.getElementById('particles');
   const particleCount = window.innerWidth > 768 ? 50 : 25;

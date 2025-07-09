@@ -1351,11 +1351,11 @@
 
             <!-- Social Share -->
             <div class="social-share">
-                <a href="#" class="social-btn twitter" target="_blank" rel="noopener" title="Share on Twitter/X"></a>
-                <a href="#" class="social-btn whatsapp" target="_blank" rel="noopener" title="Share on WhatsApp"></a>
-                <a href="#" class="social-btn facebook" target="_blank" rel="noopener" title="Share on Facebook"></a>
-                <a href="#" class="social-btn linkedin" target="_blank" rel="noopener" title="Share on LinkedIn"></a>
-                <a href="#" class="social-btn email" title="Share via Email"></a>
+                <a href="#" class="social-btn twitter" target="_blank" rel="noopener" title="Share on Twitter/X" data-share="twitter"></a>
+                <a href="#" class="social-btn whatsapp" target="_blank" rel="noopener" title="Share on WhatsApp" data-share="whatsapp"></a>
+                <a href="#" class="social-btn facebook" target="_blank" rel="noopener" title="Share on Facebook" data-share="facebook"></a>
+                <a href="#" class="social-btn linkedin" target="_blank" rel="noopener" title="Share on LinkedIn" data-share="linkedin"></a>
+                <a href="#" class="social-btn email" title="Share via Email" data-share="email"></a>
             </div>
 
             <!-- Author Bio -->
@@ -1367,11 +1367,11 @@
                     <h4>Musa TheGiant</h4>
                     <p>Bitcoin maximalist and affiliate marketing strategist with over 8 years of experience in cryptocurrency and AI technologies. Passionate about helping others build sustainable wealth through innovative investment strategies and automated income systems.</p>
                     <div class="author-links">
-                        <a href="#" target="_blank" rel="noopener">Facebook</a>
-                        <a href="#" target="_blank" rel="noopener">TikTok</a>
-                        <a href="#" target="_blank" rel="noopener">Instagram</a>
-                        <a href="#" target="_blank" rel="noopener">YouTube</a>
-                        <a href="#" rel="noopener">About</a>
+                        <a href="https://m.facebook.com/Musa.TheMTG" target="_blank" rel="noopener">Facebook</a>
+                        <a href="https://www.tiktok.com/@musathegiant" target="_blank" rel="noopener">TikTok</a>
+                        <a href="https://www.instagram.com/musa.themtg" target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://www.youtube.com/@MusaTheGiant" target="_blank" rel="noopener">YouTube</a>
+                        <a href="https://bitcoinaiwealth.com/about" rel="noopener">About</a>
                     </div>
                 </div>
             </div>
@@ -1627,10 +1627,44 @@
             });
         });
 
-        // Enhanced social sharing
+        // Enhanced social sharing with proper URLs
         document.querySelectorAll('.social-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
-                const platform = this.classList[1];
+                e.preventDefault();
+                
+                const platform = this.dataset.share;
+                const title = document.title;
+                const url = encodeURIComponent(window.location.href);
+                const text = encodeURIComponent(title);
+                
+                let shareUrl = '';
+                
+                switch(platform) {
+                    case 'twitter':
+                        shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                        break;
+                    case 'facebook':
+                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                        break;
+                    case 'linkedin':
+                        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                        break;
+                    case 'whatsapp':
+                        shareUrl = `https://wa.me/?text=${text}%20${url}`;
+                        break;
+                    case 'email':
+                        shareUrl = `mailto:?subject=${text}&body=Check out this article: ${decodeURIComponent(url)}`;
+                        break;
+                }
+                
+                if (shareUrl) {
+                    if (platform === 'email') {
+                        window.location.href = shareUrl;
+                    } else {
+                        window.open(shareUrl, '_blank', 'width=600,height=400');
+                    }
+                }
+                
                 console.log(`Shared on ${platform}`);
             });
         });

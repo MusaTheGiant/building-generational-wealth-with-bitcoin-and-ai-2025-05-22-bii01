@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitcoin AI Wealth | Instant Bitcoin Commissions</title>
+    <meta name="description" content="Discover the AI system that sends 100% Bitcoin commissions straight to your wallet instantly. Join thousands earning $25-$8,000+ daily.">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Legal Footer */
+        .legal-footer {
+            background: rgba(0, 0, 0, 0.95);
+            border-top: 1px solid #FF8C00;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: #FF8C00;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .legal-links a:hover {
+            background: rgba(255, 140, 0, 0.1);
+            color: #FFA500;
+        }
+
+        .legal-separator {
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Main Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            position: relative;
+            padding: 50px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23FF8C00" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .bitcoin-icon {
+            font-size: 80px;
+            color: #FF8C00;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+            text-shadow: 0 0 30px rgba(255, 140, 0, 0.5);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .main-headline {
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: bold;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, #ffffff, #FF8C00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subheadline {
+            font-size: clamp(18px, 3vw, 24px);
+            margin-bottom: 40px;
+            color: #cccccc;
+            line-height: 1.4;
+        }
+
+        .benefits-list {
+            list-style: none;
+            margin: 40px 0;
+            text-align: left;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            font-size: 18px;
+            padding: 15px;
+            background: rgba(255, 140, 0, 0.1);
+            border-radius: 10px;
+            border-left: 4px solid #FF8C00;
+        }
+
+        .benefits-list i {
+            color: #FF8C00;
+            margin-right: 15px;
+            margin-top: 3px;
+            font-size: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #FF8C00, #FFA500);
+            color: #000000;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 20px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 140, 0, 0.5);
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+        }
+
+        .social-proof {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #FF8C00;
+            font-weight: 600;
+        }
+
+        .risk-reversal {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #cccccc;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            margin: 5% auto;
+            padding: 30px;
+            border: 2px solid #FF8C00;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(255, 140, 0, 0.3);
+            animation: modalSlideIn 0.3s ease-out;
+            text-align: center;
+        }
+
+        @keyframes modalSlideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            color: #FF8C00;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 140, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .close:hover {
+            background: rgba(255, 140, 0, 0.2);
+            transform: scale(1.1);
+        }
+
+        .popup-headline {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #FF8C00;
+        }
+
+        .popup-subheadline {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #FF8C00;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #333;
+            border-radius: 10px;
+            background: #1a1a1a;
+            color: #ffffff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #FF8C00;
+            box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+        }
+
+        .popup-cta {
+            background: linear-gradient(45deg, #FF8C00, #FFA500);
+            color: #000000;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .popup-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 20px 50px;
+            }
+
+            .benefits-list {
+                text-align: center;
+            }
+
+            .benefits-list li {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .benefits-list i {
+                margin-bottom: 10px;
+                margin-right: 0;
+            }
+
+            .modal-content {
+                margin: 10% auto;
+                width: 95%;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+
+            .popup-headline {
+                font-size: 24px;
+            }
+
+            .popup-subheadline {
+                font-size: 18px;
+            }
+        }
+
+        /* Floating elements animation */
+        .floating-bitcoin {
+            position: absolute;
+            font-size: 20px;
+            color: #FF8C00;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-bitcoin:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .floating-bitcoin:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
+        .floating-bitcoin:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Hero Section -->
+    <section class="hero">
+        <!-- Floating Bitcoin Icons -->
+        <div class="floating-bitcoin"><i class="fab fa-bitcoin"></i></div>
+        <div class="floating-bitcoin"><i class="fab fa-bitcoin"></i></div>
+        <div class="floating-bitcoin"><i class="fab fa-bitcoin"></i></div>
+
+        <div class="container">
+            <div class="hero-content">
+                <div class="bitcoin-icon">
+                    <i class="fab fa-bitcoin"></i>
+                </div>
+                
+                <h1 class="main-headline">
+                    Discover the AI System That Sends 100% Bitcoin Commissions Straight to Your Wallet... Instantly!
+                </h1>
+                
+                <p class="subheadline">
+                    Join thousands earning $25 to $8,000+ daily with this revolutionary AI-powered system that automates your income while you sleep. No KYC, no middlemen, no delays - just pure Bitcoin profits!
+                </p>
+
+                <ul class="benefits-list">
+                    <li>
+                        <i class="fas fa-bolt"></i>
+                        <div>
+                            <strong>Instant Bitcoin Payments</strong> - Earn 100% commissions directly to your wallet within minutes, no withdrawals needed
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <strong>AI Does Everything</strong> - Advanced automation handles lead generation, follow-ups, and sales 24/7 while you focus on what matters
+                        </div>
+                    </li>
+                    <li>
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <strong>Zero Risk, Maximum Reward</strong> - Start with just $25 and scale to $8,000+ daily earnings with proven success stories
+                        </div>
+                    </li>
+                </ul>
+
+                <button class="cta-button" onclick="openModal()">
+                    YES! Show Me How to Start Earning Bitcoin Today
+                </button>
+
+                <div class="social-proof">
+                    <i class="fas fa-users"></i> Join 15,847+ members already earning Bitcoin daily
+                </div>
+
+                <div class="risk-reversal">
+                    <i class="fas fa-shield-alt"></i> No credit card required • Instant access • 100% free training
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead Capture Modal -->
+    <div id="leadModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            
+            <h2 class="popup-headline">Almost Done...</h2>
+            <h3 class="popup-subheadline">Enter your name & best email to gain instant access</h3>
+            <form method="POST" action="https://gogvo.com/subscribe.php" id="leadForm">
+                    <input type="hidden" name="AffiliateName" value="realmtgNLS">
+                    <input type="hidden" name="CampaignCode" value="2A1IJg6SrDxd">
+                    <input type="hidden" name="TrackParam" value="new_form">
+                    <input type="hidden" name="FormId" value="25005099">
+                    
+                    <div class="form-group">
+                        <label for="FirstName">First Name:</label>
+                        <input type="text" name="FirstName" id="FirstName" required placeholder="Your first name">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="Email">Please enter your email:</label>
+                        <input type="email" name="Email" id="Email" required placeholder="your@email.com">
+                    </div>
+
+                    <button type="submit" class="popup-cta">
+                        Show Me How It Works
+                    </button>
+                    
+                    <img src="https://gogvo.com/show_form.php?id=25005099&TrackParam=new_form" style="display: none;">
+                </form>
+        </div>
+    </div>
+
+    <!-- Legal Footer -->
+    <footer class="legal-footer">
+        <div class="container">
+            <div class="legal-links">
+                <a href="https://bitcoinaiwealth.com/privacy.html" target="_blank">Privacy</a>
+                <span class="legal-separator">|</span>
+                <a href="https://bitcoinaiwealth.com/disclaimer.html" target="_blank">Disclaimer</a>
+                <span class="legal-separator">|</span>
+                <a href="https://bitcoinaiwealth.com/terms.html" target="_blank">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Modal functionality
+        function openModal() {
+            document.getElementById('leadModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('leadModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('leadModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        // Auto-open modal after 30 seconds (optional)
+        setTimeout(function() {
+            if (document.getElementById('leadModal').style.display !== 'block') {
+                openModal();
+            }
+        }, 30000);
+
+        // Countdown timer functionality
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (24 * 60 * 60 * 1000); // 24 hours from now
+            
+            setInterval(function() {
+                const currentTime = new Date().getTime();
+                const timeLeft = endTime - currentTime;
+                
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                const timerElement = document.querySelector('.urgency-timer');
+                if (timerElement) {
+                    timerElement.innerHTML = `<i class="fas fa-clock"></i> ⏰ This offer expires in: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')} - Don't miss out!`;
+                }
+            }, 1000);
+        }
+
+        // Initialize countdown when page loads
+        document.addEventListener('DOMContentLoaded', updateCountdown);
+
+        // Form submission tracking
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            // Track conversion (you can add analytics here)
+            console.log('Lead form submitted');
+            
+            // Optional: Show success message or redirect
+            setTimeout(function() {
+                alert('Success! Check your email for instant access to the Bitcoin AI system.');
+            }, 1000);
+        });
+
+        // Add some interactive effects
+        document.addEventListener('mousemove', function(e) {
+            const bitcoinIcons = document.querySelectorAll('.floating-bitcoin');
+            bitcoinIcons.forEach((icon, index) => {
+                const speed = (index + 1) * 0.0001;
+                const x = e.clientX * speed;
+                const y = e.clientY * speed;
+                icon.style.transform = `translate(${x}px, ${y}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -892,15 +892,17 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(13, 13, 13, 0.95) 100%);
             border: 2px solid var(--primary-gold);
             border-radius: 20px;
-            padding: 3rem 2.5rem;
-            max-width: 500px;
-            width: 100%;
+            padding: 2.5rem 2rem;
+            max-width: 480px;
+            width: 95%;
             max-height: calc(100vh - 2rem);
             position: relative;
             transform: scale(0.8) translateY(30px);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 25px 60px rgba(255, 215, 0, 0.3);
             overflow: hidden;
+            box-sizing: border-box;
+            margin: 1rem;
         }
 
         .popup-container::before {
@@ -967,18 +969,22 @@
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
             border: 2px solid var(--border-color);
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             backdrop-filter: blur(10px);
             margin-bottom: 1.5rem;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         .popup-form table {
             width: 100%;
             border-collapse: collapse;
+            border-spacing: 0;
         }
 
         .popup-form td {
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
+            width: 100%;
         }
 
         .popup-form label {
@@ -986,48 +992,54 @@
             font-weight: 600;
             display: block;
             margin-bottom: 0.5rem;
-            font-size: 1rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .popup-form input[type="email"], .popup-form input[type="text"] {
             width: 100%;
-            padding: 1rem 1.2rem;
+            max-width: 100%;
+            padding: 0.9rem 1rem;
             border: 2px solid var(--border-color);
-            border-radius: 12px;
+            border-radius: 10px;
             background: rgba(0, 0, 0, 0.8);
             color: #ffffff;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s ease;
             font-family: inherit;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
         }
 
         .popup-form input[type="email"]:focus, .popup-form input[type="text"]:focus {
             outline: none;
             border-color: var(--primary-gold);
-            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
             background: rgba(0, 0, 0, 0.9);
         }
 
         .popup-form input[type="email"]::placeholder, .popup-form input[type="text"]::placeholder {
             color: #999;
             font-style: italic;
+            font-size: 0.9rem;
         }
 
         .popup-form input[type="submit"] {
             width: 100%;
-            padding: 1.2rem 1.5rem;
+            max-width: 100%;
+            padding: 1rem 1.2rem;
             background: var(--gradient-cta);
             color: #ffffff;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 1rem;
+            margin-top: 0.5rem;
             font-family: inherit;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -1035,6 +1047,9 @@
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
             animation: pulse-banner 2s ease-in-out infinite;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
         }
 
         .popup-form input[type="submit"]::before {
@@ -1135,6 +1150,70 @@
 
             .expert-tip-icon {
                 margin-bottom: 1rem;
+            }
+
+            .popup-container {
+                width: 92%;
+                margin: 0.5rem;
+                padding: 2rem 1.5rem;
+                max-width: 420px;
+            }
+
+            .popup-form {
+                padding: 15px;
+            }
+
+            .popup-form input[type="email"], .popup-form input[type="text"] {
+                font-size: 16px; /* Prevents zoom on iOS */
+                padding: 0.8rem 0.9rem;
+            }
+
+            .popup-form input[type="submit"] {
+                font-size: 0.95rem;
+                padding: 0.9rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .popup-container {
+                width: 95%;
+                margin: 0.25rem;
+                padding: 1.5rem 1rem;
+                border-radius: 15px;
+            }
+
+            .popup-form {
+                padding: 12px;
+            }
+
+            .popup-title {
+                font-size: 1.6rem;
+            }
+
+            .popup-subtitle {
+                font-size: 1rem;
+            }
+
+            .popup-form label {
+                font-size: 0.9rem;
+            }
+
+            .popup-form input[type="email"], .popup-form input[type="text"] {
+                padding: 0.75rem 0.8rem;
+                font-size: 16px;
+                border-radius: 8px;
+            }
+
+            .popup-form input[type="submit"] {
+                padding: 0.85rem 0.9rem;
+                font-size: 0.9rem;
+                border-radius: 8px;
+            }
+
+            .popup-benefits {
+                flex-direction: column;
+                gap: 0.5rem;
+                font-size: 0.85rem;
             }
         }
     </style>
@@ -1244,7 +1323,7 @@
                     <h3 class="cta-title">🚀 Ready to Start Your Bitcoin Mining Journey?</h3>
                     <p class="cta-description">Join thousands who are already earning daily Bitcoin with breakthrough USB technology. The mining elite don't want you to see this...</p>
                     <div class="cta-buttons">
-                        <a href="https://bitcoinaiwealth.com/btcharvest" target="_blank" rel="noopener" class="btn btn-primary">⛏️ Start Mining Bitcoin Today</a>
+                        <button onclick="openPopup()" class="btn btn-primary">⛏️ Start Mining Bitcoin Today</button>
                     </div>
                 </div>
 
@@ -1338,7 +1417,7 @@
                     <h3 class="cta-title">⏰ Bitcoin Will Be 99% Mined By 2036!</h3>
                     <p class="cta-description">The CLOCK is ticking... This breakthrough technology could revolutionize how you mine Bitcoin and increase your profits. Don't let this opportunity pass you by.</p>
                     <div class="cta-buttons">
-                        <a href="https://bitcoinaiwealth.com/btcharvest" target="_blank" rel="noopener" class="btn btn-primary">⚡ Get Daily Bitcoin Payouts</a>
+                        <button onclick="openPopup()" class="btn btn-primary">⚡ Get Daily Bitcoin Payouts</button>
                     </div>
                 </div>
 
@@ -1479,7 +1558,7 @@
                     <h3 class="cta-title">🎯 The Mining Revolution Starts Here</h3>
                     <p class="cta-description">Discover the breakthrough technology that's making Bitcoin mining accessible to everyone. While big mining farms try to keep this secret, thousands of ordinary people are already earning daily Bitcoin rewards.</p>
                     <div class="cta-buttons">
-                        <a href="https://bitcoinaiwealth.com/btcharvest" target="_blank" rel="noopener" class="btn btn-primary">🚀 Start Earning Daily Bitcoin</a>
+                        <button onclick="openPopup()" class="btn btn-primary">🚀 Start Earning Daily Bitcoin</button>
                     </div>
                 </div>
 
@@ -1539,9 +1618,9 @@
                     <p>
                         Join thousands of forward-thinking individuals who are already using breakthrough USB mining technology to earn daily Bitcoin. Start your journey to financial freedom today.
                     </p>
-                    <a href="https://bitcoinaiwealth.com/btcharvest" target="_blank" rel="noopener" class="btn btn-primary">
+                    <button onclick="openPopup()" class="btn btn-primary">
                         🚀 Start Mining Bitcoin Today
-                    </a>
+                    </button>
                 </div>
             </div>
         </article>
@@ -1676,6 +1755,16 @@
             setTimeout(() => {
                 document.getElementById('firstName').focus();
             }, 300);
+            
+            // Analytics tracking for CTA button clicks
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'cta_button_clicked', {
+                    'event_category': 'engagement',
+                    'event_label': 'popup_opened_via_cta'
+                });
+            }
+            
+            console.log('CTA Button clicked - Lead capture popup opened');
         }
 
         function closePopup() {
@@ -1697,7 +1786,7 @@
             }
         });
 
-        // Form validation
+        // Form validation and submission
         const popupForm = document.querySelector('.popup-form form');
         popupForm.addEventListener('submit', function(e) {
             const firstName = document.getElementById('firstName').value.trim();
@@ -1721,6 +1810,20 @@
             const submitBtn = this.querySelector('input[type="submit"]');
             submitBtn.value = '✅ Processing...';
             submitBtn.disabled = true;
+            
+            // Analytics tracking for form submission
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'lead_form_submitted', {
+                    'event_category': 'conversion',
+                    'event_label': 'usb_mining_blog_form'
+                });
+            }
+            
+            // Redirect to BitHarvest page after a short delay to allow form submission
+            setTimeout(() => {
+                window.open('https://bitcoinaiwealth.com/btcharvest', '_blank');
+                closePopup();
+            }, 2000);
         });
 
         // Exit intent popup

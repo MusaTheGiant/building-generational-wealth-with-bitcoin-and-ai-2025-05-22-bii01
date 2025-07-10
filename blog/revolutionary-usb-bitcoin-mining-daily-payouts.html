@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     
     <!-- SEO OPTIMIZATION -->
     <title>Revolutionary USB Bitcoin Mining Device | Earn Daily BTC Without ASIC Miners</title>
@@ -59,6 +59,8 @@
         html {
             scroll-behavior: smooth;
             font-size: 16px;
+            height: 100%;
+            height: calc(var(--vh, 1vh) * 100); /* Mobile viewport fix */
         }
 
         body {
@@ -69,6 +71,19 @@
             font-weight: 400;
             overflow-x: hidden;
             position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Mobile optimization */
+        @media (max-width: 768px) {
+            body {
+                background: var(--dark-bg); /* Simplified background for mobile */
+                background-attachment: fixed;
+                -webkit-overflow-scrolling: touch;
+                scroll-behavior: smooth;
+            }
         }
 
         /* Animated background particles */
@@ -80,6 +95,7 @@
             height: 100%;
             pointer-events: none;
             z-index: -1;
+            will-change: transform;
         }
 
         .particle {
@@ -89,11 +105,30 @@
             background: var(--primary-gold);
             opacity: 0.3;
             animation: float 6s ease-in-out infinite;
+            will-change: transform, opacity;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
             50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+        }
+
+        /* Mobile particle optimization */
+        @media (max-width: 768px) {
+            .bg-particles {
+                display: none; /* Disable particles on mobile for performance */
+            }
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            .particle {
+                animation: none;
+            }
+            
+            .bg-particles {
+                display: none;
+            }
         }
 
         .container {
@@ -180,11 +215,20 @@
             display: inline-block;
             box-shadow: 0 4px 20px rgba(255, 107, 53, 0.3);
             animation: pulse-banner 2s ease-in-out infinite;
+            will-change: transform;
         }
 
         @keyframes pulse-banner {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
+        }
+
+        /* Mobile banner optimization */
+        @media (max-width: 768px) {
+            .urgency-banner {
+                animation: none; /* Disable pulsing on mobile */
+                transform: none;
+            }
         }
 
         /* PROGRESS BAR */
@@ -549,6 +593,8 @@
             position: relative;
             overflow: hidden;
             animation: pulse-banner 2s ease-in-out infinite;
+            will-change: transform;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .btn::before {
@@ -589,6 +635,34 @@
             color: #000000 !important;
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.5);
+        }
+
+        /* Mobile button optimization */
+        @media (max-width: 768px) {
+            .btn {
+                animation: none; /* Disable pulsing animation */
+                transition: background-color 0.3s ease, color 0.3s ease;
+                transform: none !important;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2) !important;
+            }
+
+            .btn:hover, .btn:active, .btn:focus {
+                transform: none !important;
+                box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3) !important;
+            }
+
+            .btn::before {
+                display: none; /* Disable shimmer effect */
+            }
+
+            .btn-primary:hover, .btn-primary:active {
+                background: var(--gradient-primary) !important;
+            }
+
+            .btn-secondary:hover, .btn-secondary:active {
+                background: var(--primary-gold) !important;
+                color: #000000 !important;
+            }
         }
 
         /* KEY TAKEAWAYS */
@@ -1799,11 +1873,17 @@
     </footer>
 
     <script>
-        // Create animated particles
+        // Create animated particles (desktop only)
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = window.innerWidth > 768 ? 50 : 25;
             
+            // Skip particles on mobile devices for performance
+            if (window.innerWidth <= 768 || 'ontouchstart' in window) {
+                particlesContainer.innerHTML = '';
+                return;
+            }
+            
+            const particleCount = window.innerWidth > 1200 ? 50 : 30;
             particlesContainer.innerHTML = '';
             
             for (let i = 0; i < particleCount; i++) {
@@ -1908,11 +1988,25 @@
 
         closePopupBtn.addEventListener('click', closePopup);
 
+        // Enhanced mobile popup handling
         popupOverlay.addEventListener('click', function(e) {
             if (e.target === popupOverlay) {
                 closePopup();
             }
         });
+
+        // Prevent body scroll when popup is open (mobile fix)
+        popupOverlay.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, {passive: false});
+
+        // Allow scrolling only within popup container on mobile
+        const popupContainer = document.querySelector('.popup-container');
+        if (popupContainer) {
+            popupContainer.addEventListener('touchmove', function(e) {
+                e.stopPropagation();
+            }, {passive: true});
+        }
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
@@ -1996,26 +2090,7 @@
             }
         });
 
-        // Reading progress
-        window.addEventListener('scroll', function() {
-            const article = document.querySelector('.article-content');
-            const progressBar = document.getElementById('progressBar');
-            const progressIndicator = document.getElementById('readingProgress');
-            
-            if (!article) return;
-            
-            const articleTop = article.offsetTop;
-            const articleHeight = article.offsetHeight;
-            const windowHeight = window.innerHeight;
-            const scrollTop = window.pageYOffset;
-            
-            const progress = Math.min(100, Math.max(0, ((scrollTop - articleTop + windowHeight) / articleHeight) * 100));
-            
-            progressBar.style.width = progress + '%';
-            progressIndicator.textContent = Math.round(progress) + '%';
-        });
-
-        // Smooth scroll for anchor links
+        // Smooth scroll for anchor links with mobile optimization
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -2023,10 +2098,19 @@
                 if (target) {
                     const headerHeight = document.querySelector('.header').offsetHeight;
                     const targetPosition = target.offsetTop - headerHeight - 20;
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
+                    
+                    // Use different scroll behavior for mobile
+                    if (window.innerWidth <= 768) {
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
                 }
             });
         });
@@ -2073,14 +2157,122 @@
             });
         });
 
-        // Initialize particles on load
+        // Initialize on DOM load with comprehensive mobile optimization
         document.addEventListener('DOMContentLoaded', function() {
+            // Initialize particles only on desktop
             createParticles();
+            
+            // Mobile stability optimizations
+            if ('ontouchstart' in window) {
+                // Prevent iOS bounce scrolling
+                document.body.addEventListener('touchstart', function() {}, {passive: true});
+                
+                // Optimize touch scrolling
+                document.addEventListener('touchmove', function(e) {
+                    if (popupOverlay.classList.contains('active')) {
+                        const target = e.target;
+                        const popup = document.querySelector('.popup-container');
+                        
+                        // Allow scrolling within popup, prevent elsewhere
+                        if (!popup.contains(target)) {
+                            e.preventDefault();
+                        }
+                    }
+                }, {passive: false});
+                
+                // Prevent double-tap zoom
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', function(e) {
+                    const now = (new Date()).getTime();
+                    if (now - lastTouchEnd <= 300) {
+                        e.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+                
+                // Stabilize viewport height on mobile
+                const setViewportHeight = () => {
+                    let vh = window.innerHeight * 0.01;
+                    document.documentElement.style.setProperty('--vh', `${vh}px`);
+                };
+                
+                setViewportHeight();
+                window.addEventListener('resize', setViewportHeight);
+                window.addEventListener('orientationchange', function() {
+                    setTimeout(setViewportHeight, 200);
+                });
+                
+                // Optimize scroll performance
+                let ticking = false;
+                function updateScrollPosition() {
+                    // Throttle scroll events for performance
+                    if (!ticking) {
+                        requestAnimationFrame(function() {
+                            // Update progress bar and other scroll-dependent elements
+                            updateReadingProgress();
+                            ticking = false;
+                        });
+                        ticking = true;
+                    }
+                }
+                
+                window.addEventListener('scroll', updateScrollPosition, {passive: true});
+            }
         });
 
-        // Responsive particle adjustment
+        // Optimized reading progress function
+        function updateReadingProgress() {
+            const article = document.querySelector('.article-content');
+            const progressBar = document.getElementById('progressBar');
+            const progressIndicator = document.getElementById('readingProgress');
+            
+            if (!article) return;
+            
+            const articleTop = article.offsetTop;
+            const articleHeight = article.offsetHeight;
+            const windowHeight = window.innerHeight;
+            const scrollTop = window.pageYOffset;
+            
+            const progress = Math.min(100, Math.max(0, ((scrollTop - articleTop + windowHeight) / articleHeight) * 100));
+            
+            if (progressBar) progressBar.style.width = progress + '%';
+            if (progressIndicator) progressIndicator.textContent = Math.round(progress) + '%';
+        }
+
+        // Optimized resize handler with mobile support
+        let resizeTimeout;
         window.addEventListener('resize', function() {
-            createParticles();
+            // Debounce resize events
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                createParticles();
+                
+                // Handle mobile orientation changes smoothly
+                if (popupOverlay.classList.contains('active') && window.innerWidth <= 768) {
+                    // Temporarily hide popup during resize to prevent jumping
+                    popupOverlay.style.transition = 'none';
+                    setTimeout(() => {
+                        popupOverlay.style.transition = '';
+                        // Recenter popup after orientation change
+                        const popup = document.querySelector('.popup-container');
+                        if (popup) {
+                            popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }, 100);
+                }
+            }, 250);
+        });
+
+        // Handle mobile orientation changes
+        window.addEventListener('orientationchange', function() {
+            if (popupOverlay.classList.contains('active')) {
+                setTimeout(() => {
+                    const popup = document.querySelector('.popup-container');
+                    if (popup && window.innerWidth <= 768) {
+                        popup.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 500); // Longer delay for orientation change
+            }
         });
 
         // Dynamic view counter

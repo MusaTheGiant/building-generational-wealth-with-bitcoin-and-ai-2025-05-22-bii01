@@ -305,6 +305,30 @@
             box-shadow: 0 10px 25px rgba(255, 140, 0, 0.4);
         }
 
+        /* Trust Indicators */
+        .trust-indicators {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #cccccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .trust-indicators span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+        }
+
+        .trust-indicators .checkmark {
+            color: #FF8C00;
+            font-size: 12px;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero {
@@ -340,6 +364,15 @@
 
             .popup-subheadline {
                 font-size: 18px;
+            }
+
+            .trust-indicators {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .trust-indicators span {
+                font-size: 13px;
             }
         }
 
@@ -446,6 +479,12 @@
                     <button type="submit" class="popup-cta">
                         Show Me How It Works!
                     </button>
+
+                    <div class="trust-indicators">
+                        <span><i class="fas fa-check checkmark"></i> No Spam</span>
+                        <span><i class="fas fa-check checkmark"></i> No Fluff</span>
+                        <span><i class="fas fa-check checkmark"></i> Trusted by Thousands</span>
+                    </div>
                     
                     <img src="https://gogvo.com/show_form.php?id=25005099&TrackParam=new_form" style="display: none;">
                 </form>
@@ -539,4 +578,3 @@
     </script>
 </body>
 </html>
-

@@ -226,16 +226,19 @@
             50% { transform: scale(1.05); }
         }
 
-        /* PROGRESS BAR */
+        /* FIXED PROGRESS BAR STYLES */
         .progress-bar {
             position: fixed;
             top: 0;
             left: 0;
             width: 0%;
-            height: 3px;
+            height: 4px;
             background: var(--gradient-primary);
-            z-index: 1000;
-            transition: width 0.3s ease;
+            z-index: 10001;
+            transition: width 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 10px rgba(255, 215, 0, 0.4);
+            will-change: width;
+            transform: translateZ(0);
         }
 
         /* BREADCRUMBS */
@@ -1162,7 +1165,7 @@
             font-weight: 500;
         }
 
-        /* READING PROGRESS */
+        /* FIXED READING PROGRESS INDICATOR */
         .reading-progress {
             position: fixed;
             bottom: 2rem;
@@ -1178,8 +1181,20 @@
             font-size: 0.9rem;
             font-weight: bold;
             color: var(--primary-gold);
-            z-index: 100;
+            z-index: 10000;
             box-shadow: 0 4px 15px var(--shadow-gold);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            will-change: transform;
+            user-select: none;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .reading-progress:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px var(--shadow-gold-intense);
         }
 
         /* RESPONSIVE DESIGN */
@@ -1222,6 +1237,25 @@
             .expert-tip-icon {
                 margin-bottom: 1rem;
             }
+
+            .reading-progress {
+                width: 60px;
+                height: 60px;
+                bottom: 1rem;
+                right: 1rem;
+                font-size: 0.8rem;
+            }
+            
+            .progress-bar {
+                height: 3px;
+            }
+        }
+
+        /* High DPI display optimization */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .progress-bar {
+                transform: translateZ(0) scale(1);
+            }
         }
     </style>
 </head>
@@ -1229,7 +1263,7 @@
     <!-- Animated background particles -->
     <div class="bg-particles" id="particles"></div>
 
-    <!-- Progress Bar -->
+    <!-- FIXED Progress Bar -->
     <div class="progress-bar" id="progressBar"></div>
 
     <!-- Header -->
@@ -1843,8 +1877,8 @@
         </div>
     </div>
 
-    <!-- Reading Progress Indicator -->
-    <div class="reading-progress" id="readingProgress" title="Reading Progress">0%</div>
+    <!-- FIXED Reading Progress Indicator -->
+    <div class="reading-progress" id="readingProgress" title="Reading Progress - Click to scroll to top">0%</div>
 
     <!-- Footer -->
     <footer style="text-align:center; padding:3rem 1rem; border-top:2px solid var(--border-color); margin-top:4rem; color:var(--text-secondary); font-size:0.9rem; background: linear-gradient(135deg, rgba(0,0,0,0.9) 0%, rgba(13,13,13,0.9) 100%);">
@@ -1880,6 +1914,181 @@
 
         // Auto-update year
         document.getElementById('dynamic-year').textContent = new Date().getFullYear();
+
+        // ENHANCED READING PROGRESS SYSTEM
+        class ReadingProgress {
+            constructor() {
+                this.progressBar = document.getElementById('progressBar');
+                this.progressIndicator = document.getElementById('readingProgress');
+                
+                // Throttle scroll events for better performance
+                this.isScrolling = false;
+                this.scrollTimeout = null;
+                
+                // Bind methods
+                this.handleScroll = this.handleScroll.bind(this);
+                this.handleResize = this.handleResize.bind(this);
+                this.scrollToTop = this.scrollToTop.bind(this);
+                
+                this.init();
+            }
+            
+            init() {
+                // Add event listeners with passive scrolling for better performance
+                window.addEventListener('scroll', this.handleScroll, { passive: true });
+                window.addEventListener('resize', this.handleResize, { passive: true });
+                
+                // Click to scroll to top functionality
+                if (this.progressIndicator) {
+                    this.progressIndicator.addEventListener('click', this.scrollToTop);
+                }
+                
+                // Initial calculation
+                this.updateProgress();
+                
+                console.log('Reading Progress initialized successfully');
+            }
+            
+            handleScroll() {
+                if (!this.isScrolling) {
+                    window.requestAnimationFrame(() => {
+                        this.updateProgress();
+                        this.isScrolling = false;
+                    });
+                    this.isScrolling = true;
+                }
+            }
+            
+            handleResize() {
+                // Debounce resize events
+                clearTimeout(this.scrollTimeout);
+                this.scrollTimeout = setTimeout(() => {
+                    this.updateProgress();
+                }, 150);
+            }
+            
+            updateProgress() {
+                try {
+                    // Get scroll position with cross-browser compatibility
+                    const scrollTop = window.pageYOffset || window.scrollY || 
+                                    document.documentElement.scrollTop || 
+                                    document.body.scrollTop || 0;
+                    
+                    // Get total scrollable height
+                    const documentHeight = Math.max(
+                        document.body.scrollHeight,
+                        document.body.offsetHeight,
+                        document.documentElement.clientHeight,
+                        document.documentElement.scrollHeight,
+                        document.documentElement.offsetHeight
+                    );
+                    
+                    // Get window height
+                    const windowHeight = window.innerHeight || 
+                                       document.documentElement.clientHeight || 
+                                       document.body.clientHeight;
+                    
+                    // Calculate total scrollable distance
+                    const totalScrollDistance = documentHeight - windowHeight;
+                    
+                    // Calculate progress percentage
+                    let progress = 0;
+                    if (totalScrollDistance > 0) {
+                        progress = Math.min(100, Math.max(0, (scrollTop / totalScrollDistance) * 100));
+                    }
+                    
+                    // Update progress bar
+                    if (this.progressBar) {
+                        this.progressBar.style.width = progress + '%';
+                    }
+                    
+                    // Update progress indicator
+                    if (this.progressIndicator) {
+                        this.progressIndicator.textContent = Math.round(progress) + '%';
+                        
+                        // Hide indicator when at top, show when scrolling
+                        if (progress < 1) {
+                            this.progressIndicator.style.opacity = '0';
+                            this.progressIndicator.style.pointerEvents = 'none';
+                        } else {
+                            this.progressIndicator.style.opacity = '1';
+                            this.progressIndicator.style.pointerEvents = 'auto';
+                        }
+                    }
+                    
+                } catch (error) {
+                    console.warn('Reading progress update error:', error);
+                }
+            }
+            
+            scrollToTop() {
+                // Smooth scroll to top with cross-browser support
+                if ('scrollBehavior' in document.documentElement.style) {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                } else {
+                    // Fallback for older browsers
+                    const scrollStep = -window.scrollY / (500 / 15);
+                    const scrollInterval = setInterval(() => {
+                        if (window.scrollY !== 0) {
+                            window.scrollBy(0, scrollStep);
+                        } else {
+                            clearInterval(scrollInterval);
+                        }
+                    }, 15);
+                }
+            }
+            
+            // Public method to update progress manually if needed
+            refresh() {
+                this.updateProgress();
+            }
+            
+            // Cleanup method
+            destroy() {
+                window.removeEventListener('scroll', this.handleScroll);
+                window.removeEventListener('resize', this.handleResize);
+                if (this.progressIndicator) {
+                    this.progressIndicator.removeEventListener('click', this.scrollToTop);
+                }
+                clearTimeout(this.scrollTimeout);
+            }
+        }
+
+        // Initialize the reading progress system
+        function initializeReadingProgress() {
+            if (window.readingProgress) {
+                window.readingProgress.destroy();
+            }
+            window.readingProgress = new ReadingProgress();
+        }
+
+        // Initialize when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeReadingProgress);
+        } else {
+            initializeReadingProgress();
+        }
+
+        // Additional optimizations for mobile devices
+        if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+            document.addEventListener('touchstart', function() {
+                if (window.readingProgress) {
+                    window.readingProgress.refresh();
+                }
+            }, { passive: true });
+        }
+
+        // Handle page visibility changes (when user switches tabs)
+        document.addEventListener('visibilitychange', function() {
+            if (!document.hidden && window.readingProgress) {
+                setTimeout(() => {
+                    window.readingProgress.refresh();
+                }, 100);
+            }
+        });
 
         // Session-based popup control
         const POPUP_SESSION_KEY = 'bitcoinaiwealth_ath_popup_shown';
@@ -2008,25 +2217,6 @@
                     }, 2000);
                 }
             }
-        });
-
-        // Reading progress
-        window.addEventListener('scroll', function() {
-            const article = document.querySelector('.article-content');
-            const progressBar = document.getElementById('progressBar');
-            const progressIndicator = document.getElementById('readingProgress');
-            
-            if (!article) return;
-            
-            const articleTop = article.offsetTop;
-            const articleHeight = article.offsetHeight;
-            const windowHeight = window.innerHeight;
-            const scrollTop = window.pageYOffset;
-            
-            const progress = Math.min(100, Math.max(0, ((scrollTop - articleTop + windowHeight) / articleHeight) * 100));
-            
-            progressBar.style.width = progress + '%';
-            progressIndicator.textContent = Math.round(progress) + '%';
         });
 
         // Smooth scroll for anchor links
@@ -2183,6 +2373,16 @@
         }
 
         preloadCriticalResources();
+
+        // Test reading progress on page load
+        setTimeout(() => {
+            if (window.readingProgress) {
+                console.log('✅ Reading Progress System: WORKING');
+                window.readingProgress.refresh();
+            } else {
+                console.log('❌ Reading Progress System: FAILED TO INITIALIZE');
+            }
+        }, 1000);
     </script>
 
     <!-- Additional SEO and Performance Optimizations -->

@@ -485,6 +485,57 @@
             50% { opacity: 1; transform: scale(1); }
         }
 
+        /* Mission Section Styles */
+        .mission-section {
+            max-width: 900px;
+            width: 100%;
+            margin: 0 auto 60px auto;
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
+            padding: 40px 40px;
+            text-align: center;
+            box-shadow: none;
+            border: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mission-text {
+            font-size: 17px;
+            color: #e0e0e0;
+            line-height: 1.7;
+            margin-bottom: 0;
+            max-width: 680px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 300;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .mission-section {
+                padding: 30px 30px;
+                margin-bottom: 40px;
+            }
+            
+            .mission-text {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mission-section {
+                padding: 25px 20px;
+                margin-bottom: 35px;
+            }
+            
+            .mission-text {
+                font-size: 15px;
+            }
+        }
+
         /* Footer Styles */
         .footer {
             width: 100%;
@@ -984,6 +1035,15 @@
        
 </div>
 </div>
+
+<!-- Mission Section -->
+<div class="mission-section">
+<div class="mission-text">
+<strong>🎯 Mission:</strong><br/>
+To help beginners and pros build recurring crypto affiliate income, systematically reinvesting 35% through weekly DCA to grow a diversified cryptocurrency portfolio - transforming active earnings into passive wealth.
+</div>
+</div>
+
 <!-- Footer Section -->
 <footer class="footer">
 <div class="footer-sparkle"></div>

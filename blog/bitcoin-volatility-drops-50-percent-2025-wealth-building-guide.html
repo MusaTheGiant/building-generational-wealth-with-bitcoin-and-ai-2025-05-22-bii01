@@ -1142,6 +1142,11 @@
             margin-bottom: 1rem;
             background: rgba(15, 15, 15, 0.5);
             overflow: hidden;
+            transition: border-color 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--primary-color);
         }
 
         .faq-question {
@@ -1159,10 +1164,17 @@
             align-items: flex-start;
             gap: 1rem;
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .faq-question:hover {
             color: var(--primary-color);
+            background: rgba(245, 158, 11, 0.05);
+        }
+
+        .faq-question:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
         }
 
         .faq-question span:first-child {
@@ -1174,35 +1186,42 @@
         .faq-icon {
             font-size: 1.2rem;
             color: var(--primary-color);
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, color 0.3s ease;
             flex-shrink: 0;
             min-width: 20px;
             text-align: center;
+            font-weight: bold;
         }
 
         .faq-question.active .faq-icon {
             transform: rotate(45deg);
+            color: var(--secondary-color);
+        }
+
+        .faq-question:hover .faq-icon {
+            color: var(--secondary-color);
         }
 
         .faq-answer {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
+            transition: max-height 0.5s ease, padding 0.5s ease;
             background: rgba(26, 26, 26, 0.8);
             padding: 0 1.5rem;
         }
 
         .faq-answer.active {
-            max-height: 1000px;
             padding: 1.5rem;
+            /* Max-height will be set dynamically by JavaScript */
         }
 
         .faq-answer p {
             color: var(--text-secondary);
-            line-height: 1.7;
+            line-height: 1.8;
             margin: 0;
             word-wrap: break-word;
             overflow-wrap: break-word;
+            hyphens: auto;
         }
 
         /* READING PROGRESS */
@@ -1358,12 +1377,12 @@
             }
 
             .faq-answer.active {
-                max-height: 1500px;
                 padding: 1.2rem;
+                /* Max-height set dynamically by JavaScript */
             }
 
             .faq-answer p {
-                line-height: 1.8;
+                line-height: 1.9;
                 font-size: 0.95rem;
             }
         }
@@ -1468,12 +1487,12 @@
             }
 
             .faq-answer.active {
-                max-height: 2000px;
                 padding: 1rem;
+                /* Max-height set dynamically by JavaScript */
             }
 
             .faq-answer p {
-                line-height: 1.9;
+                line-height: 2.0;
                 font-size: 0.9rem;
                 word-break: break-word;
                 hyphens: auto;
@@ -2232,44 +2251,85 @@
             progressIndicator.textContent = Math.round(progress) + '%';
         });
 
-        // FAQ functionality with dynamic height calculation
+        // FAQ functionality with enhanced mobile support and dynamic height calculation
         function initializeFAQ() {
             const faqQuestions = document.querySelectorAll('.faq-question');
             
             faqQuestions.forEach(question => {
-                question.addEventListener('click', function() {
-                    const currentAnswer = this.nextElementSibling;
-                    const isCurrentlyActive = this.classList.contains('active');
-                    
-                    // Close all FAQ items
-                    faqQuestions.forEach(q => {
-                        q.classList.remove('active');
-                        const answer = q.nextElementSibling;
-                        answer.classList.remove('active');
-                        answer.style.maxHeight = '0';
-                    });
-                    
-                    // If the clicked item wasn't active, open it
-                    if (!isCurrentlyActive) {
-                        this.classList.add('active');
-                        currentAnswer.classList.add('active');
-                        
-                        // Calculate dynamic height for mobile optimization
-                        setTimeout(() => {
-                            const contentHeight = currentAnswer.scrollHeight;
-                            currentAnswer.style.maxHeight = contentHeight + 'px';
-                        }, 10);
+                // Handle both click and keyboard events
+                question.addEventListener('click', handleFAQToggle);
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        handleFAQToggle.call(this);
                     }
                 });
             });
 
-            // Handle window resize to recalculate heights
-            window.addEventListener('resize', function() {
-                const activeAnswers = document.querySelectorAll('.faq-answer.active');
-                activeAnswers.forEach(answer => {
-                    const contentHeight = answer.scrollHeight;
-                    answer.style.maxHeight = contentHeight + 'px';
+            function handleFAQToggle() {
+                const currentAnswer = this.nextElementSibling;
+                const isCurrentlyActive = this.classList.contains('active');
+                
+                // Close all FAQ items first
+                faqQuestions.forEach(q => {
+                    q.classList.remove('active');
+                    q.setAttribute('aria-expanded', 'false');
+                    const answer = q.nextElementSibling;
+                    answer.classList.remove('active');
+                    answer.style.maxHeight = '0';
                 });
+                
+                // If the clicked item wasn't active, open it
+                if (!isCurrentlyActive) {
+                    this.classList.add('active');
+                    this.setAttribute('aria-expanded', 'true');
+                    currentAnswer.classList.add('active');
+                    
+                    // Calculate and set dynamic height with buffer for all screen sizes
+                    const calculateHeight = () => {
+                        const contentHeight = currentAnswer.scrollHeight;
+                        const buffer = 30; // Extra buffer for safety
+                        currentAnswer.style.maxHeight = (contentHeight + buffer) + 'px';
+                    };
+                    
+                    // Set height immediately and after delays for reliability
+                    setTimeout(calculateHeight, 10);
+                    setTimeout(calculateHeight, 100);
+                    setTimeout(calculateHeight, 200);
+                }
+            }
+
+            // Enhanced window resize handler to recalculate heights
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    const activeAnswers = document.querySelectorAll('.faq-answer.active');
+                    activeAnswers.forEach(answer => {
+                        const contentHeight = answer.scrollHeight;
+                        const buffer = 30;
+                        answer.style.maxHeight = (contentHeight + buffer) + 'px';
+                    });
+                }, 250);
+            });
+
+            // Handle orientation changes on mobile devices
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    const activeAnswers = document.querySelectorAll('.faq-answer.active');
+                    activeAnswers.forEach(answer => {
+                        const contentHeight = answer.scrollHeight;
+                        const buffer = 30;
+                        answer.style.maxHeight = (contentHeight + buffer) + 'px';
+                    });
+                }, 500);
+            });
+
+            // Initialize ARIA attributes
+            faqQuestions.forEach(question => {
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('role', 'button');
+                question.setAttribute('tabindex', '0');
             });
         }
 

@@ -8,7 +8,6 @@
     
     <!-- SEO Meta Tags -->
     <title>[PRODUCT_NAME] Review 2025: [BENEFIT_STATEMENT] | Bitcoin AI Wealth</title>
-    <link href="favicon.png" rel="icon" type="image/png"/>
     <meta name="description" content="[PRODUCT_DESCRIPTION_150_CHARS] - Comprehensive review with pros, cons, pricing, and real user testimonials.">
     <meta name="keywords" content="[PRODUCT_NAME], bitcoin, crypto, affiliate, review, [ADDITIONAL_KEYWORDS]">
     <meta name="author" content="Bitcoin AI Wealth">
@@ -314,38 +313,48 @@
         </section>
         
         <!-- Table of Contents -->
-        <nav id="table-of-contents" class="py-8 bg-black sticky top-16 z-40 border-b border-gray-800">
+        <nav id="table-of-contents" class="py-8 bg-black border-b border-gray-800">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-xl font-semibold mb-4 text-orange-400">Table of Contents</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-                        <a href="#what-is" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">1.</span> What is [Product Name]?
-                        </a>
-                        <a href="#who-created" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">2.</span> Who Created It?
-                        </a>
-                        <a href="#key-features" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">3.</span> Key Features
-                        </a>
-                        <a href="#how-it-works" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">4.</span> How It Works
-                        </a>
-                        <a href="#pricing" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">5.</span> Pricing & Plans
-                        </a>
-                        <a href="#pros-cons" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">6.</span> Pros & Cons
-                        </a>
-                        <a href="#testimonials" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">7.</span> Testimonials
-                        </a>
-                        <a href="#my-experience" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">8.</span> My Experience
-                        </a>
-                        <a href="#faq" class="block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
-                            <span class="text-orange-400 font-medium">9.</span> FAQ
-                        </a>
+                    <div class="flex items-center justify-between mb-4">
+                        <h2 class="text-xl font-semibold text-orange-400">Table of Contents</h2>
+                        <button id="toc-toggle" class="md:hidden bg-orange-500 text-black px-3 py-1 rounded-lg font-medium hover:bg-orange-400 transition-colors">
+                            <span class="toc-toggle-text">Show</span>
+                            <svg class="w-4 h-4 inline-block ml-1 toc-toggle-icon transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div id="toc-content" class="hidden md:block">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+                            <a href="#what-is" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">1.</span> What is [Product Name]?
+                            </a>
+                            <a href="#who-created" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">2.</span> Who Created It?
+                            </a>
+                            <a href="#key-features" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">3.</span> Key Features
+                            </a>
+                            <a href="#how-it-works" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">4.</span> How It Works
+                            </a>
+                            <a href="#pricing" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">5.</span> Pricing & Plans
+                            </a>
+                            <a href="#pros-cons" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">6.</span> Pros & Cons
+                            </a>
+                            <a href="#testimonials" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">7.</span> Testimonials
+                            </a>
+                            <a href="#my-experience" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">8.</span> My Experience
+                            </a>
+                            <a href="#faq" class="toc-link block p-3 rounded-lg bg-gray-900 hover:bg-gray-800 transition-colors duration-300">
+                                <span class="text-orange-400 font-medium">9.</span> FAQ
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1329,6 +1338,48 @@
             }
         }
 
+        // Table of Contents Toggle Functionality
+        function toggleTableOfContents() {
+            const tocContent = document.getElementById('toc-content');
+            const toggleText = document.querySelector('.toc-toggle-text');
+            const toggleIcon = document.querySelector('.toc-toggle-icon');
+            
+            if (tocContent.classList.contains('hidden')) {
+                tocContent.classList.remove('hidden');
+                toggleText.textContent = 'Hide';
+                toggleIcon.style.transform = 'rotate(180deg)';
+            } else {
+                tocContent.classList.add('hidden');
+                toggleText.textContent = 'Show';
+                toggleIcon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        // Initialize Table of Contents Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const tocToggle = document.getElementById('toc-toggle');
+            if (tocToggle) {
+                tocToggle.addEventListener('click', toggleTableOfContents);
+            }
+
+            // Auto-hide TOC on mobile after clicking a link
+            const tocLinks = document.querySelectorAll('.toc-link');
+            tocLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    // On mobile, hide the TOC after clicking a link
+                    if (window.innerWidth < 768) {
+                        const tocContent = document.getElementById('toc-content');
+                        const toggleText = document.querySelector('.toc-toggle-text');
+                        const toggleIcon = document.querySelector('.toc-toggle-icon');
+                        
+                        tocContent.classList.add('hidden');
+                        toggleText.textContent = 'Show';
+                        toggleIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
         // Mobile Menu Toggle
         function toggleMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
@@ -1404,4 +1455,3 @@
     </script>
 </body>
 </html>
-

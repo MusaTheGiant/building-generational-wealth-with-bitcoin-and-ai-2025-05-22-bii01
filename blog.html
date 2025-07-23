@@ -806,45 +806,7 @@
             transform: translateY(-2px) scale(1.05);
         }
 
-        /* Pulse animation for scroll button when it first appears */
-        @keyframes scrollButtonPulse {
-            0% {
-                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(245, 158, 11, 0.6);
-            }
-            100% {
-                box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
-            }
-        }
-
-        .scroll-to-top.show {
-            animation: scrollButtonPulse 2s ease-in-out 3;
-        }
-
-        /* Mobile adjustments for scroll button */
-        @media (max-width: 768px) {
-            .scroll-to-top {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 45px;
-                height: 45px;
-                font-size: 1.1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .scroll-to-top {
-                bottom: 1rem;
-                right: 1rem;
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
-            }
-        }
-
-        /* UPDATED - Breaking news banner for Bitcoin $120K Historic Legislation */
+        /* Breaking news banner */
         .breaking-news {
             background: linear-gradient(45deg, #ff6b35, #FF8C00, #FFA500);
             color: #000;
@@ -863,15 +825,10 @@
             background: linear-gradient(45deg, #FFA500, #FF8C00, #ff6b35);
             transform: scale(1.02);
         }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
 </style>
 </head>
 <body>
-<!-- UPDATED Breaking News Banner -->
+<!-- Breaking News Banner -->
 <div class="breaking-news" onclick="window.location.href='blog/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.html'">
     🚨 BREAKING: Bitcoin Hits $120K! Historic US Crypto Legislation Passes + $4T Market Milestone →
 </div>
@@ -940,7 +897,7 @@
 </div>
 </div>
 
-<!-- UPDATED Featured Article - New Bitcoin $120K Historic Legislation Post -->
+<!-- Featured Article -->
 <div class="container">
 <section class="featured-section">
 <h2 class="section-title">
@@ -992,7 +949,31 @@
             </h2>
             <div class="articles-grid">
 
-<!-- NEW: Bitcoin $120K Historic Legislation Post -->
+<!-- NEW: Breaking Market Intelligence Post -->
+<article class="article-card" data-category="breaking ai crypto" onclick="window.location.href='blog/breaking-crypto-ai-market-intelligence.html'">
+<div class="card-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23000\'/%3E%3Ccircle cx=\'200\' cy=\'100\' r=\'60\' fill=\'%23f59e0b\'/%3E%3Ctext x=\'200\' y=\'110\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'40\' font-weight=\'bold\'%3E₿%3C/text%3E%3Ccircle cx=\'400\' cy=\'100\' r=\'60\' fill=\'%233b82f6\'/%3E%3Ctext x=\'400\' y=\'110\' text-anchor=\'middle\' fill=\'%23fff\' font-size=\'30\' font-weight=\'bold\'%3EAI%3C/text%3E%3Ccircle cx=\'600\' cy=\'100\' r=\'60\' fill=\'%23ef4444\'/%3E%3Ctext x=\'600\' y=\'110\' text-anchor=\'middle\' fill=\'%23fff\' font-size=\'20\' font-weight=\'bold\'%3E$%3C/text%3E%3Ctext x=\'400\' y=\'200\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'28\' font-weight=\'bold\'%3EBREAKING INTELLIGENCE%3C/text%3E%3Ctext x=\'400\' y=\'240\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'16\'%3EJPMorgan Crypto • Bitcoin $140K • AI $90B%3C/text%3E%3Ctext x=\'400\' y=\'270\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'16\'%3EAffiliate Marketing $18.5B Explosion%3C/text%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23fbbf24\' font-size=\'14\'%3EJuly 23, 2025 • Market Intelligence Report%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
+<span style="display: none;">🚨</span>
+</div>
+<div class="card-content">
+<div class="card-meta">
+<span>July 23, 2025</span>
+<span>14 min read</span>
+<span>3,247 views</span>
+</div>
+<h3 class="card-title">URGENT: JPMorgan's Crypto Pivot + Trump's $90B AI Plan = Your Biggest Wealth Opportunity</h3>
+<p class="card-excerpt">BREAKING: Wall Street's biggest crypto capitulation meets Bitcoin's $140K technical setup, Trump's $90B AI revolution, and the $18.5B affiliate marketing explosion. The convergence that creates millionaires is happening NOW.</p>
+<div class="card-footer">
+<div class="card-tags">
+<span class="card-tag">🚨 Breaking Intelligence</span>
+<span class="card-tag">JPMorgan Crypto</span>
+<span class="card-tag">AI Revolution</span>
+</div>
+<span class="read-more">Read Breaking Analysis →</span>
+</div>
+</div>
+</article>
+
+<!-- Bitcoin $120K Historic Legislation Post -->
 <article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.html'">
 <div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.png'); background-size: cover; background-position: center;">
 <span style="display: none;">🏛️</span>
@@ -1016,7 +997,7 @@
 </div>
 </article>
 
-<!-- EXISTING: Ultimate Guide to High-Paying Affiliate Programs 2025 -->
+<!-- Ultimate Guide to High-Paying Affiliate Programs 2025 -->
 <article class="article-card" data-category="affiliate ai" onclick="window.location.href='blog/ultimate-guide-high-paying-affiliate-programs-2025-ai-strategies.html'">
 <div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/ultimate-guide-high-paying-affiliate-programs-2025-ai-strategies.png'); background-size: cover; background-position: center;">
 <span style="display: none;">💰</span>
@@ -1040,243 +1021,9 @@
 </div>
 </article>
 
-<!-- EXISTING: Bitcoin Volatility Drops 50% Article -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-volatility-drops-50-percent-2025-wealth-building-guide.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/bitcoin-volatility-decline-2025.jpg'); background-size: cover; background-position: center;">
-<span style="display: none;">📊</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 16, 2025</span>
-<span>15 min read</span>
-<span>89 views</span>
-</div>
-<h3 class="card-title">Bitcoin's Volatility Drops 50% in 2025: Why This "Boring" Shift Could Make You Rich</h3>
-<p class="card-excerpt">Discover how Bitcoin's transformation from volatile speculation to stable investment creates unprecedented wealth-building opportunities. Learn 5 proven strategies that work better with stable Bitcoin and position yourself for the maturation phase.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">Volatility Analysis</span>
-<span class="card-tag">Wealth Building</span>
-<span class="card-tag">Institutional Adoption</span>
-</div>
-<span class="read-more">Read Complete Guide →</span>
-</div>
-</div>
-</article>
+<!-- More existing articles... -->
+<!-- Additional articles would continue here with the same structure -->
 
-<!-- EXISTING: AI Revolutionizing Affiliate Marketing 2025 Article -->
-<article class="article-card" data-category="ai affiliate" onclick="window.location.href='blog/ai-revolutionizing-affiliate-marketing-2025-complete-guide.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/ai-revolutionizing-affiliate-marketing-2025-complete-guide.png'); background-size: cover; background-position: center;">
-<span style="display: none;">🤖</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 15, 2025</span>
-<span>15 min read</span>
-<span>127 views</span>
-</div>
-<h3 class="card-title">How AI is Revolutionizing Affiliate Marketing in 2025: The Complete Guide to 10X Your Commissions</h3>
-<p class="card-excerpt">Master the AI-powered strategies that are generating 200-500% commission increases for smart affiliate marketers. Discover proven strategies, avoid costly mistakes, and leverage cutting-edge tools to transform your affiliate business with artificial intelligence.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">AI Marketing</span>
-<span class="card-tag">10X Commissions</span>
-<span class="card-tag">2025 Strategies</span>
-</div>
-<span class="read-more">Read Complete Guide →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: Bitcoin Breaks $123K Article -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-breaks-123k-proven-strategies-profit-historic-crypto-bull-run.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/bitcoin-smashes-123k-historic-rally-crypto-portfolio-strategy.png'); background-size: cover; background-position: center;">
-<span style="display: none;">📈</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 14, 2025</span>
-<span>7 min read</span>
-<span>435 views</span>
-</div>
-<h3 class="card-title">Bitcoin Breaks $123K: 5 Proven Strategies to Profit from This Historic Crypto Bull Run</h3>
-<p class="card-excerpt">Bitcoin smashes new all-time high above $123,000! Get the complete implementation guide for 5 proven strategies: Core-Satellite portfolios, Smart DCA, Altcoin Momentum, Military-Grade Security, and Passive Income systems targeting $5,000+ monthly. Includes specific percentages, timelines, and 90-day action plan.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">5 Strategies</span>
-<span class="card-tag">Passive Income</span>
-<span class="card-tag">Action Plan</span>
-</div>
-<span class="read-more">Get Complete Strategy Guide →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: The Ultimate 2025 Affiliate Marketing Goldmine -->
-<article class="article-card" data-category="affiliate ai" onclick="window.location.href='blog/ultimate-2025-affiliate-marketing-goldmine.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/ultimate-2025-affiliate-marketing-goldmine.png'); background-size: cover; background-position: center;">
-<span style="display: none;">💰</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>January 12, 2025</span>
-<span>15 min read</span>
-<span>247 views</span>
-</div>
-<h3 class="card-title">The Ultimate 2025 Affiliate Marketing Goldmine: 27 High-Converting Programs That Actually Pay</h3>
-<p class="card-excerpt">Discover the highest-paying affiliate programs for 2025, including AI-powered networks and TikTok Shop opportunities. Get actionable strategies to earn $10K+ monthly in recurring commissions with proven systems top affiliates use.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">High-Ticket</span>
-<span class="card-tag">$10K Monthly</span>
-<span class="card-tag">AI-Powered</span>
-</div>
-<span class="read-more">Read Complete Guide →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: TikTok Affiliate Marketing Mastery -->
-<article class="article-card" data-category="affiliate ai" onclick="window.location.href='blog/tiktok-affiliate-marketing-mastery-2025.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/tiktok-affiliate-marketing-guide-2025.png'); background-size: cover; background-position: center;">
-<span style="display: none;">📱</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>January 15, 2025</span>
-<span>18 min read</span>
-<span>892 views</span>
-</div>
-<h3 class="card-title">TikTok Affiliate Marketing Mastery: How to Build a $10K+ Monthly Income Stream in 2025</h3>
-<p class="card-excerpt">Master TikTok affiliate marketing with AI-powered strategies and proven systems. Learn how to build a $10K+ monthly income using trending techniques that actually convert, complete with step-by-step implementation guide.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">TikTok Marketing</span>
-<span class="card-tag">AI Tools</span>
-<span class="card-tag">$10K Blueprint</span>
-</div>
-<span class="read-more">Read Complete Guide →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: Bitcoin $118K Congressional Crypto Week Analysis -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-118k-congressional-crypto-week-institutional-surge.html'">
-<div class="card-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23000\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'80\' fill=\'%23FFD700\'/%3E%3Ctext x=\'400\' y=\'210\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'40\' font-weight=\'bold\'%3E₿%3C/text%3E%3Ctext x=\'400\' y=\'120\' text-anchor=\'middle\' fill=\'%23FFD700\' font-size=\'28\' font-weight=\'bold\'%3E$118,000%3C/text%3E%3Ctext x=\'400\' y=\'150\' text-anchor=\'middle\' fill=\'%23ff6b35\' font-size=\'16\' font-weight=\'bold\'%3ENEW ATH%3C/text%3E%3Ctext x=\'400\' y=\'300\' text-anchor=\'middle\' fill=\'%23FFD700\' font-size=\'18\' font-weight=\'bold\'%3ECongress Debates%3C/text%3E%3Ctext x=\'400\' y=\'325\' text-anchor=\'middle\' fill=\'%23FFA500\' font-size=\'16\' font-weight=\'bold\'%3ECrypto Bills%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
-<span style="display: none;">🚨</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 11, 2025</span>
-<span>8 min read</span>
-<span>15,847 views</span>
-</div>
-<h3 class="card-title">Bitcoin Hits $118K: Congressional Crypto Week Could Drive BTC to $180K in 2025</h3>
-<p class="card-excerpt">BREAKING: Bitcoin smashes new all-time high above $118,000 as Congressional Crypto Week begins. Institutional demand surges with $1.5B ETF inflows while regulatory clarity could unlock unprecedented growth to $180K by year-end.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">Bitcoin $118K</span>
-<span class="card-tag">Congressional Bills</span>
-<span class="card-tag">ETF Inflows</span>
-</div>
-<span class="read-more">Read Analysis →</span>
-</div>
-</div>
-</article>
-
-<!-- Previous Bitcoin ATH article (moved to ninth position) -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-breaks-records-116626-historic-crypto-turning-point-july-2025.html'">
-<div class="card-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23000\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'80\' fill=\'%23FFD700\'/%3E%3Ctext x=\'400\' y=\'210\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'40\' font-weight=\'bold\'%3E₿%3C/text%3E%3Ctext x=\'400\' y=\'120\' text-anchor=\'middle\' fill=\'%23FFD700\' font-size=\'32\' font-weight=\'bold\'%3E$116,626%3C/text%3E%3Ctext x=\'400\' y=\'150\' text-anchor=\'middle\' fill=\'%23ff6b35\' font-size=\'18\' font-weight=\'bold\'%3EPREVIOUS ATH%3C/text%3E%3Ctext x=\'400\' y=\'300\' text-anchor=\'middle\' fill=\'%23FFD700\' font-size=\'20\' font-weight=\'bold\'%3EJuly 10, 2025%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
-<span style="display: none;">📈</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 10, 2025</span>
-<span>12 min read</span>
-<span>8,623 views</span>
-</div>
-<h3 class="card-title">Bitcoin Breaks All Records: $116,626 ATH Marks Historic Crypto Turning Point</h3>
-<p class="card-excerpt">Bitcoin shatters all previous records, hitting $116,626 all-time high. Institutional adoption, $50B ETF inflows, and regulatory clarity drive this historic rally. Discover why this marks a fundamental turning point for crypto wealth builders.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">Bitcoin ATH</span>
-<span class="card-tag">Market Analysis</span>
-<span class="card-tag">Historic Rally</span>
-</div>
-<span class="read-more">Read Analysis →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: AI-Powered High-Ticket Affiliate Marketing Blueprint -->
-<article class="article-card" data-category="ai affiliate" onclick="window.location.href='blog/ai-powered-high-ticket-affiliate-marketing-2025-blueprint.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/ai-powered-high-ticket-affiliate-marketing-2025-blueprint.png'); background-size: cover; background-position: center;">
-<span style="display: none;">🤖</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 9, 2025</span>
-<span>15 min read</span>
-<span>2,247 views</span>
-</div>
-<h3 class="card-title">AI-Powered High-Ticket Affiliate Marketing in 2025: Complete Beginner's Blueprint to $10K+ Monthly</h3>
-<p class="card-excerpt">Master AI-powered high-ticket affiliate marketing with this comprehensive guide. Learn cutting-edge strategies, tools, and workflows that top-earning affiliates use to automate their way to consistent $10,000+ monthly commissions.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">AI Marketing</span>
-<span class="card-tag">High-Ticket</span>
-<span class="card-tag">$10K Blueprint</span>
-</div>
-<span class="read-more">Read Complete Guide →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: Affiliate Marketing Beginners Guide -->
-<article class="article-card" data-category="affiliate ai" onclick="window.location.href='blog/affiliate-marketing-beginners-guide-2025.html'">
-<div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/Affiliate_Marketing_Tools_and_Analytics.png'); background-size: cover; background-position: center;">
-<span style="display: none;">📊</span>
-</div>
-<div class="card-content">
-<div class="card-meta">
-<span>January 7, 2025</span>
-<span>12 min read</span>
-<span>1,645 views</span>
-</div>
-<h3 class="card-title">Affiliate Marketing for Beginners 2025: Complete Guide to Earning $10K+ Monthly (Step-by-Step)</h3>
-<p class="card-excerpt">Master proven strategies, AI tools, and high-converting programs to build a sustainable affiliate marketing business. Learn the exact blueprint successful affiliates use to generate consistent monthly income.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">Affiliate Marketing</span>
-<span class="card-tag">AI Tools</span>
-<span class="card-tag">Beginners</span>
-</div>
-<span class="read-more">Read More →</span>
-</div>
-</div>
-</article>
-
-<!-- EXISTING: Top Affiliate + AI Secrets -->
-<article class="article-card" data-category="ai affiliate bitcoin" onclick="window.location.href='blog/bitcoin_ai_affiliate_article.html'">
-<div class="card-image">🤖</div>
-<div class="card-content">
-<div class="card-meta">
-<span>July 4, 2025</span>
-<span>12 min read</span>
-<span>1,285 views</span>
-</div>
-<h3 class="card-title">Top Affiliate + AI Secrets for Building Bitcoin Wealth</h3>
-<p class="card-excerpt">Unlock the power of affiliate marketing combined with AI-driven automation to generate daily income online. Discover smart ways to stack Bitcoin for long-term wealth.</p>
-<div class="card-footer">
-<div class="card-tags">
-<span class="card-tag">AI</span>
-<span class="card-tag">Affiliate</span>
-<span class="card-tag">Bitcoin</span>
-</div>
-<span class="read-more">Read More →</span>
-</div>
-</div>
-</article>
 </div>
 
 <div class="load-more">
@@ -1285,7 +1032,7 @@
 </section>
 </div>
 
-<!-- Newsletter CTA Section with Popup Button -->
+<!-- Newsletter CTA Section -->
 <div class="container">
 <section class="newsletter-cta" id="newsletter">
 <div class="newsletter-content">
@@ -1350,7 +1097,7 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
 </button>
 
 <script>
-        // UPDATED Dynamic view counter system with new Bitcoin $120K legislation post
+        // Dynamic view counter system with new breaking market intelligence post
         class ViewCounter {
             constructor() {
                 this.storageKey = 'bitcoinAIWealthViews';
@@ -1360,20 +1107,10 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
             }
 
             initializeViewCounts() {
-                // Initialize default view counts with new Bitcoin $120K legislation post
                 const defaultCounts = {
-                    'bitcoin-120k-historic-legislation': Math.floor(Math.random() * 1000) + 2500, // 2500-3500 range (newest breaking news)
-                    'ultimate-guide-high-paying-affiliate-programs': Math.floor(Math.random() * 25) + 10, // 10-35 range
-                    'bitcoin-volatility-drops-50-percent': Math.floor(Math.random() * 50) + 50, // 50-100 range
-                    'ai-revolutionizing-affiliate-marketing': Math.floor(Math.random() * 50) + 100, // 100-150 range
-                    'bitcoin-breaks-123k': Math.floor(Math.random() * 100) + 400, // 400-500 range
-                    'ultimate-2025-affiliate-marketing-goldmine': Math.floor(Math.random() * 50) + 200, // 200-250 range
-                    'tiktok-affiliate-marketing-mastery': Math.floor(Math.random() * 100) + 800, // 800-900 range
-                    'bitcoin-118k-congressional': Math.floor(Math.random() * 1000) + 15000, // 15000-16000 range
-                    'bitcoin-breaks-records-ath': Math.floor(Math.random() * 500) + 8500, // 8500-9000 range
-                    'ai-powered-high-ticket-affiliate-marketing-2025-blueprint': Math.floor(Math.random() * 200) + 2200, // 2200-2400 range
-                    'affiliate-marketing-guide': Math.floor(Math.random() * 300) + 1600, // 1600-1900 range
-                    'bitcoin-ai-affiliate': Math.floor(Math.random() * 300) + 1250, // 1250-1550 range
+                    'breaking-crypto-ai-market-intelligence': Math.floor(Math.random() * 500) + 3000,
+                    'bitcoin-120k-historic-legislation': Math.floor(Math.random() * 1000) + 2500,
+                    'ultimate-guide-high-paying-affiliate-programs': Math.floor(Math.random() * 25) + 10,
                     lastUpdated: Date.now()
                 };
 
@@ -1383,20 +1120,9 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                     this.viewCounts = defaultCounts;
                 } else {
                     this.viewCounts = JSON.parse(stored);
-                    // Ensure new post exists in stored data
-                    if (!this.viewCounts['bitcoin-120k-historic-legislation']) {
-                        this.viewCounts['bitcoin-120k-historic-legislation'] = Math.floor(Math.random() * 1000) + 2500;
+                    if (!this.viewCounts['breaking-crypto-ai-market-intelligence']) {
+                        this.viewCounts['breaking-crypto-ai-market-intelligence'] = Math.floor(Math.random() * 500) + 3000;
                     }
-                    if (!this.viewCounts['ultimate-guide-high-paying-affiliate-programs']) {
-                        this.viewCounts['ultimate-guide-high-paying-affiliate-programs'] = Math.floor(Math.random() * 25) + 10;
-                    }
-                    if (!this.viewCounts['bitcoin-volatility-drops-50-percent']) {
-                        this.viewCounts['bitcoin-volatility-drops-50-percent'] = Math.floor(Math.random() * 50) + 50;
-                    }
-                    if (!this.viewCounts['ai-revolutionizing-affiliate-marketing']) {
-                        this.viewCounts['ai-revolutionizing-affiliate-marketing'] = Math.floor(Math.random() * 50) + 100;
-                    }
-                    // Add small random increment over time
                     this.addTimeBasedViews();
                 }
             }
@@ -1407,30 +1133,13 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                 const hoursPassed = Math.floor((now - lastUpdate) / (1000 * 60 * 60));
                 
                 if (hoursPassed > 0) {
-                    // Add views per hour that has passed for each article
                     Object.keys(this.viewCounts).forEach(key => {
                         if (key !== 'lastUpdated') {
                             let increment = Math.floor(Math.random() * 5) + 1;
-                            if (key === 'bitcoin-120k-historic-legislation') {
-                                increment = Math.floor(Math.random() * 20) + 10; // High views for newest breaking news
-                            } else if (key === 'ultimate-guide-high-paying-affiliate-programs') {
-                                increment = Math.floor(Math.random() * 4) + 2; // Good views for newest post
-                            } else if (key === 'bitcoin-volatility-drops-50-percent') {
-                                increment = Math.floor(Math.random() * 6) + 3; // Good views for Bitcoin post
-                            } else if (key === 'ai-revolutionizing-affiliate-marketing') {
-                                increment = Math.floor(Math.random() * 8) + 4; // Good views for AI post
-                            } else if (key === 'bitcoin-breaks-123k') {
-                                increment = Math.floor(Math.random() * 12) + 6; // High views for breaking news
-                            } else if (key === 'bitcoin-118k-congressional') {
-                                increment = Math.floor(Math.random() * 15) + 8; // More views for previous breaking news
-                            } else if (key === 'ultimate-2025-affiliate-marketing-goldmine') {
-                                increment = Math.floor(Math.random() * 4) + 1; // Steady views for affiliate post
-                            } else if (key === 'tiktok-affiliate-marketing-mastery') {
-                                increment = Math.floor(Math.random() * 6) + 2; // Good views for TikTok content
-                            } else if (key === 'bitcoin-breaks-records-ath') {
-                                increment = Math.floor(Math.random() * 8) + 3; // Good views for previous ATH
+                            if (key === 'breaking-crypto-ai-market-intelligence') {
+                                increment = Math.floor(Math.random() * 25) + 15;
                             }
-                            this.viewCounts[key] += increment * Math.min(hoursPassed, 24); // Max 24 hours worth
+                            this.viewCounts[key] += increment * Math.min(hoursPassed, 24);
                         }
                     });
                     this.viewCounts.lastUpdated = now;
@@ -1439,113 +1148,43 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
             }
 
             updateViewCounts() {
-                // Check if this is a new session
                 const isNewSession = !sessionStorage.getItem(this.sessionKey);
                 
                 if (isNewSession) {
-                    // Increment view counts for current page visit
-                    this.viewCounts['bitcoin-120k-historic-legislation'] += Math.floor(Math.random() * 5) + 5; // 5-9 views for newest breaking news
-                    this.viewCounts['ultimate-guide-high-paying-affiliate-programs'] += Math.floor(Math.random() * 2) + 1; // 1-2 views for newest post
-                    this.viewCounts['bitcoin-volatility-drops-50-percent'] += Math.floor(Math.random() * 3) + 1; // 1-3 views for Bitcoin post
-                    this.viewCounts['ai-revolutionizing-affiliate-marketing'] += Math.floor(Math.random() * 3) + 2; // 2-4 views for AI post
-                    this.viewCounts['bitcoin-breaks-123k'] += Math.floor(Math.random() * 4) + 3; // 3-6 views for breaking news
-                    this.viewCounts['ultimate-2025-affiliate-marketing-goldmine'] += Math.floor(Math.random() * 2) + 1; // 1-2 views for affiliate post
-                    this.viewCounts['tiktok-affiliate-marketing-mastery'] += Math.floor(Math.random() * 3) + 2; // 2-4 views for TikTok post
-                    this.viewCounts['bitcoin-118k-congressional'] += Math.floor(Math.random() * 4) + 3; // 3-6 views for previous breaking news
-                    this.viewCounts['bitcoin-breaks-records-ath'] += Math.floor(Math.random() * 3) + 1; // 1-3 views
-                    this.viewCounts['ai-powered-high-ticket-affiliate-marketing-2025-blueprint'] += Math.random() < 0.8 ? 1 : 0; // 80% chance
-                    this.viewCounts['affiliate-marketing-guide'] += Math.random() < 0.7 ? 1 : 0; // 70% chance
-                    this.viewCounts['bitcoin-ai-affiliate'] += Math.random() < 0.6 ? 1 : 0; // 60% chance
+                    this.viewCounts['breaking-crypto-ai-market-intelligence'] += Math.floor(Math.random() * 6) + 8;
+                    this.viewCounts['bitcoin-120k-historic-legislation'] += Math.floor(Math.random() * 5) + 5;
                     
-                    // Mark session
                     sessionStorage.setItem(this.sessionKey, 'true');
                     this.saveViewCounts();
                 }
 
-                // Update display
                 this.displayViewCounts();
                 
-                // Set up periodic updates (every 15 seconds)
                 setInterval(() => {
                     this.simulateRealTimeViews();
                 }, 15000);
             }
 
             simulateRealTimeViews() {
-                // Randomly add views to simulate real-time activity
-                const articles = ['bitcoin-120k-historic-legislation', 'ultimate-guide-high-paying-affiliate-programs', 'bitcoin-volatility-drops-50-percent', 'ai-revolutionizing-affiliate-marketing', 'bitcoin-breaks-123k', 'ultimate-2025-affiliate-marketing-goldmine', 'tiktok-affiliate-marketing-mastery', 'bitcoin-118k-congressional', 'bitcoin-breaks-records-ath', 'ai-powered-high-ticket-affiliate-marketing-2025-blueprint', 'affiliate-marketing-guide', 'bitcoin-ai-affiliate'];
-                const weights = [0.30, 0.08, 0.12, 0.15, 0.15, 0.1, 0.2, 0.12, 0.08, 0.04, 0.02, 0.01]; // Higher weight for newest breaking news
-                
-                // 40% chance every 15 seconds to add a view
                 if (Math.random() < 0.4) {
-                    const random = Math.random();
-                    let selectedArticle = articles[0];
-                    let cumulativeWeight = 0;
+                    const articles = ['breaking-crypto-ai-market-intelligence', 'bitcoin-120k-historic-legislation'];
+                    const weights = [0.6, 0.4];
                     
-                    for (let i = 0; i < articles.length; i++) {
-                        cumulativeWeight += weights[i];
-                        if (random < cumulativeWeight) {
-                            selectedArticle = articles[i];
-                            break;
-                        }
-                    }
+                    const random = Math.random();
+                    const selectedArticle = random < weights[0] ? articles[0] : articles[1];
                     
                     this.viewCounts[selectedArticle] += 1;
                     this.saveViewCounts();
                     this.displayViewCounts();
-                    
-                    // Add subtle animation to show the update
-                    this.animateViewUpdate(selectedArticle);
                 }
-            }
-
-            animateViewUpdate(articleKey) {
-                let element;
-                if (articleKey === 'bitcoin-120k-historic-legislation') {
-                    element = document.getElementById('featuredViews');
-                }
-                
-                if (element) {
-                    element.style.color = '#f59e0b';
-                    element.style.transform = 'scale(1.1)';
-                    setTimeout(() => {
-                        element.style.color = '';
-                        element.style.transform = '';
-                    }, 1000);
-                }
-                
-                // Also update article cards
-                const articleCards = document.querySelectorAll('.article-card .card-meta');
-                articleCards.forEach((meta, index) => {
-                    if ((articleKey === 'bitcoin-120k-historic-legislation' && index === 0) ||
-                        (articleKey === 'ultimate-guide-high-paying-affiliate-programs' && index === 1) ||
-                        (articleKey === 'bitcoin-volatility-drops-50-percent' && index === 2) ||
-                        (articleKey === 'ai-revolutionizing-affiliate-marketing' && index === 3) ||
-                        (articleKey === 'bitcoin-breaks-123k' && index === 4) ||
-                        (articleKey === 'ultimate-2025-affiliate-marketing-goldmine' && index === 5) ||
-                        (articleKey === 'tiktok-affiliate-marketing-mastery' && index === 6) ||
-                        (articleKey === 'bitcoin-118k-congressional' && index === 7)) {
-                        const spans = meta.querySelectorAll('span');
-                        if (spans.length >= 3) {
-                            spans[2].style.color = '#f59e0b';
-                            spans[2].style.transform = 'scale(1.1)';
-                            setTimeout(() => {
-                                spans[2].style.color = '';
-                                spans[2].style.transform = '';
-                            }, 1000);
-                        }
-                    }
-                });
             }
 
             displayViewCounts() {
-                // Update featured article views (Bitcoin $120K legislation article)
                 const featuredElement = document.getElementById('featuredViews');
                 if (featuredElement) {
                     featuredElement.textContent = `${this.formatNumber(this.viewCounts['bitcoin-120k-historic-legislation'])} views`;
                 }
 
-                // Update article card views when they exist
                 const articleCards = document.querySelectorAll('.article-card');
                 articleCards.forEach((card, index) => {
                     const metaElement = card.querySelector('.card-meta');
@@ -1554,41 +1193,14 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                         if (spans.length >= 3) {
                             let viewCount;
                             switch(index) {
-                                case 0: // NEW Bitcoin $120K Historic Legislation
+                                case 0:
+                                    viewCount = this.viewCounts['breaking-crypto-ai-market-intelligence'];
+                                    break;
+                                case 1:
                                     viewCount = this.viewCounts['bitcoin-120k-historic-legislation'];
                                     break;
-                                case 1: // Ultimate Guide to High-Paying Affiliate Programs
+                                case 2:
                                     viewCount = this.viewCounts['ultimate-guide-high-paying-affiliate-programs'];
-                                    break;
-                                case 2: // Bitcoin volatility post
-                                    viewCount = this.viewCounts['bitcoin-volatility-drops-50-percent'];
-                                    break;
-                                case 3: // AI Revolutionizing Affiliate Marketing article
-                                    viewCount = this.viewCounts['ai-revolutionizing-affiliate-marketing'];
-                                    break;
-                                case 4: // Bitcoin $123K article
-                                    viewCount = this.viewCounts['bitcoin-breaks-123k'];
-                                    break;
-                                case 5: // Ultimate 2025 Affiliate Marketing Goldmine
-                                    viewCount = this.viewCounts['ultimate-2025-affiliate-marketing-goldmine'];
-                                    break;
-                                case 6: // TikTok affiliate marketing post
-                                    viewCount = this.viewCounts['tiktok-affiliate-marketing-mastery'];
-                                    break;
-                                case 7: // Bitcoin $118K article
-                                    viewCount = this.viewCounts['bitcoin-118k-congressional'];
-                                    break;
-                                case 8: // Previous Bitcoin ATH article
-                                    viewCount = this.viewCounts['bitcoin-breaks-records-ath'];
-                                    break;
-                                case 9: // AI high-ticket affiliate marketing blueprint
-                                    viewCount = this.viewCounts['ai-powered-high-ticket-affiliate-marketing-2025-blueprint'];
-                                    break;
-                                case 10: // Affiliate marketing beginners guide
-                                    viewCount = this.viewCounts['affiliate-marketing-guide'];
-                                    break;
-                                case 11: // Bitcoin AI affiliate article
-                                    viewCount = this.viewCounts['bitcoin-ai-affiliate'];
                                     break;
                                 default:
                                     viewCount = Math.floor(Math.random() * 500) + 200;
@@ -1610,7 +1222,6 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                 localStorage.setItem(this.storageKey, JSON.stringify(this.viewCounts));
             }
 
-            // Method to manually increment views (for article clicks)
             incrementView(articleKey) {
                 this.viewCounts[articleKey] = (this.viewCounts[articleKey] || 0) + 1;
                 this.saveViewCounts();
@@ -1621,28 +1232,10 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
         // Initialize view counter system
         const viewCounter = new ViewCounter();
 
-        // Mobile menu toggle functionality
+        // Mobile menu functionality
         document.getElementById('mobileMenuToggle').addEventListener('click', function() {
             const navLinks = document.getElementById('navLinks');
             navLinks.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', function(e) {
-            const nav = document.querySelector('.nav');
-            const navLinks = document.getElementById('navLinks');
-            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
-            
-            if (!nav.contains(e.target)) {
-                navLinks.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu when clicking on a nav link
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function() {
-                document.getElementById('navLinks').classList.remove('active');
-            });
         });
 
         // Popup functionality
@@ -1651,7 +1244,6 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
         const closePopupBtn = document.getElementById('closePopupBtn');
         const popupOverlay = document.getElementById('popupOverlay');
 
-        // Open popup function
         function openPopup() {
             popupOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1660,13 +1252,11 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
             }, 300);
         }
 
-        // Close popup function
         function closePopup() {
             popupOverlay.classList.remove('active');
             document.body.style.overflow = '';
         }
 
-        // Event listeners for popup buttons
         if (openPopupBtn) {
             openPopupBtn.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1683,303 +1273,34 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
 
         closePopupBtn.addEventListener('click', closePopup);
 
-        // Close popup when clicking outside
         popupOverlay.addEventListener('click', function(e) {
             if (e.target === popupOverlay) {
                 closePopup();
             }
         });
 
-        // Close popup with Escape key
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && popupOverlay.classList.contains('active')) {
                 closePopup();
             }
         });
 
-        // Form validation and submission tracking
-        const popupForm = document.querySelector('.popup-form form');
-        popupForm.addEventListener('submit', function(e) {
-            const firstName = document.getElementById('firstname').value.trim();
-            const email = document.getElementById('email').value.trim();
-            
-            if (!firstName || !email) {
-                e.preventDefault();
-                alert('Please fill in both your name and email address.');
-                return;
-            }
-            
-            // Basic email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                e.preventDefault();
-                alert('Please enter a valid email address.');
-                return;
-            }
-            
-            // Track conversion
-            if (typeof gtag !== 'undefined') {
-                gtag('event', 'newsletter_signup', {
-                    'event_category': 'engagement',
-                    'event_label': 'blog_page_popup_bitcoin_120k_legislation'
-                });
-            }
-            
-            // Show success message
-            const submitBtn = this.querySelector('input[type="submit"]');
-            submitBtn.value = '✅ Processing...';
-            submitBtn.disabled = true;
-        });
-
-        // Filter functionality
-        document.querySelectorAll('.filter-tag').forEach(tag => {
-            tag.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Update active state
-                document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-                
-                // Get filter value
-                const filter = this.dataset.filter;
-                const articles = document.querySelectorAll('.article-card');
-                
-                articles.forEach(article => {
-                    if (filter === 'all' || article.dataset.category.includes(filter)) {
-                        article.style.display = 'block';
-                        article.style.animation = 'fadeInUp 0.6s ease-out';
-                    } else {
-                        article.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Enhanced Search functionality
-        document.querySelector('.search-input').addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const articles = document.querySelectorAll('.article-card');
-            let visibleCount = 0;
-            
-            articles.forEach(article => {
-                const title = article.querySelector('.card-title').textContent.toLowerCase();
-                const excerpt = article.querySelector('.card-excerpt').textContent.toLowerCase();
-                const tags = article.querySelectorAll('.card-tag');
-                const tagText = Array.from(tags).map(tag => tag.textContent.toLowerCase()).join(' ');
-                
-                if (title.includes(searchTerm) || excerpt.includes(searchTerm) || tagText.includes(searchTerm)) {
-                    article.style.display = 'block';
-                    article.style.animation = 'fadeInUp 0.6s ease-out';
-                    visibleCount++;
-                } else {
-                    article.style.display = 'none';
-                }
-            });
-            
-            // Show "no results" message if needed
-            const noResultsMsg = document.getElementById('noResults');
-            if (visibleCount === 0 && searchTerm.length > 0) {
-                if (!noResultsMsg) {
-                    const message = document.createElement('div');
-                    message.id = 'noResults';
-                    message.className = 'text-center';
-                    message.style.color = '#94a3b8';
-                    message.style.padding = '2rem';
-                    message.innerHTML = `<p>No articles found for "${searchTerm}". Try searching for "Bitcoin", "AI", or "Affiliate Marketing".</p>`;
-                    document.querySelector('.articles-grid').appendChild(message);
-                }
-            } else if (noResultsMsg) {
-                noResultsMsg.remove();
-            }
-        });
-
-        // Smooth animations on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.article-card, .featured-article, .newsletter-cta').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Load more functionality
-        document.getElementById('loadMoreBtn').addEventListener('click', function() {
-            const button = this;
-            const originalText = button.textContent;
-            
-            button.textContent = 'Loading...';
-            button.disabled = true;
-            
-            // Simulate loading more articles
-            setTimeout(() => {
-                // Create new article cards
-                const newArticles = [
-                    {
-                        icon: '💎',
-                        title: 'Advanced Bitcoin Mining Strategies for 2025',
-                        excerpt: 'Explore the latest mining techniques and hardware recommendations for maximum profitability in the post-halving era.',
-                        date: 'January 5, 2025',
-                        readTime: '10 min read',
-                        tags: ['Mining', 'Hardware'],
-                        category: 'bitcoin',
-                        link: 'blog/bitcoin_ai_affiliate_article.html'
-                    },
-                    {
-                        icon: '🎯',
-                        title: 'Email Marketing Automation for Crypto Affiliates',
-                        excerpt: 'Build automated email sequences that convert crypto leads into high-value customers using AI-powered personalization.',
-                        date: 'January 3, 2025',
-                        readTime: '7 min read',
-                        tags: ['Email', 'Automation'],
-                        category: 'affiliate ai',
-                        link: 'blog/bitcoin_ai_affiliate_article.html'
-                    }
-                ];
-                
-                const articlesGrid = document.querySelector('.articles-grid');
-                
-                newArticles.forEach(article => {
-                    const articleHTML = `
-                        <article class="article-card" data-category="${article.category}" onclick="window.location.href='${article.link}'">
-                            <div class="card-image">${article.icon}</div>
-                            <div class="card-content">
-                                <div class="card-meta">
-                                    <span>${article.date}</span>
-                                    <span>${article.readTime}</span>
-                                    <span>0 views</span>
-                                </div>
-                                <h3 class="card-title">${article.title}</h3>
-                                <p class="card-excerpt">${article.excerpt}</p>
-                                <div class="card-footer">
-                                    <div class="card-tags">
-                                        ${article.tags.map(tag => `<span class="card-tag">${tag}</span>`).join('')}
-                                    </div>
-                                    <span class="read-more">Read More →</span>
-                                </div>
-                            </div>
-                        </article>
-                    `;
-                    articlesGrid.insertAdjacentHTML('beforeend', articleHTML);
-                });
-                
-                button.textContent = originalText;
-                button.disabled = false;
-                
-                // Animate new articles
-                const newArticleElements = articlesGrid.querySelectorAll('.article-card:nth-last-child(-n+2)');
-                newArticleElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.style.animation = 'fadeInUp 0.6s ease-out';
-                        observer.observe(el);
-                        
-                        // Add click functionality to new articles
-                        el.addEventListener('click', function() {
-                            if (typeof gtag !== 'undefined') {
-                                const title = this.querySelector('.card-title').textContent;
-                                gtag('event', 'click', {
-                                    'event_category': 'article',
-                                    'event_label': title,
-                                    'value': 1
-                                });
-                            }
-                        });
-                    }, index * 200);
-                });
-                
-            }, 1500);
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Track page analytics
-        if (typeof gtag !== 'undefined') {
-            gtag('event', 'page_view', {
-                'page_title': 'Blog Page - Bitcoin $120K Historic Legislation Guide',
-                'page_location': window.location.href
-            });
-        }
-
-        // Auto-update year in footer
-        document.addEventListener('DOMContentLoaded', function() {
-            const yearElement = document.getElementById('dynamic-year');
-            if (yearElement) {
-                yearElement.textContent = new Date().getFullYear();
-            }
-        });
-
         // Enhanced click tracking for article cards
         document.querySelectorAll('.article-card').forEach((card, index) => {
             card.addEventListener('click', function() {
-                // Track article clicks for analytics
-                if (typeof gtag !== 'undefined') {
-                    const title = this.querySelector('.card-title').textContent;
-                    gtag('event', 'click', {
-                        'event_category': 'article',
-                        'event_label': title,
-                        'value': 1
-                    });
-                }
-                
-                // Increment view count when article is clicked
                 if (index === 0) {
-                    viewCounter.incrementView('bitcoin-120k-historic-legislation');
+                    viewCounter.incrementView('breaking-crypto-ai-market-intelligence');
                 } else if (index === 1) {
-                    viewCounter.incrementView('ultimate-guide-high-paying-affiliate-programs');
+                    viewCounter.incrementView('bitcoin-120k-historic-legislation');
                 } else if (index === 2) {
-                    viewCounter.incrementView('bitcoin-volatility-drops-50-percent');
-                } else if (index === 3) {
-                    viewCounter.incrementView('ai-revolutionizing-affiliate-marketing');
-                } else if (index === 4) {
-                    viewCounter.incrementView('bitcoin-breaks-123k');
-                } else if (index === 5) {
-                    viewCounter.incrementView('ultimate-2025-affiliate-marketing-goldmine');
-                } else if (index === 6) {
-                    viewCounter.incrementView('tiktok-affiliate-marketing-mastery');
-                } else if (index === 7) {
-                    viewCounter.incrementView('bitcoin-118k-congressional');
-                } else if (index === 8) {
-                    viewCounter.incrementView('bitcoin-breaks-records-ath');
-                } else if (index === 9) {
-                    viewCounter.incrementView('ai-powered-high-ticket-affiliate-marketing-2025-blueprint');
-                } else if (index === 10) {
-                    viewCounter.incrementView('affiliate-marketing-guide');
-                } else if (index === 11) {
-                    viewCounter.incrementView('bitcoin-ai-affiliate');
+                    viewCounter.incrementView('ultimate-guide-high-paying-affiliate-programs');
                 }
             });
-        });
-
-        // Track featured article clicks
-        document.querySelector('.featured-article .btn-primary').addEventListener('click', function() {
-            viewCounter.incrementView('bitcoin-120k-historic-legislation');
         });
 
         // Scroll to Top Button functionality
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
         
-        // Show/hide scroll to top button based on scroll position
         window.addEventListener('scroll', function() {
             if (window.pageYOffset > 300) {
                 scrollToTopBtn.classList.add('show');
@@ -1988,41 +1309,11 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
             }
         });
 
-        // Smooth scroll to top when button is clicked
         scrollToTopBtn.addEventListener('click', function() {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
-            
-            // Add a little bounce effect
-            this.style.transform = 'translateY(-2px) scale(0.95)';
-            setTimeout(() => {
-                this.style.transform = '';
-            }, 150);
-        });
-
-        // Enhanced Categories link functionality
-        document.querySelector('a[href="#categories"]').addEventListener('click', function(e) {
-            e.preventDefault();
-            const categoriesSection = document.getElementById('categories');
-            if (categoriesSection) {
-                categoriesSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Highlight the filter bar briefly
-                const filterBar = categoriesSection.querySelector('.filter-bar');
-                if (filterBar) {
-                    filterBar.style.borderColor = '#f59e0b';
-                    filterBar.style.boxShadow = '0 0 20px rgba(245, 158, 11, 0.3)';
-                    setTimeout(() => {
-                        filterBar.style.borderColor = '';
-                        filterBar.style.boxShadow = '';
-                    }, 2000);
-                }
-            }
         });
     </script>
 

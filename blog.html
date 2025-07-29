@@ -231,11 +231,18 @@
             font-size: 0.9rem;
         }
 
-        .filter-tag:hover,
+        .filter-tag:hover {
+            background: #f59e0b;
+            color: #000;
+            border-color: #f59e0b;
+            transform: scale(1.02);
+        }
+
         .filter-tag.active {
             background: #f59e0b;
             color: #000;
             border-color: #f59e0b;
+            transform: scale(1.05);
         }
 
         .sort-dropdown {
@@ -395,6 +402,8 @@
             text-decoration: none;
             color: inherit;
             cursor: pointer;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .article-card:hover {
@@ -884,10 +893,11 @@
 <div class="filter-tags">
 <a class="filter-tag active" href="#" data-filter="all">All Posts</a>
 <a class="filter-tag" href="#" data-filter="bitcoin">Bitcoin</a>
+<a class="filter-tag" href="#" data-filter="crypto">Crypto</a>
 <a class="filter-tag" href="#" data-filter="ai">AI</a>
 <a class="filter-tag" href="#" data-filter="affiliate">Affiliate Marketing</a>
-<a class="filter-tag" href="#" data-filter="traffic">Traffic Generation</a>
 <a class="filter-tag" href="#" data-filter="reviews">Reviews</a>
+<a class="filter-tag" href="#" data-filter="traffic">Traffic Generation</a>
 </div>
 <select class="sort-dropdown">
 <option value="latest">Latest First</option>
@@ -950,7 +960,7 @@
             <div class="articles-grid">
 
 <!-- NEW: Breaking Market Intelligence Post -->
-<article class="article-card" data-category="breaking ai crypto" onclick="window.location.href='blog/breaking-crypto-ai-market-intelligence.html'">
+<article class="article-card" data-category="breaking ai crypto bitcoin" onclick="window.location.href='blog/breaking-crypto-ai-market-intelligence.html'">
 <div class="card-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23000\'/%3E%3Ccircle cx=\'200\' cy=\'100\' r=\'60\' fill=\'%23f59e0b\'/%3E%3Ctext x=\'200\' y=\'110\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'40\' font-weight=\'bold\'%3E₿%3C/text%3E%3Ccircle cx=\'400\' cy=\'100\' r=\'60\' fill=\'%233b82f6\'/%3E%3Ctext x=\'400\' y=\'110\' text-anchor=\'middle\' fill=\'%23fff\' font-size=\'30\' font-weight=\'bold\'%3EAI%3C/text%3E%3Ccircle cx=\'600\' cy=\'100\' r=\'60\' fill=\'%23ef4444\'/%3E%3Ctext x=\'600\' y=\'110\' text-anchor=\'middle\' fill=\'%23fff\' font-size=\'20\' font-weight=\'bold\'%3E$%3C/text%3E%3Ctext x=\'400\' y=\'200\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'28\' font-weight=\'bold\'%3EBREAKING INTELLIGENCE%3C/text%3E%3Ctext x=\'400\' y=\'240\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'16\'%3EJPMorgan Crypto • Bitcoin $140K • AI $90B%3C/text%3E%3Ctext x=\'400\' y=\'270\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'16\'%3EAffiliate Marketing $18.5B Explosion%3C/text%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23fbbf24\' font-size=\'14\'%3EJuly 23, 2025 • Market Intelligence Report%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
 <span style="display: none;">🚨</span>
 </div>
@@ -974,7 +984,7 @@
 </article>
 
 <!-- Bitcoin $120K Historic Legislation Post -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.html'">
+<article class="article-card" data-category="bitcoin crypto" onclick="window.location.href='blog/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.html'">
 <div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/images/bitcoin-120k-us-crypto-legislation-4-trillion-market-milestone.png'); background-size: cover; background-position: center;">
 <span style="display: none;">🏛️</span>
 </div>
@@ -998,7 +1008,7 @@
 </article>
 
 <!-- NEW: GoE1ULife Review Post -->
-<article class="article-card" data-category="reviews ai bitcoin" onclick="window.location.href='goe1ulife-review-2025-real-bitcoin-results-honest-experience.html'">
+<article class="article-card" data-category="reviews ai bitcoin" onclick="window.location.href='https://bitcoinaiwealth.com/reviews/goe1ulife-review/goe1ulife-review-2025-real-bitcoin-results-honest-experience.html'">
 <div class="card-image" style="background-image: url('https://bitcoinaiprofits.com/images/Go-E1U-Life-Logo.jpg'); background-size: cover; background-position: center;">
 <span style="display: none;">💰</span>
 </div>
@@ -1022,7 +1032,7 @@
 </article>
 
 <!-- NEW: Cryptex Review Post -->
-<article class="article-card" data-category="reviews defi" onclick="window.location.href='reviews/cryptex-review/cryptex-to-review-2025-legit-or-scam.html'">
+<article class="article-card" data-category="reviews defi crypto" onclick="window.location.href='reviews/cryptex-review/cryptex-to-review-2025-legit-or-scam.html'">
 <div class="card-image" style="background-image: url('https://bitcoinaiwealth.com/reviews/cryptex-review/Cryptex.jpg'); background-size: cover; background-position: center;">
 <span style="display: none;">🔍</span>
 </div>
@@ -1070,7 +1080,7 @@
 </article>
 
 <!-- Additional placeholder articles for content richness -->
-<article class="article-card" data-category="bitcoin" onclick="window.location.href='blog/bitcoin-etf-institutional-adoption-strategy.html'">
+<article class="article-card" data-category="bitcoin crypto" onclick="window.location.href='blog/bitcoin-etf-institutional-adoption-strategy.html'">
 <div class="card-image" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 800 400\'%3E%3Crect width=\'800\' height=\'400\' fill=\'%23000\'/%3E%3Ccircle cx=\'400\' cy=\'200\' r=\'100\' fill=\'%23f59e0b\'/%3E%3Ctext x=\'400\' y=\'220\' text-anchor=\'middle\' fill=\'%23000\' font-size=\'60\' font-weight=\'bold\'%3E₿%3C/text%3E%3Ctext x=\'400\' y=\'350\' text-anchor=\'middle\' fill=\'%23f59e0b\' font-size=\'24\' font-weight=\'bold\'%3EBTC ETF STRATEGIES%3C/text%3E%3C/svg%3E'); background-size: cover; background-position: center;">
 <span style="display: none;">🏦</span>
 </div>
@@ -1380,20 +1390,59 @@ Join thousands of forward-thinking individuals who are already using Bitcoin, AI
                     this.classList.add('active');
                     
                     const filter = this.getAttribute('data-filter');
+                    let visibleCount = 0;
                     
                     articleCards.forEach(card => {
                         if (filter === 'all') {
                             card.style.display = 'block';
+                            card.style.opacity = '1';
+                            visibleCount++;
                         } else {
                             const categories = card.getAttribute('data-category');
-                            if (categories && categories.includes(filter)) {
+                            if (categories && categories.toLowerCase().includes(filter.toLowerCase())) {
                                 card.style.display = 'block';
+                                card.style.opacity = '1';
+                                visibleCount++;
                             } else {
                                 card.style.display = 'none';
+                                card.style.opacity = '0';
                             }
                         }
                     });
+                    
+                    // Update section title with count
+                    const sectionTitle = document.querySelector('.articles-section .section-title');
+                    if (sectionTitle) {
+                        const baseTitle = '📚 Latest Insights';
+                        if (filter === 'all') {
+                            sectionTitle.innerHTML = `<span>📚</span> Latest Insights`;
+                        } else {
+                            const filterName = filter.charAt(0).toUpperCase() + filter.slice(1);
+                            sectionTitle.innerHTML = `<span>📚</span> ${filterName} Posts (${visibleCount})`;
+                        }
+                    }
+                    
+                    // Smooth transition
+                    setTimeout(() => {
+                        articleCards.forEach(card => {
+                            if (card.style.display !== 'none') {
+                                card.style.transition = 'all 0.3s ease';
+                                card.style.transform = 'translateY(0)';
+                            }
+                        });
+                    }, 50);
                 });
+            });
+            
+            // Debug: Log the filter setup
+            console.log('Filter system initialized');
+            console.log('Number of filter tags:', filterTags.length);
+            console.log('Number of article cards:', articleCards.length);
+            
+            // Debug: Log each article's categories
+            articleCards.forEach((card, index) => {
+                const categories = card.getAttribute('data-category');
+                console.log(`Article ${index + 1} categories:`, categories);
             });
         });
 

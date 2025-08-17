@@ -707,7 +707,7 @@
 
         /* Urgent CTA */
         .urgent-cta {
-            background: linear-gradient(135deg, #C0392B 0%, #E74C3C 50%, #EC7063 100%);
+            background: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #F1C40F 100%);
             color: white;
             padding: 80px 60px;
             text-align: center;
@@ -715,6 +715,9 @@
             margin: 80px 0;
             position: relative;
             overflow: hidden;
+            box-shadow: 
+                0 16px 64px rgba(184, 134, 11, 0.3),
+                0 8px 32px rgba(184, 134, 11, 0.2);
         }
 
         .urgent-cta::before {
@@ -724,8 +727,45 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
             animation: urgentShine 4s infinite;
+        }
+
+        .urgent-cta img {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+        }
+
+        .urgent-cta img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 80px rgba(0,0,0,0.5), 0 12px 48px rgba(184,134,11,0.3);
+        }
+
+        .urgent-cta h2,
+        .urgent-cta h3,
+        .urgent-cta p,
+        .urgent-cta div {
+            color: white;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Enhanced CTA button styling for urgent section */
+        .urgent-cta .cta-primary {
+            border: 3px solid white;
+            box-shadow: 
+                0 8px 32px rgba(255, 255, 255, 0.3),
+                0 16px 64px rgba(212, 175, 55, 0.4),
+                0 4px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        .urgent-cta .cta-primary:hover {
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 
+                0 12px 48px rgba(255, 255, 255, 0.4),
+                0 20px 80px rgba(212, 175, 55, 0.5),
+                0 6px 24px rgba(0, 0, 0, 0.3);
+            transform: translateY(-6px) scale(1.02);
         }
 
         .urgent-title {
@@ -1107,6 +1147,17 @@
             .progress-text {
                 font-size: 0.7rem;
             }
+
+            .urgent-cta {
+                padding: 60px 24px;
+                margin: 60px 0;
+            }
+
+            .urgent-cta img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 16px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1131,6 +1182,24 @@
             .premium-logo {
                 width: 120px;
                 height: 120px;
+            }
+
+            .urgent-cta {
+                padding: 40px 20px;
+                margin: 40px 0;
+            }
+
+            .urgent-title {
+                font-size: clamp(2rem, 8vw, 2.5rem);
+            }
+
+            .urgent-text {
+                font-size: 1.2rem;
+            }
+
+            .urgent-cta img {
+                border-radius: 12px;
+                box-shadow: 0 12px 48px rgba(0,0,0,0.4), 0 6px 24px rgba(184,134,11,0.2);
             }
         }
 
@@ -1658,7 +1727,23 @@
             
             <div style="margin-top: 64px; text-align: center;">
                 <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" target="_blank" rel="noopener">
-                    <img src="http://bitcoinaiwealth.com/reviews/texitcoin/TaxitCoin-Mining-Packages.png" alt="Texit Coin Mining Packages" style="max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 16px 64px rgba(0,0,0,0.3);">
+                    <img src="https://bitcoinaiwealth.com/reviews/texitcoin/TaxitCoin-Mining-Packages.png" 
+                         alt="Texit Coin Mining Packages - Choose Your Mining Node Package" 
+                         loading="lazy"
+                         style="max-width: 100%; 
+                                height: auto; 
+                                border-radius: 20px; 
+                                box-shadow: 0 16px 64px rgba(0,0,0,0.4), 0 8px 32px rgba(184,134,11,0.2);
+                                transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+                                display: block;
+                                margin: 0 auto;
+                                opacity: 0;"
+                         onload="this.style.opacity='1'"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: 20px; background: rgba(255,255,255,0.1); border-radius: 20px; color: white;">
+                        <p>📦 Texit Coin Mining Packages Available</p>
+                        <p>Click here to view all package options</p>
+                    </div>
                 </a>
             </div>
         </div>
@@ -1698,7 +1783,7 @@
                             <span class="faq-toggle">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p class="body-text">The 1-2-Free Sponsorship Bonus lets you earn extra hash power by directly sponsoring Miners. For every 3 Miners you recruit, you get 100 MH/s, with no limit. Recruit 3 Miners within your first 30 days of becoming a Miner, and you earn 200 MH/s as a Fast-Start Double Bonus. For details on how the 1-2-Free Sponsorship Bonus works, click the <strong>"Rapid Rewards System"</strong> button below.</p>
+                            <p class="body-text">The 1-2-Free Sponsorship Bonus lets you earn extra hash power by directly sponsoring Miners. For every 3 Miners you recruit, you get 100 MH/s, with no limit. Recruit 3 Miners within your first 30 days, and you earn 200 MH/s as a Fast-Start Double Bonus. For details on how the 1-2-Free Sponsorship Bonus works, click the <strong>"Rapid Rewards System"</strong> button below.</p>
                         </div>
                     </div>
 

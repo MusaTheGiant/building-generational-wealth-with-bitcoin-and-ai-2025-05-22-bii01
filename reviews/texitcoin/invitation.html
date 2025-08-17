@@ -79,6 +79,7 @@
             overflow: hidden;
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .premium-section::before {
@@ -90,6 +91,20 @@
             height: 1px;
             background: var(--gradient-gold);
             opacity: 0.8;
+        }
+
+        .premium-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(212, 175, 55, 0.01) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 1;
         }
 
         .section-inner {
@@ -164,11 +179,39 @@
                 0 8px 32px rgba(212, 175, 55, 0.3),
                 0 16px 64px rgba(0,0,0,0.2);
             animation: logoFloat 6s ease-in-out infinite;
-            transition: transform 0.6s ease;
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .premium-logo::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
         }
 
         .premium-logo:hover {
             transform: scale(1.05);
+            box-shadow: 
+                0 12px 48px rgba(212, 175, 55, 0.4),
+                0 20px 80px rgba(0,0,0,0.3);
+        }
+
+        .premium-logo:hover::before {
+            opacity: 1;
+            animation: shine 1.5s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
         }
 
         /* Premium CTA Buttons */
@@ -311,6 +354,7 @@
             color: var(--primary-navy);
             margin-bottom: 16px;
             font-weight: 600;
+            text-align: center;
         }
 
         .video-description {
@@ -318,6 +362,7 @@
             color: var(--text-secondary);
             font-style: italic;
             font-size: 1rem;
+            text-align: center;
         }
 
         .video-wrapper {
@@ -1032,6 +1077,35 @@
             .slider-nav.next {
                 right: 12px;
             }
+            
+            .scroll-to-top {
+                width: 48px;
+                height: 48px;
+                bottom: 20px;
+                left: 20px;
+                font-size: 1.2rem;
+            }
+            
+            .reading-progress {
+                width: 64px;
+                height: 64px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .progress-circle {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .progress-circle::before {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .progress-text {
+                font-size: 0.7rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1082,9 +1156,152 @@
             .slider-nav,
             .video-wrapper,
             .cta-primary,
-            .cta-secondary {
+            .cta-secondary,
+            .scroll-to-top,
+            .reading-progress {
                 display: none;
             }
+        }
+
+        /* Navigation Elements */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 56px;
+            height: 56px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 50%;
+            color: var(--primary-navy);
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1000;
+            box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 48px rgba(212, 175, 55, 0.4);
+        }
+
+        .reading-progress {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px var(--shadow-medium);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-gold);
+        }
+
+        .progress-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: conic-gradient(var(--accent-gold) 0deg, #e5e5e5 0deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .progress-circle::before {
+            content: '';
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: white;
+            position: absolute;
+        }
+
+        .progress-text {
+            position: relative;
+            z-index: 2;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        /* Enhanced Premium Animations */
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        .floating-element:nth-child(3) {
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Enhanced Hover States */
+        .premium-section:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+
+        .cta-primary::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-primary:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* Enhanced Focus States for Accessibility */
+        .cta-primary:focus,
+        .cta-secondary:focus,
+        .scroll-to-top:focus {
+            outline: 3px solid var(--accent-gold);
+            outline-offset: 2px;
+        }
+
+        /* Smooth Section Reveals */
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Enhanced Typography */
+        .premium-text-highlight {
+            background: linear-gradient(135deg, var(--accent-gold), #F39C12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
         }
     </style>
 </head>
@@ -1232,10 +1449,10 @@
                     </div>
                 </div>
 
-                <p style="text-align: center; font-size: 1.3rem; margin: 48px 0; font-style: italic; color: var(--text-secondary);">
-                    "No hoops. No hurdles. No 'unlocks.' Just volume, structure, and results."<br>
-                    <span style="color: var(--accent-gold); font-weight: 600;">- Bobby Gray, Founder</span>
-                </p>
+                    <p style="text-align: center; font-size: 1.3rem; margin: 48px 0; font-style: italic; color: var(--text-secondary);">
+                        "No hoops. No hurdles. No 'unlocks.' Just volume, structure, and results."<br>
+                        <span class="premium-text-highlight">- Bobby Gray, Founder</span>
+                    </p>
             </div>
         </div>
     </section>
@@ -1299,13 +1516,13 @@
 
                 <br><br>What makes Texit Coin stand out for me are a few powerful things:
 
-                <br><br><strong>Transparency:</strong> With Texit Coin, nothing is hidden. Everything is clear: registration, tokenomics, liquidity reserves, and the bold roadmap from $0 to $16, then $100, and beyond. The founder, Mr. Bobby Gray, personally hosts regular Zoom calls, trainings, and live Q&A sessions, showing us that leadership here is hands-on and committed.
+                <br><br><strong>🔍 Transparency:</strong> With Texit Coin, nothing is hidden. Everything is clear: registration, tokenomics, liquidity reserves, and the bold roadmap from $0 to $16, then $100, and beyond. The founder, Mr. Bobby Gray, personally hosts regular Zoom calls, trainings, and live Q&A sessions, showing us that leadership here is hands-on and committed.
 
-                <br><br><strong>Generational Wealth:</strong> Once your TXC rewards start, they never stop. Daily, for life. That's the kind of passive flow that doesn't just change one life: it changes families, legacies, and entire generations. This is what real financial freedom looks like.
+                <br><br><strong>💎 Generational Wealth:</strong> Once your TXC rewards start, they never stop. Daily, for life. That's the kind of passive flow that doesn't just change one life: it changes families, legacies, and entire generations. This is what real financial freedom looks like.
 
-                <br><br><strong>Compensation Plan:</strong> In my view, Texit Coin has the strongest and most rewarding compensation plan in the entire industry. If you're serious about creating reliable income, this is where possibility becomes reality. Many can reach $1000 a week, and the plan allows for as much as $3000 per week, or $12,000 per month.
+                <br><br><strong>💰 Compensation Plan:</strong> In my view, Texit Coin has the strongest and most rewarding compensation plan in the entire industry. If you're serious about creating reliable income, this is where possibility becomes reality. Many can reach $1000 a week, and the plan allows for as much as $3000 per week, or $12,000 per month.
 
-                <br><br>My dream? To own at least 100 TXC mining nodes, walk away from my job, and go full-time in crypto. But it's bigger than just me: I want to help my team achieve their dreams too. One day, I'll take my Texit Coin team with me to Texas to see the mining facilities in person, attend live events together, and maybe even bring back one of those exotic Texit Coin branded cars back to our country 😄.
+                <br><br><strong>🚀 My dream?</strong> To own at least 100 TXC mining nodes, walk away from my job, and go full-time in crypto. But it's bigger than just me: I want to help my team achieve their dreams too. One day, I'll take my Texit Coin team with me to Texas to see the mining facilities in person, attend live events together, and maybe even bring back one of those exotic Texit Coin branded cars back to our country 😄.
 
                 <br><br>Texit Coin isn't just another project: it's a path to wealth, freedom, and legacy. 🚀
             </div>
@@ -1631,8 +1848,8 @@
                     
                     <p>Texit Coin is already changing lives and building generational wealth. The beautiful truth is that anyone can earn daily TXC rewards by simply purchasing 1 to 9 mining nodes, even without referring anyone. But the real magic happens when visionary leaders like yourself recognize the opportunity to help others while building something extraordinary together.</p>
                     
-                    <p style="text-align: center; font-size: 1.4rem; font-weight: 600; color: #e74c3c; margin: 48px 0; font-family: 'Playfair Display', serif;">
-                        The question isn't whether Texit Coin will succeed: it's whether you'll be part of that success story.
+                    <p style="text-align: center; font-size: 1.4rem; font-weight: 600; margin: 48px 0; font-family: 'Playfair Display', serif;">
+                        <span class="premium-text-highlight">The question isn't whether Texit Coin will succeed: it's whether you'll be part of that success story.</span>
                     </p>
                 </div>
                 
@@ -1652,6 +1869,15 @@
             <p><em class="body-text">This invitation is for educational purposes only and is not financial advice. Please consult with a financial advisor before making any investment decisions.</em></p>
         </div>
     </footer>
+
+    <!-- Navigation Elements -->
+    <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
+    
+    <div class="reading-progress">
+        <div class="progress-circle" id="progress-circle">
+            <span class="progress-text" id="progress-text">0%</span>
+        </div>
+    </div>
 
     <script>
         // Performance optimized slider functionality
@@ -1837,7 +2063,75 @@
             animatedElements.forEach(element => {
                 element.style.willChange = 'transform';
             });
+
+            // Initialize enhanced section reveals
+            initializeSectionReveals();
         });
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Reading progress and scroll-to-top visibility
+        function updateScrollProgress() {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / docHeight) * 100);
+            
+            // Update progress indicator
+            const progressText = document.getElementById('progress-text');
+            const progressCircle = document.getElementById('progress-circle');
+            
+            if (progressText && progressCircle) {
+                progressText.textContent = scrollPercent + '%';
+                progressCircle.style.background = `conic-gradient(var(--accent-gold) ${scrollPercent * 3.6}deg, #e5e5e5 0deg)`;
+            }
+            
+            // Show/hide scroll to top button
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (scrollButton) {
+                if (scrollTop > 500) {
+                    scrollButton.classList.add('visible');
+                } else {
+                    scrollButton.classList.remove('visible');
+                }
+            }
+        }
+
+        // Enhanced section reveals
+        function initializeSectionReveals() {
+            const sections = document.querySelectorAll('.premium-section, .testimonial-section, .quote-section, .urgent-cta, .path-section');
+            
+            sections.forEach(section => {
+                section.classList.add('section-reveal');
+            });
+
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            sections.forEach(section => {
+                revealObserver.observe(section);
+            });
+        }
+
+        // Add scroll event listener
+        window.addEventListener('scroll', updateScrollProgress);
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', updateScrollProgress);
     </script>
 </body>
 </html>

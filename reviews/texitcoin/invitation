@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>An Exclusive Invitation to Build Generational Wealth with Texit Coin | MTG</title>
+    <meta name="description" content="Join MTG and top leaders in the Texit Coin revolution. Secure your mining nodes while TXC is still under $16 and be part of the path to $1000+">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: white;
+            margin: 20px 0;
+            padding: 60px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c, #3498db);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 40px;
+            margin: 0;
+            border-radius: 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 30px auto;
+            display: block;
+            border: 5px solid #f39c12;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #f39c12, #e67e22);
+            color: white;
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(243, 156, 18, 0.6);
+        }
+
+        .section-title {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #f39c12, #e74c3c);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            text-align: justify;
+        }
+
+        .video-container {
+            margin: 40px 0;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+        }
+
+        .video-title {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .video-description {
+            margin-bottom: 20px;
+            color: #555;
+            font-style: italic;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .compensation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comp-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .comp-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .comp-amount {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .comp-description {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-top: 4px solid #e74c3c;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .reason-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .reason-number {
+            background: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .testimonial {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 50px;
+            border-radius: 20px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 6em;
+            position: absolute;
+            top: 10px;
+            left: 30px;
+            opacity: 0.3;
+        }
+
+        .testimonial-content {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .video-testimonials {
+            margin: 40px 0;
+        }
+
+        .slider-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #f8f9fa;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            padding: 30px;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide-video {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .slide-video video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            transition: background 0.3s ease;
+        }
+
+        .slider-nav:hover {
+            background: rgba(0,0,0,0.9);
+        }
+
+        .slider-nav.prev {
+            left: 15px;
+        }
+
+        .slider-nav.next {
+            right: 15px;
+        }
+
+        .slider-dots {
+            text-align: center;
+            padding: 20px;
+            background: #e9ecef;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ccc;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .dot.active {
+            background: #3498db;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 40px;
+            margin: 60px 0;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-text {
+            font-size: 2.5em;
+            font-style: italic;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quote-author {
+            font-size: 1.3em;
+            opacity: 0.9;
+        }
+
+        .urgent-cta {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            border-radius: 20px;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .urgent-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shine 3s infinite;
+        }
+
+        .urgent-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .urgent-text {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .cta-item {
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .faq-section {
+            margin: 60px 0;
+        }
+
+        .faq-item {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            background: #f8f9fa;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: #e9ecef;
+        }
+
+        .faq-toggle {
+            font-size: 1.5em;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 20px;
+            background: white;
+            line-height: 1.7;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .resource-link {
+            display: block;
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        .path-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .path-content {
+            text-align: center;
+        }
+
+        .path-title {
+            font-size: 3em;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .path-description {
+            font-size: 1.3em;
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .milestone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .milestone {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .milestone-price {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #f39c12;
+        }
+
+        .milestone-date {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px;
+            margin-top: 60px;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            
+            .section {
+                padding: 40px 20px;
+            }
+            
+            .quote-text {
+                font-size: 1.8em;
+            }
+            
+            .urgent-title {
+                font-size: 2em;
+            }
+            
+            .path-title {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>An Exclusive Invitation to Build Generational Wealth</h1>
+            <p>Join Top Leaders in the Texit Coin Revolution</p>
+            <img src="https://bitcoinaiwealth.com/reviews/texitcoin/texitcoin-txc-logo.jpg" alt="Texit Coin Logo" class="logo">
+            <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Secure Your Mining Nodes Now</a>
+        </div>
+    </section>
+
+    <!-- Introducing Myself Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">A Personal Message from MTG</h2>
+            <div class="intro-text">
+                <p>Greetings, fellow visionary.</p>
+                
+                <p>Thank you for taking precious time from your busy schedule to review this exclusive Texit Coin (TXC) invitation. I know your time is valuable, which is why I've carefully curated the most essential insights and resources about this remarkable opportunity for your convenience.</p>
+                
+                <p>Picture this moment as a private, one-on-one conversation between two leaders who understand the power of strategic positioning in emerging markets. This invitation is specifically crafted for top leaders, network and affiliate marketers, Bitcoin and crypto enthusiasts, team builders, thought leaders, and experienced professionals who recognize opportunity when it presents itself.</p>
+                
+                <p>I'm not here to convince you of anything. I'm here to share what I've discovered through my own journey with Texit Coin—a journey built on experience, proven results, and an unwavering belief in this project's transformative potential. As a leader among leaders, I extend this invitation not just to explore Texit Coin, but to join me on a mission of creating generational wealth while empowering others to do the same.</p>
+                
+                <p>What you're about to discover isn't just another cryptocurrency opportunity. It's a carefully orchestrated strategy to position yourself at the forefront of what could be the most significant wealth-building opportunity of our generation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Essential Texit Coin Education</h2>
+            
+            <div class="video-container">
+                <h3 class="video-title">Discover TEXITcoin in Under 6 Minutes</h3>
+                <p class="video-description">Get a complete overview of what makes Texit Coin the most promising cryptocurrency opportunity available today.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/-rNZ4jwKh4E?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">The Strategic Plan: From $2 to $16... and Beyond to $1000</h3>
+                <p class="video-description">Founder Bobby Gray reveals the detailed roadmap that's already proven accurate month after month.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/uEbpYWdAFwc?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">The Window is Closing Faster Than You Think</h3>
+                <p class="video-description">Understand why delaying your decision could cost you the opportunity of a lifetime.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/l0fdBe7RYPQ?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">The Path to $16 and Beyond</h3>
+                <p class="video-description">Deep dive into the mathematical foundation supporting TXC's price trajectory.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/MW9KKzb1oN4?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">Can You Really Retire With Just $9000?</h3>
+                <p class="video-description">Discover how a modest investment in mining nodes could transform your financial future forever.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/lKjcrJpa4gw?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">Amazing Texit Coin Testimony</h3>
+                <p class="video-description">Hear real success stories from miners who are already transforming their lives with TXC.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/nwnMuPUKJmg?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">Should I Buy or Mine Texit Coins?</h3>
+                <p class="video-description">Learn the strategic difference between trading tokens and owning income-generating mining assets.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/GssByFCB0ts?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="video-container">
+                <h3 class="video-title">Texit Coin Explained by Founder Bobby Gray</h3>
+                <p class="video-description">Hear directly from the visionary leader behind this revolutionary project.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/2fplMCjXHIo?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Start Your Journey Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compensation Plan Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">The Most Rewarding Compensation Plan in Crypto</h2>
+            
+            <div class="video-container">
+                <h3 class="video-title">Compensation Plan Breakdown</h3>
+                <p class="video-description">Discover how the Supernova plan can generate up to $3,000 per week through strategic team building.</p>
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/hF_gGkqwTy4?rel=0&modestbranding=1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="compensation-grid">
+                <div class="comp-card">
+                    <div class="comp-amount">$1,000</div>
+                    <div class="comp-description">Weekly with 3 points left + 3 points right</div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-amount">$2,000</div>
+                    <div class="comp-description">Weekly with 6 points left + 6 points right</div>
+                </div>
+                <div class="comp-card">
+                    <div class="comp-amount">$3,000</div>
+                    <div class="comp-description">Weekly with 9 points left + 9 points right (Supernova)</div>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 1.2em; margin: 30px 0; font-style: italic;">
+                "No hoops. No hurdles. No 'unlocks.' Just volume, structure, and results."<br>
+                - Bobby Gray, Founder
+            </p>
+        </div>
+    </section>
+
+    <!-- Top 4 Reasons Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Top 4 Reasons to Start Mining TXC Coins Now</h2>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-number">1</div>
+                    <h3>Early Miner Advantage</h3>
+                    <p>Earn more TXC daily while the network is still young, with fewer than 100,000 miners worldwide. The earlier you join, the higher your daily rewards.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">2</div>
+                    <h3>Price Still Under $16</h3>
+                    <p>The TXC price is still under $16 per coin, so the coins you mine today could multiply in value as the price rises to $16 and beyond to $100, $1000+.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">3</div>
+                    <h3>Fast-Start Bonus</h3>
+                    <p>Refer just 3 miners within your first month and unlock a bonus of 200 mining hash power—that's $2,000 worth of hash power, completely free.</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-number">4</div>
+                    <h3>Supernova Potential</h3>
+                    <p>Through the dual point affiliate system, you can earn up to $3,000 per week, or $12,000 per month, if you commit and take this seriously.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MTG Testimonial Section -->
+    <section class="testimonial">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">My Personal Texit Coin Journey</h2>
+            
+            <div class="testimonial-content">
+                I began my Texit Coin journey on 13 August 2025 with just a $1000 mining package, and the very next day, I started seeing my TXC rewards flow in—consistently, day after day. From that moment, it hasn't stopped. The entire process of getting started was smooth, quick, and surprisingly simple.
+
+                <br><br>What makes Texit Coin stand out for me are a few powerful things:
+
+                <br><br><strong>Transparency:</strong> With Texit Coin, nothing is hidden. Everything is clear: registration, tokenomics, liquidity reserves, and the bold roadmap from $0 to $16, then $100, and beyond. The founder, Mr. Bobby Gray, personally hosts regular Zoom calls, trainings, and live Q&A sessions, showing us that leadership here is hands-on and committed.
+
+                <br><br><strong>Generational Wealth:</strong> Once your TXC rewards start, they never stop. Daily, for life. That's the kind of passive flow that doesn't just change one life: it changes families, legacies, and entire generations. This is what real financial freedom looks like.
+
+                <br><br><strong>Compensation Plan:</strong> In my view, Texit Coin has the strongest and most rewarding compensation plan in the entire industry. If you're serious about creating reliable income, this is where possibility becomes reality. Many can reach $1000 a week, and the plan allows for as much as $3000 per week, or $12,000 per month.
+
+                <br><br>My dream? To own at least 100 TXC mining nodes, walk away from my job, and go full-time in crypto. But it's bigger than just me: I want to help my team achieve their dreams too. One day, I'll take my Texit Coin team with me to Texas to see the mining facilities in person, attend live events together, and maybe even bring back one of those exotic Texit Coin branded cars back to our country 😄.
+
+                <br><br>Texit Coin isn't just another project: it's a path to wealth, freedom, and legacy. 🚀
+            </div>
+            
+            <div class="testimonial-author">
+                <img src="https://bitcoinaiwealth.com/reviews/texitcoin/MusaTheGiant.jpg" alt="MTG" class="testimonial-avatar">
+                <div class="testimonial-info">
+                    <h4>MTG 👑</h4>
+                    <p>Bitcoin & AI Wealth Builder</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Join MTG's Team Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials Slider -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Real Success Stories from the Community</h2>
+            
+            <div class="video-testimonials">
+                <div class="slider-container">
+                    <div class="slider-wrapper">
+                        <div class="slide active">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Samantha's Transformation</h3>
+                            <div class="slide-video">
+                                <video controls>
+                                    <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/texit-coin-testimonial-samantha.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Sara Warren's Journey</h3>
+                            <div class="slide-video">
+                                <video controls>
+                                    <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/Texit-Coin-Testimonial-Sara-Warren.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Life-Changing Results</h3>
+                            <div class="slide-video">
+                                <video controls>
+                                    <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/Texit-Coin-Testimonial.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Angelo Rosat's Success</h3>
+                            <div class="slide-video">
+                                <video controls>
+                                    <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/texit-coin-txc-testimonial-angelo-rosat.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                        
+                        <div class="slide">
+                            <h3 style="text-align: center; margin-bottom: 20px;">Price Growth Explained</h3>
+                            <div class="slide-video">
+                                <video controls>
+                                    <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/Texit-Coin-Price.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="slider-nav prev" onclick="changeSlide(-1)">‹</button>
+                    <button class="slider-nav next" onclick="changeSlide(1)">›</button>
+                    
+                    <div class="slider-dots">
+                        <span class="dot active" onclick="currentSlide(1)"></span>
+                        <span class="dot" onclick="currentSlide(2)"></span>
+                        <span class="dot" onclick="currentSlide(3)"></span>
+                        <span class="dot" onclick="currentSlide(4)"></span>
+                        <span class="dot" onclick="currentSlide(5)"></span>
+                        <p style="margin-top: 15px; color: #666;">Testimonial <span id="current-slide">1</span> of 5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="quote-text">
+                "The best time to plant a tree was 20 years ago. The second best time is now. Your Texit Coin mining nodes are the trees that will grow into generational wealth."
+            </div>
+            <div class="quote-author">- Wisdom for Wealth Builders</div>
+        </div>
+    </section>
+
+    <!-- Prominent CTA Section -->
+    <section class="urgent-cta">
+        <div class="container">
+            <h2 class="urgent-title">The Window is Closing Fast</h2>
+            <div class="urgent-text">
+                Available mining hashpower is limited and selling quickly. Once sold out, these nodes will NEVER be available again. The TXC price is still under $16, but founder Bobby Gray has a proven plan to take TXC to $16, $100, $1000, and beyond. 
+                
+                <br><br>Acting now is a no-brainer. You can start earning TXC rewards within 12 hours or less. Share this opportunity with others so we can all win together and build generational wealth. Once daily TXC rewards begin, they do not stop—ever.
+                
+                <br><br>Consider buying TXC coins on the market as well, as profits could help purchase more mining nodes while hashpower is still available.
+            </div>
+            
+            <div class="cta-grid">
+                <div class="cta-item">
+                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Get Started Immediately</a>
+                </div>
+                
+                <div class="cta-item">
+                    <h3 style="color: white; margin-bottom: 20px;">Scan to Register</h3>
+                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy">
+                        <img src="https://bitcoinaiwealth.com/reviews/texitcoin/Texit-Coin-Mining-Registration-QR-Code.png" alt="QR Code" class="qr-code">
+                    </a>
+                </div>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="https://minetxc.com/sign-up?sponsor=mtglegacy">
+                    <img src="http://bitcoinaiwealth.com/reviews/texitcoin/TaxitCoin-Mining-Packages.png" alt="Texit Coin Mining Packages" style="max-width: 100%; height: auto; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            
+            <div class="faq-section">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is Texit Coin (TXC) and why should I care?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Texit Coin is a next-generation cryptocurrency backed by a real mining model that rewards holders daily. Unlike hype coins with no utility, TXC is designed with a clear roadmap, a committed founder (Bobby Gray), and a proven strategy to move from under $16 to $1000+ per coin. If you want to be early on the next big wealth wave, TXC is where you plant your flag.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does Texit Coin mining work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        By purchasing a mining node (limited between 1 and 9 per member), you unlock daily TXC rewards. Your mining hashpower fuels the network, and in return, you are rewarded with coins automatically, hands-free. Rewards start within 12 hours of activating your node and continue daily. This is not trading, guessing, or speculation: it is consistent mining rewards.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why is there a limit of 9 nodes per member?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        The cap ensures fairness. It prevents wealthy whales from scooping up all available nodes and shutting out everyday leaders and builders. This levels the playing field, giving everyone a chance to own a piece of this opportunity. More nodes can be earned by building and leading teams.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What happens when the mining hashpower sells out?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Once all hashpower is sold, no new nodes will ever be available. That means no new mining rewards can be generated from nodes. The only way to benefit after that is to buy TXC on the open market, at whatever price it has reached. Acting now is the only way to secure daily rewards while nodes are still available.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Can I earn without recruiting anyone?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. Simply owning a mining node entitles you to daily rewards. No recruiting required. However, sharing the opportunity unlocks powerful affiliate commissions, bonuses, and the chance to help others build wealth alongside you.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>How does the affiliate commission model work?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        You earn commissions every time someone in your network purchases a node package. The real power comes from the dual plan structure. As your referrals and their teams purchase packages, you accumulate points on your left and right sides. 3 points left + 3 points right = $1,000 per week. 6 points left + 6 points right = $2,000 per week. 9 points left + 9 points right = $3,000 per week (Supernova).
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>Why should I act right now instead of waiting?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Timing is everything. The TXC price is still under $16, but it will not stay there long. Mining nodes are selling fast and once they are gone, they are gone forever. Every day you wait is a day of daily rewards lost and a missed chance at multiplying your crypto wealth. Leaders act early, not late.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <span>What is the vision behind Texit Coin?</span>
+                        <span class="faq-toggle">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Founder Bobby Gray has laid out a plan to drive TXC to $16, $100, $1000, and beyond. This is not empty hype: it is backed by strategy, math, and real crypto economics. The vision is simple: empower everyday people, create generational wealth, and make Texit Coin a household name in crypto.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Essential Resources</h2>
+            
+            <div class="resources-grid">
+                <a href="https://help.minetxc.com/rapid-rewards" class="resource-link" target="_blank">
+                    📈 Rapid Rewards System
+                </a>
+                
+                <a href="https://help.minetxc.com/video-tutorials" class="resource-link" target="_blank">
+                    🎥 Video Tutorials
+                </a>
+                
+                <a href="https://coinmarketcap.com/currencies/texitcoin" class="resource-link" target="_blank">
+                    📊 TXC on CoinMarketCap
+                </a>
+                
+                <a href="https://dex-trade.com/spot/trading/TXCUSDT" class="resource-link" target="_blank">
+                    💱 Buy & Sell TXC
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Path to $16 Section -->
+    <section class="path-section">
+        <div class="container">
+            <div class="path-content">
+                <h2 class="path-title">📈 The Path to $16 by February 2026</h2>
+                
+                <div class="path-description">
+                    This isn't wishful thinking: it's a strategic move-up schedule rooted in sound-money principles and powered by exponential community growth. Following the same blueprint that guided successful currency models, TXC combines proven economic theory with modern digital currency innovation.
+                </div>
+
+                <div class="milestone-grid">
+                    <div class="milestone">
+                        <div class="milestone-price">$1.95</div>
+                        <div class="milestone-date">September 2025</div>
+                    </div>
+                    
+                    <div class="milestone">
+                        <div class="milestone-price">$3.79</div>
+                        <div class="milestone-date">October 2025</div>
+                    </div>
+                    
+                    <div class="milestone">
+                        <div class="milestone-price">$7.45</div>
+                        <div class="milestone-date">December 2025</div>
+                    </div>
+                    
+                    <div class="milestone">
+                        <div class="milestone-price">$16.69</div>
+                        <div class="milestone-date">February 2026</div>
+                    </div>
+                </div>
+
+                <div class="path-description">
+                    <strong>The Strategy Behind the Numbers:</strong><br>
+                    Every step is backed by dedicated liquidity pools, transparent reserves, and a disciplined approach to price appreciation. We never push the price unless we can support it. That's our discipline. That's your security.
+                    
+                    <br><br><strong>Why $16 is Just the Beginning:</strong><br>
+                    If we reach $16 by February 2026, it won't be the end: it'll be proof of concept. It means our strategy works and TXC has achieved a billion-dollar market cap. From there, we don't stop: we expand toward $100, $1000, and beyond.
+                </div>
+
+                <div style="margin-top: 40px;">
+                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Secure Your Position on the Path</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closing Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Your Moment of Decision</h2>
+            
+            <div class="intro-text">
+                <p>Thank you for investing your valuable time in reviewing this Texit Coin invitation. I sincerely hope it has provided the clarity and confidence you need to make an informed decision about this extraordinary opportunity.</p>
+                
+                <p>This is your moment to step into something bigger than a simple investment—this is your chance to join a movement that's already transforming lives and building generational wealth. The choice you make in the next few hours could be the defining moment that your family remembers for generations to come.</p>
+                
+                <p>I challenge you to take massive action before the mining hashpower is sold out and before the TXC price climbs to $16, $100, and beyond. Your future self will thank you for having the vision and courage to act when opportunity presented itself.</p>
+                
+                <p>Remember, this invitation represents just the beginning of your Texit Coin education. There's so much more to discover about the company, the founder, the technology, the roadmap, and the compensation structure. This isn't financial advice: it's my personal invitation to the strongest leaders, visionaries, and action-takers to consider adding Texit Coin mining to their crypto portfolio and share this opportunity with their teams, communities, and followers.</p>
+                
+                <p>Texit Coin is already changing lives and building generational wealth. The beautiful truth is that anyone can earn daily TXC rewards by simply purchasing 1 to 9 mining nodes, even without referring anyone. But the real magic happens when visionary leaders like yourself recognize the opportunity to help others while building something extraordinary together.</p>
+                
+                <p style="text-align: center; font-size: 1.3em; font-weight: bold; color: #e74c3c; margin: 40px 0;">
+                    The question isn't whether Texit Coin will succeed: it's whether you'll be part of that success story.
+                </p>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" class="cta-button">Join the Movement Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p><span id="current-date"></span></p>
+            <p>&copy; <span id="current-year"></span> MTG Bitcoin AI Wealth. All Rights Reserved.</p>
+            <p>Written with ❤️ by MTG 👑</p>
+            <p><em>This invitation is for educational purposes only and is not financial advice. Please consult with a financial advisor before making any investment decisions.</em></p>
+        </div>
+    </footer>
+
+    <script>
+        // Slider functionality
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            
+            document.getElementById('current-slide').textContent = index + 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // Auto-play slider
+        setInterval(() => {
+            changeSlide(1);
+        }, 10000);
+
+        // FAQ functionality
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            const allAnswers = document.querySelectorAll('.faq-answer');
+            const allToggles = document.querySelectorAll('.faq-toggle');
+            
+            // Close all other FAQs
+            allAnswers.forEach(ans => {
+                if (ans !== answer) {
+                    ans.classList.remove('active');
+                }
+            });
+            
+            allToggles.forEach(tog => {
+                if (tog !== toggle) {
+                    tog.textContent = '+';
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            toggle.textContent = answer.classList.contains('active') ? '−' : '+';
+        }
+
+        // Set current date and year
+        document.addEventListener('DOMContentLoaded', function() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            
+            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
+            document.getElementById('current-year').textContent = now.getFullYear();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('.section, .testimonial, .quote-section, .urgent-cta, .path-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

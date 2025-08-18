@@ -23,7 +23,8 @@
             --shadow-soft: rgba(26, 26, 26, 0.08);
             --shadow-medium: rgba(26, 26, 26, 0.12);
             --shadow-strong: rgba(26, 26, 26, 0.20);
-            --gradient-primary: linear-gradient(135deg, #0A1628 0%, #1B2B4A 50%, #2C3E50 100%);
+            --gradient-primary: linear-gradient(135deg, #262161 0%, #1B2B4A 50%, #2C3E50 100%);
+            --gradient-hero: linear-gradient(135deg, #262161 0%, #2e2776 50%, #3a2f8b 100%);
             --gradient-gold: linear-gradient(135deg, #D4AF37 0%, #F1C40F 50%, #F39C12 100%);
             --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
         }
@@ -116,7 +117,7 @@
 
         /* Hero Section - Executive Level */
         .hero-section {
-            background: var(--gradient-primary);
+            background: var(--gradient-hero);
             color: white;
             text-align: center;
             padding: 80px 60px;
@@ -419,7 +420,7 @@
 
         .comp-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 80px rgba(10, 22, 40, 0.3);
+            box-shadow: 0 20px 80px rgba(38, 33, 97, 0.3);
         }
 
         .comp-card:hover::before {
@@ -629,7 +630,7 @@
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(10, 22, 40, 0.8);
+            background: rgba(38, 33, 97, 0.8);
             color: white;
             border: none;
             width: 56px;
@@ -642,7 +643,7 @@
         }
 
         .slider-nav:hover {
-            background: var(--primary-navy);
+            background: #262161;
             transform: translateY(-50%) scale(1.1);
         }
 
@@ -984,7 +985,7 @@
 
         /* Footer */
         .footer {
-            background: var(--primary-navy);
+            background: #262161;
             color: white;
             text-align: center;
             padding: 60px 40px;

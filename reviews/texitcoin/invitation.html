@@ -334,7 +334,7 @@
             color: var(--accent-gold);
         }
 
-        /* Video Container Premium Design */
+        /* Enhanced Video Container Design */
         .video-container {
             margin: 56px 0;
             padding: 48px;
@@ -344,6 +344,8 @@
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px var(--shadow-soft);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 3;
         }
 
         .video-container:hover {
@@ -367,6 +369,7 @@
             text-align: center;
         }
 
+        /* Enhanced Video Wrapper with Better Cross-Browser Support */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -375,6 +378,7 @@
             border-radius: 16px;
             box-shadow: 0 12px 48px rgba(0,0,0,0.15);
             background: var(--primary-navy);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .video-wrapper iframe {
@@ -384,6 +388,50 @@
             width: 100%;
             height: 100%;
             border: none;
+            border-radius: 16px;
+        }
+
+        /* Video Loading States */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 1.2rem;
+            z-index: 1;
+        }
+
+        .video-error {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ff6b6b;
+            text-align: center;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .video-fallback {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .video-fallback a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .video-fallback a:hover {
+            text-decoration: underline;
         }
 
         /* Compensation Cards */
@@ -1374,6 +1422,62 @@
             background-clip: text;
             font-weight: 600;
         }
+
+        /* Video Loading and Error States */
+        .video-state {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+            font-size: 1.1rem;
+        }
+
+        .video-loading-spinner {
+            border: 3px solid rgba(255,255,255,0.3);
+            border-top: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 16px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Enhanced Error Styling */
+        .video-error {
+            color: #ff6b6b;
+        }
+
+        .video-error-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* Ensure video section visibility on all devices */
+        .video-education-section {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 2 !important;
+        }
+
+        /* Force visibility of video containers */
+        .video-container,
+        .video-wrapper,
+        .video-wrapper iframe {
+            display: block !important;
+            visibility: visible !important;
+        }
     </style>
 </head>
 <body>
@@ -1412,8 +1516,8 @@
         </div>
     </section>
 
-    <!-- Video Section -->
-    <section class="premium-section">
+    <!-- Essential Texit Coin Education Section -->
+    <section class="premium-section video-education-section" id="video-education">
         <div class="premium-container">
             <div class="section-inner">
                 <h2 class="section-title headline">Essential Texit Coin Education</h2>
@@ -1423,7 +1527,26 @@
                     <h3 class="video-title subheadline">Discover Texit Coin (TXC) in Under 6 Minutes</h3>
                     <p class="video-description body-text">Get a complete overview of what makes Texit Coin the most promising cryptocurrency opportunity available today.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/-rNZ4jwKh4E?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=-rNZ4jwKh4E" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/-rNZ4jwKh4E?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Discover Texit Coin (TXC) in Under 6 Minutes"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=-rNZ4jwKh4E" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1431,7 +1554,26 @@
                     <h3 class="video-title subheadline">The Strategic Plan: From $2 to $16... and Beyond to $1000</h3>
                     <p class="video-description body-text">Founder Bobby Gray reveals the detailed roadmap that's already proven accurate month after month.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/uEbpYWdAFwc?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=uEbpYWdAFwc" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/uEbpYWdAFwc?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="The Strategic Plan: From $2 to $16... and Beyond to $1000"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=uEbpYWdAFwc" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1439,7 +1581,26 @@
                     <h3 class="video-title subheadline">The Window is Closing Faster Than You Think</h3>
                     <p class="video-description body-text">Understand why delaying your decision could cost you the opportunity of a lifetime.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/l0fdBe7RYPQ?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=l0fdBe7RYPQ" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/l0fdBe7RYPQ?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="The Window is Closing Faster Than You Think"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=l0fdBe7RYPQ" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1447,7 +1608,26 @@
                     <h3 class="video-title subheadline">The Path to $16 and Beyond</h3>
                     <p class="video-description body-text">Deep dive into the mathematical foundation supporting TXC's price trajectory.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/MW9KKzb1oN4?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=MW9KKzb1oN4" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/MW9KKzb1oN4?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="The Path to $16 and Beyond"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=MW9KKzb1oN4" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1455,7 +1635,26 @@
                     <h3 class="video-title subheadline">Can You Really Retire With Just $9000?</h3>
                     <p class="video-description body-text">Discover how a modest investment in mining nodes could transform your financial future forever.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/lKjcrJpa4gw?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=lKjcrJpa4gw" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/lKjcrJpa4gw?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Can You Really Retire With Just $9000?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=lKjcrJpa4gw" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1463,7 +1662,26 @@
                     <h3 class="video-title subheadline">Amazing Texit Coin Testimony</h3>
                     <p class="video-description body-text">Hear real success stories from miners who are already transforming their lives with TXC.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/nwnMuPUKJmg?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=nwnMuPUKJmg" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/nwnMuPUKJmg?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Amazing Texit Coin Testimony"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=nwnMuPUKJmg" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1471,7 +1689,26 @@
                     <h3 class="video-title subheadline">Should I Buy or Mine Texit Coins?</h3>
                     <p class="video-description body-text">Learn the strategic difference between trading tokens and owning income-generating mining assets.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/GssByFCB0ts?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=GssByFCB0ts" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/GssByFCB0ts?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Should I Buy or Mine Texit Coins?"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=GssByFCB0ts" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1479,7 +1716,26 @@
                     <h3 class="video-title subheadline">Texit Coin Explained by Founder Bobby Gray</h3>
                     <p class="video-description body-text">Hear directly from the visionary leader behind this revolutionary project.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/2fplMCjXHIo?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=2fplMCjXHIo" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/2fplMCjXHIo?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Texit Coin Explained by Founder Bobby Gray"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=2fplMCjXHIo" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1501,7 +1757,26 @@
                     <h3 class="video-title subheadline">Compensation Plan Breakdown</h3>
                     <p class="video-description body-text">Discover how the Supernova plan can generate up to $3,000 per week through strategic team building.</p>
                     <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/hF_gGkqwTy4?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&playlist=hF_gGkqwTy4" allowfullscreen></iframe>
+                        <div class="video-state video-loading">
+                            <div class="video-loading-spinner"></div>
+                            Loading video...
+                        </div>
+                        <iframe 
+                            src="https://www.youtube.com/embed/hF_gGkqwTy4?rel=0&modestbranding=1&showinfo=0&controls=1&autoplay=0&origin=https://mtglegacy.github.io"
+                            title="Compensation Plan Breakdown"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy"
+                            onload="this.previousElementSibling.style.display='none'"
+                            onerror="handleVideoError(this)">
+                        </iframe>
+                        <div class="video-state video-fallback" style="display: none;">
+                            <div class="video-error-icon">⚠️</div>
+                            <p>Video temporarily unavailable</p>
+                            <a href="https://www.youtube.com/watch?v=hF_gGkqwTy4" target="_blank">Watch on YouTube</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1981,6 +2256,43 @@
     </div>
 
     <script>
+        // Enhanced video error handling
+        function handleVideoError(iframe) {
+            console.log('Video failed to load:', iframe.src);
+            const wrapper = iframe.closest('.video-wrapper');
+            const loading = wrapper.querySelector('.video-loading');
+            const fallback = wrapper.querySelector('.video-fallback');
+            
+            if (loading) loading.style.display = 'none';
+            if (fallback) fallback.style.display = 'block';
+        }
+
+        // Enhanced video loading detection
+        function setupVideoObserver() {
+            const videoWrappers = document.querySelectorAll('.video-wrapper');
+            
+            videoWrappers.forEach(wrapper => {
+                const iframe = wrapper.querySelector('iframe');
+                const loading = wrapper.querySelector('.video-loading');
+                
+                if (iframe && loading) {
+                    // Hide loading spinner after attempt to load
+                    setTimeout(() => {
+                        if (loading) loading.style.display = 'none';
+                    }, 5000);
+                    
+                    // Monitor iframe load state
+                    iframe.addEventListener('load', function() {
+                        if (loading) loading.style.display = 'none';
+                    });
+                    
+                    iframe.addEventListener('error', function() {
+                        handleVideoError(this);
+                    });
+                }
+            });
+        }
+
         // Performance optimized slider functionality
         let currentSlideIndex = 0;
         const slides = document.querySelectorAll('.slide');
@@ -1996,7 +2308,10 @@
                 dot.classList.toggle('active', i === index);
             });
             
-            document.getElementById('current-slide').textContent = index + 1;
+            const currentSlideElement = document.getElementById('current-slide');
+            if (currentSlideElement) {
+                currentSlideElement.textContent = index + 1;
+            }
         }
 
         function changeSlide(direction) {
@@ -2080,8 +2395,15 @@
                 day: 'numeric' 
             };
             
-            document.getElementById('current-date').textContent = now.toLocaleDateString('en-US', options);
-            document.getElementById('current-year').textContent = now.getFullYear();
+            const currentDateElement = document.getElementById('current-date');
+            const currentYearElement = document.getElementById('current-year');
+            
+            if (currentDateElement) {
+                currentDateElement.textContent = now.toLocaleDateString('en-US', options);
+            }
+            if (currentYearElement) {
+                currentYearElement.textContent = now.getFullYear();
+            }
 
             // Initialize FAQ max-height for smooth transitions
             const faqAnswers = document.querySelectorAll('.faq-answer');
@@ -2096,6 +2418,17 @@
             faqToggles.forEach(toggle => {
                 toggle.style.transition = 'transform 0.3s ease';
             });
+
+            // Setup video observers
+            setupVideoObserver();
+
+            // Force video section visibility
+            const videoSection = document.getElementById('video-education');
+            if (videoSection) {
+                videoSection.style.display = 'block';
+                videoSection.style.visibility = 'visible';
+                videoSection.style.opacity = '1';
+            }
         });
 
         // Smooth scrolling for anchor links
@@ -2233,6 +2566,43 @@
 
         // Initialize on load
         document.addEventListener('DOMContentLoaded', updateScrollProgress);
+
+        // Additional debugging for video section visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, checking video section...');
+            const videoSection = document.querySelector('.video-education-section');
+            if (videoSection) {
+                console.log('Video section found:', videoSection);
+                console.log('Video section styles:', window.getComputedStyle(videoSection));
+            } else {
+                console.log('Video section not found');
+            }
+
+            // Force all video containers to be visible
+            const videoContainers = document.querySelectorAll('.video-container');
+            videoContainers.forEach(container => {
+                container.style.display = 'block';
+                container.style.visibility = 'visible';
+                container.style.opacity = '1';
+            });
+
+            console.log('Found', videoContainers.length, 'video containers');
+        });
+
+        // Debug function to check iframe loading
+        function debugIframes() {
+            const iframes = document.querySelectorAll('iframe');
+            iframes.forEach((iframe, index) => {
+                console.log(`Iframe ${index}:`, iframe.src);
+                console.log(`Iframe ${index} display:`, window.getComputedStyle(iframe).display);
+                console.log(`Iframe ${index} visibility:`, window.getComputedStyle(iframe).visibility);
+            });
+        }
+
+        // Run debug after page loads
+        window.addEventListener('load', () => {
+            setTimeout(debugIframes, 2000);
+        });
     </script>
 </body>
 </html>

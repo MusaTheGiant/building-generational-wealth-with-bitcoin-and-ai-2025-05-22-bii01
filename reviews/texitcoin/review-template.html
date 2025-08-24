@@ -632,7 +632,7 @@
     </div>
 
     <!-- Sticky Bottom CTA (Mobile) -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t p-4 z-50 md:hidden">
+    <div class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t p-4 z-40 md:hidden">
         <div class="flex items-center justify-between">
             <div>
                 <p class="font-bold text-sm">[Product Name]</p>
@@ -700,6 +700,36 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button (Bottom Left) -->
+    <div id="scrollToTop" class="fixed bottom-6 left-6 z-50 opacity-0 transition-all duration-300 pointer-events-none">
+        <button class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transform hover:scale-110 transition-all duration-300 hover:from-blue-700 hover:to-purple-700">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Reading Progress Indicator (Bottom Right) -->
+    <div id="readingProgress" class="fixed bottom-6 right-6 z-50">
+        <div class="bg-white rounded-full shadow-lg border-2 border-gray-200 p-3 min-w-[80px]">
+            <div class="relative w-12 h-12 mx-auto">
+                <svg class="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                    <path class="text-gray-200" stroke="currentColor" stroke-width="3" fill="none" 
+                          d="m18,2.0845 a 15.9155,15.9155 0 0,1 0,31.831 a 15.9155,15.9155 0 0,1 0,-31.831"/>
+                    <path id="progressCircle" class="text-blue-600 transition-all duration-300" stroke="currentColor" 
+                          stroke-width="3" fill="none" stroke-dasharray="0 100" stroke-linecap="round"
+                          d="m18,2.0845 a 15.9155,15.9155 0 0,1 0,31.831 a 15.9155,15.9155 0 0,1 0,-31.831"/>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <span id="progressText" class="text-xs font-bold text-gray-700">0%</span>
+                </div>
+            </div>
+            <div class="text-center mt-1">
+                <span class="text-xs text-gray-600 font-medium">Read</span>
+            </div>
+        </div>
+    </div>
+
     <!-- Smooth Scrolling Script -->
     <script>
         // Smooth scrolling for anchor links
@@ -742,11 +772,38 @@
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav a[href^="#"]');
 
-        window.addEventListener('scroll', () => {
+        // Scroll to Top Button and Reading Progress Indicator
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        const progressCircle = document.getElementById('progressCircle');
+        const progressText = document.getElementById('progressText');
+        const readingProgressContainer = document.getElementById('readingProgress');
+
+        // Calculate reading progress and handle scroll-to-top visibility
+        function updateScrollFeatures() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = Math.round((scrollTop / scrollHeight) * 100);
+            
+            // Update progress indicator
+            const circumference = 100;
+            const offset = circumference - (scrollPercent / 100) * circumference;
+            progressCircle.style.strokeDasharray = `${circumference - offset} ${offset}`;
+            progressText.textContent = `${scrollPercent}%`;
+            
+            // Show/hide scroll to top button
+            if (scrollTop > 100) {
+                scrollToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                scrollToTopBtn.classList.add('opacity-100');
+            } else {
+                scrollToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                scrollToTopBtn.classList.remove('opacity-100');
+            }
+
+            // Active section highlighting
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop - 100;
-                if (pageYOffset >= sectionTop) {
+                if (scrollTop >= sectionTop) {
                     current = section.getAttribute('id');
                 }
             });
@@ -757,7 +814,48 @@
                     link.classList.add('font-bold', 'text-blue-800');
                 }
             });
+        }
+
+        // Scroll to top functionality
+        scrollToTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
+
+        // Update on scroll with throttling for better performance
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(updateScrollFeatures);
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', function() {
+            ticking = false;
+            requestTick();
+        });
+
+        // Initial call
+        updateScrollFeatures();
+
+        // Mobile responsiveness for new elements
+        function handleMobileLayout() {
+            if (window.innerWidth <= 768) {
+                // Adjust position for mobile to appear above the mobile CTA
+                scrollToTopBtn.style.bottom = '80px';
+                readingProgressContainer.style.bottom = '80px';
+            } else {
+                scrollToTopBtn.style.bottom = '24px';
+                readingProgressContainer.style.bottom = '24px';
+            }
+        }
+
+        // Check mobile layout on load and resize
+        window.addEventListener('load', handleMobileLayout);
+        window.addEventListener('resize', handleMobileLayout);
     </script>
 </body>
 </html>

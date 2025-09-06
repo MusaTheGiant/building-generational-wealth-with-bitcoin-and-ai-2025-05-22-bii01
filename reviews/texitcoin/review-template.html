@@ -42,6 +42,9 @@
         .bitcoin-gold {
             background: linear-gradient(135deg, #f7931a 0%, #ffb347 100%);
         }
+        .whatsapp-green {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+        }
         .sticky-toc {
             position: sticky;
             top: 20px;
@@ -66,6 +69,13 @@
         @keyframes pulseGlow {
             0%, 100% { box-shadow: 0 0 20px rgba(247, 147, 26, 0.5); }
             50% { box-shadow: 0 0 30px rgba(247, 147, 26, 0.8); }
+        }
+        .pulse-glow-green {
+            animation: pulseGlowGreen 2s infinite;
+        }
+        @keyframes pulseGlowGreen {
+            0%, 100% { box-shadow: 0 0 20px rgba(37, 211, 102, 0.5); }
+            50% { box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); }
         }
         
         /* Responsive table styles */
@@ -146,6 +156,10 @@
                 <div class="bg-white bg-opacity-20 px-3 py-2 rounded-full text-sm md:text-base">
                     <span>✓ Verified Review</span>
                 </div>
+                <a href="https://wa.me/27721714626" target="_blank" rel="noopener noreferrer" 
+                   class="whatsapp-green text-white px-3 py-2 rounded-full text-sm md:text-base hover-scale pulse-glow-green transition-all duration-300">
+                    <span>💬 Let's Chat Now</span>
+                </a>
             </div>
         </div>
     </header>

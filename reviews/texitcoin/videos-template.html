@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TexitCoin Step-By-Step Tutorial | Master Crypto Success</title>
-    <link href="favicon.jpg" rel="icon" type="image/jpg"/>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -667,7 +666,7 @@
                     </div>
                     <h3 class="resource-title">Presentation Slides</h3>
                     <p class="resource-description">Download the complete presentation slides used in the tutorial videos for your reference.</p>
-                    <a href="#" class="download-btn">
+                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Slides
                     </a>
@@ -680,7 +679,7 @@
                     </div>
                     <h3 class="resource-title">Compensation Plan</h3>
                     <p class="resource-description">Get the detailed compensation plan and understand how you can earn with TexitCoin.</p>
-                    <a href="#" class="download-btn">
+                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Plan
                     </a>
@@ -693,7 +692,7 @@
                     </div>
                     <h3 class="resource-title">Litepaper</h3>
                     <p class="resource-description">Read the official TexitCoin Litepaper to understand the technology and vision behind the project.</p>
-                    <a href="#" class="download-btn">
+                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Litepaper
                     </a>
@@ -713,7 +712,8 @@
                     <a href="#">[Support]</a>
                     <a href="#">[About]</a>
                 </div>
-                <p>&copy; 2025 [Your Brand Name]. All rights reserved. | Empowering Your Crypto Journey</p>
+                <p>&copy; <span id="currentYear">2025</span> [Your Brand Name]. All rights reserved. | Empowering Your Crypto Journey</p>
+                <p class="footer-date">Last updated: <span id="currentDate">Loading...</span></p>
             </div>
         </div>
     </footer>
@@ -771,7 +771,35 @@
         // Add loading animation
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
+            
+            // Update copyright year and current date
+            updateFooterDate();
         });
+
+        // Function to update footer date
+        function updateFooterDate() {
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const options = { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                timeZone: 'UTC'
+            };
+            const currentDate = now.toLocaleDateString('en-US', options);
+            
+            // Update copyright year (check if element exists)
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                yearElement.textContent = currentYear;
+            }
+            
+            // Update current date (check if element exists)
+            const dateElement = document.getElementById('currentDate');
+            if (dateElement) {
+                dateElement.textContent = currentDate;
+            }
+        }
 
         // Intersection Observer for animations
         const observerOptions = {

@@ -1035,6 +1035,15 @@
                 }
             });
         });
+
+        // Simple CTA button functionality - remove any interference
+        document.querySelectorAll('.video-cta').forEach(btn => {
+            // Ensure buttons are fully clickable
+            btn.style.pointerEvents = 'auto';
+            btn.style.zIndex = '100';
+            
+            console.log('Button href:', btn.href); // Debug log
+        });
     </script>
 </body>
 </html>

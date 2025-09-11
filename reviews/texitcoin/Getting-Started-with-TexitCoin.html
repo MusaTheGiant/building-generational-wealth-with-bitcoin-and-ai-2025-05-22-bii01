@@ -228,7 +228,7 @@
             border: 1px solid rgba(38, 34, 98, 0.1);
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
             box-shadow: var(--card-shadow);
             text-align: center;
         }
@@ -338,25 +338,6 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.6;
-        }
-
-        .video-cta {
-            background: var(--gradient-red);
-            color: var(--white);
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: all 0.3s ease;
-            margin: 0 auto;
-        }
-
-        .video-cta:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(190, 31, 36, 0.3);
         }
 
         /* Resources Section */
@@ -743,10 +724,6 @@
                     </div>
                     <h3 class="video-title">Welcome To TexitCoin (TXC)</h3>
                     <p class="video-description">Your path to Earning Up to $3000 Per Week.</p>
-                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" target="_blank" rel="noopener noreferrer" class="video-cta">
-                        <i class="fas fa-external-link-alt"></i>
-                        Get Started Now
-                    </a>
                 </div>
 
                 <!-- Video Card 2 -->
@@ -764,10 +741,6 @@
                     </div>
                     <h3 class="video-title">Quick Crypto Registration</h3>
                     <p class="video-description">Complete crypto registration walkthrough - join TexitCoin in under 5 minutes and start mining TXC today.</p>
-                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" target="_blank" rel="noopener noreferrer" class="video-cta">
-                        <i class="fas fa-external-link-alt"></i>
-                        Get Started Now
-                    </a>
                 </div>
 
                 <!-- Video Card 3 -->
@@ -785,10 +758,6 @@
                     </div>
                     <h3 class="video-title">First Login & Profile Configuration</h3>
                     <p class="video-description">Master your TexitCoin dashboard setup - secure login, profile configuration, and essential settings for new miners.</p>
-                    <a href="https://minetxc.com/sign-up?sponsor=mtglegacy" target="_blank" rel="noopener noreferrer" class="video-cta">
-                        <i class="fas fa-external-link-alt"></i>
-                        Get Started Now
-                    </a>
                 </div>
             </div>
         </div>
@@ -1006,17 +975,6 @@
             });
         });
 
-        // Enhanced video card interactions
-        document.querySelectorAll('.video-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
         // Enhanced video container interactions
         document.querySelectorAll('.video-container').forEach(container => {
             container.addEventListener('mouseenter', function() {
@@ -1034,15 +992,6 @@
                     playBtn.style.transform = 'scale(1)';
                 }
             });
-        });
-
-        // Simple CTA button functionality - remove any interference
-        document.querySelectorAll('.video-cta').forEach(btn => {
-            // Ensure buttons are fully clickable
-            btn.style.pointerEvents = 'auto';
-            btn.style.zIndex = '100';
-            
-            console.log('Button href:', btn.href); // Debug log
         });
     </script>
 </body>

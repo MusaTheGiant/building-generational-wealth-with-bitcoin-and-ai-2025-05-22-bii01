@@ -719,7 +719,7 @@
                     </div>
                     <h3 class="resource-title">Presentation Slides</h3>
                     <p class="resource-description">Download the complete presentation slides used in the tutorial videos for your reference.</p>
-                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://bitcoinaiwealth.com/reviews/texitcoin/TexitCoin-Presentation.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Slides
                     </a>
@@ -732,7 +732,7 @@
                     </div>
                     <h3 class="resource-title">Compensation Plan</h3>
                     <p class="resource-description">Get the detailed compensation plan and understand how you can earn with TexitCoin.</p>
-                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://bitcoinaiwealth.com/reviews/texitcoin/TexitCoin-One-Page-Comp-Plan.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Plan
                     </a>
@@ -745,7 +745,7 @@
                     </div>
                     <h3 class="resource-title">Litepaper</h3>
                     <p class="resource-description">Read the official TexitCoin Litepaper to understand the technology and vision behind the project.</p>
-                    <a href="#" class="download-btn" target="_blank" rel="noopener noreferrer">
+                    <a href="https://bitcoinaiwealth.com/reviews/texitcoin/Texit-Coin-Lite-Paper.pdf" class="download-btn" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-download"></i>
                         Download Litepaper
                     </a>
@@ -900,6 +900,27 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Ensure video CTA buttons work properly
+        document.querySelectorAll('.video-cta').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                // Ensure the link works properly
+                const href = this.getAttribute('href');
+                if (href && href.includes('minetxc.com')) {
+                    // Allow the default behavior to proceed
+                    return true;
+                }
+            });
+            
+            // Add hover effects for video CTAs
+            btn.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateX(5px) scale(1.02)';
+            });
+            
+            btn.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateX(0) scale(1)';
             });
         });
     </script>

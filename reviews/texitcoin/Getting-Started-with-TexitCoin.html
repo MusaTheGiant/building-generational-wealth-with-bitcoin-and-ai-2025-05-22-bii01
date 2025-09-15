@@ -206,18 +206,18 @@
             margin-right: auto;
         }
 
-        /* Updated grid layout for 4 videos */
-        @media (min-width: 1400px) {
+        /* Updated grid layout for 5 videos */
+        @media (min-width: 1600px) {
             .video-grid {
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(5, 1fr);
                 gap: 2rem;
             }
         }
 
-        @media (min-width: 1200px) and (max-width: 1399px) {
+        @media (min-width: 1200px) and (max-width: 1599px) {
             .video-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2.5rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2rem;
             }
         }
 
@@ -767,7 +767,7 @@
                     <p class="video-description">Master your TexitCoin dashboard setup - secure login, profile configuration, and essential settings for new miners.</p>
                 </div>
 
-                <!-- Video Card 4 - UPDATED -->
+                <!-- Video Card 4 -->
                 <div class="video-card">
                     <div class="video-container">
                         <video class="video-player" preload="metadata">
@@ -782,6 +782,23 @@
                     </div>
                     <h3 class="video-title">Boost Your Mining Power: Purchase Hash Power</h3>
                     <p class="video-description">Step-by-step guide to purchasing additional hash power from your MineTXC dashboard - scale your mining operation and multiply your TXC earnings.</p>
+                </div>
+
+                <!-- Video Card 5 - NEW -->
+                <div class="video-card">
+                    <div class="video-container">
+                        <video class="video-player" preload="metadata" poster="https://bitcoinaiwealth.com/reviews/texitcoin/Making-Changes-to-Your-TXC-and-USDC-Wallets.png">
+                            <source src="https://bitcoinaiwealth.com/reviews/texitcoin/videos/Making-Changes-to-Your-TXC-and-USDC-Wallets.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <div class="video-overlay">
+                            <button class="play-btn" onclick="playVideo(this)">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <h3 class="video-title">Wallet Management & Configuration</h3>
+                    <p class="video-description">Learn how to modify and configure your TXC and USDC wallet settings in your MineTXC dashboard for optimal mining operations.</p>
                 </div>
             </div>
         </div>

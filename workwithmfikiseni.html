@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,12 +12,138 @@
             box-sizing: border-box;
         }
 
+        /* ===== ANNOUNCEMENT BAR STYLES ===== */
+        .announcement-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(135deg, #0066ff 0%, #00ccff 50%, #0066ff 100%);
+            color: white;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            z-index: 10000;
+            box-shadow: 0 4px 15px rgba(0, 102, 255, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            border-bottom: 3px solid #00ffff;
+        }
+
+        .announcement-bar.hidden {
+            transform: translateY(-100%);
+        }
+
+        .announcement-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .announcement-text .emoji {
+            font-size: 16px;
+        }
+
+        .announcement-buttons {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .announcement-btn {
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .announcement-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* WhatsApp Contact Button */
+        .announcement-btn:not(.secondary) {
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            box-shadow: 0 3px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        .announcement-btn:not(.secondary):hover {
+            background: linear-gradient(45deg, #128c7e, #25d366);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5);
+        }
+
+        .announcement-btn.secondary {
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            box-shadow: 0 3px 12px rgba(255, 107, 53, 0.3);
+        }
+
+        .announcement-btn.secondary:hover {
+            background: linear-gradient(45deg, #f7931e, #ff6b35);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.5);
+        }
+
+        /* Mobile responsiveness for announcement bar */
+        @media (max-width: 768px) {
+            .announcement-bar {
+                flex-direction: column;
+                padding: 10px 15px;
+                gap: 10px;
+            }
+
+            .announcement-text {
+                font-size: 13px;
+                text-align: center;
+            }
+
+            .announcement-buttons {
+                gap: 8px;
+            }
+
+            .announcement-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .announcement-text {
+                font-size: 12px;
+            }
+
+            .announcement-btn {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+        }
+
+        /* Adjust body to account for fixed announcement bar */
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             color: #333;
+            padding-top: 60px; /* Space for announcement bar */
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px; /* More space for mobile */
+            }
         }
 
         .container {
@@ -362,6 +487,24 @@
     </style>
 </head>
 <body>
+    <!-- ===== ANNOUNCEMENT BAR ===== -->
+    <div class="announcement-bar" id="announcementBar">
+        <div class="announcement-text">
+            <span class="emoji">ℹ️ </span>
+            <span>Get Direct Support & Access Premium Resources</span>
+        </div>
+        <div class="announcement-buttons">
+            <a href="https://wa.me/27764179273" target="_blank" class="announcement-btn">
+                <span>Contact Me</span>
+                <span>📞</span>
+            </a>
+            <a href="https://bitcoinaiwealth.com/Cryptex-Legacy-Wealth-Building.pdf" target="_blank" class="announcement-btn secondary">
+                <span>Download PDF</span>
+                <span>⬇️</span>
+            </a>
+        </div>
+    </div>
+
     <div class="floating-elements">
         <div class="floating-coin" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
         <div class="floating-coin" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
@@ -375,9 +518,9 @@
             <p class="subtitle">Your Cryptex Complete Guide to Financial Success...</p>
         </div>
 
-        <!-- Video 1: Intro – Brief Overview -->
+        <!-- Video 1: Intro - Brief Overview -->
         <div class="video-section">
-            <h2 class="video-title">🎬 Intro – Cryptex Brief Overview</h2>
+            <h2 class="video-title">🎬 Intro - Cryptex Brief Overview</h2>
             <div class="video-container">
                 <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/700K.mp4')">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg1)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E🚀 Brief Overview%3C/text%3E%3Ctext x='400' y='240' text-anchor='middle' fill='white' font-family='Arial' font-size='18'%3EYour Journey to $35,760%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EClick to Play%3C/text%3E%3C/svg%3E" alt="Brief Overview Thumbnail" class="thumbnail-image">
@@ -450,7 +593,7 @@
 
         <!-- Video 6: FAQ -->
         <div class="video-section">
-            <h2 class="video-title">❓ FAQ – Frequently Asked Questions</h2>
+            <h2 class="video-title">❓ FAQ - Frequently Asked Questions</h2>
             <div class="video-container">
                 <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'HhNKz81Zb4c')">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg5' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2374b9ff'/%3E%3Cstop offset='100%25' style='stop-color:%230984e3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg5)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E❓ FAQ%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EFrequently Asked%3C/text%3E%3Ctext x='400' y='260' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EQuestions%3C/text%3E%3Ctext x='400' y='300' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EGet Your Answers%3C/text%3E%3C/svg%3E" alt="FAQ Thumbnail" class="thumbnail-image">
@@ -463,9 +606,9 @@
         </div>
 
         
-        <!-- NEW Video 7: Cryptex Explained – New Full Presentation -->
+        <!-- NEW Video 7: Cryptex Explained - New Full Presentation -->
         <div class="video-section">
-            <h2 class="video-title">🎥 Cryptex Explained – New Full Presentation</h2>
+            <h2 class="video-title">🎥 Cryptex Explained - New Full Presentation</h2>
             <div class="video-container">
                 <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'ruwJny7ZIuE')">
                     <img src="https://img.youtube.com/vi/ruwJny7ZIuE/hqdefault.jpg" alt="Cryptex Explained Thumbnail" class="thumbnail-image">
@@ -497,6 +640,24 @@
     </footer>
 
     <script>
+        // ===== ANNOUNCEMENT BAR SCROLL BEHAVIOR =====
+        let lastScrollY = window.scrollY;
+        const announcementBar = document.getElementById('announcementBar');
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            if (currentScrollY < lastScrollY) {
+                // Scrolling up - show the bar
+                announcementBar.classList.remove('hidden');
+            } else if (currentScrollY > 50) {
+                // Scrolling down and past 50px - hide the bar
+                announcementBar.classList.add('hidden');
+            }
+            
+            lastScrollY = currentScrollY;
+        });
+
         // Animate floating coins
         document.addEventListener('DOMContentLoaded', function() {
             const coins = document.querySelectorAll('.floating-coin');
@@ -598,32 +759,32 @@
 
 <script>
   const messages = [
-    "Kabelo from Johanessburg, South Africa just joined Cryptex – 2 minutes ago",
-    "Khanyie from KZN, South Africa activated her first contract – 8 hours ago",
-    "Mfikiseni from Durban, South Africa activated his 5th contract – just now",
-    "Liam from Toronto, Canada just joined Cryptex – 3 minutes ago",
-    "Chloe from Brisbane, Australia just joined Cryptex – 14 minutes ago",
-    "Musa from Durban, South Africa activated 10 new contracts – 8 minutes ago",
-    "Sarah from Cape Town, South Africa just joined Cryptex – a few moments ago",
-    "Jacob from Chicago, USA just joined Cryptex – 1 minute ago",
-    "Olivia from Auckland, New Zealand activated her first contract – 2 minutes ago",
-    "Daniel from Birmingham, UK is watching the videos on this page – right now",
-    "Grace from Vancouver, Canada joined Cryptex – 4 minutes ago",
-    "Matthew from Los Angeles, just joined Cryptex – a moment ago",
-    "Abigail from Sydney, Australia just joined Cryptex – 2 minutes ago",
-    "Benjamin from Belfast, Northern Ireland activated his first contract – just now",
+    "Kabelo from Johanessburg, South Africa just joined Cryptex - 2 minutes ago",
+    "Khanyie from KZN, South Africa activated her first contract - 8 hours ago",
+    "Mfikiseni from Durban, South Africa activated his 5th contract - just now",
+    "Liam from Toronto, Canada just joined Cryptex - 3 minutes ago",
+    "Chloe from Brisbane, Australia just joined Cryptex - 14 minutes ago",
+    "Musa from Durban, South Africa activated 10 new contracts - 8 minutes ago",
+    "Sarah from Cape Town, South Africa just joined Cryptex - a few moments ago",
+    "Jacob from Chicago, USA just joined Cryptex - 1 minute ago",
+    "Olivia from Auckland, New Zealand activated her first contract - 2 minutes ago",
+    "Daniel from Birmingham, UK is watching the videos on this page - right now",
+    "Grace from Vancouver, Canada joined Cryptex - 4 minutes ago",
+    "Matthew from Los Angeles, just joined Cryptex - a moment ago",
+    "Abigail from Sydney, Australia just joined Cryptex - 2 minutes ago",
+    "Benjamin from Belfast, Northern Ireland activated his first contract - just now",
     "Ella from Wellington, New Zealand is on this page right now",
-    "Cleo from Johannesburg, South Africa activated her 3rd contract – 1 minute ago",
-    "Sophie from Melbourne, Australia just joined Cryptex – a few seconds ago",
-    "Noah from Dallas, USA just joined Cryptex – just now",
-    "Melusi from Durban, South Africa just joined Cryptex – 7 minutes ago",
-    "Lucas from Edinburgh, UK activated his first contract – a while ago",
-    "Barry from Lagos, Nigeria just joined Cryptex – a moment ago",
-    "Aiden from Perth, Australia activated 10 new contracts – just now",
-    "Olusegun from Abuja, Nigeria joined Cryptex – 4 minutes ago",
-    "Thandiwe from Cape Town, South Africa joined Cryptex – a few seconds ago",
-    "Chinua from Aba, Nigeria just joined Cryptex – 2 minutes ago",
-    "Thembi from Richards Bay, South Africa activated her 7th contract – 5 minutes ago"
+    "Cleo from Johannesburg, South Africa activated her 3rd contract - 1 minute ago",
+    "Sophie from Melbourne, Australia just joined Cryptex - a few seconds ago",
+    "Noah from Dallas, USA just joined Cryptex - just now",
+    "Melusi from Durban, South Africa just joined Cryptex - 7 minutes ago",
+    "Lucas from Edinburgh, UK activated his first contract - a while ago",
+    "Barry from Lagos, Nigeria just joined Cryptex - a moment ago",
+    "Aiden from Perth, Australia activated 10 new contracts - just now",
+    "Olusegun from Abuja, Nigeria joined Cryptex - 4 minutes ago",
+    "Thandiwe from Cape Town, South Africa joined Cryptex - a few seconds ago",
+    "Chinua from Aba, Nigeria just joined Cryptex - 2 minutes ago",
+    "Thembi from Richards Bay, South Africa activated her 7th contract - 5 minutes ago"
   ];
 
   function showPopup(message) {

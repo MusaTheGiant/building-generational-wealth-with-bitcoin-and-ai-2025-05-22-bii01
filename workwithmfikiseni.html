@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptex Tutorial Videos - Your Journey to $22,000 in 24-months Begins Now</title>
+    <title>Bytnex Tutorial Videos - Your Journey to $22,000 in 24-months Begins Now</title>
     <link rel="icon" href="favicon.png" type="image/png">
     <style>
         * {
@@ -241,48 +241,47 @@
             transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 0, 0, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(255, 0, 0, 0.4);
         }
 
-        .play-button:hover {
-            background: white;
-            transform: translate(-50%, -50%) scale(1.1);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-        }
-
-        .play-button::after {
+        .play-button::before {
             content: '';
             width: 0;
             height: 0;
-            border-left: 25px solid #667eea;
+            border-left: 25px solid white;
             border-top: 15px solid transparent;
             border-bottom: 15px solid transparent;
             margin-left: 5px;
         }
 
+        .video-thumbnail:hover .play-button {
+            transform: translate(-50%, -50%) scale(1.1);
+            background: rgba(255, 0, 0, 1);
+            box-shadow: 0 6px 30px rgba(255, 0, 0, 0.6);
+        }
+
         .video-player {
-            width: 100%;
-            height: auto;
             display: none;
+            width: 100%;
+            aspect-ratio: 16/9;
         }
 
         .video-player.active {
             display: block;
         }
 
-        /* YouTube iframe responsive styling - FIXED */
+        /* YouTube iframe container */
         .iframe-container {
+            display: none;
             position: relative;
             width: 100%;
-            aspect-ratio: 16/9;
-            display: none;
+            padding-top: 56.25%; /* 16:9 aspect ratio */
         }
 
         .iframe-container.active {
@@ -296,68 +295,61 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 15px;
         }
 
         .cta-section {
-            margin: 80px 0 60px 0;
             text-align: center;
+            margin: 60px 0;
+            padding: 50px 30px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
 
         .cta-title {
-            font-size: 2.2em;
-            font-weight: 800;
+            font-size: 2.5em;
+            font-weight: 900;
             color: white;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button {
-            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
-            color: white;
-            padding: 25px 50px;
-            font-size: 1.4em;
-            font-weight: 800;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
             display: inline-block;
-            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 20px 50px;
+            font-size: 1.5em;
+            font-weight: 900;
+            text-decoration: none;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
             transition: all 0.3s ease;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: ctaGlow 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes ctaGlow {
-            0% { 
-                transform: scale(1);
-                box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
-            }
-            100% { 
-                transform: scale(1.05);
-                box-shadow: 0 20px 45px rgba(238, 90, 36, 0.6), 0 0 30px rgba(238, 90, 36, 0.4);
-            }
+            letter-spacing: 2px;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 25px 55px rgba(238, 90, 36, 0.7);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FFD700);
         }
 
-        /* Legal Footer Styling */
         .legal-footer {
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
             text-align: center;
-            padding: 20px;
-            margin-top: 5px;
+            padding: 30px;
+            margin-top: 60px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .legal-footer h3 {
-            font-size: 1.1em;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .legal-links {
@@ -368,207 +360,116 @@
         }
 
         .legal-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: white;
             text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 400;
+            font-size: 1em;
             transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
+            padding: 8px 15px;
+            border-radius: 5px;
         }
 
         .legal-links a:hover {
-            color: white;
-            border-bottom-color: rgba(255, 255, 255, 0.6);
-        }
-
-        .floating-elements {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .floating-coin {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: gold;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
 
         @media (max-width: 768px) {
             .main-title {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
-            
+
             .subtitle {
                 font-size: 1.1em;
             }
-            
+
             .video-section {
-                padding: 20px;
-                margin: 20px 0;
+                padding: 25px;
             }
-            
+
             .video-title {
                 font-size: 1.4em;
             }
-            
-            .play-button {
-                width: 60px;
-                height: 60px;
-            }
-            
-            .play-button::after {
-                border-left: 18px solid #667eea;
-                border-top: 12px solid transparent;
-                border-bottom: 12px solid transparent;
-                margin-left: 3px;
-            }
-            
-            .cta-button {
-                padding: 20px 40px;
-                font-size: 1.2em;
-            }
-            
+
             .cta-title {
-                font-size: 1.8em;
+                font-size: 2em;
             }
 
-            .legal-links {
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .main-title {
-                font-size: 1.8em;
-            }
-            
-            .subtitle {
-                font-size: 1em;
-            }
-            
-            .video-section {
-                padding: 15px;
-            }
-            
-            .video-title {
-                font-size: 1.2em;
-            }
-            
             .cta-button {
-                padding: 15px 30px;
-                font-size: 1em;
-            }
-            
-            .cta-title {
-                font-size: 1.5em;
+                font-size: 1.2em;
+                padding: 15px 35px;
             }
 
             .legal-links {
                 flex-direction: column;
-                gap: 10px;
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .video-title {
+                font-size: 1.2em;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button::before {
+                border-left: 18px solid white;
+                border-top: 11px solid transparent;
+                border-bottom: 11px solid transparent;
+            }
+
+            .cta-title {
+                font-size: 1.5em;
+            }
+
+            .cta-button {
+                font-size: 1em;
+                padding: 12px 25px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- ===== ANNOUNCEMENT BAR ===== -->
+    <!-- Announcement Bar -->
     <div class="announcement-bar" id="announcementBar">
         <div class="announcement-text">
-            <span class="emoji">ℹ️ </span>
-            <span>Get Direct Support & Access Premium Resources</span>
+            <span class="emoji">💬</span>
+            <span>Questions? Need help? Let's talk!</span>
         </div>
         <div class="announcement-buttons">
-            <a href="https://wa.me/27764179273" target="_blank" class="announcement-btn">
-                <span>Contact Me</span>
-                <span>📞</span>
+            <a href="https://wa.me/27623457222?text=Hi%20I%20need%20help%20with%20my%20account" class="announcement-btn" target="_blank">
+                <span>📱</span> WhatsApp Me
             </a>
-            <a href="https://bitcoinaiwealth.com/Cryptex-Legacy-Wealth-Building.pdf" target="_blank" class="announcement-btn secondary">
-                <span>Download PDF</span>
-                <span>⬇️</span>
+            <a href="https://secure-bytnex.io/MyRegister.php?a=C2634306512" class="announcement-btn secondary" target="_blank">
+                <span>🚀</span> Join Now
             </a>
         </div>
-    </div>
-
-    <div class="floating-elements">
-        <div class="floating-coin" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
-        <div class="floating-coin" style="top: 20%; right: 15%; animation-delay: 1s;"></div>
-        <div class="floating-coin" style="bottom: 30%; left: 20%; animation-delay: 2s;"></div>
-        <div class="floating-coin" style="bottom: 10%; right: 10%; animation-delay: 3s;"></div>
     </div>
 
     <div class="container">
+        <!-- Header Section -->
         <div class="header-section">
-            <h1 class="main-title">Cryptex Tutorial Videos</h1>
-            <p class="subtitle">Your Cryptex Complete Guide to Financial Success...</p>
+            <h1 class="main-title">💰 Discover Your Path to Financial Freedom</h1>
+            <p class="subtitle">Watch These Essential Videos to Start Your Journey</p>
         </div>
 
-        <!-- Video 1: Intro - Brief Overview -->
+        <!-- Video 1: Most Important Video -->
         <div class="video-section">
-            <h2 class="video-title">🎬 Intro - Cryptex Brief Overview</h2>
+            <h2 class="video-title">🎯 START HERE - The Most Important Video</h2>
             <div class="video-container">
-                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/700K.mp4')">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg1)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E🚀 Brief Overview%3C/text%3E%3Ctext x='400' y='240' text-anchor='middle' fill='white' font-family='Arial' font-size='18'%3EYour Journey to $35,760%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EClick to Play%3C/text%3E%3C/svg%3E" alt="Brief Overview Thumbnail" class="thumbnail-image">
-                    <div class="play-button"></div>
-                </div>
-                <video class="video-player" controls>
-                    <source src="https://bitcoinaiwealth.com/videos/700K.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-        <!-- Video 2: Cryptex Getting Started Tutorial -->
-        <div class="video-section">
-            <h2 class="video-title">💰 Cryptex Getting Started Tutorial</h2>
-            <div class="video-container">
-                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/Cryptex_Getting_Started_Tutorial.mp4')">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23FFD700'/%3E%3Cstop offset='100%25' style='stop-color:%23FFA500'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg2)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E💰 Deposit BTC%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E and Buy Contract%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EStep-by-Step Tutorial%3C/text%3E%3C/svg%3E" alt="Deposit BTC Thumbnail" class="thumbnail-image">
-                    <div class="play-button"></div>
-                </div>
-                <video class="video-player" controls>
-                    <source src="https://bitcoinaiwealth.com/videos/Cryptex_Getting_Started_Tutorial.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-        <!-- Video 3: How To Make a BTC Withdrawal -->
-        <div class="video-section">
-            <h2 class="video-title">🏦 How To Make a BTC Withdrawal</h2>
-            <div class="video-container">
-                <div class="video-thumbnail" onclick="playVideo(this, 'https://bitcoinaiwealth.com/videos/CryptexWithdrawal.mp4')">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234CAF50'/%3E%3Cstop offset='100%25' style='stop-color:%2345a049'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg3)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E🏦 BTC Withdrawal%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3ETutorial%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EGet Your Profits Out%3C/text%3E%3C/svg%3E" alt="BTC Withdrawal Thumbnail" class="thumbnail-image">
-                    <div class="play-button"></div>
-                </div>
-                <video class="video-player" controls>
-                    <source src="https://bitcoinaiwealth.com/videos/CryptexWithdrawal.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
-
-        <!-- NEW Video 4: Best Cryptex Review -->
-        <div class="video-section">
-            <h2 class="video-title">⭐ Best Cryptex Review</h2>
-            <div class="video-container">
-                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'al6DzxOirlE')">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg6' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a8e6cf'/%3E%3Cstop offset='100%25' style='stop-color:%2388d8c0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg6)'/%3E%3Ctext x='400' y='180' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3E⭐ Best Cryptex%3C/text%3E%3Ctext x='400' y='220' text-anchor='middle' fill='%23333' font-family='Arial' font-size='28' font-weight='bold'%3EReview%3C/text%3E%3Ctext x='400' y='270' text-anchor='middle' fill='%23333' font-family='Arial' font-size='16'%3EComplete Honest Review%3C/text%3E%3C/svg%3E" alt="Best Cryptex Review Thumbnail" class="thumbnail-image">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'TevWQOSaVYo')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg1)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E🎯 START HERE%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EThe Most Important%3C/text%3E%3Ctext x='400' y='270' text-anchor='middle' fill='white' font-family='Arial' font-size='24' font-weight='bold'%3EVideo%3C/text%3E%3C/svg%3E" alt="Start Here Thumbnail" class="thumbnail-image">
                     <div class="play-button"></div>
                 </div>
                 <div class="iframe-container">
@@ -577,12 +478,12 @@
             </div>
         </div>
 
-        <!-- Video 5: Compensation Plan -->
+        <!-- Video 2: Getting Started -->
         <div class="video-section">
-            <h2 class="video-title">📊 Cryptex Compensation Plan</h2>
+            <h2 class="video-title">🚀 Getting Started - Your First Steps</h2>
             <div class="video-container">
-                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'Jlv6MBMs3Ks')">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b'/%3E%3Cstop offset='100%25' style='stop-color:%23ee5a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg4)'/%3E%3Ctext x='400' y='190' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3E📊 Compensation%3C/text%3E%3Ctext x='400' y='230' text-anchor='middle' fill='white' font-family='Arial' font-size='28' font-weight='bold'%3EPlan Details%3C/text%3E%3Ctext x='400' y='280' text-anchor='middle' fill='white' font-family='Arial' font-size='16'%3EHow You Get Paid%3C/text%3E%3C/svg%3E" alt="Compensation Plan Thumbnail" class="thumbnail-image">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'UXqyWCO_v7U')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg2' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23f093fb'/%3E%3Cstop offset='100%25' style='stop-color:%23f5576c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg2)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E🚀 Getting Started%3C/text%3E%3Ctext x='400' y='250' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EYour First Steps%3C/text%3E%3C/svg%3E" alt="Getting Started Thumbnail" class="thumbnail-image">
                     <div class="play-button"></div>
                 </div>
                 <div class="iframe-container">
@@ -591,7 +492,35 @@
             </div>
         </div>
 
-        <!-- Video 6: FAQ -->
+        <!-- Video 3: How to Set Up Your Account -->
+        <div class="video-section">
+            <h2 class="video-title">⚙️ How to Set Up Your Account</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'jxrYEfZ0hX8')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg3' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%234facfe'/%3E%3Cstop offset='100%25' style='stop-color:%2300f2fe'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg3)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E⚙️ Account Setup%3C/text%3E%3Ctext x='400' y='250' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EStep-by-Step Guide%3C/text%3E%3C/svg%3E" alt="Account Setup Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video 4: Understanding Contracts -->
+        <div class="video-section">
+            <h2 class="video-title">📊 Understanding Contracts</h2>
+            <div class="video-container">
+                <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'OJJJVVtD8Oo')">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 450'%3E%3Cdefs%3E%3ClinearGradient id='bg4' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23fa709a'/%3E%3Cstop offset='100%25' style='stop-color:%23fee140'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='450' fill='url(%23bg4)'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='white' font-family='Arial' font-size='32' font-weight='bold'%3E📊 Contracts%3C/text%3E%3Ctext x='400' y='250' text-anchor='middle' fill='white' font-family='Arial' font-size='20' font-weight='bold'%3EHow They Work%3C/text%3E%3C/svg%3E" alt="Contracts Thumbnail" class="thumbnail-image">
+                    <div class="play-button"></div>
+                </div>
+                <div class="iframe-container">
+                    <iframe src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Video 5: FAQ -->
         <div class="video-section">
             <h2 class="video-title">❓ FAQ - Frequently Asked Questions</h2>
             <div class="video-container">
@@ -606,12 +535,12 @@
         </div>
 
         
-        <!-- NEW Video 7: Cryptex Explained - New Full Presentation -->
+        <!-- NEW Video 7: Bytnex Explained - New Full Presentation -->
         <div class="video-section">
-            <h2 class="video-title">🎥 Cryptex Explained - New Full Presentation</h2>
+            <h2 class="video-title">🎥 Bytnex Explained - New Full Presentation</h2>
             <div class="video-container">
                 <div class="video-thumbnail" onclick="playYouTubeVideo(this, 'ruwJny7ZIuE')">
-                    <img src="https://img.youtube.com/vi/ruwJny7ZIuE/hqdefault.jpg" alt="Cryptex Explained Thumbnail" class="thumbnail-image">
+                    <img src="https://img.youtube.com/vi/ruwJny7ZIuE/hqdefault.jpg" alt="Bytnex Explained Thumbnail" class="thumbnail-image">
                     <div class="play-button"></div>
                 </div>
                 <div class="iframe-container">
@@ -623,7 +552,7 @@
 <!-- CTA Section -->
         <div class="cta-section">
             <h2 class="cta-title">Ready to Start Your Journey?</h2>
-            <a href="https://secure.cryptex.to/MyRegister.php?a=C2634306512" class="cta-button" target="_blank">
+            <a href="https://secure-bytnex.io/MyRegister.php?a=C2634306512" class="cta-button" target="_blank">
                 🚀 Get Started Now!
             </a>
         </div>
@@ -695,7 +624,7 @@
 
         // CTA button click tracking
         document.querySelector('.cta-button').addEventListener('click', function() {
-            console.log('Get Started Now button clicked - redirecting to Cryptex registration');
+            console.log('Get Started Now button clicked - redirecting to Bytnex registration');
         });
     </script>
 
@@ -759,31 +688,31 @@
 
 <script>
   const messages = [
-    "Kabelo from Johanessburg, South Africa just joined Cryptex - 2 minutes ago",
+    "Kabelo from Johanessburg, South Africa just joined Bytnex - 2 minutes ago",
     "Khanyie from KZN, South Africa activated her first contract - 8 hours ago",
     "Mfikiseni from Durban, South Africa activated his 5th contract - just now",
-    "Liam from Toronto, Canada just joined Cryptex - 3 minutes ago",
-    "Chloe from Brisbane, Australia just joined Cryptex - 14 minutes ago",
+    "Liam from Toronto, Canada just joined Bytnex - 3 minutes ago",
+    "Chloe from Brisbane, Australia just joined Bytnex - 14 minutes ago",
     "Musa from Durban, South Africa activated 10 new contracts - 8 minutes ago",
-    "Sarah from Cape Town, South Africa just joined Cryptex - a few moments ago",
-    "Jacob from Chicago, USA just joined Cryptex - 1 minute ago",
+    "Sarah from Cape Town, South Africa just joined Bytnex - a few moments ago",
+    "Jacob from Chicago, USA just joined Bytnex - 1 minute ago",
     "Olivia from Auckland, New Zealand activated her first contract - 2 minutes ago",
     "Daniel from Birmingham, UK is watching the videos on this page - right now",
-    "Grace from Vancouver, Canada joined Cryptex - 4 minutes ago",
-    "Matthew from Los Angeles, just joined Cryptex - a moment ago",
-    "Abigail from Sydney, Australia just joined Cryptex - 2 minutes ago",
+    "Grace from Vancouver, Canada joined Bytnex - 4 minutes ago",
+    "Matthew from Los Angeles, just joined Bytnex - a moment ago",
+    "Abigail from Sydney, Australia just joined Bytnex - 2 minutes ago",
     "Benjamin from Belfast, Northern Ireland activated his first contract - just now",
     "Ella from Wellington, New Zealand is on this page right now",
     "Cleo from Johannesburg, South Africa activated her 3rd contract - 1 minute ago",
-    "Sophie from Melbourne, Australia just joined Cryptex - a few seconds ago",
-    "Noah from Dallas, USA just joined Cryptex - just now",
-    "Melusi from Durban, South Africa just joined Cryptex - 7 minutes ago",
+    "Sophie from Melbourne, Australia just joined Bytnex - a few seconds ago",
+    "Noah from Dallas, USA just joined Bytnex - just now",
+    "Melusi from Durban, South Africa just joined Bytnex - 7 minutes ago",
     "Lucas from Edinburgh, UK activated his first contract - a while ago",
-    "Barry from Lagos, Nigeria just joined Cryptex - a moment ago",
+    "Barry from Lagos, Nigeria just joined Bytnex - a moment ago",
     "Aiden from Perth, Australia activated 10 new contracts - just now",
-    "Olusegun from Abuja, Nigeria joined Cryptex - 4 minutes ago",
-    "Thandiwe from Cape Town, South Africa joined Cryptex - a few seconds ago",
-    "Chinua from Aba, Nigeria just joined Cryptex - 2 minutes ago",
+    "Olusegun from Abuja, Nigeria joined Bytnex - 4 minutes ago",
+    "Thandiwe from Cape Town, South Africa joined Bytnex - a few seconds ago",
+    "Chinua from Aba, Nigeria just joined Bytnex - 2 minutes ago",
     "Thembi from Richards Bay, South Africa activated her 7th contract - 5 minutes ago"
   ];
 

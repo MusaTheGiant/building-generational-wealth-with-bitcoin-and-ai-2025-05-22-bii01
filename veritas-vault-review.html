@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Earn up to 1.3% daily in DeFi with Veritas Vault. Passive income directly in your wallet. No lockups. No middlemen.">
+    <title>Veritas Vault Launch | Earn Up to 1.3% Daily in DeFi</title>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-purple: #6c2a91;
+            --dark-purple: #531c79;
+            --primary-green: #046601;
+            --dark-green: #035301;
+            --bg-dark: #37194f;
+            --text-light: #DEF2F8;
+            --text-secondary: #73798B;
+            --white: #ffffff;
+            --black: #000000;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: linear-gradient(135deg, #1a0b2e 0%, var(--bg-dark) 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1170px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 64px);
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(45deg, var(--text-light), var(--white));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h1 strong {
+            color: var(--text-light);
+        }
+        
+        .hero .subtitle {
+            font-size: clamp(18px, 3vw, 24px);
+            font-weight: 600;
+            margin: 30px 0;
+            color: var(--text-light);
+        }
+        
+        .hero .description {
+            font-size: clamp(16px, 2vw, 20px);
+            margin: 20px auto;
+            max-width: 800px;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--text-light);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px auto;
+            max-width: 700px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .highlight-box p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: visible;
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        
+        .btn-green {
+            background: linear-gradient(to bottom, var(--primary-green), var(--dark-green));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(4, 102, 1, 0.4);
+        }
+        
+        .btn-green:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+        }
+        
+        .btn-purple {
+            background: linear-gradient(to bottom, var(--primary-purple), var(--dark-purple));
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(108, 42, 145, 0.4);
+        }
+        
+        .btn-purple:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.6);
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 5px 0 rgba(255, 255, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
+            }
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+        }
+        
+        .feature-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--text-light);
+        }
+        
+        .section-title {
+            font-size: clamp(24px, 4vw, 36px);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--text-light);
+        }
+        
+        /* Resources Section */
+        .resources {
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+        
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .resource-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--primary-purple);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(108, 42, 145, 0.3);
+        }
+        
+        .resource-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 20px 0 15px;
+            color: var(--text-light);
+        }
+        
+        .resource-card p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Disclaimer Section */
+        .disclaimer {
+            background: var(--bg-dark);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 2px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .disclaimer p {
+            font-size: clamp(10px, 2vw, 14px);
+            color: var(--text-secondary);
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        
+        .disclaimer strong {
+            color: var(--text-light);
+        }
+        
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .hero {
+                padding: 40px 15px 30px;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 350px;
+            }
+            
+            .highlight-box {
+                padding: 20px;
+            }
+            
+            .resource-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, rgba(108, 42, 145, 0.2), rgba(4, 102, 1, 0.2));
+        }
+        
+        .cta-section h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            margin-bottom: 30px;
+            color: var(--text-light);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>
+                🚨 <strong>100% Transparent</strong> • Your Money, Your Control
+            </h1>
+            
+            <h2 class="subtitle">Watch Your Money Grow Every 8 Hours!</h2>
+            
+            <p class="description">
+                <strong>Passively earn up to 1.3% per day</strong> directly in your wallet.
+            </p>
+            
+            <div class="highlight-box">
+                <p>
+                    Stake once and watch your balance grow <strong>3x daily</strong> automatically, right in your wallet. 
+                    <strong>No lockups. No middlemen.</strong>
+                </p>
+            </div>
+            
+            <div style="margin-top: 40px;">
+                <a href="#" class="btn btn-green">
+                    <i class="fas fa-rocket"></i> 👉 GO TO INVITER'S VVA SITE
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>🎬 Unlock Financial Freedom Today!</h2>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section class="resources">
+        <div class="container">
+            <h2 class="section-title">Essential Resources to Get Started</h2>
+            
+            <div class="resource-grid">
+                <!-- Presentation Card -->
+                <div class="resource-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3>VVA PRESENTATION AND UPDATE</h3>
+                    <p>Includes the latest insights from our lead developer.</p>
+                    <a href="#" class="btn btn-purple">
+                        <i class="fas fa-play-circle"></i> Watch Now
+                    </a>
+                </div>
+                
+                <!-- Getting Started Card -->
+                <div class="resource-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>GETTING STARTED GUIDE</h3>
+                    <p>Start Here: Setup, Stake, and Grow Today</p>
+                    <a href="#" class="btn btn-purple">
+                        <i class="fas fa-arrow-right"></i> Read Guide
+                    </a>
+                </div>
+                
+                <!-- Help Videos Card -->
+                <div class="resource-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>HELP VIDEOS</h3>
+                    <p>Quick Video Guides to Master Veritas Vault</p>
+                    <a href="#" class="btn btn-purple">
+                        <i class="fas fa-play"></i> Watch Videos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Growing Your Crypto?</h2>
+            <a href="#" class="btn btn-green" style="font-size: 20px; padding: 20px 50px;">
+                <i class="fas fa-rocket"></i> Get Started Now
+            </a>
+        </div>
+    </section>
+    
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <p>
+                <strong>Disclaimer:</strong> Cryptocurrency investments carry risk. Past performance does not guarantee future results. 
+                This is not financial advice. Please do your own research and consult with a financial advisor before making investment decisions. 
+                Returns are not guaranteed and may vary. Always invest responsibly and only what you can afford to lose.
+            </p>
+        </div>
+    </section>
+    
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Add tracking events for buttons (replace with your tracking solution)
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                console.log('Button clicked:', this.textContent.trim());
+                // Add your analytics tracking here
+                // Example: gtag('event', 'click', { 'event_category': 'CTA', 'event_label': this.textContent });
+            });
+        });
+    </script>
+</body>
+</html>
